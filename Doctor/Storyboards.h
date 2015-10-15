@@ -4,3 +4,6 @@
 
 #define kMainStoryboard @"Main"
 #define kMainMenuID @"MenuTableViewControllerID"
+
+#define kPatientsStoryboard @"Patients"
+#define kPatientsNavID @"PatientsNavigationControllerID"

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="NOD-WK-akR">
+            <objects>
+                <tableViewController id="93v-Xh-PIW" customClass="PatientsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7RE-Fn-c02">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Buscar Pacientes" id="KaO-by-HBV">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="93v-Xh-PIW" id="w2j-We-NVc"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="patientCell" id="hTI-tC-q35">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hTI-tC-q35" id="p0U-4t-lJ3">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="93v-Xh-PIW" id="258-6b-xGT"/>
+                            <outlet property="delegate" destination="93v-Xh-PIW" id="8Xe-Zp-Huw"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="p3E-pg-eat"/>
+                    <connections>
+                        <outlet property="patientSearchBar" destination="KaO-by-HBV" id="KbZ-PB-XXQ"/>
+                        <outlet property="searchDisplayController" destination="HTI-nz-ICZ" id="LTw-Aw-rXQ"/>
+                        <segue destination="u8j-8f-Mj9" kind="show" id="Gq7-e8-b4S"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CeV-e0-EBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="HTI-nz-ICZ">
+                    <connections>
+                        <outlet property="delegate" destination="93v-Xh-PIW" id="2Wr-2x-9t9"/>
+                        <outlet property="searchBar" destination="KaO-by-HBV" id="F25-yE-V3i"/>
+                        <outlet property="searchContentsController" destination="93v-Xh-PIW" id="yeB-qg-mJE"/>
+                        <outlet property="searchResultsDataSource" destination="93v-Xh-PIW" id="61K-GE-I1K"/>
+                        <outlet property="searchResultsDelegate" destination="93v-Xh-PIW" id="RUU-ed-a3B"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="224" y="306"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="16Z-aF-KAy">
+            <objects>
+                <viewController id="u8j-8f-Mj9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bk4-N4-HJc"/>
+                        <viewControllerLayoutGuide type="bottom" id="i1R-Ry-EC1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t6c-29-5d1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wld-Ji-9ik" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="983" y="306"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KbC-E1-JQ6">
+            <objects>
+                <navigationController storyboardIdentifier="PatientsNavigationControllerID" id="h4X-jd-p2Q" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3g8-hC-pKf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="93v-Xh-PIW" kind="relationship" relationship="rootViewController" id="4RD-pq-EAK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wO8-JK-Xu6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-596" y="306"/>
+        </scene>
+    </scenes>
+</document>

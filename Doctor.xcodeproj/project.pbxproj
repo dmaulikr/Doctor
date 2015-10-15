@@ -18,12 +18,9 @@
 		02807FA11BCE9DE10008D018 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02807F9F1BCE9DE10008D018 /* LaunchScreen.storyboard */; };
 		02807FAC1BCE9DE10008D018 /* DoctorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807FAB1BCE9DE10008D018 /* DoctorTests.m */; };
 		02807FB71BCE9DE10008D018 /* DoctorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807FB61BCE9DE10008D018 /* DoctorUITests.m */; };
-		02807FD01BCE9E9A0008D018 /* VerifyIosSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02807FCB1BCE9E8D0008D018 /* VerifyIosSdk.framework */; };
-		02807FD11BCE9E9A0008D018 /* VerifyIosSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02807FCB1BCE9E8D0008D018 /* VerifyIosSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		02807FD51BCE9E9D0008D018 /* RequestSigning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02807FCD1BCE9E8D0008D018 /* RequestSigning.framework */; };
-		02807FD61BCE9E9D0008D018 /* RequestSigning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02807FCD1BCE9E8D0008D018 /* RequestSigning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		02807FD91BCE9E9F0008D018 /* DeviceProperties.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02807FCF1BCE9E8D0008D018 /* DeviceProperties.framework */; };
-		02807FDA1BCE9E9F0008D018 /* DeviceProperties.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02807FCF1BCE9E8D0008D018 /* DeviceProperties.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		703E632B1BCFD8F600205A82 /* Patients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703E632A1BCFD8F600205A82 /* Patients.storyboard */; settings = {ASSET_TAGS = (); }; };
+		703E632E1BCFDA4100205A82 /* PatientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E632D1BCFDA4100205A82 /* PatientsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		703E63311BCFDA6A00205A82 /* PatientsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E63301BCFDA6A00205A82 /* PatientsTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		9F559E2DC906E29334401480 /* libPods-Doctor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25499218369E12465EE581B5 /* libPods-Doctor.a */; };
 /* End PBXBuildFile section */
 
@@ -42,48 +39,6 @@
 			remoteGlobalIDString = 02807F8D1BCE9DE10008D018;
 			remoteInfo = Doctor;
 		};
-		02807FCA1BCE9E8D0008D018 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02807FC41BCE9E8D0008D018 /* VerifyIosSdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2ABA3AB91B6166A800EB4842;
-			remoteInfo = VerifyIosSdk;
-		};
-		02807FCC1BCE9E8D0008D018 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02807FC41BCE9E8D0008D018 /* VerifyIosSdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2A6B60761B67A04B005378E0;
-			remoteInfo = RequestSigning;
-		};
-		02807FCE1BCE9E8D0008D018 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02807FC41BCE9E8D0008D018 /* VerifyIosSdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2A6B60981B67A078005378E0;
-			remoteInfo = DeviceProperties;
-		};
-		02807FD21BCE9E9A0008D018 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02807FC41BCE9E8D0008D018 /* VerifyIosSdk.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2ABA3AB81B6166A800EB4842;
-			remoteInfo = VerifyIosSdk;
-		};
-		02807FD71BCE9E9D0008D018 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02807FC41BCE9E8D0008D018 /* VerifyIosSdk.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2A6B60751B67A04B005378E0;
-			remoteInfo = RequestSigning;
-		};
-		02807FDB1BCE9E9F0008D018 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02807FC41BCE9E8D0008D018 /* VerifyIosSdk.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2A6B60971B67A078005378E0;
-			remoteInfo = DeviceProperties;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -93,9 +48,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				02807FD61BCE9E9D0008D018 /* RequestSigning.framework in Embed Frameworks */,
-				02807FD11BCE9E9A0008D018 /* VerifyIosSdk.framework in Embed Frameworks */,
-				02807FDA1BCE9E9F0008D018 /* DeviceProperties.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,10 +77,14 @@
 		02807FB21BCE9DE10008D018 /* DoctorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoctorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02807FB61BCE9DE10008D018 /* DoctorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoctorUITests.m; sourceTree = "<group>"; };
 		02807FB81BCE9DE10008D018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		02807FC41BCE9E8D0008D018 /* VerifyIosSdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VerifyIosSdk.xcodeproj; path = "verify-ios-sdk/VerifyIosSdk.xcodeproj"; sourceTree = "<group>"; };
 		03BCDA7EF4AE08E858097808 /* Pods-Doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doctor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Doctor/Pods-Doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		25499218369E12465EE581B5 /* libPods-Doctor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Doctor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62531EE85C8BF5E4333DE691 /* Pods-Doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doctor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Doctor/Pods-Doctor.release.xcconfig"; sourceTree = "<group>"; };
+		703E632A1BCFD8F600205A82 /* Patients.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Patients.storyboard; sourceTree = "<group>"; };
+		703E632C1BCFDA4100205A82 /* PatientsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientsTableViewController.h; sourceTree = "<group>"; };
+		703E632D1BCFDA4100205A82 /* PatientsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientsTableViewController.m; sourceTree = "<group>"; };
+		703E632F1BCFDA6A00205A82 /* PatientsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientsTableViewCell.h; sourceTree = "<group>"; };
+		703E63301BCFDA6A00205A82 /* PatientsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientsTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,9 +92,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02807FD51BCE9E9D0008D018 /* RequestSigning.framework in Frameworks */,
-				02807FD01BCE9E9A0008D018 /* VerifyIosSdk.framework in Frameworks */,
-				02807FD91BCE9E9F0008D018 /* DeviceProperties.framework in Frameworks */,
 				9F559E2DC906E29334401480 /* libPods-Doctor.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				022928DD1BCFCA3700B7C1E0 /* Main */,
+				703E632F1BCFDA6A00205A82 /* PatientsTableViewCell.h */,
+				703E63301BCFDA6A00205A82 /* PatientsTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -179,6 +134,8 @@
 		022928D71BCFC64D00B7C1E0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				703E632C1BCFDA4100205A82 /* PatientsTableViewController.h */,
+				703E632D1BCFDA4100205A82 /* PatientsTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -188,6 +145,7 @@
 			children = (
 				02807F9F1BCE9DE10008D018 /* LaunchScreen.storyboard */,
 				022928E21BCFCCF200B7C1E0 /* Feed.storyboard */,
+				703E632A1BCFD8F600205A82 /* Patients.storyboard */,
 				02807F9A1BCE9DE10008D018 /* Main.storyboard */,
 			);
 			name = Storyboards;
@@ -215,7 +173,6 @@
 		02807F851BCE9DE10008D018 = {
 			isa = PBXGroup;
 			children = (
-				02807FC41BCE9E8D0008D018 /* VerifyIosSdk.xcodeproj */,
 				02807F901BCE9DE10008D018 /* Doctor */,
 				02807FAA1BCE9DE10008D018 /* DoctorTests */,
 				02807FB51BCE9DE10008D018 /* DoctorUITests */,
@@ -279,16 +236,6 @@
 			path = DoctorUITests;
 			sourceTree = "<group>";
 		};
-		02807FC51BCE9E8D0008D018 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				02807FCB1BCE9E8D0008D018 /* VerifyIosSdk.framework */,
-				02807FCD1BCE9E8D0008D018 /* RequestSigning.framework */,
-				02807FCF1BCE9E8D0008D018 /* DeviceProperties.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		C37E74F5BD3D707C399A0E57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,9 +270,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				02807FD31BCE9E9A0008D018 /* PBXTargetDependency */,
-				02807FD81BCE9E9D0008D018 /* PBXTargetDependency */,
-				02807FDC1BCE9E9F0008D018 /* PBXTargetDependency */,
 			);
 			name = Doctor;
 			productName = Doctor;
@@ -401,12 +345,6 @@
 			mainGroup = 02807F851BCE9DE10008D018;
 			productRefGroup = 02807F8F1BCE9DE10008D018 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 02807FC51BCE9E8D0008D018 /* Products */;
-					ProjectRef = 02807FC41BCE9E8D0008D018 /* VerifyIosSdk.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				02807F8D1BCE9DE10008D018 /* Doctor */,
@@ -416,35 +354,12 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		02807FCB1BCE9E8D0008D018 /* VerifyIosSdk.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = VerifyIosSdk.framework;
-			remoteRef = 02807FCA1BCE9E8D0008D018 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		02807FCD1BCE9E8D0008D018 /* RequestSigning.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RequestSigning.framework;
-			remoteRef = 02807FCC1BCE9E8D0008D018 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		02807FCF1BCE9E8D0008D018 /* DeviceProperties.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DeviceProperties.framework;
-			remoteRef = 02807FCE1BCE9E8D0008D018 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		02807F8C1BCE9DE10008D018 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				703E632B1BCFD8F600205A82 /* Patients.storyboard in Resources */,
 				02807FA11BCE9DE10008D018 /* LaunchScreen.storyboard in Resources */,
 				02807F9E1BCE9DE10008D018 /* Assets.xcassets in Resources */,
 				022928E31BCFCCF200B7C1E0 /* Feed.storyboard in Resources */,
@@ -507,6 +422,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				02807F991BCE9DE10008D018 /* ViewController.m in Sources */,
+				703E63311BCFDA6A00205A82 /* PatientsTableViewCell.m in Sources */,
+				703E632E1BCFDA4100205A82 /* PatientsTableViewController.m in Sources */,
 				02807F961BCE9DE10008D018 /* AppDelegate.m in Sources */,
 				02807F931BCE9DE10008D018 /* main.m in Sources */,
 				022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */,
@@ -542,21 +459,6 @@
 			isa = PBXTargetDependency;
 			target = 02807F8D1BCE9DE10008D018 /* Doctor */;
 			targetProxy = 02807FB31BCE9DE10008D018 /* PBXContainerItemProxy */;
-		};
-		02807FD31BCE9E9A0008D018 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = VerifyIosSdk;
-			targetProxy = 02807FD21BCE9E9A0008D018 /* PBXContainerItemProxy */;
-		};
-		02807FD81BCE9E9D0008D018 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RequestSigning;
-			targetProxy = 02807FD71BCE9E9D0008D018 /* PBXContainerItemProxy */;
-		};
-		02807FDC1BCE9E9F0008D018 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DeviceProperties;
-			targetProxy = 02807FDB1BCE9E9F0008D018 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

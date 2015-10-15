@@ -42,8 +42,8 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
             sbiewControllerID = kFeedNavID;
             break;
         case MenuItemMyPatients:
-            sbName = kFeedStoryboard;
-            sbiewControllerID = kFeedNavID;
+            sbName = kPatientsStoryboard;
+            sbiewControllerID = kPatientsNavID;
             break;
         case MenuItemAddPatients:
             sbName = kFeedStoryboard;
