@@ -4,16 +4,19 @@ PODS:
   - MFSideMenu (0.5.5)
   - Parse (1.9.0):
     - Bolts/Tasks (>= 1.3.0)
+  - SWTableViewCell (0.3.7)
 
 DEPENDENCIES:
   - AFDropdownNotification (~> 1.0)
   - MFSideMenu
   - Parse
+  - SWTableViewCell (~> 0.3.7)
 
 SPEC CHECKSUMS:
   AFDropdownNotification: 4125b132cd03a8d6293e09ce000aeef55ced1364
   Bolts: 805a4a87413e49d4a0c2b7d469084cbc46b09342
   MFSideMenu: 268122e6894f2747fc3a2b48578100b232506c60
   Parse: 712efbc476d4f47b0f96b70db7e53101575753aa
+  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
 
-COCOAPODS: 0.39.0
+COCOAPODS: 0.38.2
