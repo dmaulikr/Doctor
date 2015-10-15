@@ -14,44 +14,20 @@
 @property (strong, nonatomic) NSMutableArray* patientsArray;
 @property (strong, nonatomic) NSMutableArray* filteredPatientsArray;
 
-
 @end
 
 @implementation PatientsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    if (!_patientsArray) {
-        _patientsArray = [[NSMutableArray alloc]initWithObjects: @"Maria", @"José", @"João", nil];
-    }
-    
-    // Initialize search array
-    self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:[_patientsArray count]];
-    
+    [self setupSearch];
+    [self setupPatientsDataSource];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-    return 1;
-}
+#pragma mark - UITableViewDataSource and UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-    // Check to see whether the normal table or search results table is being displayed and return the count from the appropriate array
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+   if (tableView == self.searchDisplayController.searchResultsTableView) {
         return [self.filteredPatientsArray count];
     } else {
         return [self.patientsArray count];
@@ -59,28 +35,36 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//        static NSString *cellIdentifier = @"patientCell";
+//        
+//        SWTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+//    
+//        if (cell==nil) {
+//        cell = [[SWTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+//        }
+//        // Check to see whether the normal table or search results table is being displayed and set the Candy object from the appropriate array
+//        if (tableView == self.searchDisplayController.searchResultsTableView) {
+//            cell = [self.filteredPatientsArray objectAtIndex:indexPath.row];
+//        } else {
+//            cell = [self.patientsArray objectAtIndex:indexPath.row];
+//        }
+//        //cell.customLabel.text = @"Some Text";
+//        //cell.customImageView.image = [UIImage imageNamed:@"MyAwesomeTableCellImage"];
+//        //[cell setCellHeight:cell.frame.size.height];
+//        cell.textLabel.text = @"TESTE";
+//    return cell;
+
+    NSString* PatientsCellID = @"patientCell";
     
-        static NSString *cellIdentifier = @"patientCell";
-        
-        PatientsTableViewCell* patient = (PatientsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier
-                                                                                               forIndexPath:indexPath];
+    PatientsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PatientsCellID forIndexPath:indexPath];
+    if (cell==nil) {
+        cell = [[PatientsTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PatientsCellID];
+    }
     
-        // Check to see whether the normal table or search results table is being displayed and set the Candy object from the appropriate array
-        if (tableView == self.searchDisplayController.searchResultsTableView) {
-            patient = [self.filteredPatientsArray objectAtIndex:indexPath.row];
-        } else {
-            patient = [self.patientsArray objectAtIndex:indexPath.row];
-        }
-    
-        //cell.leftUtilityButtons = [self leftButtons];
-        patient.rightUtilityButtons = [self rightButtons];
-        patient.delegate = self;
-        
-        //cell.customLabel.text = @"Some Text";
-        //cell.customImageView.image = [UIImage imageNamed:@"MyAwesomeTableCellImage"];
-        //[cell setCellHeight:cell.frame.size.height];
-        return patient;
-   
+    cell.rightUtilityButtons = [self rightButtons];
+    cell.delegate = self;
+    return cell;
 }
 
 - (NSArray *)rightButtons
@@ -104,7 +88,6 @@
             break;
         case 1:
         {
-            // Delete button was pressed
             NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
             
             [_patientsArray removeObjectAtIndex:cellIndexPath.row];
@@ -144,49 +127,15 @@
     return YES;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+#pragma mark - Setups
+- (void) setupPatientsDataSource{
+    if (!_patientsArray) {
+        _patientsArray = [[NSMutableArray alloc]initWithObjects: @"Maria", @"José", @"João", nil];
+    }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void) setupSearch{
+    self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:[_patientsArray count]];
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
