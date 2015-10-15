@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MFSideMenu.h"
 
 @interface ViewController ()
 
@@ -39,6 +40,10 @@
 ]; 
     [VerifyClient checkPinCode:@"1234"];
  */
+
+-(IBAction)menu:(id)sender{
+   	[self.menuContainerViewController toggleLeftSideMenuCompletion:^{}];
+}
 
 
 @end
