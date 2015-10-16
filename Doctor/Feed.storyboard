@@ -14,38 +14,52 @@
                         <animations/>
                     </navigationBar>
                     <connections>
-                        <segue destination="UK2-80-xrm" kind="relationship" relationship="rootViewController" id="Zjc-Yj-hEY"/>
+                        <segue destination="uhx-WL-rht" kind="relationship" relationship="rootViewController" id="UuH-Zc-Wjf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="620-ee-66p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-47" y="627"/>
+            <point key="canvasLocation" x="-58" y="627"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="eKe-QA-F6n">
+        <!--Feed Table View Controller-->
+        <scene sceneID="uxE-1n-nDB">
             <objects>
-                <viewController id="UK2-80-xrm" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YaK-28-5aU"/>
-                        <viewControllerLayoutGuide type="bottom" id="twC-jZ-4fv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="AvS-gM-MiT">
+                <tableViewController id="uhx-WL-rht" customClass="FeedTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5bk-IX-SgJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" red="0.53333333329999999" green="0.59999999999999998" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Vkq-kq-wsZ">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="fQj-b8-fYi">
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wsg-B3-Slz">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wsg-B3-Slz" id="9qD-2c-Sj2">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uhx-WL-rht" id="fSF-mG-54I"/>
+                            <outlet property="delegate" destination="uhx-WL-rht" id="F1L-sA-gtr"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="2AN-xo-L5O">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="L5S-q2-1f4">
                             <connections>
-                                <action selector="menu:" destination="UK2-80-xrm" id="70E-U2-dbf"/>
+                                <action selector="menu:" destination="uhx-WL-rht" id="qhL-Zc-Czt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q8R-El-tSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TCf-OS-pfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="674" y="627"/>
+            <point key="canvasLocation" x="705" y="627"/>
         </scene>
     </scenes>
 </document>

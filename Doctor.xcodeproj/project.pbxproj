@@ -18,6 +18,7 @@
 		02807FA11BCE9DE10008D018 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02807F9F1BCE9DE10008D018 /* LaunchScreen.storyboard */; };
 		02807FAC1BCE9DE10008D018 /* DoctorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807FAB1BCE9DE10008D018 /* DoctorTests.m */; };
 		02807FB71BCE9DE10008D018 /* DoctorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807FB61BCE9DE10008D018 /* DoctorUITests.m */; };
+		02921D5F1BD11707001B6F5E /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D5E1BD11707001B6F5E /* FeedTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		703E632B1BCFD8F600205A82 /* Patients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703E632A1BCFD8F600205A82 /* Patients.storyboard */; settings = {ASSET_TAGS = (); }; };
 		703E632E1BCFDA4100205A82 /* PatientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E632D1BCFDA4100205A82 /* PatientsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		703E63311BCFDA6A00205A82 /* PatientsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E63301BCFDA6A00205A82 /* PatientsTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -77,6 +78,8 @@
 		02807FB21BCE9DE10008D018 /* DoctorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoctorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02807FB61BCE9DE10008D018 /* DoctorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoctorUITests.m; sourceTree = "<group>"; };
 		02807FB81BCE9DE10008D018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02921D5D1BD11707001B6F5E /* FeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewController.h; sourceTree = "<group>"; };
+		02921D5E1BD11707001B6F5E /* FeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewController.m; sourceTree = "<group>"; };
 		03BCDA7EF4AE08E858097808 /* Pods-Doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doctor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Doctor/Pods-Doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		25499218369E12465EE581B5 /* libPods-Doctor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Doctor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62531EE85C8BF5E4333DE691 /* Pods-Doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doctor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Doctor/Pods-Doctor.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,9 +127,9 @@
 		022928D61BCFC64500B7C1E0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				02921D5C1BD116D2001B6F5E /* Feed */,
+				02921D5B1BD116CA001B6F5E /* Patients */,
 				022928DD1BCFCA3700B7C1E0 /* Main */,
-				703E632F1BCFDA6A00205A82 /* PatientsTableViewCell.h */,
-				703E63301BCFDA6A00205A82 /* PatientsTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -234,6 +237,24 @@
 				02807FB81BCE9DE10008D018 /* Info.plist */,
 			);
 			path = DoctorUITests;
+			sourceTree = "<group>";
+		};
+		02921D5B1BD116CA001B6F5E /* Patients */ = {
+			isa = PBXGroup;
+			children = (
+				703E632F1BCFDA6A00205A82 /* PatientsTableViewCell.h */,
+				703E63301BCFDA6A00205A82 /* PatientsTableViewCell.m */,
+			);
+			name = Patients;
+			sourceTree = "<group>";
+		};
+		02921D5C1BD116D2001B6F5E /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				02921D5D1BD11707001B6F5E /* FeedTableViewController.h */,
+				02921D5E1BD11707001B6F5E /* FeedTableViewController.m */,
+			);
+			name = Feed;
 			sourceTree = "<group>";
 		};
 		C37E74F5BD3D707C399A0E57 /* Frameworks */ = {
@@ -428,6 +449,7 @@
 				02807F931BCE9DE10008D018 /* main.m in Sources */,
 				022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */,
 				022928E01BCFCA5500B7C1E0 /* MenuTableViewController.m in Sources */,
+				02921D5F1BD11707001B6F5E /* FeedTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

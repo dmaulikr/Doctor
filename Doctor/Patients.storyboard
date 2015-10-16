@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Pacientes-->
         <scene sceneID="NOD-WK-akR">
             <objects>
                 <tableViewController id="93v-Xh-PIW" customClass="PatientsTableViewController" sceneMemberID="viewController">
@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hTI-tC-q35" id="p0U-4t-lJ3">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -39,7 +39,7 @@
                             <outlet property="delegate" destination="93v-Xh-PIW" id="8Xe-Zp-Huw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="p3E-pg-eat"/>
+                    <navigationItem key="navigationItem" title="Pacientes" id="p3E-pg-eat"/>
                     <connections>
                         <outlet property="patientSearchBar" destination="KaO-by-HBV" id="KbZ-PB-XXQ"/>
                         <outlet property="searchDisplayController" destination="HTI-nz-ICZ" id="LTw-Aw-rXQ"/>
