@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DB1BCFC9CC00B7C1E0 /* MainViewController.m */; settings = {ASSET_TAGS = (); }; };
-		022928E01BCFCA5500B7C1E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		022928E31BCFCCF200B7C1E0 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022928E21BCFCCF200B7C1E0 /* Feed.storyboard */; settings = {ASSET_TAGS = (); }; };
+		022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DB1BCFC9CC00B7C1E0 /* MainViewController.m */; };
+		022928E01BCFCA5500B7C1E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */; };
+		022928E31BCFCCF200B7C1E0 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022928E21BCFCCF200B7C1E0 /* Feed.storyboard */; };
 		02807F931BCE9DE10008D018 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807F921BCE9DE10008D018 /* main.m */; };
 		02807F961BCE9DE10008D018 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807F951BCE9DE10008D018 /* AppDelegate.m */; };
 		02807F991BCE9DE10008D018 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807F981BCE9DE10008D018 /* ViewController.m */; };
@@ -18,10 +18,12 @@
 		02807FA11BCE9DE10008D018 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02807F9F1BCE9DE10008D018 /* LaunchScreen.storyboard */; };
 		02807FAC1BCE9DE10008D018 /* DoctorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807FAB1BCE9DE10008D018 /* DoctorTests.m */; };
 		02807FB71BCE9DE10008D018 /* DoctorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807FB61BCE9DE10008D018 /* DoctorUITests.m */; };
-		02921D5F1BD11707001B6F5E /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D5E1BD11707001B6F5E /* FeedTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		703E632B1BCFD8F600205A82 /* Patients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703E632A1BCFD8F600205A82 /* Patients.storyboard */; settings = {ASSET_TAGS = (); }; };
-		703E632E1BCFDA4100205A82 /* PatientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E632D1BCFDA4100205A82 /* PatientsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		703E63311BCFDA6A00205A82 /* PatientsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E63301BCFDA6A00205A82 /* PatientsTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		02921D5F1BD11707001B6F5E /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D5E1BD11707001B6F5E /* FeedTableViewController.m */; };
+		1BD2E2981BD1219F004413F9 /* ForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD2E2971BD1219F004413F9 /* ForumViewController.m */; };
+		1BD2E29A1BD1240D004413F9 /* Forum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2E2991BD1240D004413F9 /* Forum.storyboard */; };
+		703E632B1BCFD8F600205A82 /* Patients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703E632A1BCFD8F600205A82 /* Patients.storyboard */; };
+		703E632E1BCFDA4100205A82 /* PatientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E632D1BCFDA4100205A82 /* PatientsTableViewController.m */; };
+		703E63311BCFDA6A00205A82 /* PatientsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E63301BCFDA6A00205A82 /* PatientsTableViewCell.m */; };
 		9F559E2DC906E29334401480 /* libPods-Doctor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25499218369E12465EE581B5 /* libPods-Doctor.a */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,9 @@
 		02921D5D1BD11707001B6F5E /* FeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewController.h; sourceTree = "<group>"; };
 		02921D5E1BD11707001B6F5E /* FeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewController.m; sourceTree = "<group>"; };
 		03BCDA7EF4AE08E858097808 /* Pods-Doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doctor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Doctor/Pods-Doctor.debug.xcconfig"; sourceTree = "<group>"; };
+		1BD2E2961BD1219F004413F9 /* ForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumViewController.h; sourceTree = "<group>"; };
+		1BD2E2971BD1219F004413F9 /* ForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumViewController.m; sourceTree = "<group>"; };
+		1BD2E2991BD1240D004413F9 /* Forum.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Forum.storyboard; sourceTree = "<group>"; };
 		25499218369E12465EE581B5 /* libPods-Doctor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Doctor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62531EE85C8BF5E4333DE691 /* Pods-Doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doctor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Doctor/Pods-Doctor.release.xcconfig"; sourceTree = "<group>"; };
 		703E632A1BCFD8F600205A82 /* Patients.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Patients.storyboard; sourceTree = "<group>"; };
@@ -127,6 +132,7 @@
 		022928D61BCFC64500B7C1E0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1BD2E2951BD1215D004413F9 /* Forum */,
 				02921D5C1BD116D2001B6F5E /* Feed */,
 				02921D5B1BD116CA001B6F5E /* Patients */,
 				022928DD1BCFCA3700B7C1E0 /* Main */,
@@ -150,6 +156,7 @@
 				022928E21BCFCCF200B7C1E0 /* Feed.storyboard */,
 				703E632A1BCFD8F600205A82 /* Patients.storyboard */,
 				02807F9A1BCE9DE10008D018 /* Main.storyboard */,
+				1BD2E2991BD1240D004413F9 /* Forum.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -255,6 +262,15 @@
 				02921D5E1BD11707001B6F5E /* FeedTableViewController.m */,
 			);
 			name = Feed;
+			sourceTree = "<group>";
+		};
+		1BD2E2951BD1215D004413F9 /* Forum */ = {
+			isa = PBXGroup;
+			children = (
+				1BD2E2961BD1219F004413F9 /* ForumViewController.h */,
+				1BD2E2971BD1219F004413F9 /* ForumViewController.m */,
+			);
+			name = Forum;
 			sourceTree = "<group>";
 		};
 		C37E74F5BD3D707C399A0E57 /* Frameworks */ = {
@@ -380,6 +396,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BD2E29A1BD1240D004413F9 /* Forum.storyboard in Resources */,
 				703E632B1BCFD8F600205A82 /* Patients.storyboard in Resources */,
 				02807FA11BCE9DE10008D018 /* LaunchScreen.storyboard in Resources */,
 				02807F9E1BCE9DE10008D018 /* Assets.xcassets in Resources */,
@@ -446,6 +463,7 @@
 				703E63311BCFDA6A00205A82 /* PatientsTableViewCell.m in Sources */,
 				703E632E1BCFDA4100205A82 /* PatientsTableViewController.m in Sources */,
 				02807F961BCE9DE10008D018 /* AppDelegate.m in Sources */,
+				1BD2E2981BD1219F004413F9 /* ForumViewController.m in Sources */,
 				02807F931BCE9DE10008D018 /* main.m in Sources */,
 				022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */,
 				022928E01BCFCA5500B7C1E0 /* MenuTableViewController.m in Sources */,

@@ -7,3 +7,6 @@
 
 #define kPatientsStoryboard @"Patients"
 #define kPatientsNavID @"PatientsNavigationControllerID"
+
+#define kPatientsStoryboard @"Forum"
+#define kPatientsNavID @"ForumNavigationControllerID"
