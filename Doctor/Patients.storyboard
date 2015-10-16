@@ -42,12 +42,12 @@
                     <navigationItem key="navigationItem" title="Pacientes" id="p3E-pg-eat">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="Q11-iE-gY5">
                             <connections>
-                                <action selector="menu:" destination="93v-Xh-PIW" id="bgq-jk-E6Z"/>
+                                <action selector="menuButtonTapped:" destination="93v-Xh-PIW" id="uq4-nH-Ug9"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="7sJ-Xd-wKe">
                             <connections>
-                                <action selector="add:" destination="93v-Xh-PIW" id="X6b-e5-K3w"/>
+                                <action selector="addPatientButtonTapped:" destination="93v-Xh-PIW" id="Lq0-8q-U2a"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -68,7 +68,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="224" y="306"/>
+            <point key="canvasLocation" x="64" y="301"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="16Z-aF-KAy">
@@ -87,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wld-Ji-9ik" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="306"/>
+            <point key="canvasLocation" x="731" y="301"/>
         </scene>
         <!--Patients Add View Controller-->
         <scene sceneID="Ype-OY-IYb">
@@ -120,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VVm-rE-1pI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="224" y="975"/>
+            <point key="canvasLocation" x="64" y="988"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KbC-E1-JQ6">

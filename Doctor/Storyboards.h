@@ -11,3 +11,6 @@
 
 #define kForumStoryboard @"Forum"
 #define kForumNavID @"ForumNavigationControllerID"
+
+#define kOutsideStoryboard @"Outside"
+#define kOutsideNavID @"OutsideNavigationControllerID"

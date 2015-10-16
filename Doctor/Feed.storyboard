@@ -21,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="-58" y="627"/>
         </scene>
-        <!--Feed Table View Controller-->
+        <!--Feed-->
         <scene sceneID="uxE-1n-nDB">
             <objects>
                 <tableViewController id="uhx-WL-rht" customClass="FeedTableViewController" sceneMemberID="viewController">
@@ -48,8 +48,8 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="2AN-xo-L5O">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="L5S-q2-1f4">
+                    <navigationItem key="navigationItem" title="Feed" id="2AN-xo-L5O">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="L5S-q2-1f4">
                             <connections>
                                 <action selector="menu:" destination="uhx-WL-rht" id="qhL-Zc-Czt"/>
                             </connections>

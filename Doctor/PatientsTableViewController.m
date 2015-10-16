@@ -121,9 +121,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { return 100; }
 
 #pragma mark - IBActions
-- (IBAction)menu:(id)sender { [self.menuContainerViewController toggleLeftSideMenuCompletion:^{}]; }
+- (IBAction)menuButtonTapped:(id)sender { [self.menuContainerViewController toggleLeftSideMenuCompletion:^{}]; }
 
--(IBAction)add:(id)sender{
+-(IBAction)addPatientButtonTapped:(id)sender{
     UIViewController *vc = [[UIStoryboard storyboardWithName:kPatientsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kPatientsAddModalID];
     [self.menuContainerViewController.centerViewController presentViewController:vc animated:YES completion:^{
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];

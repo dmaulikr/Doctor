@@ -18,7 +18,7 @@
 }
 
 - (void)setupCenterContainer{
-    self.centerViewController = [[UIStoryboard storyboardWithName:kFeedStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kFeedNavID];
+    self.centerViewController = [[UIStoryboard storyboardWithName:kOutsideStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kOutsideNavID];
 }
 
 - (void)setupMenu{

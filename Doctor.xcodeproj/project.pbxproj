@@ -20,6 +20,8 @@
 		02807FB71BCE9DE10008D018 /* DoctorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807FB61BCE9DE10008D018 /* DoctorUITests.m */; };
 		02921D5F1BD11707001B6F5E /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D5E1BD11707001B6F5E /* FeedTableViewController.m */; };
 		02921D7B1BD14653001B6F5E /* PatientsAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D7A1BD14653001B6F5E /* PatientsAddViewController.m */; settings = {ASSET_TAGS = (); }; };
+		02921D7D1BD14DE7001B6F5E /* Outside.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02921D7C1BD14DE7001B6F5E /* Outside.storyboard */; settings = {ASSET_TAGS = (); }; };
+		02921D811BD14E9A001B6F5E /* OutsideStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D801BD14E9A001B6F5E /* OutsideStartViewController.m */; settings = {ASSET_TAGS = (); }; };
 		1BD2E2981BD1219F004413F9 /* ForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD2E2971BD1219F004413F9 /* ForumViewController.m */; };
 		1BD2E29A1BD1240D004413F9 /* Forum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2E2991BD1240D004413F9 /* Forum.storyboard */; };
 		703E632B1BCFD8F600205A82 /* Patients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703E632A1BCFD8F600205A82 /* Patients.storyboard */; };
@@ -85,6 +87,9 @@
 		02921D5E1BD11707001B6F5E /* FeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewController.m; sourceTree = "<group>"; };
 		02921D791BD14653001B6F5E /* PatientsAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientsAddViewController.h; sourceTree = "<group>"; };
 		02921D7A1BD14653001B6F5E /* PatientsAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientsAddViewController.m; sourceTree = "<group>"; };
+		02921D7C1BD14DE7001B6F5E /* Outside.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Outside.storyboard; sourceTree = "<group>"; };
+		02921D7F1BD14E9A001B6F5E /* OutsideStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideStartViewController.h; sourceTree = "<group>"; };
+		02921D801BD14E9A001B6F5E /* OutsideStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutsideStartViewController.m; sourceTree = "<group>"; };
 		03BCDA7EF4AE08E858097808 /* Pods-Doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doctor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Doctor/Pods-Doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		1BD2E2961BD1219F004413F9 /* ForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumViewController.h; sourceTree = "<group>"; };
 		1BD2E2971BD1219F004413F9 /* ForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumViewController.m; sourceTree = "<group>"; };
@@ -135,6 +140,7 @@
 		022928D61BCFC64500B7C1E0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				02921D7E1BD14E62001B6F5E /* Outside */,
 				1BD2E2951BD1215D004413F9 /* Forum */,
 				02921D5C1BD116D2001B6F5E /* Feed */,
 				02921D5B1BD116CA001B6F5E /* Patients */,
@@ -160,6 +166,7 @@
 				703E632A1BCFD8F600205A82 /* Patients.storyboard */,
 				02807F9A1BCE9DE10008D018 /* Main.storyboard */,
 				1BD2E2991BD1240D004413F9 /* Forum.storyboard */,
+				02921D7C1BD14DE7001B6F5E /* Outside.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -275,6 +282,15 @@
 				02921D7A1BD14653001B6F5E /* PatientsAddViewController.m */,
 			);
 			name = "Patients Add";
+			sourceTree = "<group>";
+		};
+		02921D7E1BD14E62001B6F5E /* Outside */ = {
+			isa = PBXGroup;
+			children = (
+				02921D7F1BD14E9A001B6F5E /* OutsideStartViewController.h */,
+				02921D801BD14E9A001B6F5E /* OutsideStartViewController.m */,
+			);
+			name = Outside;
 			sourceTree = "<group>";
 		};
 		1BD2E2951BD1215D004413F9 /* Forum */ = {
@@ -415,6 +431,7 @@
 				02807F9E1BCE9DE10008D018 /* Assets.xcassets in Resources */,
 				022928E31BCFCCF200B7C1E0 /* Feed.storyboard in Resources */,
 				02807F9C1BCE9DE10008D018 /* Main.storyboard in Resources */,
+				02921D7D1BD14DE7001B6F5E /* Outside.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +498,7 @@
 				02807F931BCE9DE10008D018 /* main.m in Sources */,
 				022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */,
 				022928E01BCFCA5500B7C1E0 /* MenuTableViewController.m in Sources */,
+				02921D811BD14E9A001B6F5E /* OutsideStartViewController.m in Sources */,
 				02921D5F1BD11707001B6F5E /* FeedTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
