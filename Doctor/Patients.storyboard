@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--Pacientes-->
@@ -39,11 +39,22 @@
                             <outlet property="delegate" destination="93v-Xh-PIW" id="8Xe-Zp-Huw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pacientes" id="p3E-pg-eat"/>
+                    <navigationItem key="navigationItem" title="Pacientes" id="p3E-pg-eat">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="Q11-iE-gY5">
+                            <connections>
+                                <action selector="menu:" destination="93v-Xh-PIW" id="bgq-jk-E6Z"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="7sJ-Xd-wKe">
+                            <connections>
+                                <action selector="add:" destination="93v-Xh-PIW" id="X6b-e5-K3w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="patientSearchBar" destination="KaO-by-HBV" id="KbZ-PB-XXQ"/>
                         <outlet property="searchDisplayController" destination="HTI-nz-ICZ" id="LTw-Aw-rXQ"/>
-                        <segue destination="u8j-8f-Mj9" kind="show" id="Gq7-e8-b4S"/>
+                        <segue destination="u8j-8f-Mj9" kind="show" identifier="clickedPatientSegueId" id="Gq7-e8-b4S"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CeV-e0-EBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -71,12 +82,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.78482086490000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wld-Ji-9ik" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="983" y="306"/>
+        </scene>
+        <!--Patients Add View Controller-->
+        <scene sceneID="Ype-OY-IYb">
+            <objects>
+                <viewController storyboardIdentifier="PatientsAddModalID" id="ebx-nh-LB9" customClass="PatientsAddViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T2l-Eq-M6x"/>
+                        <viewControllerLayoutGuide type="bottom" id="NcT-ox-XmW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AKk-Fs-4rp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i07-Fn-ZEZ">
+                                <rect key="frame" x="276" y="285" width="48" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Fechar"/>
+                                <connections>
+                                    <action selector="fechar:" destination="ebx-nh-LB9" eventType="touchUpInside" id="pgd-yP-8iv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="i07-Fn-ZEZ" firstAttribute="centerX" secondItem="AKk-Fs-4rp" secondAttribute="centerX" id="FaH-tZ-eP4"/>
+                            <constraint firstItem="i07-Fn-ZEZ" firstAttribute="centerY" secondItem="AKk-Fs-4rp" secondAttribute="centerY" id="YQf-Yy-Kfy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VVm-rE-1pI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="224" y="975"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KbC-E1-JQ6">

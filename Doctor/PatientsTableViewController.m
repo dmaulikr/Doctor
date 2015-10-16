@@ -8,9 +8,13 @@
 
 #import "PatientsTableViewController.h"
 #import "PatientsTableViewCell.h"
+#import "MFSideMenu.h"
+#import "Storyboards.h"
 
-@interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
-
+@interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, UISearchDisplayDelegate>{
+    NSMutableArray* tableViewDataArray;
+    BOOL isSearching;
+}
 @property (strong, nonatomic) NSMutableArray* patientsArray;
 @property (strong, nonatomic) NSMutableArray* filteredPatientsArray;
 
@@ -22,66 +26,38 @@
     [super viewDidLoad];
     [self setupSearch];
     [self setupPatientsDataSource];
+    self.tableView.tableFooterView = [UIView new];
+    isSearching = false;
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-   if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [self.filteredPatientsArray count];
-    } else {
-        return [self.patientsArray count];
-    }
+    return tableViewDataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//        static NSString *cellIdentifier = @"patientCell";
-//        
-//        SWTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-//    
-//        if (cell==nil) {
-//        cell = [[SWTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//        }
-//        // Check to see whether the normal table or search results table is being displayed and set the Candy object from the appropriate array
-//        if (tableView == self.searchDisplayController.searchResultsTableView) {
-//            cell = [self.filteredPatientsArray objectAtIndex:indexPath.row];
-//        } else {
-//            cell = [self.patientsArray objectAtIndex:indexPath.row];
-//        }
-//        //cell.customLabel.text = @"Some Text";
-//        //cell.customImageView.image = [UIImage imageNamed:@"MyAwesomeTableCellImage"];
-//        //[cell setCellHeight:cell.frame.size.height];
-//        cell.textLabel.text = @"TESTE";
-//    return cell;
-
     NSString* PatientsCellID = @"patientCell";
     
-    PatientsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PatientsCellID forIndexPath:indexPath];
+    PatientsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PatientsCellID];
     if (cell==nil) {
         cell = [[PatientsTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PatientsCellID];
     }
-    
     cell.rightUtilityButtons = [self rightButtons];
     cell.delegate = self;
+    cell.textLabel.text = tableViewDataArray[indexPath.row];
     return cell;
 }
 
-- (NSArray *)rightButtons
-{
+- (NSArray *)rightButtons {
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:
-     [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0]
-                                                title:@"Del"];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:
-     [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0f]
-                                                title:@"Fav"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0] title:@"Del"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0f] title:@"Fav"];
     
     return rightUtilityButtons;
 }
 
-- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
-{
+#pragma mark - SWTableViewCell Delegate
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     switch (index) {
         case 0:
             break;
@@ -99,47 +75,59 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"clickedPatientSegueId" sender:self];
+}
+
 #pragma mark Content Filtering
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-    // Update the filtered array based on the search text and scope.
-    // Remove all objects from the filtered search array
-    [self.filteredPatientsArray removeAllObjects];
-    // Filter the array using NSPredicate
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
-    self.filteredPatientsArray = [NSMutableArray arrayWithArray:[self.patientsArray filteredArrayUsingPredicate:predicate]];
+    if ([searchText isEqualToString:@""]) {
+        tableViewDataArray = self.patientsArray;
+    }
+    else{
+        isSearching = true;
+        [self.filteredPatientsArray removeAllObjects];
+        for (int i = 0; i < self.patientsArray.count; i++) {
+            NSString* toCheck = [self.patientsArray[i] lowercaseString];
+            if ([toCheck containsString:[searchText lowercaseString]]) {
+                [self.filteredPatientsArray addObject:self.patientsArray[i]];
+            }
+        }
+        tableViewDataArray = self.filteredPatientsArray;
+    }
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    // Tells the table data source to reload when text changes
     [self filterContentForSearchText:searchString scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-    // Return YES to cause the search result table view to be reloaded.
+    [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
     return YES;
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    // Tells the table data source to reload when scope bar selection changes
     [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
-    // Return YES to cause the search result table view to be reloaded.
+    [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
     return YES;
 }
 
 #pragma mark - Setups
 - (void) setupPatientsDataSource{
-    if (!_patientsArray) {
-        _patientsArray = [[NSMutableArray alloc]initWithObjects: @"Maria", @"José", @"João", nil];
-    }
+    self.patientsArray = [[NSMutableArray alloc] initWithObjects: @"Maria", @"José", @"João", nil];
+    tableViewDataArray = [[NSMutableArray alloc] initWithArray:self.patientsArray];
 }
 
-- (void) setupSearch{
-    self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:[_patientsArray count]];
-}
+- (void) setupSearch{ self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:[_patientsArray count]]; }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 100;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { return 100; }
+
+#pragma mark - IBActions
+- (IBAction)menu:(id)sender { [self.menuContainerViewController toggleLeftSideMenuCompletion:^{}]; }
+
+-(IBAction)add:(id)sender{
+    UIViewController *vc = [[UIStoryboard storyboardWithName:kPatientsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kPatientsAddModalID];
+    [self.menuContainerViewController.centerViewController presentViewController:vc animated:YES completion:^{
+        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+    }];
 }
 
 @end
