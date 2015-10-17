@@ -4,44 +4,31 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
-        <scene sceneID="TCe-ya-2VI">
+        <!--Fórum-->
+        <scene sceneID="YZR-gc-PU5">
             <objects>
-                <tableViewController id="cKm-BV-ZMp" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OiB-s5-ot2">
+                <viewController id="3iD-Z6-75u" customClass="ForumViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ItU-B5-WxJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rz2-h7-BGz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jYc-lc-Sgt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Z97-8s-173">
-                                <rect key="frame" x="0.0" y="86" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z97-8s-173" id="Hnt-jR-HXQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fb-Rd-NCy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <animations/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </searchBar>
-                                    </subviews>
-                                    <animations/>
-                                </tableViewCellContentView>
-                                <animations/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="cKm-BV-ZMp" id="cTr-I3-rrR"/>
-                            <outlet property="delegate" destination="cKm-BV-ZMp" id="ETj-zq-DiB"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="VFg-Os-i0k"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0qY-2t-jkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Fórum" id="xO0-Mh-qiW">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="V7n-gY-TtM">
+                            <connections>
+                                <action selector="didTappedMenuBarButton:" destination="3iD-Z6-75u" id="ber-EC-SRI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Yu-gg-e9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-367.5" y="705.5"/>
+            <point key="canvasLocation" x="-562.5" y="705.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IxN-xe-l2R">
@@ -54,7 +41,7 @@
                         <animations/>
                     </navigationBar>
                     <connections>
-                        <segue destination="cKm-BV-ZMp" kind="relationship" relationship="rootViewController" id="vvW-PL-1kB"/>
+                        <segue destination="3iD-Z6-75u" kind="relationship" relationship="rootViewController" id="tza-6V-7cL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUY-sU-d0U" userLabel="First Responder" sceneMemberID="firstResponder"/>

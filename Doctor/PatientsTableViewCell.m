@@ -11,7 +11,9 @@
 @implementation PatientsTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.patientPhotoImageView.layer.cornerRadius = self.patientPhotoImageView.frame.size.height /3;
+    self.patientPhotoImageView.layer.masksToBounds = YES;
+    self.patientPhotoImageView.layer.borderWidth = 0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

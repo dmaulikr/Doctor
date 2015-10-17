@@ -40,7 +40,7 @@
  [VerifyClient checkPinCode:@"1234"];
  */
 
--(IBAction)menu:(id)sender{
+-(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{
    	[self.menuContainerViewController toggleLeftSideMenuCompletion:^{}];
 }
 

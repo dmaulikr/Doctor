@@ -11,4 +11,7 @@
 
 @interface PatientsTableViewCell : SWTableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView* patientPhotoImageView;
+@property (weak, nonatomic) IBOutlet UILabel* patientNameLabel;
+
 @end

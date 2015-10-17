@@ -24,16 +24,16 @@
     self.navigationController.navigationBarHidden = YES;
 }
 
-- (IBAction)entrar:(id)sender{
+- (IBAction)entrar:(UIButton *)sender{
     self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kFeedStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kFeedNavID];
     [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
 }
 
-- (IBAction)didTappedSignInButton:(id)sender{
+- (IBAction)didTappedSignInButton:(UIButton *)sender{
     [self performSegueWithIdentifier:@"clickedInSignInSegueId" sender:self];
 }
 
-- (IBAction)didTappedRecoverPasswordButton:(id)sender{
+- (IBAction)didTappedRecoverPasswordButton:(UIButton *)sender{
     [self performSegueWithIdentifier:@"clickedInRecoverPasswordSegueId" sender:self];
 }
 
