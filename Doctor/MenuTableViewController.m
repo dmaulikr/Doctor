@@ -18,11 +18,11 @@
 
 typedef NS_ENUM(NSUInteger, MenuItem) {
     MenuItemFeed=0,
-    MenuItemMyPatients,
-    MenuItemAddPatients,
-    MenuItemSearchMedications,
+    MenuItemPatients,
+    MenuItemMedications,
     MenuItemForum,
-    MenuItemConfigurations=5 ,
+    MenuItemConfigurations,
+    MenuItemLogOut=5 ,
 };
 
 - (void)viewDidLoad {
@@ -41,29 +41,29 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
             sbName = kFeedStoryboard;
             sbiewControllerID = kFeedNavID;
             break;
-        case MenuItemMyPatients:
+        case MenuItemPatients:
             sbName = kPatientsStoryboard;
             sbiewControllerID = kPatientsNavID;
             break;
-        case MenuItemAddPatients:
-            sbName = kFeedStoryboard;
-            sbiewControllerID = kFeedNavID;
-            break;
-        case MenuItemSearchMedications:
-            sbName = kFeedStoryboard;
-            sbiewControllerID = kFeedNavID;
+        case MenuItemMedications:
+            sbName = kMedicationsStoryboard;
+            sbiewControllerID = kMedicationsNavID;
             break;
         case MenuItemForum:
-            sbName = kFeedStoryboard;
-            sbiewControllerID = kFeedNavID;
+            sbName = kForumStoryboard;
+            sbiewControllerID = kForumNavID;
             break;
         case MenuItemConfigurations:
-            sbName = kFeedStoryboard;
-            sbiewControllerID = kFeedNavID;
+            sbName = kSettingsStoryboard;
+            sbiewControllerID = kSettingsNavId;
+            break;
+        case MenuItemLogOut:
+            sbName = kOutsideStoryboard;
+            sbiewControllerID = kOutsideNavID;
             break;
         default:
-            sbName = kFeedStoryboard;
-            sbiewControllerID = kFeedNavID;
+            sbName = kOutsideStoryboard;
+            sbiewControllerID = kOutsideNavID;
             break;
     }
 

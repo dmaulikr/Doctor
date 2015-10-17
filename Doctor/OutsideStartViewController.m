@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.menuContainerViewController.panMode = NO;
 }
 - (void) viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;

@@ -14,3 +14,9 @@
 
 #define kOutsideStoryboard @"Outside"
 #define kOutsideNavID @"OutsideNavigationControllerID"
+
+#define kMedicationsStoryboard @"Medications"
+#define kMedicationsNavID @"MedicationsNavigationControllerID"
+
+#define kSettingsStoryboard @"Settings"
+#define kSettingsNavId @"SettingsNavigationControllerID"

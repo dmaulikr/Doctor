@@ -18,7 +18,7 @@
                                 <rect key="frame" x="0.0" y="86" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z97-8s-173" id="Hnt-jR-HXQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fb-Rd-NCy">
@@ -46,7 +46,7 @@
         <!--Navigation Controller-->
         <scene sceneID="IxN-xe-l2R">
             <objects>
-                <navigationController id="TwK-Yf-TLI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ForumNavigationControllerID" id="TwK-Yf-TLI" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g5h-y0-5Iz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

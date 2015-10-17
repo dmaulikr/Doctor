@@ -18,9 +18,4 @@
     [super viewDidLoad];
 }
 
--(void) viewWillAppear:(BOOL)animated{
-    self.navigationController.navigationBar.backItem.title = @"";
-    self.navigationController.navigationBar.topItem.title = @"";
-}
-
 @end
