@@ -30,30 +30,407 @@
                         <viewControllerLayoutGuide type="bottom" id="4DE-sj-Jx0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="84r-cW-3Ec">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ih0-8a-NDA">
-                                <rect key="frame" x="279" y="285" width="42" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-barrabranca" translatesAutoresizingMaskIntoConstraints="NO" id="TRk-06-nmW">
+                                <rect key="frame" x="50" y="282" width="276" height="92"/>
                                 <animations/>
-                                <state key="normal" title="Entrar"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bzP-3O-FjJ">
+                                <rect key="frame" x="94" y="291" width="229" height="30"/>
+                                <animations/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pcz-Zr-3qB">
+                                <rect key="frame" x="93" y="337" width="229" height="30"/>
+                                <animations/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-lock" translatesAutoresizingMaskIntoConstraints="NO" id="g7j-rf-vJ3">
+                                <rect key="frame" x="65" y="342" width="16" height="19"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-usuario" translatesAutoresizingMaskIntoConstraints="NO" id="kl9-9x-MYS">
+                                <rect key="frame" x="65" y="296" width="16" height="19"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Lp-54-Zkd">
+                                <rect key="frame" x="50" y="398" width="276" height="38"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.062745098039215685" green="0.4392156862745098" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Entrar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="entrar:" destination="zi9-6q-adT" eventType="touchUpInside" id="hbx-OU-jGG"/>
+                                    <action selector="entrar:" destination="zi9-6q-adT" eventType="touchUpInside" id="GQw-u1-wVu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztu-Vg-vuL">
+                                <rect key="frame" x="81" y="448" width="74" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Registrar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTappedSignInButton:" destination="zi9-6q-adT" eventType="touchUpInside" id="qTl-8j-7u6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axd-Xv-jU2">
+                                <rect key="frame" x="167" y="448" width="137" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Recuperar Senha">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTappedRecoverPasswordButton:" destination="zi9-6q-adT" eventType="touchUpInside" id="kKe-XM-h3Y"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jV1-dp-aVn">
+                                <rect key="frame" x="158" y="452" width="6" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-logo" translatesAutoresizingMaskIntoConstraints="NO" id="tO0-kN-7gl">
+                                <rect key="frame" x="73" y="177" width="228" height="71"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.99215686270000003" green="0.74509803919999995" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="ih0-8a-NDA" firstAttribute="centerX" secondItem="84r-cW-3Ec" secondAttribute="centerX" id="aDm-Yt-Sgn"/>
-                            <constraint firstItem="ih0-8a-NDA" firstAttribute="centerY" secondItem="84r-cW-3Ec" secondAttribute="centerY" id="aZR-NA-Jdn"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.019607843137254902" green="0.25490196078431371" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="DbG-p9-D18"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="t1w-wp-AK2" kind="show" identifier="clickedInRecoverPasswordSegueId" id="6oG-JP-OoL"/>
+                        <segue destination="C3P-MJ-7DT" kind="show" identifier="clickedInSignInSegueId" id="Ojo-G3-h2c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YKE-ZU-4O3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="774" y="469"/>
+            <point key="canvasLocation" x="773.5" y="468.5"/>
+        </scene>
+        <!--Registrar-->
+        <scene sceneID="xeW-60-m7z">
+            <objects>
+                <tableViewController id="C3P-MJ-7DT" customClass="OutsideSignInTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tyf-y8-nOl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="ahB-xo-g2e">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="ML0-Y7-EmN">
+                                        <rect key="frame" x="0.0" y="64" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ML0-Y7-EmN" id="5gs-R5-E5n">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FAp-3b-9p0">
+                                                    <rect key="frame" x="60" y="14" width="285" height="30"/>
+                                                    <animations/>
+                                                    <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="yMP-is-xnz">
+                                        <rect key="frame" x="0.0" y="124" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yMP-is-xnz" id="G6t-gK-U4H">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="CRM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6h2-EM-YQH">
+                                                    <rect key="frame" x="60" y="14" width="285" height="30"/>
+                                                    <animations/>
+                                                    <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="lf7-AP-gGR">
+                                        <rect key="frame" x="0.0" y="184" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lf7-AP-gGR" id="dcy-Ex-tOx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Telefone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RD5-ZC-cNK">
+                                                    <rect key="frame" x="60" y="14" width="285" height="30"/>
+                                                    <animations/>
+                                                    <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="SGJ-2n-y77">
+                                        <rect key="frame" x="0.0" y="244" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SGJ-2n-y77" id="2fa-pT-W8b">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dQy-xJ-jXe">
+                                                    <rect key="frame" x="60" y="14" width="285" height="30"/>
+                                                    <animations/>
+                                                    <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-lock" translatesAutoresizingMaskIntoConstraints="NO" id="UUu-qb-5mH">
+                                                    <rect key="frame" x="30" y="20" width="16" height="19"/>
+                                                    <animations/>
+                                                </imageView>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Am8-vA-bU7">
+                                        <rect key="frame" x="0.0" y="304" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Am8-vA-bU7" id="c9h-81-elK">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Confirmar senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uN8-P3-Lsc">
+                                                    <rect key="frame" x="60" y="14" width="285" height="30"/>
+                                                    <animations/>
+                                                    <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-lock" translatesAutoresizingMaskIntoConstraints="NO" id="SvC-J3-e9f">
+                                                    <rect key="frame" x="30" y="20" width="16" height="19"/>
+                                                    <animations/>
+                                                </imageView>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="XhZ-0f-5m4">
+                                        <rect key="frame" x="0.0" y="364" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XhZ-0f-5m4" id="xEe-XV-S01">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nome de usuário" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gmk-1U-ygo">
+                                                    <rect key="frame" x="60" y="14" width="285" height="30"/>
+                                                    <animations/>
+                                                    <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-usuario" translatesAutoresizingMaskIntoConstraints="NO" id="OQp-zV-ak0">
+                                                    <rect key="frame" x="30" y="20" width="16" height="19"/>
+                                                    <animations/>
+                                                </imageView>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="C3P-MJ-7DT" id="5KP-5C-kai"/>
+                            <outlet property="delegate" destination="C3P-MJ-7DT" id="mqF-UM-61X"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Registrar" id="798-s9-OL3">
+                        <barButtonItem key="rightBarButtonItem" title="Próximo" id="rLr-Be-3u8">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didTappedNextBarButton:" destination="C3P-MJ-7DT" id="0B4-Py-Bg9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doctorCRMTextField" destination="6h2-EM-YQH" id="BGK-v3-PUF"/>
+                        <outlet property="doctorConfirmPasswordTextField" destination="uN8-P3-Lsc" id="D4v-pv-bHY"/>
+                        <outlet property="doctorNameTextField" destination="FAp-3b-9p0" id="V2m-Cw-tmB"/>
+                        <outlet property="doctorPasswordTextField" destination="dQy-xJ-jXe" id="x7p-gv-6ja"/>
+                        <outlet property="doctorTelephoneTextField" destination="RD5-ZC-cNK" id="RfH-ou-PYf"/>
+                        <outlet property="doctorUsernameTextField" destination="gmk-1U-ygo" id="8JP-Zv-Dfq"/>
+                        <segue destination="lYV-Hb-cPp" kind="show" identifier="clickedInNextSignInSegueId" id="KnE-AG-oHX"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FSV-Se-Igh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="581.5" y="1287.5"/>
+        </scene>
+        <!--Recuperar Senha-->
+        <scene sceneID="y8Z-AM-0df">
+            <objects>
+                <viewController id="t1w-wp-AK2" customClass="OutsideRecoverPasswordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="14R-hB-Bbb"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Lh-B1-aLU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JdK-qT-E6Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-barrabranca" translatesAutoresizingMaskIntoConstraints="NO" id="n4f-av-Nwm">
+                                <rect key="frame" x="0.0" y="202" width="375" height="92"/>
+                                <animations/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPK-r1-hhZ">
+                                <rect key="frame" x="74" y="211" width="229" height="30"/>
+                                <animations/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Confirmar senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Uo-3I-jvD">
+                                <rect key="frame" x="74" y="257" width="229" height="30"/>
+                                <animations/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-lock" translatesAutoresizingMaskIntoConstraints="NO" id="hv4-Na-bOd">
+                                <rect key="frame" x="36" y="262" width="16" height="19"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-lock" translatesAutoresizingMaskIntoConstraints="NO" id="QWs-cJ-a9b">
+                                <rect key="frame" x="36" y="216" width="16" height="19"/>
+                                <animations/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Olá Fulano de Tal. Sua senha foi resetada com sucesso e você agora pode criar uma nova senha." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUT-zy-GeO">
+                                <rect key="frame" x="18" y="72" width="339" height="115"/>
+                                <animations/>
+                                <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Recuperar Senha" id="XmR-fs-z6v">
+                        <barButtonItem key="rightBarButtonItem" title="Próximo" id="p10-K0-PAz">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ePn-Ir-5ur" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025.5" y="1287.5"/>
+        </scene>
+        <!--Registrar-->
+        <scene sceneID="L8b-WN-khX">
+            <objects>
+                <viewController id="lYV-Hb-cPp" customClass="OutsideSignInConfirmViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mvj-3o-b8j"/>
+                        <viewControllerLayoutGuide type="bottom" id="q9R-Va-i6z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7vb-Lh-0QI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Foi enviado um SMS com um código de ativação gerado para o número abaixo:" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6g-nR-MTy">
+                                <rect key="frame" x="43" y="72" width="288" height="69"/>
+                                <animations/>
+                                <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+ 55 81 9 9939 6494" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbh-jO-Icn">
+                                <rect key="frame" x="80" y="168" width="215" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k88-J5-ANl">
+                                <rect key="frame" x="62" y="384" width="57" height="2"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZp-ZQ-Mjp">
+                                <rect key="frame" x="127" y="384" width="57" height="2"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxu-fo-fdu">
+                                <rect key="frame" x="192" y="384" width="57" height="2"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5f-iw-EbQ">
+                                <rect key="frame" x="257" y="384" width="57" height="2"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Para completar a verificação de número de telefone, por favor insira o código de ativação de 4 dígitos recebido." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKN-lG-ucx">
+                                <rect key="frame" x="29" y="212" width="317" height="77"/>
+                                <animations/>
+                                <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Registrar" id="d4f-Ik-3cp">
+                        <barButtonItem key="rightBarButtonItem" title="Finalizar" id="TCt-Ix-HhS">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CBi-UA-ajw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="581.5" y="2067.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home-barrabranca" width="645" height="217"/>
+        <image name="home-lock" width="31" height="40"/>
+        <image name="home-logo" width="949" height="329"/>
+        <image name="home-usuario" width="30" height="40"/>
+    </resources>
 </document>

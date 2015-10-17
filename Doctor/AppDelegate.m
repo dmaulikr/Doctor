@@ -33,6 +33,9 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
     
     return YES;
 }
