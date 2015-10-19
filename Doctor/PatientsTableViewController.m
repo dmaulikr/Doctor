@@ -30,23 +30,23 @@
     isSearching = false;
 }
 
-//#pragma mark - UITableViewDataSource and UITableViewDelegate
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return tableViewDataArray.count;
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSString* PatientsCellID = @"patientCell";
-//    
-//    PatientsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PatientsCellID];
-//    if (cell==nil) {
-//        cell = [[PatientsTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PatientsCellID];
-//    }
-//    cell.rightUtilityButtons = [self rightButtons];
-//    cell.delegate = self;
-//    cell.textLabel.text = tableViewDataArray[indexPath.row];
-//    return cell;
-//}
+#pragma mark - UITableViewDataSource and UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return tableViewDataArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString* PatientsCellID = @"patientCell";
+    
+    PatientsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PatientsCellID];
+    if (cell==nil) {
+        cell = [[PatientsTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PatientsCellID];
+    }
+    cell.rightUtilityButtons = [self rightButtons];
+    cell.delegate = self;
+    cell.textLabel.text = tableViewDataArray[indexPath.row];
+    return cell;
+}
 
 - (NSArray *)rightButtons {
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];

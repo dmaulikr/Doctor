@@ -8,7 +8,7 @@
         <scene sceneID="NOD-WK-akR">
             <objects>
                 <tableViewController id="93v-Xh-PIW" customClass="PatientsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7RE-Fn-c02">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7RE-Fn-c02">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
@@ -22,6 +22,7 @@
                                 <outlet property="delegate" destination="93v-Xh-PIW" id="w2j-We-NVc"/>
                             </connections>
                         </searchBar>
+<<<<<<< HEAD
                         <sections>
                             <tableViewSection id="gxx-Lq-cv5">
                                 <cells>
@@ -277,18 +278,21 @@
                                 </cells>
                             </tableViewSection>
                         </sections>
+=======
+                        <sections/>
+>>>>>>> 9eddb2e75ce106d90befbb2be0dc82ae54fec805
                         <connections>
                             <outlet property="dataSource" destination="93v-Xh-PIW" id="258-6b-xGT"/>
                             <outlet property="delegate" destination="93v-Xh-PIW" id="8Xe-Zp-Huw"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Pacientes" id="p3E-pg-eat">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="Q11-iE-gY5">
+                        <barButtonItem key="leftBarButtonItem" image="icone-menu" id="Q11-iE-gY5">
                             <connections>
                                 <action selector="didTappedMenuBarButton:" destination="93v-Xh-PIW" id="lTO-Bj-I6c"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="+" id="7sJ-Xd-wKe">
+                        <barButtonItem key="rightBarButtonItem" image="icone-adicionar" id="7sJ-Xd-wKe">
                             <connections>
                                 <action selector="didTappedAddPatientBarButton:" destination="93v-Xh-PIW" id="1LF-Z5-Kmo"/>
                             </connections>
@@ -386,6 +390,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="billClinton" width="2103" height="2804"/>
+        <image name="icone-adicionar" width="46" height="46"/>
+        <image name="icone-menu" width="65" height="44"/>
     </resources>
 </document>
