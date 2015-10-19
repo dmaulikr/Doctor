@@ -84,7 +84,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Feed" id="2AN-xo-L5O">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="L5S-q2-1f4">
+                        <barButtonItem key="leftBarButtonItem" image="icone-menu-1" id="L5S-q2-1f4">
                             <connections>
                                 <action selector="didTappedMenuBarButton:" destination="uhx-WL-rht" id="0n4-Ib-Qbq"/>
                             </connections>
@@ -97,4 +97,7 @@
             <point key="canvasLocation" x="417.5" y="626.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icone-menu-1" width="20" height="15"/>
+    </resources>
 </document>
