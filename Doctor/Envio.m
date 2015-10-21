@@ -12,18 +12,14 @@
 
 #pragma mark newDoctor
 
-- (void) newDoctor: (NSString*)username
-         withEmail: (NSString*)email
-      withPassword: (NSString*)password
-           withCRM: (NSNumber*)CRM
-       withCelular: (NSNumber*)celular
+- (void) newDoctor: (Doctor*)doctor;
 {
     PFUser *user = [PFUser user];
-    user.username = username;
-    user.password = password;
-    user.email = email;
-    user[@"CRM"] = CRM;
-    user[@"celular"] = celular;
+    user.username = doctor.doctor;
+    user.password = doctor.password;
+    user.email = doctor.email;
+    user[@"CRM"] = doctor.CRM;
+    user[@"celular"] = doctor.celular;
     
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -70,90 +66,91 @@
     
 }
 
-#pragma mark newRegister
+#pragma mark Registers
 
-- (void) newRegister: (NSString*)tipo
-       withTreatment: (Treatment*)treatment
-            withExam: (Exam*)exam
-       withDiagnosis: (Diagnosis*)diagnosis
-     withCaseHistory: (CaseHistory*)caseHistory
+#pragma mark newDiagnosis
+- (void) newDiagnosis: (Diagnosis*)diagnosis
 {
-    
-    if ([tipo  isEqual: @"Treatment"]) {
-        PFObject* newTreatment  = [PFObject objectWithClassName:@"Treatment"];
-        newTreatment[@"description"] = treatment.description;
-        newTreatment[@"duration"] = treatment.duration;
-        newTreatment[@"status"] = treatment.status; //NSNumber numberWithBool: method, with YES or NO
-        newTreatment[@"finishedAt"] = treatment.finishedAt;
-        
-        
-        [newTreatment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                // The object has been saved.
-                
-            } else {
-                // There was a problem, check error.description
-            }
-        }];
-        
-    }
-    else if ([tipo  isEqual: @"Exam"]) {
-        PFObject* newExam  = [PFObject objectWithClassName:@"Exam"];
-        newExam[@"type"] = exam.tipo;
-        newExam[@"description"] = exam.description;
-        //Create a PFFile to store a photo
-        newExam[@"photo"] = exam.photo;
-        
-        
-        [newExam saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                // The object has been saved.
-                
-            } else {
-                // There was a problem, check error.description
-            }
-        }];
-        
-    }
-    else if ([tipo  isEqual: @"Diagnosis"]) {
-        PFObject* newDiagnosis  = [PFObject objectWithClassName:@"Register"];
-        newDiagnosis[@"confirmedAt"] = diagnosis.confirmedAt;
-        newDiagnosis[@"status"] = diagnosis.status;
-        newDiagnosis[@"description"] = diagnosis.description;
-        
-        
-        [newDiagnosis saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                // The object has been saved.
-                
-            } else {
-                // There was a problem, check error.description
-            }
-        }];
-        
-    }else if ([tipo isEqual: @"CaseHistory"]) {
-        PFObject* newCaseHistory  = [PFObject objectWithClassName:@"Register"];
-        newCaseHistory[@"description"] = caseHistory.description;
-        //Create PFFile
-        newCaseHistory[@"photo"] = caseHistory.photo;
-        
-        
-        
-        [newCaseHistory saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                // The object has been saved.
-                
-            } else {
-                // There was a problem, check error.description
-            }
-        }];
-        
-    }
+    PFObject* newDiagnosis  = [PFObject objectWithClassName:@"Register"];
+    newDiagnosis[@"confirmedAt"] = diagnosis.confirmedAt;
+    newDiagnosis[@"status"] = diagnosis.status;
+    newDiagnosis[@"description"] = diagnosis.description;
     
     
-    
-    
+    [newDiagnosis saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+            
+        } else {
+            // There was a problem, check error.description
+        }
+    }];
+
 }
+
+#pragma mark newTreatment
+- (void) newTreatment: (Treatment*)treatment
+{
+    PFObject* newTreatment  = [PFObject objectWithClassName:@"Treatment"];
+    newTreatment[@"description"] = treatment.description;
+    newTreatment[@"duration"] = treatment.duration;
+    newTreatment[@"status"] = treatment.status; //NSNumber numberWithBool: method, with YES or NO
+    newTreatment[@"finishedAt"] = treatment.finishedAt;
+    
+    
+    [newTreatment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+            
+        } else {
+            // There was a problem, check error.description
+        }
+    }];
+
+}
+
+#pragma mark newExam
+- (void) newExam: (Exam*)exam
+{
+    PFObject* newExam  = [PFObject objectWithClassName:@"Exam"];
+    newExam[@"type"] = exam.tipo;
+    newExam[@"description"] = exam.description;
+    //Create a PFFile to store a photo
+    newExam[@"photo"] = exam.photo;
+    
+    
+    [newExam saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+            
+        } else {
+            // There was a problem, check error.description
+        }
+    }];
+
+}
+
+#pragma mark newCaseHistory
+- (void) newCaseHistory: (CaseHistory*)caseHistory
+{
+    PFObject* newCaseHistory  = [PFObject objectWithClassName:@"Register"];
+    newCaseHistory[@"description"] = caseHistory.description;
+    //Create PFFile
+    newCaseHistory[@"photo"] = caseHistory.photo;
+    
+    
+    
+    [newCaseHistory saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+            
+        } else {
+            // There was a problem, check error.description
+        }
+    }];
+}
+
+#pragma mark newAppointment
 
 - (void) newAppointment: (Doctor*)doctor;
 {
@@ -171,7 +168,8 @@
     
 }
 
-#pragma mark queries
+#pragma mark Queries
+#pragma mark Sign In
 - (void)signIn: (NSString*)username
   withPassword: (NSString*)password
 {
@@ -185,6 +183,7 @@
                                     }];
 }
 
+#pragma mark fetchPatient
 - (Patient*)fetchPatient: (NSNumber*)CPF
 {
     Patient* patient;
@@ -202,6 +201,7 @@
                 patient.patientCPFString = [object objectForKey:@"CPF"];
                 patient.patientAgeString = [object objectForKey:@"age"];
                 patient.patientRGString = [object objectForKey:@"RG"];
+                patient.patientGenderString = [object objectForKey:@"gender"];
             }
         } else {
             // Log details of the failure
@@ -212,7 +212,38 @@
     return patient;
 }
 
+- (NSMutableArray*)fetchAllPatients
+{
+    NSMutableArray* patients = [[NSMutableArray alloc]init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Patient"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d patients.", objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                
+                Patient* patient = [[Patient alloc]init];
+                patient.patientNameString = [object objectForKey:@"name"];
+                patient.patientCPFString = [object objectForKey:@"CPF"];
+                patient.patientAgeString = [object objectForKey:@"age"];
+                patient.patientRGString = [object objectForKey:@"RG"];
+                
+                [patients addObject:patient];
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+    return patients;
+}
 
+
+#pragma mark fetchAppointment
 - (Appointment*)fetchAppointment: (NSNumber*)doctor
                        createdAt:(NSDate *)createdAt
 {
@@ -240,6 +271,7 @@
     
 }
 
+#pragma mark fetchTreatment
 - (Treatment*)fetchTreatment: (NSDate*)createdAt
 {
     Treatment* treatment;
@@ -267,6 +299,7 @@
     return treatment;
 }
 
+#pragma mark fetchDiagnosis
 - (Diagnosis*)fetchDiagnosis: (NSDate*)createdAt
 {
     Diagnosis* diagnosis;

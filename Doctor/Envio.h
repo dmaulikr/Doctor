@@ -23,40 +23,22 @@
 
 
 #pragma mark new entries
-- (void) newDoctor: (NSString*)username
-         withEmail: (NSString*)email
-      withPassword: (NSString*)password
-           withCRM: (NSNumber*)CRM
-       withCelular: (NSNumber*)celular;
+- (void) newDoctor: (Doctor*)doctor;
 
-- (void) newPatient: (NSString*)name
-            withCPF: (NSNumber*)CPF
-     withIdentidade: (NSNumber*)identity
-            withAge: (NSNumber*)age
-         withAdress: (NSString*)address;
+- (void) newPatient: (Patient*)patient;
 
-- (void) newRegister: (NSString*)tipo;
+- (void) newAppointment: (Appointment*)appointment;
 
-- (void) newAppointment: (NSNumber*)CRM;
+- (void) newDiagnosis: (Diagnosis*)diagnosis;
 
-- (void) newDiagnosis: (BOOL)status
-      withDescription: (NSString*)description;
+- (void) newTreatment: (Treatment*)treatment;
 
-- (void) newTreatment: (NSString*)description
-           withStatus: (BOOL)status
-         withDuration: (NSNumber*)duration
- withConfirmationDate: (NSDate*)efectivedConfirmationDate;
+- (void) newExam: (Exam*)tipo;
 
-- (void) newExam: (NSString*)tipo
- withDescription: (NSString*)description
-       withPhoto: (PFFile*)photo;
-
-- (void) newCaseHistory: (NSString*)description
-              withPhoto: (PFFile*)photo;
+- (void) newCaseHistory: (CaseHistory*)caseHistory;
 
 #pragma mark queries
-- (void)signIn: (NSString*)username
-  withPassword: (NSString*)password;
+- (void)signIn: (Doctor*)doctor;
 
 - (Patient*)fetchPatient: (NSNumber*)CPF;
 
