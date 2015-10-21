@@ -15,11 +15,11 @@
 - (void) newDoctor: (Doctor*)doctor;
 {
     PFUser *user = [PFUser user];
-    user.username = doctor.doctor;
-    user.password = doctor.password;
-    user.email = doctor.email;
-    user[@"CRM"] = doctor.CRM;
-    user[@"celular"] = doctor.celular;
+    user.username = doctor.doctorUsernameString;
+    user.password = doctor.doctorPasswordString;
+    user.email = doctor.doctorEmailString;
+    user[@"CRM"] = doctor.doctorCRMString;
+    user[@"celular"] = doctor.doctorCelularString;
     
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

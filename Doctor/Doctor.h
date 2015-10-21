@@ -14,5 +14,7 @@
 @property (strong, nonatomic) NSString* doctorUsernameString;
 @property (strong, nonatomic) NSString* doctorPasswordString;
 @property (strong, nonatomic) NSString* doctorCRMString;
+@property (strong, nonatomic) NSString* doctorEmailString;
+@property (strong, nonatomic) NSString* doctorCelularString;
 
 @end
