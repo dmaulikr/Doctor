@@ -22,6 +22,7 @@
     
 }
 
+@property (strong, nonatomic) IBOutlet UISearchBar *patientSearchBar;
 @property (strong, nonatomic) NSMutableArray* patientsArray;
 @property (strong, nonatomic) NSMutableArray* filteredPatientsArray;
 

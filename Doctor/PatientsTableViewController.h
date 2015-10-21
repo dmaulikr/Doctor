@@ -10,6 +10,4 @@
 
 @interface PatientsTableViewController : UITableViewController
 
-@property (strong, nonatomic) IBOutlet UISearchBar *patientSearchBar;
-
 @end
