@@ -10,4 +10,8 @@
 
 @interface CaseHistory : NSObject
 
+@property (weak,nonatomic) NSString* description;
+@property (weak,nonatomic) NSDate* photo;
+
+
 @end

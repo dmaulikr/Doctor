@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Doctor.h"
 
 @interface Appointment : NSObject
+
+@property (weak,nonatomic) Doctor* doctor;
+@property (weak,nonatomic) NSDate* createdAt;
 
 @end

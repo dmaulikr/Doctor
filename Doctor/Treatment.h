@@ -10,4 +10,9 @@
 
 @interface Treatment : NSObject
 
+@property (weak,nonatomic) NSString* description;
+@property (weak,nonatomic) NSNumber* duration;
+@property (weak,nonatomic) NSNumber* status;
+@property (weak,nonatomic) NSDate* finishedAt;
+
 @end

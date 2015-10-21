@@ -10,4 +10,9 @@
 
 @interface Diagnosis : NSObject
 
+@property (weak,nonatomic) NSDate* confirmedAt;
+@property (weak,nonatomic) NSNumber* status;
+@property (weak,nonatomic) NSString* description;
+@property (weak,nonatomic) NSDate* createdAt;
+
 @end
