@@ -9,11 +9,12 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 
+@import VerifyIosSdk;
+
 @interface AppDelegate ()
 
 @end
 
-@import VerifyIosSdk;
 
 @implementation AppDelegate
 
