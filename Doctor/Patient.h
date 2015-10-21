@@ -16,5 +16,6 @@
 @property (weak, nonatomic) NSString* patientCPFString;
 @property (weak, nonatomic) NSString* patientAgeString;
 @property (weak, nonatomic) NSString* patientGenderString;
+@property (weak, nonatomic) NSString* patientAdressString;
 
 @end

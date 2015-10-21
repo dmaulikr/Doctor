@@ -39,22 +39,19 @@
 
 #pragma mark newPatient
 
-- (void) newPatient: (NSString*)name
-            withCPF: (NSNumber*)CPF
-     withIdentidade: (NSNumber*)identity
-            withAge: (NSNumber*)age
-         withAdress: (NSString*)address
-{
+- (void) newPatient:(Patient*)patient {
     
-    PFObject* patient = [PFObject objectWithClassName:@"Patient"];
-    patient[@"name"] = name;
-    patient[@"CPF"] = CPF;
-    patient[@"identity"] = identity;
-    patient[@"age"] = age;
-    patient[@"address"] = address;
+    PFObject* newPatient = [PFObject objectWithClassName:@"Patient"];
+    newPatient[@"name"] = patient.patientNameString;
+    newPatient[@"CPF"] = patient.patientCPFString;
+    newPatient[@"RG"] = patient.patientRGString;
+    newPatient[@"age"] = patient.patientAgeString;
+    newPatient[@"address"] = patient.patientAdressString;
+    newPatient[@"gender"] = patient.patientGenderString;
     
     
-    [patient saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    
+    [newPatient saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             // The object has been saved.
             
