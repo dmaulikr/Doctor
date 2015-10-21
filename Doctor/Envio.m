@@ -181,7 +181,7 @@
 }
 
 #pragma mark fetchPatient
-- (Patient*)fetchPatient: (NSNumber*)CPF
+- (Patient*)fetchPatient: (NSString*)CPF
 {
     Patient* patient;
     
@@ -318,6 +318,7 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            
         }
     }];
     

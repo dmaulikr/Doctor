@@ -40,7 +40,7 @@
 #pragma mark queries
 - (void)signIn: (Doctor*)doctor;
 
-- (Patient*)fetchPatient: (NSNumber*)CPF;
+- (Patient*)fetchPatient: (NSString*)CPF;
 
 - (NSMutableArray*)fetchAllPatients;
 
