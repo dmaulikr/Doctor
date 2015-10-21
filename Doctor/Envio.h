@@ -42,6 +42,8 @@
 
 - (Patient*)fetchPatient: (NSNumber*)CPF;
 
+- (NSMutableArray*)fetchAllPatients;
+
 - (Register*)fetchRegister: (NSString*)type
                  createdAt: (NSDate*) creationDate;
 
