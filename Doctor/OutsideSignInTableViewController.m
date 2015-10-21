@@ -7,8 +7,9 @@
 //
 
 #import "OutsideSignInTableViewController.h"
+#import "OutsideSignInConfirmViewController.h"
 
-@interface OutsideSignInTableViewController () <UITextFieldDelegate>
+@interface OutsideSignInTableViewController () <UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField* doctorNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField* doctorCRMTextField;
@@ -23,8 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupTextFieldsActions];
     self.tableView.tableFooterView = [UIView new];
+    self.doctorPasswordTextField.secureTextEntry = YES;
+    self.doctorConfirmPasswordTextField.secureTextEntry = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -32,90 +34,41 @@
     self.navigationController.navigationBar.topItem.title = @"Registrar";
 }
 
-#pragma mark - UITextField Delegate
-- (void)setupTextFieldsActions{
-    [self.doctorNameTextField addTarget:self action:@selector(textFieldDidBeginEditing:)forControlEvents:UIControlEventEditingDidBegin];
-    
-    [self.doctorCRMTextField addTarget:self action:@selector(textFieldDidBeginEditing:)forControlEvents:UIControlEventEditingDidBegin];
-    
-    [self.doctorTelephoneTextField addTarget:self action:@selector(textFieldDidBeginEditing:) forControlEvents:UIControlEventEditingDidBegin];
-    
-    [self.doctorPasswordTextField addTarget:self action:@selector(textFieldDidBeginEditing:)forControlEvents:UIControlEventEditingDidBegin];
-    
-    [self.doctorConfirmPasswordTextField addTarget:self action:@selector(textFieldDidBeginEditing:) forControlEvents:UIControlEventEditingDidBegin];
-    
-    [self.doctorUsernameTextField addTarget:self action:@selector(textFieldDidBeginEditing:) forControlEvents:UIControlEventEditingDidBegin];
-
-    //
-    
-    [self.doctorNameTextField addTarget:self action:@selector(textFieldDidEndEditing:)forControlEvents:UIControlEventEditingDidEnd];
-    
-    [self.doctorCRMTextField addTarget:self action:@selector(textFieldDidEndEditing:)forControlEvents:UIControlEventEditingDidEnd];
-    
-    [self.doctorTelephoneTextField addTarget:self action:@selector(textFieldDidEndEditing:) forControlEvents:UIControlEventEditingDidEnd];
-    
-    [self.doctorPasswordTextField addTarget:self action:@selector(textFieldDidEndEditing:)forControlEvents:UIControlEventEditingDidEnd];
-    
-    [self.doctorConfirmPasswordTextField addTarget:self action:@selector(textFieldDidEndEditing:) forControlEvents:UIControlEventEditingDidEnd];
-    
-    [self.doctorUsernameTextField addTarget:self action:@selector(textFieldDidEndEditing:) forControlEvents:UIControlEventEditingDidEnd];
+- (IBAction)didTappedNextBarButton:(UIBarButtonItem *)sender{
+    if ([self checkFieldsCompletion]) {
+        NSString* stringToShow = [[NSString alloc] initWithFormat:@"Para prosseguir, verifique se os dados inseridos estão corretos:\nNome: %@\nCRM: %@\nNome de usuário: %@\nTelefone: %@", self.doctorNameTextField.text, self.doctorCRMTextField.text, self.doctorUsernameTextField.text, self.doctorTelephoneTextField.text];
+        
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Os dados estão corretos?" message:stringToShow delegate:self cancelButtonTitle:@"Ops, esqueci algo..." otherButtonTitles:@"Sim, prosseguir.", nil];
+        [alert show];
+    }
+    else{
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Ops! Esqueceu algo?" message:@"Preencha todos os campos, esses dados só serão usados para verificar sua veracidade. Talvez a senha não digitada não tenha sido a mesma." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-    if ([textField.text isEqualToString:@"Nome"]) {
-        textField.text = @"";
-    }
-    else if ([textField.text isEqualToString:@"CRM"]){
-        textField.text = @"";
-    }
-    
-    else if ([textField.text isEqualToString:@"Telefone"]){
-        textField.text = @"";
-    }
-    
-    else if ([textField.text isEqualToString:@"Senha"]){
-        textField.text = @"";
-    }
-    
-    else if ([textField.text isEqualToString:@"Confirmar senha"]){
-        textField.text = @"";
-    }
-    
-    else if ([textField.text isEqualToString:@"Nome de usuário"]){
-        textField.text = @"";
-    }
-
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-    if ([textField.text isEqualToString:@""]) {
-        switch (textField.tag) {
-            case 0:
-                textField.text = @"Nome";
-                break;
-            case 1:
-                textField.text = @"CRM";
-                break;
-            case 2:
-                textField.text = @"Telefone";
-                break;
-            case 3:
-                textField.text = @"Senha";
-                break;
-            case 4:
-                textField.text = @"Confirmar senha";
-                break;
-            case 5:
-                textField.text = @"Nome de usuário";
-                break;
-            default:
-                break;
+- (BOOL) checkFieldsCompletion{
+    BOOL returning = false;
+    if (![self.doctorNameTextField.text isEqualToString:@""] && ![self.doctorCRMTextField.text isEqualToString:@""] && ![self.doctorConfirmPasswordTextField.text isEqualToString:@""] && ![self.doctorPasswordTextField.text isEqualToString:@""] && ![self.doctorTelephoneTextField.text isEqualToString:@""] && ![self.doctorUsernameTextField.text isEqualToString:@""]) {
+        if ([self.doctorPasswordTextField.text isEqualToString:self.doctorConfirmPasswordTextField.text]) {
+            returning = true;
         }
     }
+    return returning;
 }
 
-- (IBAction)didTappedNextBarButton:(UIBarButtonItem *)sender{
-    [self performSegueWithIdentifier:@"clickedInNextSignInSegueId" sender:self];
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        [self performSegueWithIdentifier:@"clickedInNextSignInSegueId" sender:self];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"clickedInNextSignInSegueId"]) {
+        OutsideSignInConfirmViewController* confirmVC = segue.destinationViewController;
+        confirmVC.cellPhoneToSendConfirmationLabel.text = self.doctorTelephoneTextField.text;
+    }
 }
 
 @end

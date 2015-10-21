@@ -4,32 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Fórum-->
-        <scene sceneID="YZR-gc-PU5">
-            <objects>
-                <viewController id="3iD-Z6-75u" customClass="ForumViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ItU-B5-WxJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Rz2-h7-BGz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jYc-lc-Sgt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Fórum" id="xO0-Mh-qiW">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="V7n-gY-TtM">
-                            <connections>
-                                <action selector="didTappedMenuBarButton:" destination="3iD-Z6-75u" id="ber-EC-SRI"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Yu-gg-e9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-562.5" y="705.5"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="IxN-xe-l2R">
             <objects>
@@ -41,12 +15,112 @@
                         <animations/>
                     </navigationBar>
                     <connections>
-                        <segue destination="3iD-Z6-75u" kind="relationship" relationship="rootViewController" id="tza-6V-7cL"/>
+                        <segue destination="OuO-qk-n3F" kind="relationship" relationship="rootViewController" id="U7j-YQ-jSF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUY-sU-d0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1010.5" y="705.5"/>
         </scene>
+        <!--Fórum-->
+        <scene sceneID="UH2-80-h3S">
+            <objects>
+                <tableViewController id="OuO-qk-n3F" customClass="ForumTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="LeH-8j-SrN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="OuO-qk-n3F" id="sj0-RJ-oXj"/>
+                            <outlet property="delegate" destination="OuO-qk-n3F" id="9Kr-pu-eJN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Fórum" id="Iu1-av-9ed">
+                        <barButtonItem key="leftBarButtonItem" image="icone-menu" id="M1s-Sg-ueL">
+                            <connections>
+                                <action selector="didTappedMenuBarButton:" destination="OuO-qk-n3F" id="Rkt-Um-8wn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Criar tópico" id="bd8-gk-zur">
+                            <connections>
+                                <action selector="didTappedCreateTopicBarButton:" destination="OuO-qk-n3F" id="ctp-qc-JBR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="MOc-YK-0Hb" kind="show" identifier="clickedToSeeTopicSegueId" id="gV1-b1-aQN"/>
+                        <segue destination="6dC-sc-CRE" kind="show" identifier="clickedToCreateTopicSegueId" id="1xF-Je-UF2"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n0M-ma-wnx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-523.5" y="705.5"/>
+        </scene>
+        <!--Forum New Topic Table View Controller-->
+        <scene sceneID="k03-UB-Znq">
+            <objects>
+                <tableViewController id="6dC-sc-CRE" customClass="ForumNewTopicTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nei-7x-APf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Kge-zY-izQ">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kge-zY-izQ" id="ASY-4t-CHk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6dC-sc-CRE" id="W6Z-V8-TQN"/>
+                            <outlet property="delegate" destination="6dC-sc-CRE" id="o2v-ba-xB9"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CpD-Cx-xfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-523.5" y="1476.5"/>
+        </scene>
+        <!--Forum See Topic Table View Controller-->
+        <scene sceneID="jAq-zd-I6h">
+            <objects>
+                <tableViewController id="MOc-YK-0Hb" customClass="ForumSeeTopicTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="F7Y-xc-nFi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ymZ-Bu-AOU">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ymZ-Bu-AOU" id="KfM-vX-X6f">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MOc-YK-0Hb" id="6Fd-V1-5h7"/>
+                            <outlet property="delegate" destination="MOc-YK-0Hb" id="JZw-FK-8lB"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k50-j0-Suc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-19.5" y="705.5"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="icone-menu" width="20" height="15"/>
+    </resources>
 </document>

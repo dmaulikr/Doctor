@@ -32,7 +32,10 @@
 		02CD6C4A1BD2DAAC00C38B6D /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C491BD2DAAC00C38B6D /* Doctor.m */; settings = {ASSET_TAGS = (); }; };
 		02CD6C4F1BD2DE6300C38B6D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C4E1BD2DE6300C38B6D /* SettingsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		02CD6C521BD2E14500C38B6D /* MedicationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C511BD2E14500C38B6D /* MedicationsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		1BD2E2981BD1219F004413F9 /* ForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD2E2971BD1219F004413F9 /* ForumViewController.m */; };
+		02CDD9BF1BD6DBB300443828 /* ForumNewTopicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CDD9BE1BD6DBB300443828 /* ForumNewTopicTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		02CDD9C31BD6DBC900443828 /* ForumSeeTopicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CDD9C21BD6DBC900443828 /* ForumSeeTopicTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		02F15C651BD6D5490078279D /* ForumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F15C641BD6D5490078279D /* ForumTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		02F15C691BD6D8080078279D /* PatientSelectedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F15C681BD6D8080078279D /* PatientSelectedTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		1BD2E29A1BD1240D004413F9 /* Forum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2E2991BD1240D004413F9 /* Forum.storyboard */; };
 		7020D11E1BD52DBD0059A226 /* Envio.m in Sources */ = {isa = PBXBuildFile; fileRef = 7020D11D1BD52DBD0059A226 /* Envio.m */; settings = {ASSET_TAGS = (); }; };
 		7020D1221BD53A4E0059A226 /* Register.m in Sources */ = {isa = PBXBuildFile; fileRef = 7020D1211BD53A4E0059A226 /* Register.m */; settings = {ASSET_TAGS = (); }; };
@@ -125,9 +128,15 @@
 		02CD6C4E1BD2DE6300C38B6D /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		02CD6C501BD2E14500C38B6D /* MedicationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicationsTableViewController.h; sourceTree = "<group>"; };
 		02CD6C511BD2E14500C38B6D /* MedicationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationsTableViewController.m; sourceTree = "<group>"; };
+		02CDD9BD1BD6DBB300443828 /* ForumNewTopicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumNewTopicTableViewController.h; sourceTree = "<group>"; };
+		02CDD9BE1BD6DBB300443828 /* ForumNewTopicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumNewTopicTableViewController.m; sourceTree = "<group>"; };
+		02CDD9C11BD6DBC900443828 /* ForumSeeTopicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumSeeTopicTableViewController.h; sourceTree = "<group>"; };
+		02CDD9C21BD6DBC900443828 /* ForumSeeTopicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumSeeTopicTableViewController.m; sourceTree = "<group>"; };
+		02F15C631BD6D5490078279D /* ForumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumTableViewController.h; sourceTree = "<group>"; };
+		02F15C641BD6D5490078279D /* ForumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTableViewController.m; sourceTree = "<group>"; };
+		02F15C671BD6D8080078279D /* PatientSelectedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientSelectedTableViewController.h; sourceTree = "<group>"; };
+		02F15C681BD6D8080078279D /* PatientSelectedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientSelectedTableViewController.m; sourceTree = "<group>"; };
 		03BCDA7EF4AE08E858097808 /* Pods-Doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doctor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Doctor/Pods-Doctor.debug.xcconfig"; sourceTree = "<group>"; };
-		1BD2E2961BD1219F004413F9 /* ForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumViewController.h; sourceTree = "<group>"; };
-		1BD2E2971BD1219F004413F9 /* ForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumViewController.m; sourceTree = "<group>"; };
 		1BD2E2991BD1240D004413F9 /* Forum.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Forum.storyboard; sourceTree = "<group>"; };
 		25499218369E12465EE581B5 /* libPods-Doctor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Doctor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62531EE85C8BF5E4333DE691 /* Pods-Doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doctor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Doctor/Pods-Doctor.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,9 +190,9 @@
 		022928D51BCFC63000B7C1E0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7020D1331BD53B670059A226 /* ModelDIagnosis */,
+				7020D1331BD53B670059A226 /* ModelDiagnosis */,
 				7020D12F1BD53B160059A226 /* ModelCaseHistory */,
-				7020D12B1BD53AA70059A226 /* ModelApointment */,
+				7020D12B1BD53AA70059A226 /* ModelAppointment */,
 				7020D1271BD53A890059A226 /* ModelExam */,
 				7020D1231BD53A560059A226 /* ModelTreatment */,
 				7020D11F1BD53A210059A226 /* ModelRegister */,
@@ -327,6 +336,7 @@
 				703E632F1BCFDA6A00205A82 /* PatientsTableViewCell.h */,
 				703E63301BCFDA6A00205A82 /* PatientsTableViewCell.m */,
 				02921D781BD14643001B6F5E /* PatientsAdd */,
+				02F15C661BD6D7E60078279D /* PatientSelected */,
 			);
 			name = ViewsPatients;
 			sourceTree = "<group>";
@@ -447,11 +457,40 @@
 			name = ViewsMedications;
 			sourceTree = "<group>";
 		};
+		02CDD9BC1BD6DB8D00443828 /* ForumNewTopic */ = {
+			isa = PBXGroup;
+			children = (
+				02CDD9BD1BD6DBB300443828 /* ForumNewTopicTableViewController.h */,
+				02CDD9BE1BD6DBB300443828 /* ForumNewTopicTableViewController.m */,
+			);
+			name = ForumNewTopic;
+			sourceTree = "<group>";
+		};
+		02CDD9C01BD6DBB900443828 /* ForumSeeTopic */ = {
+			isa = PBXGroup;
+			children = (
+				02CDD9C11BD6DBC900443828 /* ForumSeeTopicTableViewController.h */,
+				02CDD9C21BD6DBC900443828 /* ForumSeeTopicTableViewController.m */,
+			);
+			name = ForumSeeTopic;
+			sourceTree = "<group>";
+		};
+		02F15C661BD6D7E60078279D /* PatientSelected */ = {
+			isa = PBXGroup;
+			children = (
+				02F15C671BD6D8080078279D /* PatientSelectedTableViewController.h */,
+				02F15C681BD6D8080078279D /* PatientSelectedTableViewController.m */,
+			);
+			name = PatientSelected;
+			sourceTree = "<group>";
+		};
 		1BD2E2951BD1215D004413F9 /* ViewsForum */ = {
 			isa = PBXGroup;
 			children = (
-				1BD2E2961BD1219F004413F9 /* ForumViewController.h */,
-				1BD2E2971BD1219F004413F9 /* ForumViewController.m */,
+				02F15C631BD6D5490078279D /* ForumTableViewController.h */,
+				02F15C641BD6D5490078279D /* ForumTableViewController.m */,
+				02CDD9C01BD6DBB900443828 /* ForumSeeTopic */,
+				02CDD9BC1BD6DB8D00443828 /* ForumNewTopic */,
 			);
 			name = ViewsForum;
 			sourceTree = "<group>";
@@ -492,13 +531,13 @@
 			name = ModelExam;
 			sourceTree = "<group>";
 		};
-		7020D12B1BD53AA70059A226 /* ModelApointment */ = {
+		7020D12B1BD53AA70059A226 /* ModelAppointment */ = {
 			isa = PBXGroup;
 			children = (
 				7020D12C1BD53B100059A226 /* Appointment.h */,
 				7020D12D1BD53B100059A226 /* Appointment.m */,
 			);
-			name = ModelApointment;
+			name = ModelAppointment;
 			sourceTree = "<group>";
 		};
 		7020D12F1BD53B160059A226 /* ModelCaseHistory */ = {
@@ -510,13 +549,13 @@
 			name = ModelCaseHistory;
 			sourceTree = "<group>";
 		};
-		7020D1331BD53B670059A226 /* ModelDIagnosis */ = {
+		7020D1331BD53B670059A226 /* ModelDiagnosis */ = {
 			isa = PBXGroup;
 			children = (
 				7020D1341BD53B7C0059A226 /* Diagnosis.h */,
 				7020D1351BD53B7C0059A226 /* Diagnosis.m */,
 			);
-			name = ModelDIagnosis;
+			name = ModelDiagnosis;
 			sourceTree = "<group>";
 		};
 		C37E74F5BD3D707C399A0E57 /* Frameworks */ = {
@@ -710,14 +749,16 @@
 			files = (
 				02807F991BCE9DE10008D018 /* ViewController.m in Sources */,
 				703E63311BCFDA6A00205A82 /* PatientsTableViewCell.m in Sources */,
+				02CDD9C31BD6DBC900443828 /* ForumSeeTopicTableViewController.m in Sources */,
 				02CD6C4A1BD2DAAC00C38B6D /* Doctor.m in Sources */,
+				02F15C651BD6D5490078279D /* ForumTableViewController.m in Sources */,
 				703E632E1BCFDA4100205A82 /* PatientsTableViewController.m in Sources */,
 				02807F961BCE9DE10008D018 /* AppDelegate.m in Sources */,
+				02CDD9BF1BD6DBB300443828 /* ForumNewTopicTableViewController.m in Sources */,
 				7020D1321BD53B560059A226 /* CaseHistory.m in Sources */,
 				02CD6C461BD2D86600C38B6D /* Medication.m in Sources */,
 				02CD6C311BD2C11700C38B6D /* OutsideSignInTableViewController.m in Sources */,
 				02921D7B1BD14653001B6F5E /* PatientsAddViewController.m in Sources */,
-				1BD2E2981BD1219F004413F9 /* ForumViewController.m in Sources */,
 				02807F931BCE9DE10008D018 /* main.m in Sources */,
 				02CD6C521BD2E14500C38B6D /* MedicationsTableViewController.m in Sources */,
 				7020D11E1BD52DBD0059A226 /* Envio.m in Sources */,
@@ -732,6 +773,7 @@
 				02CD6C431BD2D85A00C38B6D /* Patient.m in Sources */,
 				7020D1261BD53A840059A226 /* Treatment.m in Sources */,
 				02921D811BD14E9A001B6F5E /* OutsideStartViewController.m in Sources */,
+				02F15C691BD6D8080078279D /* PatientSelectedTableViewController.m in Sources */,
 				02921D5F1BD11707001B6F5E /* FeedTableViewController.m in Sources */,
 				7020D1221BD53A4E0059A226 /* Register.m in Sources */,
 			);

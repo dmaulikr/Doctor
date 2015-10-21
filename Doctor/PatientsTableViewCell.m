@@ -11,18 +11,16 @@
 @implementation PatientsTableViewCell
 
 - (void)awakeFromNib {
-    self.patientPhotoImageView.layer.cornerRadius = self.patientPhotoImageView.frame.size.height /3;
+    self.patientPhotoImageView.layer.cornerRadius = self.patientPhotoImageView.frame.size.height/2;
     self.patientPhotoImageView.layer.masksToBounds = YES;
     self.patientPhotoImageView.layer.borderWidth = 0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    
-    UIView * selectedBackgroundView = [[UIView alloc] init];
-    [selectedBackgroundView setBackgroundColor:[UIColor orangeColor]]; // set color here
-    [self setSelectedBackgroundView:selectedBackgroundView];
+    [super setSelected:selected animated:animated];    
+//    UIView * selectedBackgroundView = [[UIView alloc] init];
+//    [selectedBackgroundView setBackgroundColor:[UIColor orangeColor]]; // set color here
+//    [self setSelectedBackgroundView:selectedBackgroundView];
 
 }
 

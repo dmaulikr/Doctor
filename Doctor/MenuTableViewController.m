@@ -17,12 +17,13 @@
 @implementation MenuTableViewController
 
 typedef NS_ENUM(NSUInteger, MenuItem) {
-    MenuItemFeed=0,
+    MenuItemNull=0,
+    MenuItemFeed,
     MenuItemPatients,
     MenuItemMedications,
     MenuItemForum,
     MenuItemConfigurations,
-    MenuItemLogOut=5 ,
+    MenuItemLogOut=6 ,
 };
 
 - (void)viewDidLoad {
@@ -37,6 +38,10 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
     NSString *sbiewControllerID;
     
     switch (indexPath.row) {
+            case MenuItemNull:
+            sbName = kFeedStoryboard;
+            sbiewControllerID = kFeedNavID;
+            break;
         case MenuItemFeed:
             sbName = kFeedStoryboard;
             sbiewControllerID = kFeedNavID;

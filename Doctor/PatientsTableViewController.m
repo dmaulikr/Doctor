@@ -30,13 +30,17 @@
     isSearching = false;
 }
 
+- (void) viewWillAppear:(BOOL)animated{
+    self.navigationItem.title = @"Pacientes";
+}
+
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return tableViewDataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString* PatientsCellID = @"patientCell";
+    NSString* PatientsCellID = @"PatientsTableViewCellID";
     
     PatientsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PatientsCellID];
     if (cell==nil) {
@@ -44,7 +48,7 @@
     }
     cell.rightUtilityButtons = [self rightButtons];
     cell.delegate = self;
-    cell.textLabel.text = tableViewDataArray[indexPath.row];
+    cell.patientNameLabel.text = tableViewDataArray[indexPath.row];
     return cell;
 }
 
@@ -112,7 +116,7 @@
 
 #pragma mark - Setups
 - (void) setupPatientsDataSource{
-    self.patientsArray = [[NSMutableArray alloc] initWithObjects: @"Maria", @"José", @"João", nil];
+    self.patientsArray = [[NSMutableArray alloc] initWithObjects: @"Maria Eduarda", @"José Silva", @"João Ricardo", nil];
     tableViewDataArray = [[NSMutableArray alloc] initWithArray:self.patientsArray];
 }
 

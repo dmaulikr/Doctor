@@ -18,7 +18,7 @@
     [super viewDidLoad];
 }
 
--(IBAction)fechar:(id)sender{
+-(IBAction)didTappedCloseButton:(UIButton *)sender{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

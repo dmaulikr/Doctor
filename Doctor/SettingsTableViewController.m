@@ -20,7 +20,6 @@
     self.tableView.tableFooterView = [UIView new];
 }
 
-
 -(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{
    	[self.menuContainerViewController toggleLeftSideMenuCompletion:^{}];
 }

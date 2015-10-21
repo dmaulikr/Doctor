@@ -49,7 +49,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Medicamentos" id="dWO-kg-h5e">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="qW8-i2-gHb">
+                        <barButtonItem key="leftBarButtonItem" image="icone-menu" id="qW8-i2-gHb">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="didTappedMenuBarButton:" destination="axL-Kc-ZpO" id="fab-Xx-CT4"/>
@@ -62,4 +62,7 @@
             <point key="canvasLocation" x="422.5" y="216.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icone-menu" width="20" height="15"/>
+    </resources>
 </document>
