@@ -8,6 +8,7 @@
         <scene sceneID="M6B-1X-EZi">
             <objects>
                 <navigationController storyboardIdentifier="OutsideNavigationControllerID" id="1C7-vS-ld2" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pfO-Y6-oAJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -19,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gEc-Ao-66K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="70" y="469"/>
+            <point key="canvasLocation" x="319.5" y="468.5"/>
         </scene>
         <!--Outside Start View Controller-->
         <scene sceneID="Ui8-6q-HOY">
@@ -132,7 +133,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
-                            <tableViewSection id="ahB-xo-g2e">
+                            <tableViewSection id="7CE-do-ZvO">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="ML0-Y7-EmN">
                                         <rect key="frame" x="0.0" y="64" width="375" height="60"/>
@@ -279,6 +280,32 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="83" id="hNt-Yk-Dnc">
+                                        <rect key="frame" x="0.0" y="424" width="375" height="83"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hNt-Yk-Dnc" id="UcS-Tl-dmS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="82.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Obs: Não é necessário colocar +55 81 9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWU-si-KRk">
+                                                    <rect key="frame" x="34" y="21" width="306" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="antes do número de contato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scw-hu-Iyb">
+                                                    <rect key="frame" x="79" y="50" width="216" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -325,14 +352,14 @@
                                 <rect key="frame" x="0.0" y="202" width="375" height="92"/>
                                 <animations/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPK-r1-hhZ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPK-r1-hhZ">
                                 <rect key="frame" x="74" y="211" width="229" height="30"/>
                                 <animations/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Confirmar senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Uo-3I-jvD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirmar senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Uo-3I-jvD">
                                 <rect key="frame" x="74" y="257" width="229" height="30"/>
                                 <animations/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -382,21 +409,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Foi enviado um SMS com um código de ativação gerado para o número abaixo:" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6g-nR-MTy">
-                                <rect key="frame" x="43" y="72" width="288" height="69"/>
+                                <rect key="frame" x="43" y="64" width="288" height="69"/>
                                 <animations/>
                                 <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+ 55 81 9 9939 6494" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbh-jO-Icn">
-                                <rect key="frame" x="80" y="162" width="215" height="21"/>
+                                <rect key="frame" x="80" y="154" width="215" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k88-J5-ANl">
-                                <rect key="frame" x="62" y="394" width="57" height="2"/>
+                                <rect key="frame" x="62" y="386" width="57" height="2"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -404,7 +431,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZp-ZQ-Mjp">
-                                <rect key="frame" x="127" y="394" width="57" height="2"/>
+                                <rect key="frame" x="127" y="386" width="57" height="2"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -412,7 +439,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxu-fo-fdu">
-                                <rect key="frame" x="192" y="394" width="57" height="2"/>
+                                <rect key="frame" x="192" y="386" width="57" height="2"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -420,7 +447,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5f-iw-EbQ">
-                                <rect key="frame" x="257" y="394" width="57" height="2"/>
+                                <rect key="frame" x="257" y="386" width="57" height="2"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -428,14 +455,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Para completar a verificação de número de telefone, por favor insira o código de ativação de 4 dígitos recebido." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKN-lG-ucx">
-                                <rect key="frame" x="29" y="212" width="317" height="77"/>
+                                <rect key="frame" x="29" y="204" width="317" height="77"/>
                                 <animations/>
                                 <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CB9-Xm-kRj">
-                                <rect key="frame" x="259" y="329" width="50" height="59"/>
+                                <rect key="frame" x="259" y="321" width="50" height="59"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="55"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -444,7 +471,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IKz-f7-Fsm">
-                                <rect key="frame" x="65" y="329" width="50" height="59"/>
+                                <rect key="frame" x="65" y="321" width="50" height="59"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="55"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -453,7 +480,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ah-AT-lNu">
-                                <rect key="frame" x="130" y="329" width="50" height="59"/>
+                                <rect key="frame" x="130" y="321" width="50" height="59"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="55"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -462,7 +489,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IOC-QZ-14u">
-                                <rect key="frame" x="195" y="329" width="50" height="59"/>
+                                <rect key="frame" x="195" y="321" width="50" height="59"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="55"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -470,6 +497,17 @@
                                     <outlet property="delegate" destination="lYV-Hb-cPp" id="uuR-37-dT7"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKq-O3-WrK">
+                                <rect key="frame" x="65" y="428" width="243" height="41"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.021267100890584978" green="0.5" blue="0.023397905196528179" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Confirmar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTappedConfirmButton:" destination="lYV-Hb-cPp" eventType="touchUpInside" id="sJE-BK-KYQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -481,6 +519,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cellPhoneToSendConfirmationLabel" destination="xbh-jO-Icn" id="o8v-jP-KMI"/>
+                        <outlet property="confirmButton" destination="WKq-O3-WrK" id="eL1-zl-gJv"/>
                         <outlet property="firstTokenCharacterTextField" destination="IKz-f7-Fsm" id="oBG-B9-wpZ"/>
                         <outlet property="fourthTokenCharacterTextField" destination="CB9-Xm-kRj" id="bIm-tW-kPv"/>
                         <outlet property="secondTokenCharacterTextField" destination="5Ah-AT-lNu" id="3TQ-QX-dK2"/>

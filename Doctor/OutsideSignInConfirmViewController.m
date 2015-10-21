@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField* secondTokenCharacterTextField;
 @property (weak, nonatomic) IBOutlet UITextField* thirdTokenCharacterTextField;
 @property (weak, nonatomic) IBOutlet UITextField* fourthTokenCharacterTextField;
+@property (weak, nonatomic) IBOutlet UIButton* confirmButton;
 
 @end
 
@@ -27,6 +28,7 @@
     
     NSString* cellPhoneSentWas = [[NSString alloc] initWithFormat:@"+ 55 81 %@", self.phoneAsAParameter];
     self.cellPhoneToSendConfirmationLabel.text = cellPhoneSentWas;
+    self.confirmButton.layer.cornerRadius = 3;
 }
 
 #pragma mark - Setups
@@ -73,12 +75,15 @@
 //    }
 //}
 
+- (IBAction)didTappedConfirmButton:(UIButton *)sender{
+    //    [VerifyClient checkPinCode:@"1234"];
+}
+
 -(void)textFieldDidChange:(UITextField *)theTextField
 {
     NSLog( @"text changed: %@", theTextField.text);
 //    self.quantityTextField = theTextField;
 //    self.actField = theTextField;
-//    [VerifyClient checkPinCode:@"1234"];
 }
 
 @end
