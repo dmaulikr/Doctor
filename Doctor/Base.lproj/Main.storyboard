@@ -40,12 +40,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jco-AN-TP4" id="1Sl-Mg-lMW">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-logo" translatesAutoresizingMaskIntoConstraints="NO" id="PiN-S6-jxK">
-                                                    <rect key="frame" x="177" y="26" width="92" height="35"/>
-                                                    <animations/>
-                                                </imageView>
-                                            </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
@@ -234,7 +228,4 @@
             <point key="canvasLocation" x="1400.5" y="598.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="home-logo" width="949" height="329"/>
-    </resources>
 </document>

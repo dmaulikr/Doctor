@@ -39,8 +39,10 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
     
     switch (indexPath.row) {
             case MenuItemNull:
-            sbName = kFeedStoryboard;
-            sbiewControllerID = kFeedNavID;
+            //sbName = kFeedStoryboard;
+            //sbiewControllerID = kFeedNavID;
+            [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+            return;
             break;
         case MenuItemFeed:
             sbName = kFeedStoryboard;

@@ -10,11 +10,18 @@
 #import "PatientsTableViewCell.h"
 #import "MFSideMenu.h"
 #import "Storyboards.h"
+#import "Envio.h"
+#import "Patient.h"
+#import "PatientSelectedTableViewController.h"
 
 @interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, UISearchDisplayDelegate>{
     NSMutableArray* tableViewDataArray;
+    UIActivityIndicatorView* spinner;
     BOOL isSearching;
+    Patient* patientClicked;
+    
 }
+
 @property (strong, nonatomic) NSMutableArray* patientsArray;
 @property (strong, nonatomic) NSMutableArray* filteredPatientsArray;
 
@@ -24,8 +31,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupSearch];
+    [self setupLoadingAnimation];
     [self setupPatientsDataSource];
+    [self setupSearch];
     self.tableView.tableFooterView = [UIView new];
     isSearching = false;
 }
@@ -48,14 +56,29 @@
     }
     cell.rightUtilityButtons = [self rightButtons];
     cell.delegate = self;
-    cell.patientNameLabel.text = tableViewDataArray[indexPath.row];
+    
+    
+    Patient* patient = [[Patient alloc] init];
+    patient = tableViewDataArray[indexPath.row];
+    
+    cell.patientNameLabel.text = patient.patientNameString;
+    cell.patientAgeLabel.text = patient.patientAgeString;
+    cell.patientGenderLabel.text = patient.patientGenderString;
+    
+  //  NSLog(tableViewDataArray[indexPath.row]);
+    //cell.patientGenderLabel.text = tableViewDataArray[];
+    //cell.patientAgeLabel.text = tableViewDataArray[];
+    //cell.patientCameSinceLabel.text = tableViewDataArray[];
+    //cell.patientPhotoImageView.image = tableViewDataArray[];
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (NSArray *)rightButtons {
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0] icon:[UIImage imageNamed:@"icone-excluirpaciente"]];
-    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0f] icon:[UIImage imageNamed:@"icone-favoritarpaciente"]];
+    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0] icon:[UIImage imageNamed:@"icone-favoritarpaciente"]];
+    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0f] icon:[UIImage imageNamed:@"icone-excluirpaciente"]];
     
     return rightUtilityButtons;
 }
@@ -80,6 +103,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    patientClicked = [[Patient alloc] init];
+    patientClicked = tableViewDataArray[indexPath.row];
     [self performSegueWithIdentifier:@"clickedPatientSegueId" sender:self];
 }
 
@@ -92,9 +117,11 @@
         isSearching = true;
         [self.filteredPatientsArray removeAllObjects];
         for (int i = 0; i < self.patientsArray.count; i++) {
-            NSString* toCheck = [self.patientsArray[i] lowercaseString];
+            Patient* patientSearching = [[Patient alloc] init];
+            patientSearching = self.patientsArray[i];
+            NSString* toCheck = [patientSearching.patientNameString lowercaseString];
             if ([toCheck containsString:[searchText lowercaseString]]) {
-                [self.filteredPatientsArray addObject:self.patientsArray[i]];
+                [self.filteredPatientsArray addObject:patientSearching];
             }
         }
         tableViewDataArray = self.filteredPatientsArray;
@@ -116,16 +143,49 @@
 
 #pragma mark - Setups
 - (void) setupPatientsDataSource{
-    self.patientsArray = [[NSMutableArray alloc] initWithObjects: @"Maria Eduarda", @"José Silva", @"João Ricardo", nil];
-    tableViewDataArray = [[NSMutableArray alloc] initWithArray:self.patientsArray];
+    self.patientsArray = [[NSMutableArray alloc] init];
+    tableViewDataArray = [[NSMutableArray alloc] init];
+    
+    Envio* envio = [[Envio alloc] init];
+    Patient* patient = [[Patient alloc] init];
+    patient.patientNameString = @"Rafaela Silva";
+    patient.patientAgeString = @"37";
+    patient.patientBirthDateString = @"12/12/2012";
+    patient.patientCPFString = @"068123045432";
+    patient.patientRGString = @"8883322";
+    patient.patientGenderString = @"Feminino";
+    patient.patientAdressString = @"Av. Boa Viagem, 123 apt 101";
+    [envio newPatient:patient];
+    
+    
+   //self.patientsArray = [envio fetchPatient:@"1215"];
+    
+//  completion block from fetch query
+//    self.patientsArray = [envio fetchPatient:@"1215" withCompletionBlock:^(){
+//        tableViewDataArray = self.patientsArray;
+//        [self.tableView reloadData];
+//        [spinner stopAnimating];
+//        }
+//    ];
+    [self.patientsArray addObject:patient];
+    tableViewDataArray = self.patientsArray;
+    
+   // tableViewDataArray = self.patientsArray;
 }
 
-- (void) setupSearch{ self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:[_patientsArray count]]; }
+- (void) setupLoadingAnimation{
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = self.view.center;
+    spinner.tag = 12;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
+}
+
+- (void) setupSearch{ self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:self.patientsArray.count]; }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { return 100; }
 
 #pragma mark - IBActions
-
 -(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{
    	[self.menuContainerViewController toggleLeftSideMenuCompletion:^{}];
 }
@@ -135,6 +195,13 @@
     [self.menuContainerViewController.centerViewController presentViewController:vc animated:YES completion:^{
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
     }];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"clickedPatientSegueId"]) {
+        PatientSelectedTableViewController* patientSelectedTableViewController = segue.destinationViewController;
+        [patientSelectedTableViewController setPatient:patientClicked];
+    }
 }
 
 @end
