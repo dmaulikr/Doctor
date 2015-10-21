@@ -13,14 +13,14 @@
 
 @end
 
-//@import VerifyIosSdk;
+@import VerifyIosSdk;
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
- //   [NexmoClient startWithApplicationId:@"53288670-f90b-4ddb-b046-60a76551920d" sharedSecretKey:@"6db087de035823a"];
+    [NexmoClient startWithApplicationId:@"53288670-f90b-4ddb-b046-60a76551920d" sharedSecretKey:@"6db087de035823a"];
     
     // [Optional] Power your app with Local Datastore. For more info, go to
     // https://parse.com/docs/ios_guide#localdatastore/iOS

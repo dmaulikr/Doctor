@@ -10,6 +10,6 @@
 
 @interface OutsideSignInConfirmViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel* cellPhoneToSendConfirmationLabel;
+@property (nonatomic) NSString* phoneAsAParameter;
 
 @end

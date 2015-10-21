@@ -24,11 +24,15 @@
     [super viewDidLoad];
     self.tableView.tableFooterView = [UIView new];
     self.navigationController.navigationBar.topItem.title = @"";
-    
+    [self setupDataFromPatient];
+}
+
+
+- (void) setupDataFromPatient{
     self.patientSelectedNameLabel.text = self.patient.patientNameString;
     self.patientSelectedAgeLabel.text = self.patient.patientAgeString;
     self.patientSelectedGenderLabel.text = self.patient.patientGenderString;
-    self.patientSelectedAddressLabel.text = self.patient.patientAdressString;
+    self.patientSelectedAddressLabel.text = self.patient.patientAdressString;    
 }
 
 @end
