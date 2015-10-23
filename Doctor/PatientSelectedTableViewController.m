@@ -31,9 +31,16 @@
     self.patientGrayNameInitialsView.layer.cornerRadius = self.patientGrayNameInitialsView.frame.size.height/2;
     self.patientGrayNameInitialsView.layer.masksToBounds = YES;
     self.patientGrayNameInitialsView.layer.borderWidth = 0;
+//    
+//    UILabel* initialsLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.patientGrayNameInitialsView.frame.origin.x, self.patientGrayNameInitialsView.frame.origin.y, self.patientGrayNameInitialsView.frame.size.width/2, self.patientGrayNameInitialsView.frame.size.height/2)];
+//    initialsLabel.text = @"BM";
+    
+ //   [self.patientGrayNameInitialsView addSubview:initialsLabel];
+    
+    
 }
 
-
+#pragma mark - Setup
 - (void) setupDataFromPatient{
     self.patientSelectedNameLabel.text = self.patient.patientNameString;
     self.patientSelectedAgeLabel.text = self.patient.patientAgeString;
@@ -41,7 +48,8 @@
     self.patientSelectedAddressLabel.text = self.patient.patientAdressString;    
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 1:
             [self performSegueWithIdentifier:@"clickedInDataSegueId" sender:self];
@@ -64,6 +72,7 @@
 
 }
 
+#pragma mark - Storyboard
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"clickedInDataSegueId"]) {
         
