@@ -149,23 +149,36 @@
     
     Envio* envio = [[Envio alloc] init];
     Patient* patient = [[Patient alloc] init];
-    patient.patientNameString = @"Rafaela Silva";
+    patient.patientNameString = @"Bruno Muniz";
     patient.patientAgeString = @"37";
     patient.patientBirthDateString = @"12/12/2012";
-    patient.patientCPFString = @"068123045432";
+    patient.patientCPFString = @"123123";
     patient.patientRGString = @"8883322";
-    patient.patientGenderString = @"Feminino";
+    patient.patientGenderString = @"Masculino";
     patient.patientAdressString = @"Av. Boa Viagem, 123 apt 101";
-    [envio newPatient:patient];
+  //  [envio newPatient:patient];
     
     
-   //self.patientsArray = [envio fetchPatient:@"1215"];
+    [envio fetchPatient:@"123123" completeHandler:^(Patient * patientRetornado)  {
+        
+        if(patientRetornado != nil){
+            [self.patientsArray addObject:patientRetornado];
+            
+            NSLog(@"%@", patientRetornado.patientNameString);
+            tableViewDataArray = self.patientsArray;
+        }
+        [self.tableView reloadData];
+        
+        [spinner stopAnimating];
+        
+    }];
+    
+    
+//   self.patientsArray = [envio fetchPatient:@"1215"];
     
 //  completion block from fetch query
 //    self.patientsArray = [envio fetchPatient:@"1215" withCompletionBlock:^(){
-//        tableViewDataArray = self.patientsArray;
-//        [self.tableView reloadData];
-//        [spinner stopAnimating];
+
 //        }
 //    ];
     [self.patientsArray addObject:patient];
@@ -184,7 +197,7 @@
 
 - (void) setupSearch{ self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:self.patientsArray.count]; }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { return 100; }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { return 110; }
 
 #pragma mark - IBActions
 -(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{

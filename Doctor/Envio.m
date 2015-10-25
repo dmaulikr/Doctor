@@ -181,7 +181,7 @@
 }
 
 #pragma mark fetchPatient
-- (Patient*)fetchPatient: (NSString*)CPF
+- (Patient*)fetchPatient: (NSString*)CPF completeHandler:(void (^)(Patient*)) block
 {
     Patient* patient;
     
@@ -200,6 +200,9 @@
                 patient.patientRGString = [object objectForKey:@"RG"];
                 patient.patientGenderString = [object objectForKey:@"gender"];
             }
+            
+            block(patient);
+            
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
