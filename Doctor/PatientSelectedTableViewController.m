@@ -12,10 +12,8 @@
 @interface PatientSelectedTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel* patientSelectedNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel* patientSelectedAgeLabel;
-@property (weak, nonatomic) IBOutlet UILabel* patientSelectedGenderLabel;
-@property (weak, nonatomic) IBOutlet UILabel* patientSelectedAddressLabel;
-
+@property (weak, nonatomic) IBOutlet UILabel* patientCameSinceLabel;
+@property (weak, nonatomic) IBOutlet UILabel* patientInitialsLabel;
 @property (weak, nonatomic) IBOutlet UIView* patientGrayNameInitialsView;
 
 @end
@@ -31,21 +29,13 @@
     self.patientGrayNameInitialsView.layer.cornerRadius = self.patientGrayNameInitialsView.frame.size.height/2;
     self.patientGrayNameInitialsView.layer.masksToBounds = YES;
     self.patientGrayNameInitialsView.layer.borderWidth = 0;
-//    
-//    UILabel* initialsLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.patientGrayNameInitialsView.frame.origin.x, self.patientGrayNameInitialsView.frame.origin.y, self.patientGrayNameInitialsView.frame.size.width/2, self.patientGrayNameInitialsView.frame.size.height/2)];
-//    initialsLabel.text = @"BM";
-    
- //   [self.patientGrayNameInitialsView addSubview:initialsLabel];
-    
     
 }
 
 #pragma mark - Setup
 - (void) setupDataFromPatient{
     self.patientSelectedNameLabel.text = self.patient.patientNameString;
-    self.patientSelectedAgeLabel.text = self.patient.patientAgeString;
-    self.patientSelectedGenderLabel.text = self.patient.patientGenderString;
-    self.patientSelectedAddressLabel.text = self.patient.patientAdressString;    
+    self.patientInitialsLabel.text = [self.patient.patientNameString substringToIndex:1];
 }
 
 #pragma mark - UITableViewDelegate

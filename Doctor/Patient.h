@@ -10,12 +10,12 @@
 
 @interface Patient : NSObject
 
-@property (weak, nonatomic) NSString* patientNameString;
-@property (weak, nonatomic) NSString* patientBirthDateString;
-@property (weak, nonatomic) NSString* patientRGString;
-@property (weak, nonatomic) NSString* patientCPFString;
-@property (weak, nonatomic) NSString* patientAgeString;
-@property (weak, nonatomic) NSString* patientGenderString;
-@property (weak, nonatomic) NSString* patientAdressString;
+@property (strong, nonatomic) NSString* patientNameString;
+@property (strong, nonatomic) NSString* patientBirthDateString;
+@property (strong, nonatomic) NSString* patientRGString;
+@property (strong, nonatomic) NSString* patientCPFString;
+@property (strong, nonatomic) NSString* patientAgeString;
+@property (strong, nonatomic) NSString* patientGenderString;
+@property (strong, nonatomic) NSString* patientAdressString;
 
 @end

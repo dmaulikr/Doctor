@@ -319,7 +319,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Detalhes" id="cIQ-M7-iym"/>
                     <connections>
+                        <outlet property="patientCameSinceLabel" destination="9A9-ln-1d1" id="3tL-uN-ly6"/>
                         <outlet property="patientGrayNameInitialsView" destination="Ngc-JB-aqC" id="JjK-g2-EH3"/>
+                        <outlet property="patientInitialsLabel" destination="u3z-vS-xWF" id="xx6-S6-Lab"/>
+                        <outlet property="patientSelectedNameLabel" destination="F6L-FT-L8F" id="WdC-x5-ilR"/>
                         <segue destination="c12-ju-Uf7" kind="show" identifier="clickedInDataSegueId" id="KF8-n4-GyG"/>
                         <segue destination="fKV-VM-bsB" kind="show" identifier="clickedInAppointmentsSegueId" id="cdF-bL-v7J"/>
                         <segue destination="uqT-NM-1qi" kind="show" identifier="clickedInExamsSegueId" id="tCf-Q7-n5v"/>

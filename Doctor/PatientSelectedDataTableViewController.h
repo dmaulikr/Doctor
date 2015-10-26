@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Patient.h"
 
 @interface PatientSelectedDataTableViewController : UITableViewController
+
+@property (strong, nonatomic) Patient* patient;
 
 @end
