@@ -43,6 +43,7 @@
 		02E7A9B01BDC521F008059BD /* PatientSelectedTreatmentSelectedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E7A9AF1BDC521F008059BD /* PatientSelectedTreatmentSelectedTableViewController.m */; };
 		02E7A9B41BDC5254008059BD /* PatientSelectedAppointmentSelectedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E7A9B31BDC5254008059BD /* PatientSelectedAppointmentSelectedTableViewController.m */; };
 		02E7A9B81BDC5809008059BD /* MedicationSelectedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E7A9B71BDC5809008059BD /* MedicationSelectedTableViewController.m */; };
+		02ECD6311BDEC34900A82D0E /* Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ECD6301BDEC34900A82D0E /* Authentication.m */; };
 		02F15C651BD6D5490078279D /* ForumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F15C641BD6D5490078279D /* ForumTableViewController.m */; };
 		02F15C691BD6D8080078279D /* PatientSelectedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F15C681BD6D8080078279D /* PatientSelectedTableViewController.m */; };
 		1BD2E29A1BD1240D004413F9 /* Forum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2E2991BD1240D004413F9 /* Forum.storyboard */; };
@@ -159,6 +160,8 @@
 		02E7A9B31BDC5254008059BD /* PatientSelectedAppointmentSelectedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientSelectedAppointmentSelectedTableViewController.m; sourceTree = "<group>"; };
 		02E7A9B61BDC5809008059BD /* MedicationSelectedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicationSelectedTableViewController.h; sourceTree = "<group>"; };
 		02E7A9B71BDC5809008059BD /* MedicationSelectedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationSelectedTableViewController.m; sourceTree = "<group>"; };
+		02ECD62F1BDEC34900A82D0E /* Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Authentication.h; sourceTree = "<group>"; };
+		02ECD6301BDEC34900A82D0E /* Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Authentication.m; sourceTree = "<group>"; };
 		02F15C631BD6D5490078279D /* ForumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumTableViewController.h; sourceTree = "<group>"; };
 		02F15C641BD6D5490078279D /* ForumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTableViewController.m; sourceTree = "<group>"; };
 		02F15C671BD6D8080078279D /* PatientSelectedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientSelectedTableViewController.h; sourceTree = "<group>"; };
@@ -217,6 +220,7 @@
 		022928D51BCFC63000B7C1E0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				02ECD62E1BDEC30B00A82D0E /* ModelOutside */,
 				7020D1331BD53B670059A226 /* ModelDiagnosis */,
 				7020D12F1BD53B160059A226 /* ModelCaseHistory */,
 				7020D12B1BD53AA70059A226 /* ModelAppointment */,
@@ -587,6 +591,15 @@
 			name = MedicationSelected;
 			sourceTree = "<group>";
 		};
+		02ECD62E1BDEC30B00A82D0E /* ModelOutside */ = {
+			isa = PBXGroup;
+			children = (
+				02ECD62F1BDEC34900A82D0E /* Authentication.h */,
+				02ECD6301BDEC34900A82D0E /* Authentication.m */,
+			);
+			name = ModelOutside;
+			sourceTree = "<group>";
+		};
 		02F15C661BD6D7E60078279D /* PatientSelected */ = {
 			isa = PBXGroup;
 			children = (
@@ -883,6 +896,7 @@
 				02807F931BCE9DE10008D018 /* main.m in Sources */,
 				02E7A9AC1BDC51F5008059BD /* PatientSelectedExamSelectedTableViewController.m in Sources */,
 				02CD6C521BD2E14500C38B6D /* MedicationsTableViewController.m in Sources */,
+				02ECD6311BDEC34900A82D0E /* Authentication.m in Sources */,
 				02E7A9A81BDC50FB008059BD /* PatientSelectedDataTableViewController.m in Sources */,
 				7020D11E1BD52DBD0059A226 /* Envio.m in Sources */,
 				022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */,

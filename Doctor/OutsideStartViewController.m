@@ -9,8 +9,12 @@
 #import "OutsideStartViewController.h"
 #import "MFSideMenu.h"
 #import "Storyboards.h"
+#import "Authentication.h"
+#import "Parse.h"
 
-@interface OutsideStartViewController () <UITextFieldDelegate>
+@interface OutsideStartViewController () <UITextFieldDelegate>{
+    Authentication* authentication;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField* loginTextField;
 @property (weak, nonatomic) IBOutlet UITextField* passwordTextField;
@@ -25,6 +29,20 @@
     self.loginButton.layer.cornerRadius = 3;
     self.menuContainerViewController.panMode = NO;
     [self setupTextFieldDelegates];
+    authentication = [[Authentication alloc] init];
+    
+  //IN CASE OF NEED:
+//    PFObject *gameScore = [PFObject objectWithClassName:@"User"];
+//    gameScore[@"username"] = @"bm";
+//    gameScore[@"password"] = @"bm";
+//    [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            // The object has been saved.
+//        } else {
+//            // There was a problem, check error.description
+//        }
+//    }];
+//    
     
 }
 
@@ -34,8 +52,15 @@
 
 #pragma mark - IBActions
 - (IBAction)didTappedLoginButton:(UIButton *)sender{
-    self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kFeedStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kFeedNavID];
-    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+    [authentication verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
+        if (finished) {
+            self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kFeedStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kFeedNavID];
+            [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+        }else{
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Houve algo errado." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }];
 }
 
 - (IBAction)didTappedSignInButton:(UIButton *)sender{
