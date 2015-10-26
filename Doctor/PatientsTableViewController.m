@@ -143,49 +143,90 @@
 }
 
 #pragma mark - Setups
-- (void) setupPatientsDataSource{
+
+- (void) setupPatientsDataSource {
+    
     self.patientsArray = [[NSMutableArray alloc] init];
     tableViewDataArray = [[NSMutableArray alloc] init];
-    
-    Envio* envio = [[Envio alloc] init];
-    Patient* patient = [[Patient alloc] init];
-    patient.patientNameString = @"Bruno Muniz";
-    patient.patientAgeString = @"37";
-    patient.patientBirthDateString = @"12/12/2012";
-    patient.patientCPFString = @"123123";
-    patient.patientRGString = @"8883322";
-    patient.patientGenderString = @"Masculino";
-    patient.patientAdressString = @"Av. Boa Viagem, 123 apt 101";
-  //  [envio newPatient:patient];
-    
-    
-    [envio fetchPatient:@"123123" completeHandler:^(Patient * patientRetornado)  {
-        
-        if(patientRetornado != nil){
-            [self.patientsArray addObject:patientRetornado];
-            
-            NSLog(@"%@", patientRetornado.patientNameString);
-            tableViewDataArray = self.patientsArray;
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Patient"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d patients.", objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                
+                Patient* patient = [[Patient alloc]init];
+                patient.patientNameString = [object objectForKey:@"name"];
+                patient.patientCPFString = [object objectForKey:@"CPF"];
+                patient.patientAgeString = [object objectForKey:@"age"];
+                patient.patientRGString = [object objectForKey:@"RG"];
+                
+                [self.patientsArray addObject:patient];
+                tableViewDataArray = self.patientsArray;
+                [self.tableView reloadData];
+                [spinner stopAnimating];
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
-        [self.tableView reloadData];
-        
-        [spinner stopAnimating];
-        
     }];
     
-    
-//   self.patientsArray = [envio fetchPatient:@"1215"];
-    
-//  completion block from fetch query
-//    self.patientsArray = [envio fetchPatient:@"1215" withCompletionBlock:^(){
 
-//        }
-//    ];
-    [self.patientsArray addObject:patient];
-    tableViewDataArray = self.patientsArray;
-    
-   // tableViewDataArray = self.patientsArray;
 }
+
+
+
+
+//- (void) setupPatientsDataSource{
+//    self.patientsArray = [[NSMutableArray alloc] init];
+//    tableViewDataArray = [[NSMutableArray alloc] init];
+//    
+//      Envio* envio = [[Envio alloc] init];
+//      Patient* patient = [[Patient alloc] init];
+////    patient.patientNameString = @"Bruno Muniz";
+////    patient.patientAgeString = @"37";
+////    patient.patientBirthDateString = @"12/12/2012";
+////    patient.patientCPFString = @"123123";
+////    patient.patientRGString = @"8883322";
+////    patient.patientGenderString = @"Masculino";
+////    patient.patientAdressString = @"Av. Boa Viagem, 123 apt 101";
+////    [envio newPatient:patient];
+//  
+//    
+//    
+//    
+////    
+////    [envio fetchPatient:@"123123" completeHandler:^(Patient * patientRetornado)  {
+////        
+////        if(patientRetornado != nil){
+////           [self.patientsArray addObject:patientRetornado];
+////            
+////            NSLog(@"%@", patientRetornado.patientNameString);
+////            tableViewDataArray = self.patientsArray;
+////        }
+////        [self.tableView reloadData];
+////        
+////        [spinner stopAnimating];
+////        
+////    }];
+//    
+//    
+////   self.patientsArray = [envio fetchPatient:@"1215"];
+//    
+////  completion block from fetch query
+////    self.patientsArray = [envio fetchPatient:@"1215" withCompletionBlock:^(){
+//
+////        }
+////    ];
+//    [self.patientsArray addObject:patient];
+//    tableViewDataArray = self.patientsArray;
+//    
+//   // tableViewDataArray = self.patientsArray;
+//}
 
 - (void) setupLoadingAnimation{
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];

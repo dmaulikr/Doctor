@@ -6,8 +6,6 @@
 //  Copyright © 2015 Doctr. All rights reserved.
 //
 
-@import VerifyIosSdk;
-
 #import "OutsideSignInConfirmViewController.h"
 
 @interface OutsideSignInConfirmViewController () <UITextFieldDelegate>

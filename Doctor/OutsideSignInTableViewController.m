@@ -6,8 +6,6 @@
 //  Copyright © 2015 Doctr. All rights reserved.
 //
 
-@import VerifyIosSdk;
-
 #import "OutsideSignInTableViewController.h"
 #import "OutsideSignInConfirmViewController.h"
 
@@ -73,28 +71,28 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
     [alert show];
 }
 
-- (void) sendVerifyingMessage{
-    //SEM O NOVE NA FRENTE!
-    NSString* phoneNumberToCheck = [[NSString alloc] initWithFormat:@"81%@", self.doctorTelephoneTextField.text];
-    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:phoneNumberToCheck verifyInProgressBlock:^{
-            // called when the verification process begins
-        }
-                               userVerifiedBlock:^{
-                                   // called when the user has been successfully verified
-                               }
-                                      errorBlock:^(VerifyError error) {
-                                          // called when some error occurrs during verification, e.g. wrong pin entered.
-                                          // see the VerifyError class for details on what to expect
-                                      }];
-}
+//- (void) sendVerifyingMessage{
+//    //SEM O NOVE NA FRENTE!
+//    NSString* phoneNumberToCheck = [[NSString alloc] initWithFormat:@"81%@", self.doctorTelephoneTextField.text];
+//    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:phoneNumberToCheck verifyInProgressBlock:^{
+//            // called when the verification process begins
+//        }
+//                               userVerifiedBlock:^{
+//                                   // called when the user has been successfully verified
+//                               }
+//                                      errorBlock:^(VerifyError error) {
+//                                          // called when some error occurrs during verification, e.g. wrong pin entered.
+//                                          // see the VerifyError class for details on what to expect
+//                                      }];
+//}
 
 #pragma mark - UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 1) {
-        [self sendVerifyingMessage];
-        [self performSegueWithIdentifier:@"clickedInNextSignInSegueId" sender:self];
-    }
-}
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+//    if (buttonIndex == 1) {
+//        [self sendVerifyingMessage];
+//        [self performSegueWithIdentifier:@"clickedInNextSignInSegueId" sender:self];
+//    }
+//}
 
 #pragma mark - Storyboard Segues
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

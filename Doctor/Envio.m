@@ -181,35 +181,37 @@
 }
 
 #pragma mark fetchPatient
-- (Patient*)fetchPatient: (NSString*)CPF completeHandler:(void (^)(Patient*)) block
+- (void)fetchPatientParse: (NSString*)CPF completeHandler:(void (^)(Patient*)) block
 {
     Patient* patient;
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Patient"];
-    [query whereKey:@"CPF" equalTo:CPF];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d patients.", objects.count);
-            // Do something with the found objects
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
-                patient.patientNameString = [object objectForKey:@"name"];
-                patient.patientCPFString = [object objectForKey:@"CPF"];
-                patient.patientAgeString = [object objectForKey:@"age"];
-                patient.patientRGString = [object objectForKey:@"RG"];
-                patient.patientGenderString = [object objectForKey:@"gender"];
+      
+        PFQuery *query = [PFQuery queryWithClassName:@"Patient"];
+        [query whereKey:@"CPF" equalTo:CPF];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                // The find succeeded.
+                NSLog(@"Successfully retrieved %d patients.", objects.count);
+                // Do something with the found objects
+                for (PFObject *object in objects) {
+                    NSLog(@"%@", object.objectId);
+                    patient.patientNameString = [object objectForKey:@"name"];
+                    patient.patientCPFString = [object objectForKey:@"CPF"];
+                    patient.patientAgeString = [object objectForKey:@"age"];
+                    patient.patientRGString = [object objectForKey:@"RG"];
+                    patient.patientGenderString = [object objectForKey:@"gender"];
+                }
+                
+                // block(patient);
+                
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
-            
-            block(patient);
-            
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+        }];
+
     
-    return patient;
+    //return patient;
 }
 
 - (NSMutableArray*)fetchAllPatients
