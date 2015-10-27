@@ -20,6 +20,7 @@
     user.email = doctor.doctorEmailString;
     user[@"CRM"] = doctor.doctorCRMString;
     user[@"celular"] = doctor.doctorCelularString;
+    user[@"patients"] = doctor.patientsArray;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         //Show error message somewhere and let the user try again
@@ -253,6 +254,46 @@
         }
     }];
 }
+
+#pragma mark fetchDoctor
+
+- (void)fetchDoctor: (NSString*)CRM
+      withCompletion:(void (^)(Doctor* doctor))completion{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Doctor"];
+    [query whereKey:@"CRM" equalTo:CRM];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d patients.", objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                
+                Doctor* doctor = [[Doctor alloc]init];
+                doctor.doctorCelularString = [object objectForKey:@"celular"];
+                doctor.doctorCRMString = [object objectForKey:@"CRM"];
+                doctor.doctorEmailString = [object objectForKey:@"email"];
+                doctor.doctorNameString = [object objectForKey:@"name"];
+                doctor.doctorPasswordString = [object objectForKey:@"password"];
+                doctor.doctorUsernameString = [object objectForKey:@"username"];
+
+                if (doctor) {
+                    completion(doctor);
+                }else{
+                    completion(nil);
+                    NSLog(@"404 - Envio.m - fetchDoctor");
+                }
+            }
+            
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
 
 
 #pragma mark fetchAppointment
@@ -520,22 +561,41 @@
 }
 
 - (void) deletePatient: (Patient*)patient
-          withCompletion: (void (^)(BOOL succeded))completion{
-    PFObject* object = [PFObject objectWithoutDataWithClassName:@"Patient" objectId:patient.patientObjectId];
+            fromDoctor: (Doctor*)doctor{
+
     
-    [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError* error){
-        if (succeeded) {
-            NSLog(@"Patient succesfully deleted");
-            completion(succeeded);
-        }
-        else
-        {
-            NSLog(@"Error: %@", error.description);
-            completion(succeeded);
+    //Fetch doctor
+    Envio* envio = [[Envio alloc]init];
+    NSMutableArray* fetchedPatientsArray = [[NSMutableArray alloc]init];
+    
+    [envio fetchDoctor:doctor.doctorCRMString withCompletion:^(Doctor* doctor){
+        if (doctor) {
+            
+            [fetchedPatientsArray arrayByAddingObjectsFromArray:doctor.patientsArray];
+            
+        }else{
+            
+            NSLog(@"deletePatient:fromDoctor: failed retrieving the doctor - Envio.m");
+            
         }
     }];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Doctor"];
+    [query whereKey:@"CRM" equalTo:doctor.doctorCRMString];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * doctor, NSError *error) {
+        if (!error) {
+            // Found doctor
+            [doctor setObject:fetchedPatientsArray forKey:@"patientsArray"];
+            
+            // Save
+            [doctor saveInBackground];
+        } else {
+            // Did not find any doctors
+            NSLog(@"Error: %@", error);
+        }
+    }];
+    
 }
-
 
 
 

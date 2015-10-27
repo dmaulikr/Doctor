@@ -91,6 +91,7 @@
             
             //delete patient id from the doctor's patient's array
             Envio* envio = [[Envio alloc]init];
+            
             break;
         }
         default:

@@ -70,6 +70,9 @@
 
 - (void)fetchAllDiagnosis:(void (^)(Diagnosis* diagnosis))completion;
 
+- (void)fetchDoctor: (NSString*)CRM
+     withCompletion:(void (^)(Doctor* doctor))completion;
+
 
 #pragma mark delete methods
 
@@ -77,6 +80,5 @@
           withCompletion: (void (^)(BOOL succeded))completion;
 
 - (void) deletePatient: (Patient*)patient
-        withCompletion: (void (^)(BOOL succeded))completion;
-
+            fromDoctor: (Doctor*)doctor;
 @end
