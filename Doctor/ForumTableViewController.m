@@ -8,8 +8,11 @@
 
 #import "ForumTableViewController.h"
 #import "MFSideMenu.h"
+#import "ForumTableViewCell.h"
 
-@interface ForumTableViewController ()
+@interface ForumTableViewController (){
+    NSMutableArray* tableViewDataArray;
+}
 
 @end
 
@@ -17,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    tableViewDataArray = [[NSMutableArray alloc] init];
+    [self setupDataSource];
 }
 
 #pragma mark - IBActions
@@ -38,6 +43,38 @@
     }
     else if ([segue.identifier isEqualToString:@"clickedToCreateTopicSegueId"]){
     }
+}
+
+#pragma mark - Setups
+- (void) setupDataSource{
+    //query fetch all forum topics from parse
+    NSMutableArray* arrayOriundoDoParse = [[NSMutableArray alloc] init];
+    tableViewDataArray = arrayOriundoDoParse;
+    [self.tableView reloadData];
+}
+
+#pragma mark - UITableViewDelegates
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString* ForumCellID = @"ForumTableViewCellID";
+    
+    ForumTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ForumCellID];
+    if (cell==nil) {
+        cell = [[ForumTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ForumCellID];
+    }
+//    cell.rightUtilityButtons = [self rightButtons];
+//    cell.delegate = self;
+//    
+//    Patient* patient = [[Patient alloc] init];
+//    patient = tableViewDataArray[indexPath.row];
+//    
+//    cell.patientNameLabel.text = patient.patientNameString;
+//    cell.patientAgeLabel.text = patient.patientAgeString;
+//    cell.patientGenderLabel.text = patient.patientGenderString;
+//    cell.patientInitialsLabel.text = [patient.patientNameString substringToIndex:1];
+//    //cell.patientCameSinceLabel.text = tableViewDataArray[];
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
 
 
