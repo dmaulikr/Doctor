@@ -8,13 +8,13 @@
 
 #import "OutsideSignInConfirmViewController.h"
 
-@interface OutsideSignInConfirmViewController () <UITextFieldDelegate>
+@interface OutsideSignInConfirmViewController () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel* cellPhoneToSendConfirmationLabel;
-@property (weak, nonatomic) IBOutlet UITextField* firstTokenCharacterTextField;
-@property (weak, nonatomic) IBOutlet UITextField* secondTokenCharacterTextField;
-@property (weak, nonatomic) IBOutlet UITextField* thirdTokenCharacterTextField;
-@property (weak, nonatomic) IBOutlet UITextField* fourthTokenCharacterTextField;
+@property (weak, nonatomic) IBOutlet UITextView* firstTokenCharacterTextView;
+@property (weak, nonatomic) IBOutlet UITextView* secondTokenCharacterTextView;
+@property (weak, nonatomic) IBOutlet UITextView* thirdTokenCharacterTextView;
+@property (weak, nonatomic) IBOutlet UITextView* fourthTokenCharacterTextView;
 @property (weak, nonatomic) IBOutlet UIButton* confirmButton;
 
 @end
@@ -23,65 +23,46 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self textViewSetups];
     NSString* cellPhoneSentWas = [[NSString alloc] initWithFormat:@"+ 55 81 %@", self.phoneAsAParameter];
     self.cellPhoneToSendConfirmationLabel.text = cellPhoneSentWas;
     self.confirmButton.layer.cornerRadius = 3;
 }
 
 #pragma mark - Setups
-- (void) textFieldDidChangeSetup{
-    
-    [self.firstTokenCharacterTextField addTarget:self action:@selector(textFieldDidChange:)forControlEvents:UIControlEventEditingChanged];
-    
-    [self.secondTokenCharacterTextField addTarget:self action:@selector(textFieldDidChange:)forControlEvents:UIControlEventEditingChanged];
-
-    [self.thirdTokenCharacterTextField addTarget:self action:@selector(textFieldDidChange:)forControlEvents:UIControlEventEditingChanged];
-    
-    [self.fourthTokenCharacterTextField addTarget:self action:@selector(textFieldDidChange:)forControlEvents:UIControlEventEditingChanged];
+- (void) textViewSetups{
+    [self.firstTokenCharacterTextView setDelegate:self];
+    self.firstTokenCharacterTextView.tag = 1;
+    [self.secondTokenCharacterTextView setDelegate:self];
+    self.secondTokenCharacterTextView.tag = 2;
+    [self.thirdTokenCharacterTextView setDelegate:self];
+    self.thirdTokenCharacterTextView.tag = 3;
+    [self.fourthTokenCharacterTextView setDelegate:self];
+    self.fourthTokenCharacterTextView.tag = 4;
 }
-
-#pragma mark - UITextFieldDelegates
-//- (void)textFieldDidBeginEditing:(UITextField *)textField{
-//    switch (textField.tag) {
-//        case 1:
-//            break;
-//        case 2:
-//            break;
-//        case 3:
-//            break;
-//        case 4:
-//            break;
-//        default:
-//            break;
-//    }
-//}
-//
-//- (void)textFieldDidEndEditing:(UITextField *)textField{
-//    switch (textField.tag) {
-//        case 1:
-//            NSLog(@"TESTE");
-//            break;
-//        case 2:
-//            break;
-//        case 3:
-//            break;
-//        case 4:
-//            break;
-//        default:
-//            break;
-//    }
-//}
 
 - (IBAction)didTappedConfirmButton:(UIButton *)sender{
     //    [VerifyClient checkPinCode:@"1234"];
 }
 
--(void)textFieldDidChange:(UITextField *)theTextField
-{
-    NSLog( @"text changed: %@", theTextField.text);
-//    self.quantityTextField = theTextField;
-//    self.actField = theTextField;
+#pragma mark - UITextViewDelegates
+-(void)textViewDidChange:(UITextView *)textView{
+    switch (textView.tag) {
+        case 1:
+            [self.secondTokenCharacterTextView becomeFirstResponder];
+            break;
+        case 2:
+            [self.thirdTokenCharacterTextView becomeFirstResponder];
+            break;
+        case 3:
+            [self.fourthTokenCharacterTextView becomeFirstResponder];
+            break;
+        case 4:
+            //SHOW ALERT VIEW CONFIRMATION.
+            break;
+        default:
+            break;
+    }
 }
 
 @end

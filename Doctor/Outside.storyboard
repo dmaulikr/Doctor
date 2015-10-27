@@ -291,14 +291,14 @@
                                                     <rect key="frame" x="34" y="21" width="306" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="antes do número de contato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scw-hu-Iyb">
                                                     <rect key="frame" x="79" y="50" width="216" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -427,7 +427,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZp-ZQ-Mjp">
@@ -435,7 +435,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxu-fo-fdu">
@@ -443,7 +443,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5f-iw-EbQ">
@@ -451,7 +451,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Para completar a verificação de número de telefone, por favor insira o código de ativação de 4 dígitos recebido." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKN-lG-ucx">
@@ -461,42 +461,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CB9-Xm-kRj">
-                                <rect key="frame" x="259" y="321" width="50" height="59"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="lYV-Hb-cPp" id="QzA-60-LYR"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IKz-f7-Fsm">
-                                <rect key="frame" x="65" y="321" width="50" height="59"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="lYV-Hb-cPp" id="sX4-pW-g71"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ah-AT-lNu">
-                                <rect key="frame" x="130" y="321" width="50" height="59"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="lYV-Hb-cPp" id="zGQ-UT-Jjr"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IOC-QZ-14u">
-                                <rect key="frame" x="195" y="321" width="50" height="59"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="lYV-Hb-cPp" id="uuR-37-dT7"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKq-O3-WrK">
                                 <rect key="frame" x="65" y="428" width="243" height="41"/>
                                 <animations/>
@@ -508,6 +472,34 @@
                                     <action selector="didTappedConfirmButton:" destination="lYV-Hb-cPp" eventType="touchUpInside" id="sJE-BK-KYQ"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1jr-ox-vYN">
+                                <rect key="frame" x="127" y="306" width="57" height="77"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="51"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2fG-6d-1m9">
+                                <rect key="frame" x="192" y="306" width="57" height="77"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="51"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Rxc-Wt-9hs">
+                                <rect key="frame" x="257" y="306" width="57" height="77"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="51"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lR1-Y1-m5V">
+                                <rect key="frame" x="62" y="306" width="57" height="77"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="51"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -518,12 +510,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cellPhoneToSendConfirmationLabel" destination="xbh-jO-Icn" id="o8v-jP-KMI"/>
-                        <outlet property="confirmButton" destination="WKq-O3-WrK" id="eL1-zl-gJv"/>
-                        <outlet property="firstTokenCharacterTextField" destination="IKz-f7-Fsm" id="oBG-B9-wpZ"/>
-                        <outlet property="fourthTokenCharacterTextField" destination="CB9-Xm-kRj" id="bIm-tW-kPv"/>
-                        <outlet property="secondTokenCharacterTextField" destination="5Ah-AT-lNu" id="3TQ-QX-dK2"/>
-                        <outlet property="thirdTokenCharacterTextField" destination="IOC-QZ-14u" id="wnF-Yb-458"/>
+                        <outlet property="confirmButton" destination="WKq-O3-WrK" id="oyw-9B-7G1"/>
+                        <outlet property="firstTokenCharacterTextView" destination="lR1-Y1-m5V" id="cBa-Vs-7LF"/>
+                        <outlet property="fourthTokenCharacterTextView" destination="Rxc-Wt-9hs" id="itS-m5-4Am"/>
+                        <outlet property="secondTokenCharacterTextView" destination="1jr-ox-vYN" id="mSf-Jw-mXU"/>
+                        <outlet property="thirdTokenCharacterTextView" destination="2fG-6d-1m9" id="j4l-ZC-hum"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBi-UA-ajw" userLabel="First Responder" sceneMemberID="firstResponder"/>

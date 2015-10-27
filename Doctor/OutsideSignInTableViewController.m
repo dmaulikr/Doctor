@@ -48,7 +48,7 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 
 #pragma mark - Private Methods
 - (BOOL) checkFieldsCompletion{
-    BOOL returning = false;
+    BOOL returning = true;
     if (![self.doctorNameTextField.text isEqualToString:@""] && ![self.doctorCRMTextField.text isEqualToString:@""] && ![self.doctorConfirmPasswordTextField.text isEqualToString:@""] && ![self.doctorPasswordTextField.text isEqualToString:@""] && ![self.doctorTelephoneTextField.text isEqualToString:@""] && ![self.doctorUsernameTextField.text isEqualToString:@""]) {
         if ([self.doctorPasswordTextField.text isEqualToString:self.doctorConfirmPasswordTextField.text]) {
             returning = true;
@@ -87,12 +87,12 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 //}
 
 #pragma mark - UIAlertViewDelegate
-//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-//    if (buttonIndex == 1) {
-//        [self sendVerifyingMessage];
-//        [self performSegueWithIdentifier:@"clickedInNextSignInSegueId" sender:self];
-//    }
-//}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+    //    [self sendVerifyingMessage];
+        [self performSegueWithIdentifier:@"clickedInNextSignInSegueId" sender:self];
+    }
+}
 
 #pragma mark - Storyboard Segues
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
