@@ -40,21 +40,26 @@
 #pragma mark queries
 - (void)signIn: (Doctor*)doctor;
 
-- (Patient*)fetchPatient: (NSString*)CPF completeHandler:(void (^)(Patient*)) block;
+- (void)fetchPatient: (NSString*)CPF
+      withCompletion:(void (^)(Patient* patient))completion;
 
-- (NSMutableArray*)fetchAllPatients: (void (^)(Patient* finished))completion;
+- (void)fetchAllPatients: (void (^)(Patient* patient))completion;
 
-- (Register*)fetchRegister: (NSString*)type
-                 createdAt: (NSDate*) creationDate;
+- (void)fetchAppointment: (NSNumber*)doctor
+               createdAt: (NSDate*)createdAt
+          withCompletion:(void (^)(Appointment* appointment))completion;
 
-- (Appointment*)fetchAppointment: (NSNumber*)doctor
-                       createdAt: (NSDate*)createdAt;
+- (void)fetchAllAppointments: (void (^)(Appointment* appointment))completion;
 
-- (Treatment*)fetchTreatment:(NSDate*)createdAt;
+- (void)fetchTreatment:(NSDate*)createdAt
+        withCompletion:(void (^)(Treatment* treatment))completion;
 
-- (Diagnosis*)fetchDiagnosis: (NSDate*)createdAt;
+- (void)fetchAllTreatments:(void (^)(Treatment* treatment))completion;
 
+- (void)fetchDiagnosis: (NSDate*)createdAt
+        withCompletion:(void (^)(Diagnosis* diagnosis))completion;
 
+- (void)fetchAllDiagnosis:(void (^)(Diagnosis* diagnosis))completion;
 
 
 @end
