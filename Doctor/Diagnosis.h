@@ -14,5 +14,6 @@
 @property (weak,nonatomic) NSNumber* status;
 @property (weak,nonatomic) NSString* description;
 @property (weak,nonatomic) NSDate* createdAt;
+@property (strong, nonatomic) NSMutableArray* versionHistory;
 
 @end

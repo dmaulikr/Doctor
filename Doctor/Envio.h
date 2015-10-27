@@ -23,6 +23,7 @@
 
 
 #pragma mark new entries
+#pragma mark brand new
 - (void) newDoctor: (Doctor*)doctor;
 
 - (void) newPatient: (Patient*)patient;
@@ -36,6 +37,14 @@
 - (void) newExam: (Exam*)tipo;
 
 - (void) newCaseHistory: (CaseHistory*)caseHistory;
+
+#pragma mark version History
+
+- (void)fetchRootTreatment:(Treatment*) rootTreatment
+            withCompletion:(void (^)(Treatment* treatment))completion;
+
+
+
 
 #pragma mark queries
 - (void)signIn: (Doctor*)doctor;
@@ -61,5 +70,13 @@
 
 - (void)fetchAllDiagnosis:(void (^)(Diagnosis* diagnosis))completion;
 
+
+#pragma mark delete methods
+
+- (void) deleteTreatment: (Treatment*)treatment
+          withCompletion: (void (^)(BOOL succeded))completion;
+
+- (void) deletePatient: (Patient*)patient
+        withCompletion: (void (^)(BOOL succeded))completion;
 
 @end

@@ -13,6 +13,7 @@
 @property (weak,nonatomic) NSString* tipo;
 @property (weak,nonatomic) NSString* description;
 @property (weak,nonatomic) NSData* photo;
+@property (strong, nonatomic) NSMutableArray* versionHistory;
 
 
 @end

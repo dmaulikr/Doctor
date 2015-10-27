@@ -13,6 +13,7 @@
 #import "Envio.h"
 #import "Patient.h"
 #import "PatientSelectedTableViewController.h"
+#import "VersionHistory.h"
 
 @interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, UISearchDisplayDelegate>{
     NSMutableArray* tableViewDataArray;
@@ -70,12 +71,9 @@
     return cell;
 }
 
-- (NSArray *)rightButtons {
-    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0] icon:[UIImage imageNamed:@"icone-favoritarpaciente"]];
-    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0f] icon:[UIImage imageNamed:@"icone-excluirpaciente"]];
-    
-    return rightUtilityButtons;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 110;
 }
 
 #pragma mark - SWTableViewCell Delegate
@@ -90,6 +88,9 @@
             [_patientsArray removeObjectAtIndex:cellIndexPath.row];
             [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath]
                                   withRowAnimation:UITableViewRowAnimationAutomatic];
+            
+            //delete patient id from the doctor's patient's array
+            Envio* envio = [[Envio alloc]init];
             break;
         }
         default:
@@ -163,9 +164,9 @@
     [spinner startAnimating];
 }
 
-- (void) setupSearch{ self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:self.patientsArray.count]; }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { return 110; }
+- (void) setupSearch{
+    self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:self.patientsArray.count];
+}
 
 #pragma mark - IBActions
 -(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{
@@ -185,5 +186,15 @@
         [patientSelectedTableViewController setPatient:patientClicked];
     }
 }
+
+- (NSArray *)rightButtons {
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0] icon:[UIImage imageNamed:@"icone-favoritarpaciente"]];
+    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0f] icon:[UIImage imageNamed:@"icone-excluirpaciente"]];
+    
+    return rightUtilityButtons;
+}
+
+
 
 @end

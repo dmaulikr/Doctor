@@ -381,6 +381,41 @@
     }];
 }
 
+- (void)fetchRootTreatment:(Treatment*) rootTreatment
+            withCompletion:(void (^)(Treatment* treatment))completion
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Treatment"];
+    [query whereKey:@"objectId" equalTo:rootTreatment.objectId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d patients.", objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                rootTreatment.duration = [object objectForKey:@"duration"];
+                rootTreatment.description = [object objectForKey:@"createdAt"];
+                rootTreatment.finishedAt = [object objectForKey:@"finishedAt"];
+                rootTreatment.status = [object objectForKey:@"status"];
+            }
+            
+            if (rootTreatment) {
+                completion(rootTreatment);
+            }else{
+                completion(nil);
+                NSLog(@"404 - Envio.m - fetchTreatment");
+            }
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
+}
+
+
+
 #pragma mark fetchDiagnosis
 - (void)fetchDiagnosis: (NSDate*)createdAt
         withCompletion:(void (^)(Diagnosis* diagnosis))completion{
@@ -429,7 +464,6 @@
                 diagnosis.createdAt = [object objectForKey:@"createdAt"];
                 diagnosis.confirmedAt = [object objectForKey:@"confirmedAt"];
                 diagnosis.status = [object objectForKey:@"status"];
-                
             }
             if (diagnosis) {
                 completion(diagnosis);
@@ -445,6 +479,62 @@
     }];
 }
 
+#pragma mark version History entries
+
+- (void) newVersionTreatment:(Treatment *)treatment
+{
+    PFObject* newTreatment  = [PFObject objectWithClassName:@"Treatment"];
+    newTreatment[@"description"] = treatment.description;
+    newTreatment[@"duration"] = treatment.duration;
+    newTreatment[@"status"] = treatment.status; //NSNumber numberWithBool: method, with YES or NO
+    newTreatment[@"finishedAt"] = treatment.finishedAt;
+    
+    
+    [newTreatment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+            
+        } else {
+            // There was a problem, check error.description
+        }
+    }];
+}
+
+#pragma mark delete method
+
+- (void) deleteTreatment: (Treatment*)treatment
+          withCompletion: (void (^)(BOOL succeded))completion{
+    PFObject* object = [PFObject objectWithoutDataWithClassName:@"Treatment" objectId:treatment.objectId];
+    
+    [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError* error){
+        if (succeeded) {
+            NSLog(@"Treatment succesfully deleted");
+            completion(succeeded);
+        }
+        else
+        {
+            NSLog(@"Error: %@", error.description);
+            completion(succeeded);
+        }
+    }];
+}
+
+- (void) deletePatient: (Patient*)patient
+          withCompletion: (void (^)(BOOL succeded))completion{
+    PFObject* object = [PFObject objectWithoutDataWithClassName:@"Patient" objectId:patient.patientObjectId];
+    
+    [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError* error){
+        if (succeeded) {
+            NSLog(@"Patient succesfully deleted");
+            completion(succeeded);
+        }
+        else
+        {
+            NSLog(@"Error: %@", error.description);
+            completion(succeeded);
+        }
+    }];
+}
 
 
 

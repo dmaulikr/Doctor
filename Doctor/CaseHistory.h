@@ -12,6 +12,7 @@
 
 @property (weak,nonatomic) NSString* description;
 @property (weak,nonatomic) NSDate* photo;
+@property (strong, nonatomic) NSMutableArray* versionHistory;
 
 
 @end

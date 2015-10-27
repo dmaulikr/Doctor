@@ -13,5 +13,7 @@
 
 @property (weak,nonatomic) Doctor* doctor;
 @property (weak,nonatomic) NSDate* createdAt;
+@property (strong, nonatomic) NSMutableArray* versionHistory;
+
 
 @end

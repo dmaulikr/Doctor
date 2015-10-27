@@ -18,4 +18,7 @@
 @property (strong, nonatomic) NSString* patientGenderString;
 @property (strong, nonatomic) NSString* patientAdressString;
 
+//In test
+@property (strong, nonatomic) NSString* patientObjectId;
+
 @end
