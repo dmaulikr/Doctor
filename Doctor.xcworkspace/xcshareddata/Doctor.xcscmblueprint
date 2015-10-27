@@ -5,12 +5,14 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "CE087E07D57661612519BF053C6BEF980C143055" : 0,
-    "40FCC394ABA807FD369FF46DC833A73473FBFB51" : 0
+    "40FCC394ABA807FD369FF46DC833A73473FBFB51" : 0,
+    "96B115E402283097642DB5AA82BD8460A91FDB5F" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D1D3DD20-0B88-47B3-9FBE-3834341CC44D",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "CE087E07D57661612519BF053C6BEF980C143055" : "Doctor\/verify-ios-sdk\/",
-    "40FCC394ABA807FD369FF46DC833A73473FBFB51" : "Doctor\/"
+    "40FCC394ABA807FD369FF46DC833A73473FBFB51" : "Doctor\/",
+    "96B115E402283097642DB5AA82BD8460A91FDB5F" : ""
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Doctor",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -20,6 +22,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "bitbucket.org:bmaf\/doctor.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "40FCC394ABA807FD369FF46DC833A73473FBFB51"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/bmaf\/protomed.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "96B115E402283097642DB5AA82BD8460A91FDB5F"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nexmo\/verify-ios-sdk.git",
