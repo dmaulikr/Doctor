@@ -42,7 +42,7 @@
 
 - (Patient*)fetchPatient: (NSString*)CPF completeHandler:(void (^)(Patient*)) block;
 
-- (NSMutableArray*)fetchAllPatients;
+- (NSMutableArray*)fetchAllPatients: (void (^)(Patient* finished))completion;
 
 - (Register*)fetchRegister: (NSString*)type
                  createdAt: (NSDate*) creationDate;

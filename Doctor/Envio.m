@@ -181,11 +181,10 @@
 }
 
 #pragma mark fetchPatient
-- (void)fetchPatientParse: (NSString*)CPF completeHandler:(void (^)(Patient*)) block
+- (void)fetchPatientParse: (NSString*)CPF completeHandler:(void (^)(Patient* finished))completion
 {
     Patient* patient;
     
-      
         PFQuery *query = [PFQuery queryWithClassName:@"Patient"];
         [query whereKey:@"CPF" equalTo:CPF];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -202,7 +201,12 @@
                     patient.patientGenderString = [object objectForKey:@"gender"];
                 }
                 
-                // block(patient);
+                if (patient) {
+                    completion(patient);
+                }else{
+                    completion(false);
+                    NSLog(@"404 - Envio.m");
+                }
                 
             } else {
                 // Log details of the failure
@@ -214,7 +218,7 @@
     //return patient;
 }
 
-- (NSMutableArray*)fetchAllPatients
+- (NSMutableArray*)fetchAllPatients: (void (^)(Patient* patient))completion
 {
     NSMutableArray* patients = [[NSMutableArray alloc]init];
     
@@ -234,7 +238,16 @@
                 patient.patientRGString = [object objectForKey:@"RG"];
                 
                 [patients addObject:patient];
+                
+                if (patient) {
+                    completion(patient);
+                }else{
+                    completion(nil);
+                    NSLog(@"404 - Envio.m");
+                }
             }
+            
+
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -270,7 +283,6 @@
     }];
     
     return appointment;
-    
 }
 
 #pragma mark fetchTreatment
