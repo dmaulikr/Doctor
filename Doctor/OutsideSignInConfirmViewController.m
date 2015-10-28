@@ -8,7 +8,7 @@
 
 #import "OutsideSignInConfirmViewController.h"
 
-@interface OutsideSignInConfirmViewController () <UITextViewDelegate>
+@interface OutsideSignInConfirmViewController () <UITextViewDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel* cellPhoneToSendConfirmationLabel;
 @property (weak, nonatomic) IBOutlet UITextView* firstTokenCharacterTextView;
@@ -42,23 +42,62 @@
 }
 
 - (IBAction)didTappedConfirmButton:(UIButton *)sender{
-    //    [VerifyClient checkPinCode:@"1234"];
+    if (![self.firstTokenCharacterTextView.text isEqualToString:@""] && ![self.secondTokenCharacterTextView.text isEqualToString:@""] && ![self.thirdTokenCharacterTextView.text isEqualToString:@""] && ![self.fourthTokenCharacterTextView.text isEqualToString:@""]) {
+        [self codeInputComplete];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Há campos do código que ainda estão em branco." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        alert.tag = 404;
+        [alert show];
+    }
 }
 
 #pragma mark - UITextViewDelegates
 -(void)textViewDidChange:(UITextView *)textView{
     switch (textView.tag) {
         case 1:
-            [self.secondTokenCharacterTextView becomeFirstResponder];
+            if (![textView.text isEqualToString:@""]) {
+                [self.secondTokenCharacterTextView becomeFirstResponder];
+            }
             break;
         case 2:
-            [self.thirdTokenCharacterTextView becomeFirstResponder];
+            if (![textView.text isEqualToString:@""]) {
+                [self.thirdTokenCharacterTextView becomeFirstResponder];
+            }
             break;
         case 3:
-            [self.fourthTokenCharacterTextView becomeFirstResponder];
+            if (![textView.text isEqualToString:@""]) {
+                [self.fourthTokenCharacterTextView becomeFirstResponder];
+            }
             break;
         case 4:
-            //SHOW ALERT VIEW CONFIRMATION.
+            if (![textView.text isEqualToString:@""]) {
+                [self codeInputComplete];
+            }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void) codeInputComplete{
+    NSString* codeInput = [[NSString alloc] initWithFormat:@"O código inserido:\n%@%@%@%@\n Confere?", self.firstTokenCharacterTextView.text, self.secondTokenCharacterTextView.text, self.thirdTokenCharacterTextView.text, self.fourthTokenCharacterTextView.text];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:codeInput delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil];
+    alert.tag = 123456;
+    [alert show];
+}
+
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (alertView.tag) {
+        case 404:
+            break;
+        case 123456:
+            if (buttonIndex == 1) {
+                //    [VerifyClient checkPinCode:@"1234"];
+                NSLog(@"confirmed");
+            }
             break;
         default:
             break;
@@ -66,3 +105,8 @@
 }
 
 @end
+
+
+
+
+
