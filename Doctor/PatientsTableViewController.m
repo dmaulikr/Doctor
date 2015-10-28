@@ -37,6 +37,9 @@
     [self setupSearch];
     self.tableView.tableFooterView = [UIView new];
     isSearching = false;
+    
+    //Test version History
+    [self testVersion];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -183,6 +186,30 @@
     [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0f] icon:[UIImage imageNamed:@"icone-excluirpaciente"]];
     
     return rightUtilityButtons;
+}
+
+- (void) testVersion{
+    
+    NSLog(@"versionUpdated test");
+
+    
+    Treatment* oldTreatment = [[Treatment alloc]init];
+    Treatment* newTreatment = [[Treatment alloc]init];
+    
+    oldTreatment.duration = [NSNumber numberWithInt:150];
+    oldTreatment.description = @"Old";
+    oldTreatment.status = [NSNumber numberWithBool:FALSE];
+    oldTreatment.
+    
+    newTreatment.duration = [NSNumber numberWithInt:150];
+    newTreatment.description = @"New";
+    newTreatment.status = [NSNumber numberWithBool:TRUE];
+    
+    VersionHistory* versionUpdate = [[VersionHistory alloc]init];
+    
+    [versionUpdate updateVersion:oldTreatment withNewVersion:newTreatment];
+
+
 }
 
 

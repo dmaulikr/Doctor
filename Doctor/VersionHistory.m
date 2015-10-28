@@ -24,14 +24,15 @@ It takes the document version that the user was reading (oldVersion), and the ed
 - (void) updateVersion: (id)oldVersion
         withNewVersion: (id)newVersion
 {
-    if ([oldVersion isKindOfClass:[Treatment class]]) {
+    NSLog(@"UPDATE VERSION METHOD ENTERED");
+    if ([oldVersion isKindOfClass:[Treatment class]] && [newVersion isKindOfClass:[Treatment class]]) {
         Treatment* oldTreatment = oldVersion;
         Treatment* newTreatment = newVersion;
         Envio* envio = [[Envio alloc]init];
         
         //Adds the past versions of the document in the versionHistory array of the new version
-        [newTreatment.versionHistory addObject:oldTreatment];
-        [newTreatment.versionHistory addObjectsFromArray:oldTreatment.versionHistory];
+        [newTreatment.treatmentVersionHistory addObject:oldTreatment];
+        [newTreatment.treatmentVersionHistory addObjectsFromArray:oldTreatment.treatmentVersionHistory];
         
         //Delete old version from table, and save new version if succeded
         [envio deleteTreatment:oldTreatment withCompletion:^(BOOL succeded){
@@ -41,11 +42,11 @@ It takes the document version that the user was reading (oldVersion), and the ed
             } else {
                 NSLog(@"Error, old treatment not deleted");
             }
-        }];
-        
+       }];
         
     }
     
 }
 
 @end
+
