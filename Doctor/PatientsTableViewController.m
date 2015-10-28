@@ -15,7 +15,7 @@
 #import "PatientSelectedTableViewController.h"
 #import "VersionHistory.h"
 
-@interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, UISearchDisplayDelegate>{
+@interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate>{
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
     BOOL isSearching;
@@ -76,6 +76,12 @@
     return 110;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    patientClicked = [[Patient alloc] init];
+    patientClicked = tableViewDataArray[indexPath.row];
+    [self performSegueWithIdentifier:@"clickedPatientSegueId" sender:self];
+}
+
 #pragma mark - SWTableViewCell Delegate
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     switch (index) {
@@ -99,16 +105,11 @@
     }
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    patientClicked = [[Patient alloc] init];
-    patientClicked = tableViewDataArray[indexPath.row];
-    [self performSegueWithIdentifier:@"clickedPatientSegueId" sender:self];
-}
-
-#pragma mark Content Filtering
--(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+#pragma mark - UISearchBarDelegate Methods
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([searchText isEqualToString:@""]) {
         tableViewDataArray = self.patientsArray;
+        [self.tableView reloadData];
     }
     else{
         isSearching = true;
@@ -122,24 +123,12 @@
             }
         }
         tableViewDataArray = self.filteredPatientsArray;
+        [self.tableView reloadData];
     }
-}
 
-#pragma mark - UISearchDisplayController Delegate Methods
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self filterContentForSearchText:searchString scope:
-    [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-    return YES;
-}
-
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
-    [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
-    return YES;
 }
 
 #pragma mark - Setups
-
 - (void) setupPatientsDataSource {
     self.patientsArray = [[NSMutableArray alloc] init];
     tableViewDataArray = [[NSMutableArray alloc] init];
