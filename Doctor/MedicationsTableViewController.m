@@ -9,13 +9,15 @@
 #import "MedicationsTableViewController.h"
 #import "MFSideMenu.h"
 #import "Medication.h"
+#import "Envio.h"
 
 @interface MedicationsTableViewController () <UISearchBarDelegate> {
     NSMutableArray* tableViewDataArray;
+    UIActivityIndicatorView* spinner;
     BOOL isSearching;
 }
 
-@property (strong, nonatomic) IBOutlet UISearchBar *patientSearchBar;
+@property (strong, nonatomic) IBOutlet UISearchBar *medicationsSearchBar;
 @property (strong, nonatomic) NSMutableArray* medicationsArray;
 @property (strong, nonatomic) NSMutableArray* filteredMedicationsArray;
 
@@ -25,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupLoadingAnimation];
     [self setupDataSource];
 }
 
@@ -44,8 +47,10 @@
     if (cell==nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MedicationsTableViewCellID];
     }
-    NSLog(tableViewDataArray[indexPath.row]);
-    cell.textLabel.text = tableViewDataArray[indexPath.row];
+    
+    Medication* medication = [[Medication alloc] init];
+    medication = tableViewDataArray[indexPath.row];
+    cell.textLabel.text = medication.medicationCategoryString;
     return cell;
 }
 
@@ -55,118 +60,52 @@
 
 #pragma mark - Setups
 - (void)setupDataSource{
-        tableViewDataArray = [[NSMutableArray alloc] initWithObjects:
-                              @"Antiinflamatório",
-                              @"Antiviral",
-                              @"Anticoagulante",
-                              @"Analgésico",
-                              @"Antimicrobiano",
-                              @"Antirarrítmico",
-                              @"Antidepressivo",
-                              @"Anti-hipertensivo",
-                              @"Antibacteriano",
-                              @"Antimicótico",
-                              @"Diurético",
-                              @"Antiestrogênico",
-                              @"Corticóide",
-                              @"Antifúngico",
-                              @"Antianginoso",
-                              @"Neurotrófico",
-                              @"Cicatrizante",
-                              @"Andiabético ",
-                              @"Antipirético",
-                              @"Antiacneico",
-                              @"Anti-helmíntico",
-                              @"Antiemético",
-                              @"Antitrombótico",
-                              @"Anti-hipoxêmico",
-                              @"Antigotoso",
-                              @"Antiosteoporótico",
-                              @"Antineoplásico",
-                              @"Ansiolítico",
-                              @"Progestagênio",
-                              @"Cicatrizante",
-                              @"Neurotônico ",
-                              @"Antileucêmico",
-                              @"Anti-histamínico",
-                              @"Hipocolesterolêmico",
-                              @"Antirretroviral",
-                              @"Imunossupressor",
-                              @"Antirreumático",
-                              @"Anti-hipotensor",
-                              @"Antiparkinsoniano",
-                              @"Hipouricemiante",
-                              @"Antipsicótico",
-                              @"Antiprotozoário",
-                              @"Anorexígeno",
-                              @"Oligonutriente",
-                              @"Anticonvulsivante",
-                              @"Mucolítico",
-                              @"Vasodilatador",
-                              @"Antiácido",
-                              @"Antiepilético",
-                              @"Antiasmático",
-                              @"Hipolipemiante",
-                              @"Antisséptico ",
-                              @"Uricosúrico",
-                              @"Antichagásico",
-                              @"Antitussígeno",
-                              @"Antifotossensibilizante",
-                              @"Antiglaucomatoso",
-                              @"Antineoplásico",
-                              @"Nootrópico",
-                              @"Antidiscinésico",
-                              @"Laxante",
-                              @"Estimulante",
-                              @"Opiáceo",
-                              @"Anticoncepcional",
-                              @"Antiagregante",
-                              @"Inibidor",
-                              @"Antiparasitário",
-                              @"Miorrelaxante",
-                              @"Midríatico",
-                              @"Antidiarreico",
-                              @"Glicocorticoide",
-                              @"Broncodilatador",
-                              @"Gastrocinético ",
-                              @"Despigmentador",
-                              @"Antimalárico",
-                              @"Corticosteroide",
-                              @"Hipnótico",
-    nil];
+    self.medicationsArray = [[NSMutableArray alloc] init];
+    tableViewDataArray = [[NSMutableArray alloc] init];
+    self.filteredMedicationsArray = [[NSMutableArray alloc] init];
+    Envio* newEnvio = [[Envio alloc]init];
+    [newEnvio fetchAllMedications: ^void (Medication* medication){
+            if (medication){
+                [self.medicationsArray addObject:medication];
+                tableViewDataArray = self.medicationsArray;
+                [self.tableView reloadData];
+                [spinner stopAnimating];
+            }else{
+                NSLog(@"Erro - setupMedicationsDatasource block");
+            }
+        }];
+    tableViewDataArray = self.medicationsArray;
 }
 
-#pragma mark Content Filtering
--(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+
+- (void) setupLoadingAnimation{
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = self.view.center;
+    spinner.tag = 12;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
+}
+
+#pragma mark - UISearchBarDelegate Methods
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([searchText isEqualToString:@""]) {
         tableViewDataArray = self.medicationsArray;
+        [self.tableView reloadData];
     }
     else{
         isSearching = true;
-//        [self.filteredMedicationsArray removeAllObjects];
-//        for (int i = 0; i < self.medicationsArray.count; i++) {
-//            Medication* medicationSearching = [[Medication alloc] init];
-//            medicationSearching = self.medicationsArray[i];
-//            NSString* toCheck = [patientSearching.patientNameString lowercaseString];
-//            if ([toCheck containsString:[searchText lowercaseString]]) {
-//                [self.filteredMedicationsArray addObject:medicationSearching];
-//            }
-//        }
+        [self.filteredMedicationsArray removeAllObjects];
+        for (int i = 0; i < self.medicationsArray.count; i++) {
+            Medication* medicationsSearching  = [[Medication alloc] init];
+            medicationsSearching = self.medicationsArray[i];
+            NSString* toCheck = [medicationsSearching.medicationCategoryString lowercaseString];
+            if ([toCheck containsString:[searchText lowercaseString]]) {
+                [self.filteredMedicationsArray addObject:medicationsSearching];
+            }
+        }
         tableViewDataArray = self.filteredMedicationsArray;
+        [self.tableView reloadData];
     }
-}
-
-#pragma mark - UISearchDisplayController Delegate Methods
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self filterContentForSearchText:searchString scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-    return YES;
-}
-
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
-    return YES;
 }
 
 

@@ -16,6 +16,7 @@
 #import "Doctor.h"
 #import "Exam.h"
 #import "CaseHistory.h"
+#import "Medication.h"
 
 
 
@@ -53,6 +54,8 @@
       withCompletion:(void (^)(Patient* patient))completion;
 
 - (void)fetchAllPatients: (void (^)(Patient* patient))completion;
+
+- (void)fetchAllMedications: (void (^)(Medication* medication))completion;
 
 - (void)fetchAppointment: (NSNumber*)doctor
                createdAt: (NSDate*)createdAt

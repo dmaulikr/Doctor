@@ -323,7 +323,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h51-Lv-FOo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313.5" y="305.5"/>
+            <point key="canvasLocation" x="313.5" y="295.5"/>
         </scene>
         <!--Dados-->
         <scene sceneID="pvh-W4-EAN">

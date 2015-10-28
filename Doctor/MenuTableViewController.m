@@ -19,11 +19,13 @@
 typedef NS_ENUM(NSUInteger, MenuItem) {
     MenuItemNull=0,
     MenuItemFeed,
+    MenuItemAppointments,
+    MenuItemInbox,
     MenuItemPatients,
     MenuItemMedications,
     MenuItemForum,
-    MenuItemConfigurations,
-    MenuItemLogOut=6 ,
+   // MenuItemConfigurations,
+    MenuItemLogOut=7 ,
 };
 
 - (void)viewDidLoad {
@@ -38,15 +40,21 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
     NSString *sbiewControllerID;
     
     switch (indexPath.row) {
-            case MenuItemNull:
-            //sbName = kFeedStoryboard;
-            //sbiewControllerID = kFeedNavID;
+        case MenuItemNull:
             [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
             return;
             break;
         case MenuItemFeed:
             sbName = kFeedStoryboard;
             sbiewControllerID = kFeedNavID;
+            break;
+        case MenuItemAppointments:
+            sbName = kAppointmentsStoryboard;
+            sbiewControllerID = kAppointmentsNavID;
+            break;
+        case MenuItemInbox:
+            sbName = kInboxStoryboard;
+            sbiewControllerID = kInboxNavID;
             break;
         case MenuItemPatients:
             sbName = kPatientsStoryboard;
@@ -60,10 +68,10 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
             sbName = kForumStoryboard;
             sbiewControllerID = kForumNavID;
             break;
-        case MenuItemConfigurations:
-            sbName = kSettingsStoryboard;
-            sbiewControllerID = kSettingsNavId;
-            break;
+//        case MenuItemConfigurations:
+//            sbName = kSettingsStoryboard;
+//            sbiewControllerID = kSettingsNavID;
+//            break;
         case MenuItemLogOut:
             sbName = kOutsideStoryboard;
             sbiewControllerID = kOutsideNavID;
