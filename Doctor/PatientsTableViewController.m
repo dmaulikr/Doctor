@@ -181,10 +181,13 @@
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0] icon:[UIImage imageNamed:@"icone-favoritarpaciente"]];
     [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0f] icon:[UIImage imageNamed:@"icone-excluirpaciente"]];
-    
     return rightUtilityButtons;
 }
 
-
+#pragma mark - UITouchDelegate Methods
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch* touch = [[event allTouches] anyObject];
+    if ([_patientSearchBar isFirstResponder] && [touch view] != _patientSearchBar) [_patientSearchBar resignFirstResponder];
+}
 
 @end
