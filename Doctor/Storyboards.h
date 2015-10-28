@@ -19,4 +19,10 @@
 #define kMedicationsNavID @"MedicationsNavigationControllerID"
 
 #define kSettingsStoryboard @"Settings"
-#define kSettingsNavId @"SettingsNavigationControllerID"
+#define kSettingsNavID @"SettingsNavigationControllerID"
+
+#define kAppointmentsStoryboard @"Appointments"
+#define kAppointmentsNavID @"AppointmentsNavigationControllerID"
+
+#define kInboxStoryboard @"Inbox"
+#define kInboxNavID @"InboxNavigationControllerID"

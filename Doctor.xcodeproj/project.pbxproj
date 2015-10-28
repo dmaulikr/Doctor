@@ -14,6 +14,10 @@
 		022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DB1BCFC9CC00B7C1E0 /* MainViewController.m */; };
 		022928E01BCFCA5500B7C1E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */; };
 		022928E31BCFCCF200B7C1E0 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022928E21BCFCCF200B7C1E0 /* Feed.storyboard */; };
+		02755B581BE10669000A5183 /* Inbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02755B571BE10669000A5183 /* Inbox.storyboard */; };
+		02755B5A1BE10679000A5183 /* Appointments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02755B591BE10679000A5183 /* Appointments.storyboard */; };
+		02755B5F1BE1084B000A5183 /* AppointmentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02755B5E1BE1084B000A5183 /* AppointmentsTableViewController.m */; };
+		02755B621BE10854000A5183 /* InboxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02755B611BE10854000A5183 /* InboxTableViewController.m */; };
 		02807F931BCE9DE10008D018 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807F921BCE9DE10008D018 /* main.m */; };
 		02807F961BCE9DE10008D018 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807F951BCE9DE10008D018 /* AppDelegate.m */; };
 		02807F991BCE9DE10008D018 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807F981BCE9DE10008D018 /* ViewController.m */; };
@@ -110,6 +114,12 @@
 		022928DE1BCFCA5500B7C1E0 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		022928E21BCFCCF200B7C1E0 /* Feed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		02755B571BE10669000A5183 /* Inbox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Inbox.storyboard; sourceTree = "<group>"; };
+		02755B591BE10679000A5183 /* Appointments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Appointments.storyboard; sourceTree = "<group>"; };
+		02755B5D1BE1084B000A5183 /* AppointmentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentsTableViewController.h; sourceTree = "<group>"; };
+		02755B5E1BE1084B000A5183 /* AppointmentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentsTableViewController.m; sourceTree = "<group>"; };
+		02755B601BE10854000A5183 /* InboxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxTableViewController.h; sourceTree = "<group>"; };
+		02755B611BE10854000A5183 /* InboxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxTableViewController.m; sourceTree = "<group>"; };
 		02807F8E1BCE9DE10008D018 /* Doctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02807F921BCE9DE10008D018 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		02807F941BCE9DE10008D018 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -256,6 +266,8 @@
 		022928D61BCFC64500B7C1E0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				02755B5C1BE1081A000A5183 /* ViewsAppointments */,
+				02755B5B1BE10814000A5183 /* ViewsInbox */,
 				02CD6C4C1BD2DD7400C38B6D /* ViewsMedications */,
 				02CD6C4B1BD2DD6900C38B6D /* ViewsSettings */,
 				02921D7E1BD14E62001B6F5E /* ViewsOutside */,
@@ -286,6 +298,8 @@
 				02CD6C391BD2D61200C38B6D /* Medications.storyboard */,
 				1BD2E2991BD1240D004413F9 /* Forum.storyboard */,
 				02CD6C371BD2D5F500C38B6D /* Settings.storyboard */,
+				02755B571BE10669000A5183 /* Inbox.storyboard */,
+				02755B591BE10679000A5183 /* Appointments.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -307,6 +321,24 @@
 				022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		02755B5B1BE10814000A5183 /* ViewsInbox */ = {
+			isa = PBXGroup;
+			children = (
+				02755B601BE10854000A5183 /* InboxTableViewController.h */,
+				02755B611BE10854000A5183 /* InboxTableViewController.m */,
+			);
+			name = ViewsInbox;
+			sourceTree = "<group>";
+		};
+		02755B5C1BE1081A000A5183 /* ViewsAppointments */ = {
+			isa = PBXGroup;
+			children = (
+				02755B5D1BE1084B000A5183 /* AppointmentsTableViewController.h */,
+				02755B5E1BE1084B000A5183 /* AppointmentsTableViewController.m */,
+			);
+			name = ViewsAppointments;
 			sourceTree = "<group>";
 		};
 		02807F851BCE9DE10008D018 = {
@@ -847,12 +879,14 @@
 				1BD2E29A1BD1240D004413F9 /* Forum.storyboard in Resources */,
 				703E632B1BCFD8F600205A82 /* Patients.storyboard in Resources */,
 				02807FA11BCE9DE10008D018 /* LaunchScreen.storyboard in Resources */,
+				02755B5A1BE10679000A5183 /* Appointments.storyboard in Resources */,
 				02CD6C381BD2D5F500C38B6D /* Settings.storyboard in Resources */,
 				02807F9E1BCE9DE10008D018 /* Assets.xcassets in Resources */,
 				022928E31BCFCCF200B7C1E0 /* Feed.storyboard in Resources */,
 				02807F9C1BCE9DE10008D018 /* Main.storyboard in Resources */,
 				02CD6C3A1BD2D61200C38B6D /* Medications.storyboard in Resources */,
 				02921D7D1BD14DE7001B6F5E /* Outside.storyboard in Resources */,
+				02755B581BE10669000A5183 /* Inbox.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,7 +948,9 @@
 				703E63311BCFDA6A00205A82 /* PatientsTableViewCell.m in Sources */,
 				02E7A99C1BDC50D5008059BD /* PatientSelectedAppointmentsTableViewController.m in Sources */,
 				02CDD9C31BD6DBC900443828 /* ForumSeeTopicTableViewController.m in Sources */,
+				02755B5F1BE1084B000A5183 /* AppointmentsTableViewController.m in Sources */,
 				020AAE3B1BDFA6CD004766D5 /* ForumMessageTableViewCell.m in Sources */,
+				02755B621BE10854000A5183 /* InboxTableViewController.m in Sources */,
 				02CD6C4A1BD2DAAC00C38B6D /* Doctor.m in Sources */,
 				02E7A9B41BDC5254008059BD /* PatientSelectedAppointmentSelectedTableViewController.m in Sources */,
 				02F15C651BD6D5490078279D /* ForumTableViewController.m in Sources */,

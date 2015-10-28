@@ -255,6 +255,42 @@
     }];
 }
 
+- (void)fetchAllMedications:(void (^)(Medication *))completion{
+    NSMutableArray* medications = [[NSMutableArray alloc]init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Medication"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d medications.", objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object[@"category"]);
+                
+                Medication* medication = [[Medication alloc]init];
+                medication.medicationCategoryString = [object objectForKey:@"category"];
+                
+                [medications addObject:medication];
+                
+                if (medication) {
+                    completion(medication);
+                }else{
+                    completion(nil);
+                    NSLog(@"404 - Envio.m - fetchAllMedications");
+                }
+            }
+            
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
+
+
+
 #pragma mark fetchDoctor
 
 - (void)fetchDoctor: (NSString*)CRM
