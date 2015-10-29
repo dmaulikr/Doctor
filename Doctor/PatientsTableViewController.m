@@ -172,10 +172,11 @@
 }
 
 -(IBAction)didTappedAddPatientBarButton:(id)sender{
-    UIViewController *vc = [[UIStoryboard storyboardWithName:kPatientsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kPatientsAddModalID];
-    [self.menuContainerViewController.centerViewController presentViewController:vc animated:YES completion:^{
-        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
-    }];
+//    UIViewController *vc = [[UIStoryboard storyboardWithName:kPatientsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kPatientsAddModalID];
+//    [self.menuContainerViewController.centerViewController presentViewController:vc animated:YES completion:^{
+//        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+//    }];
+    [self performSegueWithIdentifier:@"addSegueId" sender:self];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
