@@ -171,14 +171,20 @@
 - (void)signIn: (NSString*)username
   withPassword: (NSString*)password
 {
-    [PFUser logInWithUsernameInBackground:username password:password
-                                    block:^(PFUser *user, NSError *error) {
-                                        if (user) {
-                                            // Do stuff after successful login.
-                                        } else {
-                                            // The login failed. Check error to see why.
-                                        }
-                                    }];
+//    PFUser* user = [[PFUser alloc]init];
+//    user.password = enteredPassword;
+//    user.username = enteredUsername;
+//    
+//    [user logInWithUsername: user.username password: user.password block: ^(PFUser* user, NSError* error){
+//        if (!error){
+//            NSLog(@"Doctor: %@ logged with success!", user.username);
+//            //perform the segue
+//        }else{
+//            NSLog(@"Login failed due: %@", error.description);
+//        }
+//        
+//    }];
+
 }
 
 #pragma mark fetchPatient

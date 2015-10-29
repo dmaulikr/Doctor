@@ -101,8 +101,10 @@
             //delete patient id from the doctor's patient's array
             Envio* envio = [[Envio alloc]init];
             Patient* patient = [[Patient alloc]init];
+            Doctor* doctor = [PFUser currentUser];
             patient = _patientsArray[cellIndexPath.row];
-//            [envio deletePatient:patient fromDoctor:<#(Doctor *)#>]; //This doctor must be the current user
+            
+            [envio deletePatient:patient fromDoctor:doctor]; //This doctor must be the current user
             
             break;
         }
@@ -212,7 +214,6 @@
     VersionHistory* versionUpdate = [[VersionHistory alloc]init];
     
     [versionUpdate updateVersion:oldTreatment withNewVersion:newTreatment];
-
 
 }
 

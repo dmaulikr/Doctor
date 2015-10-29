@@ -7,6 +7,7 @@
 //
 
 #import "OutsideSignInConfirmViewController.h"
+#import <Parse.h>
 
 @interface OutsideSignInConfirmViewController () <UITextViewDelegate, UIAlertViewDelegate>
 
@@ -50,6 +51,7 @@
         alert.tag = 404;
         [alert show];
     }
+    
 }
 
 #pragma mark - UITextViewDelegates
