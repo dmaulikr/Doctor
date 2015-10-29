@@ -95,13 +95,26 @@
             break;
         case 123456:
             if (buttonIndex == 1) {
-                //    [VerifyClient checkPinCode:@"1234"];
+            //[VerifyClient checkPinCode:@"1234"];
                 NSLog(@"confirmed");
             }
             break;
         default:
             break;
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch* touch = [[event allTouches] anyObject];
+    if ([_firstTokenCharacterTextView isFirstResponder] && [touch view] != _firstTokenCharacterTextView) [_firstTokenCharacterTextView resignFirstResponder];
+    if ([_secondTokenCharacterTextView isFirstResponder] && [touch view] != _secondTokenCharacterTextView) [_secondTokenCharacterTextView resignFirstResponder];
+    if ([_thirdTokenCharacterTextView isFirstResponder] && [touch view] != _thirdTokenCharacterTextView) [_thirdTokenCharacterTextView resignFirstResponder];
+    if ([_fourthTokenCharacterTextView isFirstResponder] && [touch view] != _fourthTokenCharacterTextView) [_fourthTokenCharacterTextView resignFirstResponder];
 }
 
 @end

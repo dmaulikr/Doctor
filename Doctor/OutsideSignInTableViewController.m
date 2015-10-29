@@ -102,6 +102,19 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch* touch = [[event allTouches] anyObject];
+    if ([_doctorNameTextField isFirstResponder] && [touch view] != _doctorNameTextField) [_doctorNameTextField resignFirstResponder];
+    if ([_doctorCRMTextField isFirstResponder] && [touch view] != _doctorCRMTextField) [_doctorCRMTextField resignFirstResponder];
+    if ([_doctorPasswordTextField isFirstResponder] && [touch view] != _doctorPasswordTextField) [_doctorPasswordTextField resignFirstResponder];
+    if ([_doctorUsernameTextField isFirstResponder] && [touch view] != _doctorUsernameTextField) [_doctorUsernameTextField resignFirstResponder];
+    if ([_doctorConfirmPasswordTextField isFirstResponder] && [touch view] != _doctorConfirmPasswordTextField) [_doctorConfirmPasswordTextField resignFirstResponder];
+    if ([_doctorTelephoneTextField isFirstResponder] && [touch view] != _doctorTelephoneTextField) [_doctorTelephoneTextField resignFirstResponder];
+}
 
 @end

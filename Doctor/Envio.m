@@ -237,6 +237,7 @@
                 patient.patientCPFString = [object objectForKey:@"CPF"];
                 patient.patientAgeString = [object objectForKey:@"age"];
                 patient.patientRGString = [object objectForKey:@"RG"];
+                patient.patientGenderString = [object objectForKey:@"gender"];
                 
                 [patients addObject:patient];
                 

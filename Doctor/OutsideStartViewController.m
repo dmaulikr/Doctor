@@ -83,36 +83,12 @@
     }
 }
 
-- (IBAction)textFieldReturn:(id)sender{
-    [sender resignFirstResponder];
-}
-
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    
-    UITouch* touch = [[event allTouches] anyObject];
-    if ([_loginTextField isFirstResponder] && [touch view] != _loginTextField) {
-        
-        [_loginTextField resignFirstResponder];
-    }
-    if ([_passwordTextField isFirstResponder] && [touch view] != _passwordTextField) {
-        
-        [_passwordTextField resignFirstResponder];
-    }
-
-    
-}
-
 #pragma mark - Setups
 - (void)setupTextFieldDelegates{
     [self.loginTextField addTarget:self action:@selector(textFieldDidBeginEditing:)forControlEvents:UIControlEventEditingDidBegin];
-    
     [self.passwordTextField addTarget:self action:@selector(textFieldDidBeginEditing:)forControlEvents:UIControlEventEditingDidBegin];
-    
-    //
-    
     [self.loginTextField addTarget:self action:@selector(textFieldDidEndEditing:)forControlEvents:UIControlEventEditingDidEnd];
-    
-     [self.passwordTextField addTarget:self action:@selector(textFieldDidEndEditing:)forControlEvents:UIControlEventEditingDidEnd];
+    [self.passwordTextField addTarget:self action:@selector(textFieldDidEndEditing:)forControlEvents:UIControlEventEditingDidEnd];
 }
 
 #pragma mark - UITextFieldDelegates
@@ -140,4 +116,14 @@
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch* touch = [[event allTouches] anyObject];
+    if ([_loginTextField isFirstResponder] && [touch view] != _loginTextField) [_loginTextField resignFirstResponder];
+    if ([_passwordTextField isFirstResponder] && [touch view] != _passwordTextField) [_passwordTextField resignFirstResponder];
+}
 @end
