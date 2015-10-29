@@ -20,7 +20,7 @@
     user.email = doctor.doctorEmailString;
     user[@"CRM"] = doctor.doctorCRMString;
     user[@"celular"] = doctor.doctorCelularString;
-    user[@"patients"] = doctor.patientsArray;
+    user[@"patients"] = doctor.doctorPatientsArray;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         //Show error message somewhere and let the user try again
@@ -69,9 +69,10 @@
 - (void) newDiagnosis: (Diagnosis*)diagnosis
 {
     PFObject* newDiagnosis  = [PFObject objectWithClassName:@"Register"];
-    newDiagnosis[@"confirmedAt"] = diagnosis.confirmedAt;
-    newDiagnosis[@"status"] = diagnosis.status;
-    newDiagnosis[@"description"] = diagnosis.description;
+    newDiagnosis[@"confirmedAt"] = diagnosis.diagnosisConfirmedAt;
+    newDiagnosis[@"status"] = diagnosis.diagnosisStatus;
+    newDiagnosis[@"description"] = diagnosis.diagnosisDescription;
+    newDiagnosis[@"versionHistory"] = diagnosis.diagnosisVersionHistory;
     
     
     [newDiagnosis saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -89,10 +90,10 @@
 - (void) newTreatment: (Treatment*)treatment
 {
     PFObject* newTreatment  = [PFObject objectWithClassName:@"Treatment"];
-    newTreatment[@"description"] = treatment.description;
-    newTreatment[@"duration"] = treatment.duration;
-    newTreatment[@"status"] = treatment.status; //NSNumber numberWithBool: method, with YES or NO
-    newTreatment[@"finishedAt"] = treatment.finishedAt;
+    newTreatment[@"description"] = treatment.treatmentDescription;
+    newTreatment[@"duration"] = treatment.treatmentDuration;
+    newTreatment[@"status"] = treatment.treatmentStatus; //NSNumber numberWithBool: method, with YES or NO
+    newTreatment[@"finishedAt"] = treatment.treatementFinishedAt;
     
     
     [newTreatment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -110,10 +111,10 @@
 - (void) newExam: (Exam*)exam
 {
     PFObject* newExam  = [PFObject objectWithClassName:@"Exam"];
-    newExam[@"type"] = exam.tipo;
-    newExam[@"description"] = exam.description;
+    newExam[@"type"] = exam.examType;
+    newExam[@"description"] = exam.examDescription;
     //Create a PFFile to store a photo
-    newExam[@"photo"] = exam.photo;
+    newExam[@"photo"] = exam.examPhoto;
     
     
     [newExam saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -131,9 +132,9 @@
 - (void) newCaseHistory: (CaseHistory*)caseHistory
 {
     PFObject* newCaseHistory  = [PFObject objectWithClassName:@"Register"];
-    newCaseHistory[@"description"] = caseHistory.description;
+    newCaseHistory[@"description"] = caseHistory.caseHistoryDescription;
     //Create PFFile
-    newCaseHistory[@"photo"] = caseHistory.photo;
+    newCaseHistory[@"photo"] = caseHistory.caseHistoryPhoto;
     
     
     
@@ -199,8 +200,8 @@
                 patient.patientCPFString = [object objectForKey:@"CPF"];
                 patient.patientAgeString = [object objectForKey:@"age"];
                 patient.patientRGString = [object objectForKey:@"RG"];
-                
-                //[patients addObject:patient];
+                patient.patientDoctors = [object objectForKey:@"doctors"];
+                patient.patientObjectId = [object objectForKey:@"objectId"];
                 
                 if (patient) {
                     completion(patient);
@@ -269,6 +270,7 @@
                 
                 Medication* medication = [[Medication alloc]init];
                 medication.medicationCategoryString = [object objectForKey:@"category"];
+                medication.medicationActivePrincipleString = [object objectForKey:@"activeprinciples"];
                 
                 [medications addObject:medication];
                 
@@ -313,6 +315,7 @@
                 doctor.doctorNameString = [object objectForKey:@"name"];
                 doctor.doctorPasswordString = [object objectForKey:@"password"];
                 doctor.doctorUsernameString = [object objectForKey:@"username"];
+                doctor.doctorObjectId = [object objectForKey:@"objectId"];
 
                 if (doctor) {
                     completion(doctor);
@@ -348,15 +351,23 @@
             // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
-                appointment.doctor = [object objectForKey:@"doctor"];
-                appointment.createdAt = [object objectForKey:@"createdAt"];
+                appointment.appointmentDoctor = [object objectForKey:@"doctor"];
+                appointment.appointmentCreatedAt = [object objectForKey:@"createdAt"];
+                appointment.appointmentDiagnosis = [object objectForKey:@"diagnosis"];
+                appointment.appointmentPatient = [object objectForKey:@"patient"];
+                appointment.appointmentTreatment = [object objectForKey:@"treatment"];
+                appointment.appointmentCaseHistory = [object objectForKey:@"caseHistory"];
+                appointment.appointmentObjectId = [object objectForKey:@"objectId"];
+                appointment.appointmentExams = [object objectForKey:@"exams"];
+            
+                if (appointment) {
+                    completion(appointment);
+                }else{
+                    completion(nil);
+                    NSLog(@"404 - Envio.m - fetchAppointment");
+                }
             }
-            if (appointment) {
-                completion(appointment);
-            }else{
-                completion(nil);
-                NSLog(@"404 - Envio.m - fetchAppointment");
-            }
+            
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -376,8 +387,14 @@
             // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
-                appointment.doctor = [object objectForKey:@"doctor"];
-                appointment.createdAt = [object objectForKey:@"createdAt"];
+                appointment.appointmentDoctor = [object objectForKey:@"doctor"];
+                appointment.appointmentCreatedAt = [object objectForKey:@"createdAt"];
+                appointment.appointmentDiagnosis = [object objectForKey:@"diagnosis"];
+                appointment.appointmentPatient = [object objectForKey:@"patient"];
+                appointment.appointmentTreatment = [object objectForKey:@"treatment"];
+                appointment.appointmentCaseHistory = [object objectForKey:@"caseHistory"];
+                appointment.appointmentObjectId = [object objectForKey:@"objectId"];
+                appointment.appointmentExams = [object objectForKey:@"exams"];
             }
             if (appointment) {
                 completion(appointment);
@@ -407,10 +424,13 @@
             // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
-                treatment.duration = [object objectForKey:@"duration"];
-                treatment.description = [object objectForKey:@"createdAt"];
-                treatment.finishedAt = [object objectForKey:@"finishedAt"];
-                treatment.status = [object objectForKey:@"status"];
+                treatment.treatmentDuration = [object objectForKey:@"duration"];
+                treatment.treatmentDescription = [object objectForKey:@"createdAt"];
+                treatment.treatementFinishedAt = [object objectForKey:@"finishedAt"];
+                treatment.treatmentStatus = [object objectForKey:@"status"];
+                treatment.treatmentObjectId = [object objectForKey:@"objectId"];
+                treatment.treatmentVersionHistory = [object objectForKey:@"versionHistory"];
+                treatment.treatmentUpdatedAt = [object objectForKey:@"updatedAt"];
             }
             
             if (treatment) {
@@ -438,10 +458,13 @@
             // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
-                treatment.duration = [object objectForKey:@"duration"];
-                treatment.description = [object objectForKey:@"createdAt"];
-                treatment.finishedAt = [object objectForKey:@"finishedAt"];
-                treatment.status = [object objectForKey:@"status"];
+                treatment.treatmentDuration = [object objectForKey:@"duration"];
+                treatment.treatmentDescription = [object objectForKey:@"createdAt"];
+                treatment.treatementFinishedAt = [object objectForKey:@"finishedAt"];
+                treatment.treatmentStatus = [object objectForKey:@"status"];
+                treatment.treatmentObjectId = [object objectForKey:@"objectId"];
+                treatment.treatmentVersionHistory = [object objectForKey:@"versionHistory"];
+                treatment.treatmentUpdatedAt = [object objectForKey:@"updatedAt"];
             }
             
             if (treatment) {
@@ -458,41 +481,6 @@
     }];
 }
 
-- (void)fetchRootTreatment:(Treatment*) rootTreatment
-            withCompletion:(void (^)(Treatment* treatment))completion
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"Treatment"];
-    [query whereKey:@"objectId" equalTo:rootTreatment.objectId];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d patients.", objects.count);
-            // Do something with the found objects
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
-                rootTreatment.duration = [object objectForKey:@"duration"];
-                rootTreatment.description = [object objectForKey:@"createdAt"];
-                rootTreatment.finishedAt = [object objectForKey:@"finishedAt"];
-                rootTreatment.status = [object objectForKey:@"status"];
-            }
-            
-            if (rootTreatment) {
-                completion(rootTreatment);
-            }else{
-                completion(nil);
-                NSLog(@"404 - Envio.m - fetchTreatment");
-            }
-            
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
-
-}
-
-
-
 #pragma mark fetchDiagnosis
 - (void)fetchDiagnosis: (NSDate*)createdAt
         withCompletion:(void (^)(Diagnosis* diagnosis))completion{
@@ -508,9 +496,14 @@
             // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
-                diagnosis.createdAt = [object objectForKey:@"createdAt"];
-                diagnosis.confirmedAt = [object objectForKey:@"confirmedAt"];
-                diagnosis.status = [object objectForKey:@"status"];
+                diagnosis.diagnosisCreatedAt = [object objectForKey:@"createdAt"];
+                diagnosis.diagnosisConfirmedAt = [object objectForKey:@"confirmedAt"];
+                diagnosis.diagnosisStatus = [object objectForKey:@"status"];
+                diagnosis.diagnosisDescription = [object objectForKey:@"description"];
+                diagnosis.diagnosisUpdatedAt = [object objectForKey:@"updatedAt"];
+                diagnosis.diagnosisObjectId = [object objectForKey:@"objectId"];
+                diagnosis.diagnosisStatus = [object objectForKey:@"status"];
+                diagnosis.diagnosisVersionHistory = [object objectForKey:@"versionHistory"];
                 
             }
             if (diagnosis) {
@@ -538,9 +531,12 @@
             // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
-                diagnosis.createdAt = [object objectForKey:@"createdAt"];
-                diagnosis.confirmedAt = [object objectForKey:@"confirmedAt"];
-                diagnosis.status = [object objectForKey:@"status"];
+                diagnosis.diagnosisCreatedAt = [object objectForKey:@"createdAt"];
+                diagnosis.diagnosisConfirmedAt = [object objectForKey:@"confirmedAt"];
+                diagnosis.diagnosisStatus = [object objectForKey:@"status"];
+                diagnosis.diagnosisUpdatedAt = [object objectForKey:@"updatedAt"];
+                diagnosis.diagnosisObjectId = [object objectForKey:@"objectId"];
+                diagnosis.diagnosisVersionHistory = [object objectForKey:@"versionHistory"];
             }
             if (diagnosis) {
                 completion(diagnosis);
@@ -556,32 +552,15 @@
     }];
 }
 
-#pragma mark version History entries
-
-- (void) newVersionTreatment:(Treatment *)treatment
-{
-    PFObject* newTreatment  = [PFObject objectWithClassName:@"Treatment"];
-    newTreatment[@"description"] = treatment.description;
-    newTreatment[@"duration"] = treatment.duration;
-    newTreatment[@"status"] = treatment.status; //NSNumber numberWithBool: method, with YES or NO
-    newTreatment[@"finishedAt"] = treatment.finishedAt;
-    
-    
-    [newTreatment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            // The object has been saved.
-            
-        } else {
-            // There was a problem, check error.description
-        }
-    }];
-}
 
 #pragma mark delete method
 
 - (void) deleteTreatment: (Treatment*)treatment
           withCompletion: (void (^)(BOOL succeded))completion{
-    PFObject* object = [PFObject objectWithoutDataWithClassName:@"Treatment" objectId:treatment.objectId];
+   
+    Envio* envio = [[Envio alloc]init];
+    
+    PFObject* object = [PFObject objectWithoutDataWithClassName:@"Treatment" objectId:treatment.treatmentObjectId];
     
     [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError* error){
         if (succeeded) {
@@ -607,7 +586,7 @@
     [envio fetchDoctor:doctor.doctorCRMString withCompletion:^(Doctor* doctor){
         if (doctor) {
             
-            [fetchedPatientsArray arrayByAddingObjectsFromArray:doctor.patientsArray];
+            [fetchedPatientsArray arrayByAddingObjectsFromArray:doctor.doctorPatientsArray];
             
         }else{
             
@@ -631,6 +610,24 @@
         }
     }];
     
+}
+
+- (void) deleteDiagnosis: (Diagnosis*)diagnosis
+          withCompletion: (void (^)(BOOL succeded))completion{
+    
+    PFObject* object = [PFObject objectWithoutDataWithClassName:@"Diagnosis" objectId:diagnosis.diagnosisObjectId];
+    
+    [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError* error){
+        if (succeeded) {
+            NSLog(@"Treatment succesfully deleted");
+            completion(succeeded);
+        }
+        else
+        {
+            NSLog(@"Error: %@", error.description);
+            completion(succeeded);
+        }
+    }];
 }
 
 

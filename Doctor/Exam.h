@@ -10,10 +10,15 @@
 
 @interface Exam : NSObject
 
-@property (weak,nonatomic) NSString* tipo;
-@property (weak,nonatomic) NSString* description;
-@property (weak,nonatomic) NSData* photo;
-@property (strong, nonatomic) NSMutableArray* versionHistory;
+@property (weak,nonatomic) NSString* examType;
+@property (weak,nonatomic) NSString* examDescription;
+@property (weak,nonatomic) NSData* examPhoto;
+@property (strong, nonatomic) NSMutableArray* examVersionHistory;
+@property (strong, nonatomic) NSDate* examUpdatedAt;
+@property (strong, nonatomic) NSString* examObjectId;
+
+
+
 
 
 @end

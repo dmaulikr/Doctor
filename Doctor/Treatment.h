@@ -20,7 +20,7 @@
 //Still in test, don't move it
 @property (strong, nonatomic) NSString* treatmentObjectId;
 @property (strong, nonatomic) NSMutableArray* treatmentVersionHistory;
-@property (strong, nonatomic) NSDate* treatmentLastModifiedAt;
+@property (strong, nonatomic) NSDate* treatmentUpdatedAt;
 
 
 @end

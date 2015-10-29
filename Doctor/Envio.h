@@ -83,5 +83,20 @@
           withCompletion: (void (^)(BOOL succeded))completion;
 
 - (void) deletePatient: (Patient*)patient
-            fromDoctor: (Doctor*)doctor;
+            fromDoctor: (Doctor*)doctor; //only drops the patient from the doctor's patientArray, not from our platform
+
+- (void) deleteDiagnosis: (Diagnosis*)diagnosis
+          withCompletion: (void (^)(BOOL succeded))completion;
+
+- (void) deleteCaseHistory: (CaseHistory*)caseHistory
+            withCompletion: (void (^)(BOOL succeded))completion;
+
+- (void) deleteExam: (Exam*)exam
+     withCompletion: (void (^)(BOOL succeded))completion;
+
+- (void) deleteDoctor: (Doctor*)doctor
+       withCompletion: (void (^)(BOOL succeded))completion;
+
+
+
 @end

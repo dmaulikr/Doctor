@@ -100,6 +100,9 @@
             
             //delete patient id from the doctor's patient's array
             Envio* envio = [[Envio alloc]init];
+            Patient* patient = [[Patient alloc]init];
+            patient = _patientsArray[cellIndexPath.row];
+//            [envio deletePatient:patient fromDoctor:<#(Doctor *)#>]; //This doctor must be the current user
             
             break;
         }
@@ -196,14 +199,14 @@
     Treatment* oldTreatment = [[Treatment alloc]init];
     Treatment* newTreatment = [[Treatment alloc]init];
     
-    oldTreatment.duration = [NSNumber numberWithInt:150];
-    oldTreatment.description = @"Old";
-    oldTreatment.status = [NSNumber numberWithBool:FALSE];
-    oldTreatment.
+    oldTreatment.treatmentDuration = [NSNumber numberWithInt:150];
+    oldTreatment.treatmentDescription = @"Old";
+    oldTreatment.treatmentStatus = [NSNumber numberWithBool:FALSE];
     
-    newTreatment.duration = [NSNumber numberWithInt:150];
-    newTreatment.description = @"New";
-    newTreatment.status = [NSNumber numberWithBool:TRUE];
+    
+    newTreatment.treatmentDuration = [NSNumber numberWithInt:150];
+    newTreatment.treatmentDescription = @"New";
+    newTreatment.treatmentStatus = [NSNumber numberWithBool:FALSE];
     
     VersionHistory* versionUpdate = [[VersionHistory alloc]init];
     

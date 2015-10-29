@@ -11,15 +11,20 @@
 #import "Patient.h"
 #import "Diagnosis.h"
 #import "Treatment.h"
+#import "CaseHistory.h"
 
 @interface Appointment : NSObject
 
-@property (weak,nonatomic) Doctor* doctor;
-@property (weak, nonatomic) Patient* patient;
-@property (weak, nonatomic) Diagnosis* diagnosis;
-@property (weak, nonatomic) Treatment* treatment;
+@property (weak,nonatomic) Doctor* appointmentDoctor;
+@property (weak, nonatomic) Patient* appointmentPatient;
+@property (weak, nonatomic) Diagnosis* appointmentDiagnosis;
+@property (weak, nonatomic) Treatment* appointmentTreatment;
+@property (weak, nonatomic) CaseHistory* appointmentCaseHistory;
+@property (strong, nonatomic) NSMutableArray* appointmentExams;
+@property (weak,nonatomic) NSDate* appointmentCreatedAt;
+@property (strong, nonatomic) NSMutableArray* appointmentVersionHistory;
+@property (weak,nonatomic) NSString* appointmentObjectId;
+@property (weak,nonatomic) NSDate* appointmentUpdatedAt;
 
-@property (weak,nonatomic) NSDate* createdAt;
-@property (strong, nonatomic) NSMutableArray* versionHistory;
 
 @end

@@ -10,9 +10,10 @@
 
 @interface CaseHistory : NSObject
 
-@property (weak,nonatomic) NSString* description;
-@property (weak,nonatomic) NSDate* photo;
-@property (strong, nonatomic) NSMutableArray* versionHistory;
+@property (weak,nonatomic) NSString* caseHistoryDescription;
+@property (weak,nonatomic) NSDate* caseHistoryPhoto;
+@property (strong, nonatomic) NSMutableArray* caseHistoryVersionHistory;
+@property (strong, nonatomic) NSMutableArray* caseHistoryUpdatedAt;
 
 
 @end

@@ -13,5 +13,6 @@
 @property (strong, nonatomic) NSString* medicationCategoryString;
 @property (strong, nonatomic) NSString* medicationActivePrincipleString;
 @property (strong, nonatomic) NSArray* medicationCommercialsArray;
+@property (strong, nonatomic) NSString* medicationObjectId;
 
 @end

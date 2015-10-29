@@ -17,8 +17,7 @@
 @property (strong, nonatomic) NSString* patientAgeString;
 @property (strong, nonatomic) NSString* patientGenderString;
 @property (strong, nonatomic) NSString* patientAdressString;
-
-//In test
 @property (strong, nonatomic) NSString* patientObjectId;
+@property (strong, nonatomic) NSMutableArray* patientDoctors;
 
 @end

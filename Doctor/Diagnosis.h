@@ -10,10 +10,14 @@
 
 @interface Diagnosis : NSObject
 
-@property (weak,nonatomic) NSDate* confirmedAt;
-@property (weak,nonatomic) NSNumber* status;
-@property (weak,nonatomic) NSString* description;
-@property (weak,nonatomic) NSDate* createdAt;
-@property (strong, nonatomic) NSMutableArray* versionHistory;
+@property (weak,nonatomic) NSDate* diagnosisConfirmedAt;
+@property (weak,nonatomic) NSNumber* diagnosisStatus;
+@property (weak,nonatomic) NSString* diagnosisDescription;
+@property (weak,nonatomic) NSDate* diagnosisCreatedAt;
+@property (strong, nonatomic) NSString* diagnosisObjectId;
+@property (strong, nonatomic) NSMutableArray* diagnosisVersionHistory;
+@property (strong, nonatomic) NSDate* diagnosisUpdatedAt;
+
+
 
 @end
