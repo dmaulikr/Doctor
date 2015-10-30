@@ -10,6 +10,13 @@
 
 @implementation Envio
 
+- (void) showAlertViewError: (NSError*)error{
+    UIAlertController* errorAlertView = [UIAlertController alertControllerWithTitle:@"Atenção!" message:[NSString stringWithFormat:@"Problema ao tentar conexão com servidor, tente outra vez. Erro: %@", error.description] preferredStyle:UIAlertControllerStyleAlert];
+    
+    [errorAlertView showDetailViewController:errorAlertView sender:nil];
+    
+}
+
 #pragma mark newDoctor
 
 - (void) newDoctor: (Doctor*)doctor;
@@ -31,6 +38,7 @@
             NSString *errorString = [error userInfo][@"error"];// Show the errorString somewhere and let the user try again.
             NSLog(@"%@", errorString);
             //Deal with it on a new method;
+            [self  showAlertViewError:error];
         }
     }];
     
@@ -57,6 +65,8 @@
             
         } else {
             // There was a problem, check error.description
+            [self  showAlertViewError:error];
+
         }
     }];
     
@@ -81,6 +91,8 @@
             
         } else {
             // There was a problem, check error.description
+            [self  showAlertViewError:error];
+
         }
     }];
 
@@ -102,6 +114,8 @@
             
         } else {
             // There was a problem, check error.description
+            [self  showAlertViewError:error];
+
         }
     }];
 
@@ -123,6 +137,8 @@
             
         } else {
             // There was a problem, check error.description
+            [self  showAlertViewError:error];
+
         }
     }];
 
@@ -144,6 +160,8 @@
             
         } else {
             // There was a problem, check error.description
+            [self  showAlertViewError:error];
+
         }
     }];
 }
@@ -161,6 +179,8 @@
             
         } else {
             // There was a problem, check error.description
+            [self  showAlertViewError:error];
+
         }
     }];
     
@@ -169,21 +189,19 @@
 #pragma mark Queries
 #pragma mark Sign In
 - (void)signIn: (NSString*)username
-  withPassword: (NSString*)password
-{
-//    PFUser* user = [[PFUser alloc]init];
-//    user.password = enteredPassword;
-//    user.username = enteredUsername;
-//    
-//    [user logInWithUsername: user.username password: user.password block: ^(PFUser* user, NSError* error){
-//        if (!error){
-//            NSLog(@"Doctor: %@ logged with success!", user.username);
-//            //perform the segue
-//        }else{
-//            NSLog(@"Login failed due: %@", error.description);
-//        }
-//        
-//    }];
+  withPassword: (NSString*)password{
+    
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser* user, NSError* error){
+        if (!error){
+            NSLog(@"Doctor: %@ logged with success!", username);
+            //perform the segue
+        }else{
+            NSLog(@"Login failed due: %@", error.description);
+            [self  showAlertViewError:error];
+
+        }
+    }];
+    
 
 }
 
@@ -221,6 +239,8 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+
         }
     }];
 }
@@ -259,6 +279,8 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+
         }
     }];
 }
@@ -293,6 +315,8 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+
         }
     }];
 }
@@ -336,6 +360,8 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+
         }
     }];
 }
@@ -378,6 +404,8 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+
         }
     }];
 }
@@ -412,6 +440,8 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+
         }
     }];
 
@@ -450,6 +480,8 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+
         }
     }];
 }
@@ -484,6 +516,8 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+
         }
     }];
 }
@@ -522,6 +556,8 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+
             
         }
     }];
@@ -554,6 +590,7 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
             
         }
     }];
@@ -578,6 +615,8 @@
         {
             NSLog(@"Error: %@", error.description);
             completion(succeeded);
+            [self  showAlertViewError:error];
+
         }
     }];
 }
@@ -598,7 +637,7 @@
         }else{
             
             NSLog(@"deletePatient:fromDoctor: failed retrieving the doctor - Envio.m");
-            
+            [self  showAlertViewError:nil];
         }
     }];
     
@@ -614,6 +653,8 @@
         } else {
             // Did not find any doctors
             NSLog(@"Error: %@", error);
+            [self  showAlertViewError:error];
+
         }
     }];
     
@@ -633,6 +674,8 @@
         {
             NSLog(@"Error: %@", error.description);
             completion(succeeded);
+            [self  showAlertViewError:error];
+
         }
     }];
 }

@@ -11,6 +11,7 @@
 #import "Storyboards.h"
 #import "Authentication.h"
 #import "Parse.h"
+#import "Envio.h"
 
 @interface OutsideStartViewController () <UITextFieldDelegate>{
     Authentication* authentication;
@@ -52,15 +53,26 @@
 
 #pragma mark - IBActions
 - (IBAction)didTappedLoginButton:(UIButton *)sender{
-    [authentication verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
-        if (finished) {
-            self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kFeedStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kFeedNavID];
-            [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
-        }else{
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Houve algo errado." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-    }];
+    
+    Doctor* doctor = [[Doctor alloc]init];
+    doctor.doctorUsernameString = self.loginTextField.text;
+    doctor.doctorPasswordString = self.passwordTextField.text;
+    
+    Envio* envio = [[Envio alloc]init];
+    [envio signIn:doctor];
+    
+//    [authentication verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
+//        if (finished) {
+//            self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kFeedStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kFeedNavID];
+//            [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+//        }else{
+//            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Houve algo errado." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//            [alert show];
+//        }
+//    }];
+
+    
+
 }
 
 - (IBAction)didTappedSignInButton:(UIButton *)sender{

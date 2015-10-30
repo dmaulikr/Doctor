@@ -98,5 +98,9 @@
        withCompletion: (void (^)(BOOL succeded))completion;
 
 
+#pragma mark error alert view
+- (void) showAlertViewError: (NSError*)error;
+
+
 
 @end
