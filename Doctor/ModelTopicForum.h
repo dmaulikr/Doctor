@@ -10,10 +10,6 @@
 
 @interface ModelTopicForum : NSObject
 
-@property (strong, nonatomic) NSString* topicForumTheme;
-@property (strong, nonatomic) NSString* topicForumDescription;
-@property (strong, nonatomic) NSString* topicForumCreatedBy;
-@property (strong, nonatomic) NSString* topicForumUpdatedAt;
-@property (strong, nonatomic) NSString* topicForumContentPreview;
+
 
 @end

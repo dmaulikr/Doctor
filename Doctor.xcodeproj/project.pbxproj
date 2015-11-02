@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		020AAE321BDFA19F004766D5 /* ModelTopicForum.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AAE311BDFA19F004766D5 /* ModelTopicForum.m */; };
-		020AAE351BDFA375004766D5 /* ModelMessageForum.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AAE341BDFA375004766D5 /* ModelMessageForum.m */; };
 		020AAE381BDFA68F004766D5 /* ForumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AAE371BDFA68F004766D5 /* ForumTableViewCell.m */; };
 		020AAE3B1BDFA6CD004766D5 /* ForumMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AAE3A1BDFA6CD004766D5 /* ForumMessageTableViewCell.m */; };
 		022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DB1BCFC9CC00B7C1E0 /* MainViewController.m */; };
@@ -29,6 +27,9 @@
 		02921D5F1BD11707001B6F5E /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D5E1BD11707001B6F5E /* FeedTableViewController.m */; };
 		02921D7D1BD14DE7001B6F5E /* Outside.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02921D7C1BD14DE7001B6F5E /* Outside.storyboard */; };
 		02921D811BD14E9A001B6F5E /* OutsideStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D801BD14E9A001B6F5E /* OutsideStartViewController.m */; };
+		0297C9721BE6F8060068757C /* ForumTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C9711BE6F8060068757C /* ForumTopic.m */; };
+		0297C9751BE6F82F0068757C /* ForumTopicMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C9741BE6F82F0068757C /* ForumTopicMessage.m */; };
+		0297C9791BE6F8940068757C /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C9781BE6F8940068757C /* Message.m */; };
 		02CD6C2E1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C2D1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m */; };
 		02CD6C311BD2C11700C38B6D /* OutsideSignInTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C301BD2C11700C38B6D /* OutsideSignInTableViewController.m */; };
 		02CD6C341BD2C9D700C38B6D /* OutsideSignInConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C331BD2C9D700C38B6D /* OutsideSignInConfirmViewController.m */; };
@@ -100,10 +101,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		020AAE301BDFA19F004766D5 /* ModelTopicForum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelTopicForum.h; sourceTree = "<group>"; };
-		020AAE311BDFA19F004766D5 /* ModelTopicForum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelTopicForum.m; sourceTree = "<group>"; };
-		020AAE331BDFA375004766D5 /* ModelMessageForum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelMessageForum.h; sourceTree = "<group>"; };
-		020AAE341BDFA375004766D5 /* ModelMessageForum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelMessageForum.m; sourceTree = "<group>"; };
 		020AAE361BDFA68F004766D5 /* ForumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumTableViewCell.h; sourceTree = "<group>"; };
 		020AAE371BDFA68F004766D5 /* ForumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTableViewCell.m; sourceTree = "<group>"; };
 		020AAE391BDFA6CD004766D5 /* ForumMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumMessageTableViewCell.h; sourceTree = "<group>"; };
@@ -141,6 +138,12 @@
 		02921D7C1BD14DE7001B6F5E /* Outside.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Outside.storyboard; sourceTree = "<group>"; };
 		02921D7F1BD14E9A001B6F5E /* OutsideStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideStartViewController.h; sourceTree = "<group>"; };
 		02921D801BD14E9A001B6F5E /* OutsideStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutsideStartViewController.m; sourceTree = "<group>"; };
+		0297C9701BE6F8060068757C /* ForumTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumTopic.h; sourceTree = "<group>"; };
+		0297C9711BE6F8060068757C /* ForumTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTopic.m; sourceTree = "<group>"; };
+		0297C9731BE6F82F0068757C /* ForumTopicMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumTopicMessage.h; sourceTree = "<group>"; };
+		0297C9741BE6F82F0068757C /* ForumTopicMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTopicMessage.m; sourceTree = "<group>"; };
+		0297C9771BE6F8940068757C /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		0297C9781BE6F8940068757C /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		02CD6C2C1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideRecoverPasswordViewController.h; sourceTree = "<group>"; };
 		02CD6C2D1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutsideRecoverPasswordViewController.m; sourceTree = "<group>"; };
 		02CD6C2F1BD2C11700C38B6D /* OutsideSignInTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideSignInTableViewController.h; sourceTree = "<group>"; };
@@ -245,6 +248,7 @@
 		022928D51BCFC63000B7C1E0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0297C9761BE6F8720068757C /* ModelInbox */,
 				70E0499B1BDFF0FA001A186F /* ModelVersionHistory */,
 				02ECD62E1BDEC30B00A82D0E /* ModelOutside */,
 				7020D1331BD53B670059A226 /* ModelDiagnosis */,
@@ -449,6 +453,15 @@
 			name = ViewsOutside;
 			sourceTree = "<group>";
 		};
+		0297C9761BE6F8720068757C /* ModelInbox */ = {
+			isa = PBXGroup;
+			children = (
+				0297C9771BE6F8940068757C /* Message.h */,
+				0297C9781BE6F8940068757C /* Message.m */,
+			);
+			name = ModelInbox;
+			sourceTree = "<group>";
+		};
 		02CD6C351BD2CE1E00C38B6D /* OutsideRecoverPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,10 +518,10 @@
 		02CD6C401BD2D81000C38B6D /* ModelForum */ = {
 			isa = PBXGroup;
 			children = (
-				020AAE301BDFA19F004766D5 /* ModelTopicForum.h */,
-				020AAE311BDFA19F004766D5 /* ModelTopicForum.m */,
-				020AAE331BDFA375004766D5 /* ModelMessageForum.h */,
-				020AAE341BDFA375004766D5 /* ModelMessageForum.m */,
+				0297C9701BE6F8060068757C /* ForumTopic.h */,
+				0297C9711BE6F8060068757C /* ForumTopic.m */,
+				0297C9731BE6F82F0068757C /* ForumTopicMessage.h */,
+				0297C9741BE6F82F0068757C /* ForumTopicMessage.m */,
 			);
 			name = ModelForum;
 			sourceTree = "<group>";
@@ -960,7 +973,7 @@
 				02E7A99F1BDC50DE008059BD /* PatientSelectedEditTableViewController.m in Sources */,
 				02CDD9BF1BD6DBB300443828 /* ForumNewTopicTableViewController.m in Sources */,
 				7020D1321BD53B560059A226 /* CaseHistory.m in Sources */,
-				020AAE321BDFA19F004766D5 /* ModelTopicForum.m in Sources */,
+				0297C9721BE6F8060068757C /* ForumTopic.m in Sources */,
 				70E0499E1BDFF1FB001A186F /* VersionHistory.m in Sources */,
 				02CD6C461BD2D86600C38B6D /* Medication.m in Sources */,
 				02CD6C311BD2C11700C38B6D /* OutsideSignInTableViewController.m in Sources */,
@@ -970,8 +983,9 @@
 				02ECD6311BDEC34900A82D0E /* Authentication.m in Sources */,
 				02E7A9A81BDC50FB008059BD /* PatientSelectedDataTableViewController.m in Sources */,
 				7020D11E1BD52DBD0059A226 /* Envio.m in Sources */,
+				0297C9751BE6F82F0068757C /* ForumTopicMessage.m in Sources */,
 				022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */,
-				020AAE351BDFA375004766D5 /* ModelMessageForum.m in Sources */,
+				0297C9791BE6F8940068757C /* Message.m in Sources */,
 				02CD6C341BD2C9D700C38B6D /* OutsideSignInConfirmViewController.m in Sources */,
 				7020D1361BD53B7C0059A226 /* Diagnosis.m in Sources */,
 				020AAE381BDFA68F004766D5 /* ForumTableViewCell.m in Sources */,

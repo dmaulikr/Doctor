@@ -103,13 +103,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Doctor/OutsideStartViewController.m"
-            timestampString = "467587890.170092"
+            filePath = "Doctor/Envio.h"
+            timestampString = "468123553.858079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-didTappedLoginButton:"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "-signIn:"
+            landmarkType = "4">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Doctor/Envio.m"
+            timestampString = "468123583.877495"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "-signIn:withPassword:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

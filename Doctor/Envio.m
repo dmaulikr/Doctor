@@ -32,7 +32,7 @@
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"Signed UP - OK!");
-            [self generateDoctorCreationLog];
+            [self generateDoctorCreationLog:doctor];
         } else {
             NSString *errorString = [error userInfo][@"error"];// Show the errorString somewhere and let the user try again.
             NSLog(@"%@", errorString);
@@ -680,93 +680,93 @@
 }
 
 #pragma mark - Log Queries (Doctor)
-- (void) generateDoctorCreationLog{
+- (void) generateDoctorCreationLog:(Doctor *)doctor{
     
 }
-- (void) generateDoctorUpdateInfoLog{
+- (void) generateDoctorUpdateInfoLog:(Doctor *)doctor{
     
 }
-- (void) generateDoctorInteractionLog{
+- (void) generateDoctorInteractionLog:(Doctor *)doctor{
     
 }
-- (void) generateDoctorDeleteLog{
+- (void) generateDoctorDeleteLog:(Doctor *)doctor{
     
 }
 
 #pragma mark - Log Queries (Patient)
-- (void) generatePatientCreationLog{
+- (void) generatePatientCreationLog:(Patient *)patient{
     
 }
-- (void) generatePatientUpdateInfoLog{
+- (void) generatePatientUpdateInfoLog:(Patient *)patient{
     
 }
-- (void) generatePatientDeleteLog{
+- (void) generatePatientDeleteLog:(Patient *)patient{
     
 }
 
 #pragma mark - Log Queries (Diagnosis)
-- (void) generateDiagnosisCreationLog{
+- (void) generateDiagnosisCreationLog:(Diagnosis *)diagnosis{
     
 }
-- (void) generateDiagnosisUpdateLog{
+- (void) generateDiagnosisUpdateLog:(Diagnosis *)diagnosis{
     
 }
-- (void) generateDiagnosisDeleteLog{
+- (void) generateDiagnosisDeleteLog:(Diagnosis *)diagnosis{
     
 }
 
 #pragma mark - Log Queries (Exam)
-- (void) generateExamCreationLog{
+- (void) generateExamCreationLog:(Exam *)exam{
     
 }
-- (void) generateExamUpdateLog{
+- (void) generateExamUpdateLog:(Exam *)exam{
     
 }
-- (void) generateExamDeleteLog{
+- (void) generateExamDeleteLog:(Exam *)exam{
     
 }
 
 #pragma mark - Log Queries (Appointment)
-- (void) generateAppointmentCreationLog{
+- (void) generateAppointmentCreationLog:(Appointment *)appointment{
     
 }
-- (void) generateAppointmentUpdateLog{
+- (void) generateAppointmentUpdateLog:(Appointment *)appointment{
     
 }
-- (void) generateAppointmentDeleteLog{
+- (void) generateAppointmentDeleteLog:(Appointment *)appointment{
     
 }
 
 #pragma mark - Log Queries (Forum)
-- (void) generateForumCreationLog{
+- (void) generateForumCreationLog:(ForumTopic *)forumTopic{
     
 }
-- (void) generateForumUpdateLog{
+- (void) generateForumUpdateLog:(ForumTopic *)forumTopic{
     
 }
-- (void) generateForumDeleteLog{
+- (void) generateForumDeleteLog:(ForumTopic *)forumTopic{
     
 }
-- (void) generateForumInteractionLog{
+- (void) generateForumInteractionLog:(ForumTopic *)forumTopic{
     
 }
 
 #pragma mark - Log Queries (Treatment)
-- (void) generateTreatmentCreationLog{
+- (void) generateTreatmentCreationLog:(Treatment *)treatment{
     
 }
-- (void) generateTreatmentUpdateLog{
+- (void) generateTreatmentUpdateLog:(Treatment *)treatment{
     
 }
-- (void) generateTreatmentDeleteLog{
+- (void) generateTreatmentDeleteLog:(Treatment *)treatment{
     
 }
 
 #pragma mark - Log Queries (Message - Cryptography ASAP)
-- (void) generateMessageCreationLog{
+- (void) generateMessageCreationLog:(Message *)message{
     
 }
-- (void) generateMessageDeleteLog{
+- (void) generateMessageDeleteLog:(Message *)message{
     
 }
 

@@ -17,6 +17,8 @@
 #import "Exam.h"
 #import "CaseHistory.h"
 #import "Medication.h"
+#import "ForumTopic.h"
+#import "Message.h"
 
 @interface Envio : NSObject
 

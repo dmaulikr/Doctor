@@ -11,9 +11,6 @@
 
 @interface ModelMessageForum : NSObject
 
-@property (strong, nonatomic) NSString* messageForumCreatedBy;
-@property (strong, nonatomic) NSString* messageForumContent;
-@property (strong, nonatomic) ModelTopicForum* messageForumTopic;
-@property (strong, nonatomic) NSString* messageForumCreatedAt;
+
 
 @end
