@@ -30,10 +30,9 @@
     user[@"patients"] = doctor.doctorPatientsArray;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        //Show error message somewhere and let the user try again
         if (!error) {
             NSLog(@"Signed UP - OK!");
-            //Deal with it on a new method;
+            [self generateDoctorCreationLog];
         } else {
             NSString *errorString = [error userInfo][@"error"];// Show the errorString somewhere and let the user try again.
             NSLog(@"%@", errorString);
@@ -61,8 +60,7 @@
     
     [newPatient saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            // The object has been saved.
-            
+            [self generatePatientCreationLog];
         } else {
             // There was a problem, check error.description
             [self  showAlertViewError:error];
@@ -87,8 +85,7 @@
     
     [newDiagnosis saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            // The object has been saved.
-            
+            [self generateDiagnosisCreationLog];
         } else {
             // There was a problem, check error.description
             [self  showAlertViewError:error];
@@ -110,8 +107,7 @@
     
     [newTreatment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            // The object has been saved.
-            
+            [self generateTreatmentCreationLog];
         } else {
             // There was a problem, check error.description
             [self  showAlertViewError:error];
@@ -133,8 +129,7 @@
     
     [newExam saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            // The object has been saved.
-            
+            [self generateExamCreationLog];
         } else {
             // There was a problem, check error.description
             [self  showAlertViewError:error];
@@ -175,8 +170,7 @@
     
     [newAppointment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            // The object has been saved.
-            
+            [self generateAppointmentCreationLog];
         } else {
             // There was a problem, check error.description
             [self  showAlertViewError:error];
@@ -194,7 +188,7 @@
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser* user, NSError* error){
         if (!error){
             NSLog(@"Doctor: %@ logged with success!", username);
-            //perform the segue
+            [self generateLogInLog];
         }else{
             NSLog(@"Login failed due: %@", error.description);
             [self  showAlertViewError:error];
@@ -610,6 +604,7 @@
         if (succeeded) {
             NSLog(@"Treatment succesfully deleted");
             completion(succeeded);
+            [self generateTreatmentDeleteLog];
         }
         else
         {
@@ -667,8 +662,8 @@
     
     [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError* error){
         if (succeeded) {
-            NSLog(@"Treatment succesfully deleted");
             completion(succeeded);
+            [self generateDiagnosisDeleteLog];
         }
         else
         {
@@ -679,7 +674,106 @@
         }
     }];
 }
+//TO DO
+- (void) deleteExam: (Exam*)exam withCompletion: (void (^)(BOOL succeded))completion{
+    [self generateExamDeleteLog];
+}
 
+#pragma mark - Log Queries (Doctor)
+- (void) generateDoctorCreationLog{
+    
+}
+- (void) generateDoctorUpdateInfoLog{
+    
+}
+- (void) generateDoctorInteractionLog{
+    
+}
+- (void) generateDoctorDeleteLog{
+    
+}
+
+#pragma mark - Log Queries (Patient)
+- (void) generatePatientCreationLog{
+    
+}
+- (void) generatePatientUpdateInfoLog{
+    
+}
+- (void) generatePatientDeleteLog{
+    
+}
+
+#pragma mark - Log Queries (Diagnosis)
+- (void) generateDiagnosisCreationLog{
+    
+}
+- (void) generateDiagnosisUpdateLog{
+    
+}
+- (void) generateDiagnosisDeleteLog{
+    
+}
+
+#pragma mark - Log Queries (Exam)
+- (void) generateExamCreationLog{
+    
+}
+- (void) generateExamUpdateLog{
+    
+}
+- (void) generateExamDeleteLog{
+    
+}
+
+#pragma mark - Log Queries (Appointment)
+- (void) generateAppointmentCreationLog{
+    
+}
+- (void) generateAppointmentUpdateLog{
+    
+}
+- (void) generateAppointmentDeleteLog{
+    
+}
+
+#pragma mark - Log Queries (Forum)
+- (void) generateForumCreationLog{
+    
+}
+- (void) generateForumUpdateLog{
+    
+}
+- (void) generateForumDeleteLog{
+    
+}
+- (void) generateForumInteractionLog{
+    
+}
+
+#pragma mark - Log Queries (Treatment)
+- (void) generateTreatmentCreationLog{
+    
+}
+- (void) generateTreatmentUpdateLog{
+    
+}
+- (void) generateTreatmentDeleteLog{
+    
+}
+
+#pragma mark - Log Queries (Message - Cryptography ASAP)
+- (void) generateMessageCreationLog{
+    
+}
+- (void) generateMessageDeleteLog{
+    
+}
+
+#pragma mark - Other log queries
+- (void) generateLogInLog{
+    
+}
 
 
 @end
