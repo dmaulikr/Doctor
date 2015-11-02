@@ -34,16 +34,26 @@
 #pragma mark - Retrieving Queries
 - (void)fetchRootTreatment:(Treatment*) rootTreatment withCompletion:(void (^)(Treatment* treatment))completion;
 - (void)signIn: (Doctor*)doctor;
-- (void)fetchPatient: (NSString*)CPF withCompletion:(void (^)(Patient* patient))completion;
-- (void)fetchAllPatients: (void (^)(Patient* patient))completion;
-- (void)fetchAllMedications: (void (^)(Medication* medication))completion;
-- (void)fetchAppointment: (NSNumber*)doctor createdAt: (NSDate*)createdAt withCompletion:(void (^)(Appointment* appointment))completion;
-- (void)fetchAllAppointments: (void (^)(Appointment* appointment))completion;
-- (void)fetchTreatment:(NSDate*)createdAt withCompletion:(void (^)(Treatment* treatment))completion;
-- (void)fetchAllTreatments:(void (^)(Treatment* treatment))completion;
-- (void)fetchDiagnosis: (NSDate*)createdAt withCompletion:(void (^)(Diagnosis* diagnosis))completion;
-- (void)fetchAllDiagnosis:(void (^)(Diagnosis* diagnosis))completion;
-- (void)fetchDoctor: (NSString*)CRM withCompletion:(void (^)(Doctor* doctor))completion;
+
+- (void)fetchPatientPassingCPF: (NSString*)CPF withCompletion:(void (^)(Patient* patient))completion;
+- (void)fetchAllPatients: (void (^)(NSMutableArray* patientArray))completion;
+
+- (void)fetchAllMedications: (void (^)(NSMutableArray* medicationArray))completion;
+
+- (void)fetchAppointmentPassingDoctor:(Doctor *)doctor withCompletion:(void (^)(NSMutableArray* appointmentArray))completion;
+- (void)fetchAppointmentPassingPatient:(Patient *)patient withCompletion:(void (^)(NSMutableArray* appointmentArray))completion;
+- (void)fetchAllAppointments: (void (^)(NSMutableArray* appointmentArray))completion;
+
+- (void)fetchTreatmentPassingPatient:(Patient*)patient withCompletion:(void (^)(NSMutableArray* treatmentArray))completion;
+- (void)fetchTreatmentPassingDoctor:(Doctor*)doctor withCompletion:(void (^)(NSMutableArray* treatmentArray))completion;
+- (void)fetchAllTreatments:(void (^)(NSMutableArray* treatmentArray))completion;
+
+- (void)fetchDiagnosisPassingDate: (NSDate*)createdAt withCompletion:(void (^)(Diagnosis* diagnosis))completion;
+- (void)fetchAllDiagnosis:(void (^)(NSMutableArray* diagnosis))completion;
+
+- (void)fetchDoctorPassingCRM: (NSString*)CRM withCompletion:(void (^)(Doctor* doctor))completion;
+
+- (void)fetchExamsPassingPatient: (Patient*)patient withCompletion:(void (^)(NSMutableArray* examsArray))completion;
 
 #pragma mark - Deleting Queries
 - (void) deleteTreatment: (Treatment*)treatment withCompletion: (void (^)(BOOL succeded))completion;

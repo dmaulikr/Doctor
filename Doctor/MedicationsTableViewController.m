@@ -60,14 +60,13 @@
 
 #pragma mark - Setups
 - (void)setupDataSource{
-    self.medicationsArray = [[NSMutableArray alloc] init];
     tableViewDataArray = [[NSMutableArray alloc] init];
     self.filteredMedicationsArray = [[NSMutableArray alloc] init];
     Envio* newEnvio = [[Envio alloc]init];
-    [newEnvio fetchAllMedications: ^void (Medication* medication){
-            if (medication){
-                [self.medicationsArray addObject:medication];
-                tableViewDataArray = self.medicationsArray;
+    [newEnvio fetchAllMedications: ^void (NSMutableArray* medicationArray){
+            if (medicationArray){
+                self.medicationsArray = medicationArray;
+                tableViewDataArray = medicationArray;
                 [self.tableView reloadData];
                 [spinner stopAnimating];
             }else{

@@ -8,6 +8,11 @@
 
 #import "PatientSelectedTableViewController.h"
 #import "Patient.h"
+#import "PatientSelectedAppointmentsTableViewController.h"
+#import "PatientSelectedExamsTableViewController.h"
+#import "PatientSelectedEditTableViewController.h"
+#import "PatientSelectedDataTableViewController.h"
+#import "PatientSelectedTreatmentsTableViewController.h"
 
 @interface PatientSelectedTableViewController ()
 
@@ -59,25 +64,29 @@
         default:
             break;
     }
-
 }
 
 #pragma mark - Storyboard
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"clickedInDataSegueId"]) {
-        
+        PatientSelectedDataTableViewController *data = segue.destinationViewController;
+        data.patient = self.patient;
     }
     else if ([segue.identifier isEqualToString:@"clickedInAppointmentsSegueId"]){
-        
+        PatientSelectedAppointmentsTableViewController *appointments = segue.destinationViewController;
+        appointments.patient = self.patient;
     }
     else if ([segue.identifier isEqualToString:@"clickedInExamsSegueId"]){
-        
+        PatientSelectedExamsTableViewController* exams = segue.destinationViewController;
+        exams.patient = self.patient;
     }
     else if ([segue.identifier isEqualToString:@"clickedInTreatmentsSegueId"]){
-        
+        PatientSelectedTreatmentsTableViewController* treatments = segue.destinationViewController;
+        treatments.patient = self.patient;
     }
     else if ([segue.identifier isEqualToString:@"clickedInEditSegueId"]){
-        
+        PatientSelectedEditTableViewController* edit = segue.destinationViewController;
+        edit.patient = self.patient;
     }
 }
 

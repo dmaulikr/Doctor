@@ -200,16 +200,13 @@
 }
 
 #pragma mark fetchPatient
-- (void)fetchPatient: (NSString*)CPF
+- (void)fetchPatientPassingCPF:(NSString*)CPF
       withCompletion:(void (^)(Patient* patient))completion;{
     
         PFQuery *query = [PFQuery queryWithClassName:@"Patient"];
         [query whereKey:@"CPF" equalTo:CPF];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d patients.", objects.count);
-            // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
                 
@@ -239,16 +236,13 @@
     }];
 }
 
-- (void)fetchAllPatients: (void (^)(Patient* patient))completion
+- (void)fetchAllPatients: (void (^)(NSMutableArray * patientArray))completion
 {
     NSMutableArray* patients = [[NSMutableArray alloc]init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Patient"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d patients.", objects.count);
-            // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
                 
@@ -261,8 +255,8 @@
                 
                 [patients addObject:patient];
                 
-                if (patient) {
-                    completion(patient);
+                if (patients) {
+                    completion(patients);
                 }else{
                     completion(nil);
                     NSLog(@"404 - Envio.m - fetchAllPatients");
@@ -279,15 +273,12 @@
     }];
 }
 
-- (void)fetchAllMedications:(void (^)(Medication *))completion{
+- (void)fetchAllMedications:(void (^)(NSMutableArray * medicationArray))completion{
     NSMutableArray* medications = [[NSMutableArray alloc]init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Medication"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d medications.", objects.count);
-            // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object[@"category"]);
                 
@@ -316,20 +307,55 @@
 }
 
 
+- (void)fetchExamsPassingPatient:(Patient*)patient
+               withCompletion:(void (^)(NSMutableArray* examsArray))completion{
+  
+    NSMutableArray* examsArray = [[NSMutableArray alloc] init];
+    PFQuery *query = [PFQuery queryWithClassName:@"Exam"];
+    [query whereKey:@"PatientEnvolved" equalTo:patient.patientCPFString];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                
+//                Doctor* doctor = [[Doctor alloc]init];
+//                doctor.doctorCelularString = [object objectForKey:@"celular"];
+//                doctor.doctorCRMString = [object objectForKey:@"CRM"];
+//                doctor.doctorEmailString = [object objectForKey:@"email"];
+//                doctor.doctorNameString = [object objectForKey:@"name"];
+//                doctor.doctorPasswordString = [object objectForKey:@"password"];
+//                doctor.doctorUsernameString = [object objectForKey:@"username"];
+//                doctor.doctorObjectId = [object objectForKey:@"objectId"];
+                Exam *exam = [[Exam alloc] init];
+                exam.examDescription = @"lilau";
+                [examsArray addObject:exam];
+            }
+            if (examsArray) {
+                completion(examsArray);
+            }else{
+                completion(nil);
+                NSLog(@"404 - Envio.m - fetchDoctor");
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+            
+        }
+    }];
 
+
+}
 
 #pragma mark fetchDoctor
 
-- (void)fetchDoctor: (NSString*)CRM
+- (void)fetchDoctorPassingCRM:(NSString*)CRM
       withCompletion:(void (^)(Doctor* doctor))completion{
     
     PFQuery *query = [PFQuery queryWithClassName:@"Doctor"];
     [query whereKey:@"CRM" equalTo:CRM];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d patients.", objects.count);
-            // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
                 
@@ -363,19 +389,14 @@
 
 
 #pragma mark fetchAppointment
-- (void)fetchAppointment: (Doctor*)doctor
-               createdAt: (NSDate*)createdAt
-          withCompletion:(void (^)(Appointment* appointment))completion;{
+- (void)fetchAppointmentPassingDoctor: (Doctor*)doctor withCompletion:(void (^)(NSMutableArray * appointmentArray))completion;{
     
     Appointment* appointment;
     
     PFQuery *query = [PFQuery queryWithClassName:@"Appointment"];
-    [query whereKey:@"createdAt" equalTo:createdAt];
+    [query whereKey:@"doctorEnvolved" equalTo:doctor.doctorCRMString];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d patients.", objects.count);
-            // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
                 appointment.appointmentDoctor = [object objectForKey:@"doctor"];
@@ -386,20 +407,50 @@
                 appointment.appointmentCaseHistory = [object objectForKey:@"caseHistory"];
                 appointment.appointmentObjectId = [object objectForKey:@"objectId"];
                 appointment.appointmentExams = [object objectForKey:@"exams"];
-            
-                if (appointment) {
-                    completion(appointment);
-                }else{
-                    completion(nil);
-                    NSLog(@"404 - Envio.m - fetchAppointment");
-                }
             }
-            
+            if (appointment) {
+                completion(appointment);
+            }else{
+                completion(nil);
+                NSLog(@"404 - Envio.m - fetchAppointment");
+            }
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
             [self  showAlertViewError:error];
 
+        }
+    }];
+}
+- (void)fetchAppointmentPassingPatient: (Patient*)patient withCompletion:(void (^)(NSMutableArray * appointmentArray))completion;{
+    NSMutableArray* appointmentArray = [[NSMutableArray alloc] init];
+    Appointment* appointment = [[Appointment alloc] init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Appointment"];
+    [query whereKey:@"PatientEnvolved" equalTo:patient.patientCPFString];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                appointment.appointmentDoctor = [object objectForKey:@"doctor"];
+                appointment.appointmentCreatedAt = [object objectForKey:@"createdAt"];
+                appointment.appointmentDiagnosis = [object objectForKey:@"diagnosis"];
+                appointment.appointmentPatient = [object objectForKey:@"patient"];
+                appointment.appointmentTreatment = [object objectForKey:@"treatment"];
+                appointment.appointmentCaseHistory = [object objectForKey:@"caseHistory"];
+                appointment.appointmentObjectId = [object objectForKey:@"objectId"];
+                appointment.appointmentExams = [object objectForKey:@"exams"];
+                [appointmentArray addObject:appointment];
+            }
+            if (appointmentArray) {
+                completion(appointmentArray);
+            }else{
+                completion(nil);
+                NSLog(@"404 - Envio.m - fetchAppointment");
+            }
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+            
         }
     }];
 }
@@ -411,10 +462,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Appointment"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d patients.", objects.count);
-            // Do something with the found objects
-            for (PFObject *object in objects) {
+                for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
                 appointment.appointmentDoctor = [object objectForKey:@"doctor"];
                 appointment.appointmentCreatedAt = [object objectForKey:@"createdAt"];
@@ -442,17 +490,14 @@
 }
 
 #pragma mark fetchTreatment
-- (void)fetchTreatment:(NSDate*)createdAt
-        withCompletion:(void (^)(Treatment* treatment))completion{
+- (void)fetchTreatmentPassingPatient:(Patient *)patient
+        withCompletion:(void (^)(NSMutableArray * treatmentArray))completion{
     Treatment* treatment;
     
     PFQuery *query = [PFQuery queryWithClassName:@"Treatment"];
-    [query whereKey:@"createdAt" equalTo:createdAt];
+    [query whereKey:@"PatientEnvolved" equalTo:patient.patientCPFString];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d patients.", objects.count);
-            // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
                 treatment.treatmentDuration = [object objectForKey:@"duration"];
@@ -463,14 +508,12 @@
                 treatment.treatmentVersionHistory = [object objectForKey:@"versionHistory"];
                 treatment.treatmentUpdatedAt = [object objectForKey:@"updatedAt"];
             }
-            
             if (treatment) {
                 completion(treatment);
             }else{
                 completion(nil);
                 NSLog(@"404 - Envio.m - fetchTreatment");
             }
-
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -486,9 +529,6 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Treatment"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d patients.", objects.count);
-            // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
                 treatment.treatmentDuration = [object objectForKey:@"duration"];
@@ -526,9 +566,6 @@
     [query whereKey:@"createdAt" equalTo:createdAt];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d patients.", objects.count);
-            // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
                 diagnosis.diagnosisCreatedAt = [object objectForKey:@"createdAt"];
@@ -563,9 +600,6 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Diagnosis"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d patients.", objects.count);
-            // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
                 diagnosis.diagnosisCreatedAt = [object objectForKey:@"createdAt"];
@@ -624,7 +658,7 @@
     Envio* envio = [[Envio alloc]init];
     NSMutableArray* fetchedPatientsArray = [[NSMutableArray alloc]init];
     
-    [envio fetchDoctor:doctor.doctorCRMString withCompletion:^(Doctor* doctor){
+    [envio fetchDoctorPassingCRM:doctor.doctorCRMString withCompletion:^(Doctor* doctor){
         if (doctor) {
             
             [fetchedPatientsArray arrayByAddingObjectsFromArray:doctor.doctorPatientsArray];
@@ -681,7 +715,11 @@
 
 #pragma mark - Log Queries (Doctor)
 - (void) generateDoctorCreationLog:(Doctor *)doctor{
-    
+    NSString* registeredBy = [[NSString alloc] initWithFormat:@"%@", doctor.doctorCRMString];
+    NSString* activityType = @"Doctor creation";
+    NSString* activityRegister = [[NSString alloc] initWithFormat:@"Doctor %@ was created | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorCelularString];
+    NSArray* patientsEnvolved = [[NSArray alloc] initWithObjects:@"", nil];
+    NSString* date = [self getSystemDate];
 }
 - (void) generateDoctorUpdateInfoLog:(Doctor *)doctor{
     
@@ -773,6 +811,11 @@
 #pragma mark - Other log queries
 - (void) generateLogInLog{
     
+}
+
+#pragma mark - Private Methods
+- (NSString *)getSystemDate{
+    return @"";
 }
 
 

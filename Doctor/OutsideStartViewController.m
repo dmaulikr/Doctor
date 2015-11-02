@@ -29,8 +29,9 @@
     [super viewDidLoad];
     self.loginButton.layer.cornerRadius = 3;
     self.menuContainerViewController.panMode = NO;
-    [self setupTextFieldDelegates];
+ //   [self setupTextFieldDelegates];
     authentication = [[Authentication alloc] init];
+    self.passwordTextField.secureTextEntry = YES;
     
   //IN CASE OF NEED:
 //    PFObject *gameScore = [PFObject objectWithClassName:@"User"];
@@ -104,29 +105,29 @@
 }
 
 #pragma mark - UITextFieldDelegates
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-    if ([textField.text isEqualToString:@"Login"]) {
-        textField.text = @"";
-    }
-    else if ([textField.text isEqualToString:@"Senha"]){
-        textField.text = @"";
-    }
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-    if ([textField.text isEqualToString:@""]) {
-        switch (textField.tag) {
-            case 0:
-                textField.text = @"Login";
-                break;
-            case 1:
-                textField.text = @"Senha";
-                break;
-            default:
-                break;
-        }
-    }
-}
+//- (void)textFieldDidBeginEditing:(UITextField *)textField{
+//    if ([textField.text isEqualToString:@"Login"]) {
+//        textField.text = @"";
+//    }
+//    else if ([textField.text isEqualToString:@"Senha"]){
+//        textField.text = @"";
+//    }
+//}
+//
+//- (void)textFieldDidEndEditing:(UITextField *)textField{
+//    if ([textField.text isEqualToString:@""]) {
+//        switch (textField.tag) {
+//            case 0:
+//                textField.text = @"Login";
+//                break;
+//            case 1:
+//                textField.text = @"Senha";
+//                break;
+//            default:
+//                break;
+//        }
+//    }
+//}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];

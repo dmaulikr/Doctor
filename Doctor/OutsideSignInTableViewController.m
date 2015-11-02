@@ -60,9 +60,9 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 - (void) showAlertViewConfirmation{
     
     
-    NSString* stringToShow = [[NSString alloc] initWithFormat:@"Para prosseguir, verifique se os dados inseridos estão corretos:\nNome: %@\nCRM: %@\nNome de usuário: %@\nTelefone: +55 81 %@", self.doctorNameTextField.text, self.doctorCRMTextField.text, self.doctorUsernameTextField.text, self.doctorTelephoneTextField.text];
+    NSString* stringToShow = [[NSString alloc] initWithFormat:@"Favor confirmar os dados abaixo:\nNome: %@\nCRM: %@\nNome de usuário: %@\nTelefone: +55 81 %@", self.doctorNameTextField.text, self.doctorCRMTextField.text, self.doctorUsernameTextField.text, self.doctorTelephoneTextField.text];
     
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Os dados estão corretos?" message:stringToShow delegate:self cancelButtonTitle:@"Ops, esqueci algo..." otherButtonTitles:@"Sim, prosseguir.", nil];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Os dados estão corretos?" message:stringToShow delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Confirmar", nil];
     [alert show];
 }
 

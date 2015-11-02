@@ -7,8 +7,12 @@
 //
 
 #import "PatientSelectedExamsTableViewController.h"
+#import "Envio.h"
 
-@interface PatientSelectedExamsTableViewController ()
+@interface PatientSelectedExamsTableViewController (){
+    NSMutableArray* tableViewDataArray;
+    UIActivityIndicatorView* spinner;
+}
 
 @end
 
@@ -16,11 +20,52 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupLoadingAnimation];
+    [self setupExamsDataSource];
     self.tableView.tableFooterView = [UIView new];
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"examSelectedSegueId" sender:self];
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return tableViewDataArray.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString* ExamCellID = @"ExamsCellID";
+    NSString* HeaderCellID = @"headerCellID";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ExamCellID];
+    if (cell==nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ExamCellID];
+    }
+    Exam* exam = [[Exam alloc] init];
+    exam = tableViewDataArray[indexPath.row];
+    cell.textLabel.text = exam.examDescription;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
+#pragma mark - Setups
+- (void) setupExamsDataSource {
+    tableViewDataArray = [[NSMutableArray alloc] init];
+    Envio* newEnvio = [[Envio alloc]init];
+    [newEnvio fetchExamsPassingPatient:self.patient withCompletion: ^void (NSMutableArray* examsArray){
+        if (examsArray){
+            tableViewDataArray = examsArray;
+            [self.tableView reloadData];
+            [spinner stopAnimating];
+        }else{
+            NSLog(@"Erro - setupExamsDataSource block");
+        }
+    }];
+}
+- (void) setupLoadingAnimation{
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = self.view.center;
+    spinner.tag = 12;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
 }
 
 @end

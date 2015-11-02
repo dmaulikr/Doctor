@@ -38,7 +38,7 @@
                                 <rect key="frame" x="50" y="282" width="276" height="92"/>
                                 <animations/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pcz-Zr-3qB">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pcz-Zr-3qB">
                                 <rect key="frame" x="93" y="337" width="229" height="30"/>
                                 <animations/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -100,7 +100,7 @@
                                 <rect key="frame" x="73" y="177" width="228" height="71"/>
                                 <animations/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bzP-3O-FjJ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bzP-3O-FjJ">
                                 <rect key="frame" x="93" y="291" width="229" height="30"/>
                                 <animations/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -201,8 +201,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="registrar-crm" translatesAutoresizingMaskIntoConstraints="NO" id="cKJ-yQ-dz9">
-                                                    <rect key="frame" x="30" y="20" width="19" height="19"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone-email" translatesAutoresizingMaskIntoConstraints="NO" id="cKJ-yQ-dz9">
+                                                    <rect key="frame" x="30" y="22" width="21" height="16"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -561,6 +561,7 @@
         <image name="home-lock" width="31" height="40"/>
         <image name="home-logo" width="949" height="329"/>
         <image name="home-usuario" width="30" height="40"/>
+        <image name="icone-email" width="37" height="28"/>
         <image name="registrar-crm" width="35" height="35"/>
         <image name="registrar-nome" width="25" height="57"/>
         <image name="registrar-telefone" width="30" height="47"/>

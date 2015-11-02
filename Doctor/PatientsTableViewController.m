@@ -63,7 +63,6 @@
     
     Patient* patient = [[Patient alloc] init];
     patient = tableViewDataArray[indexPath.row];
-    
     cell.patientNameLabel.text = patient.patientNameString;
     cell.patientAgeLabel.text = patient.patientAgeString;
     cell.patientGenderLabel.text = patient.patientGenderString;
@@ -142,10 +141,10 @@
     tableViewDataArray = [[NSMutableArray alloc] init];
     Envio* newEnvio = [[Envio alloc]init];
     
-    [newEnvio fetchAllPatients: ^void (Patient* patient){
-        if (patient){
-            [self.patientsArray addObject:patient];
-            tableViewDataArray = self.patientsArray;
+    [newEnvio fetchAllPatients: ^void (NSMutableArray* patientArray){
+        if (patientArray){
+            self.patientsArray = patientArray;
+            tableViewDataArray = patientArray;
             [self.tableView reloadData];
             [spinner stopAnimating];
         }else{
