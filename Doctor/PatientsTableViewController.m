@@ -14,6 +14,7 @@
 #import "Patient.h"
 #import "PatientSelectedTableViewController.h"
 #import "VersionHistory.h"
+#import "AppDelegate.h"
 
 @interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate>{
     NSMutableArray* tableViewDataArray;

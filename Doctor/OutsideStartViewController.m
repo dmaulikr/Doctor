@@ -15,6 +15,7 @@
 
 @interface OutsideStartViewController () <UITextFieldDelegate>{
     Authentication* authentication;
+    UIActivityIndicatorView* spinner;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField* loginTextField;
@@ -27,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupLoadingAnimation];
     self.loginButton.layer.cornerRadius = 3;
     self.menuContainerViewController.panMode = NO;
  //   [self setupTextFieldDelegates];
@@ -61,14 +63,18 @@
 //    
 //    Envio* envio = [[Envio alloc]init];
 //    [envio signIn:doctor];
-//    
+    
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
     [authentication verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
         if (finished) {
             self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kFeedStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kFeedNavID];
             [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+            [spinner stopAnimating];
         }else{
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Houve algo errado." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [alert show];
+            [spinner stopAnimating];
         }
     }];
 
@@ -138,5 +144,12 @@
     UITouch* touch = [[event allTouches] anyObject];
     if ([_loginTextField isFirstResponder] && [touch view] != _loginTextField) [_loginTextField resignFirstResponder];
     if ([_passwordTextField isFirstResponder] && [touch view] != _passwordTextField) [_passwordTextField resignFirstResponder];
+}
+
+
+- (void) setupLoadingAnimation{
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = self.view.center;
+    spinner.tag = 12;
 }
 @end

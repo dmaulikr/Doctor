@@ -281,6 +281,35 @@
     }];
 }
 
+- (void)fetchLastSeen:(Doctor *)doctor :(Patient *) patient :(void (^)(NSString * lastSeen))completion
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Appointment"];
+    [query whereKey:@"PatientEnvolved" equalTo:patient.patientCPFString];
+    [query whereKey:@"DoctorEnvolved" equalTo:doctor.doctorCRMString];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                
+                NSString* lastSeen = [[NSString alloc] initWithString:object[@"Date"]];
+                
+                if (lastSeen) {
+                    completion(lastSeen);
+                }else{
+                    completion(nil);
+                    NSLog(@"404 - Envio.m - fetchLastSeen");
+                }
+            }
+        } else {
+            completion(nil);
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+}
+
 - (void)fetchAllMedications:(void (^)(NSMutableArray * medicationArray))completion{
     NSMutableArray* medications = [[NSMutableArray alloc]init];
     
