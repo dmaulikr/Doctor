@@ -758,7 +758,7 @@
     PFObject* newLog = [PFObject objectWithClassName:@"Log"];
     
     log.logRegisteredBy = [NSString stringWithFormat:@"%@", doctor.doctorCRMString];
-    log.logActivityType = @"Doctor creation";
+    log.logActivityType = @"Doctor - Creation";
     log.logActivityRegister = [NSString stringWithFormat:@"Doctor %@ was created | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorCelularString];
     log.logPatientsEnvolved = nil;
     log.logCreatedAt = [self getSystemDate];
@@ -784,60 +784,451 @@
 
 - (void) generateDoctorUpdateInfoLog:(Doctor *)doctor{
     
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", doctor.doctorCRMString];
+    log.logActivityType = @"Doctor - Updated Info";
+    log.logActivityRegister = [NSString stringWithFormat:@"Doctor %@ updated something | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorCelularString];
+    log.logPatientsEnvolved = nil;
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+    
 }
 - (void) generateDoctorInteractionLog:(Doctor *)doctor{
     
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", doctor.doctorCRMString];
+    log.logActivityType = @"Doctor creation";
+    log.logActivityRegister = [NSString stringWithFormat:@"Doctor %@ Interacted | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorCelularString];
+    log.logPatientsEnvolved = nil;
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+    
 }
 - (void) generateDoctorDeleteLog:(Doctor *)doctor{
+    
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", doctor.doctorCRMString];
+    log.logActivityType = @"Doctor creation";
+    log.logActivityRegister = [NSString stringWithFormat:@"Doctor %@ was Deleted of our platform | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorCelularString];
+    log.logPatientsEnvolved = nil;
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
     
 }
 
 #pragma mark - Log Queries (Patient)
 - (void) generatePatientCreationLog:(Patient *)patient{
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", patient.patientCPFString];
+    log.logActivityType = @"Patient Creation";
+    log.logActivityRegister = [NSString stringWithFormat:@"Patient %@ was created | CPF:%@ | Nome:%@", patient.patientObjectId, patient.patientCPFString, patient.patientNameString];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:patient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
     
 }
 - (void) generatePatientUpdateInfoLog:(Patient *)patient{
     
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", patient.patientCPFString];
+    log.logActivityType = @"Patient Updated Info";
+    log.logActivityRegister = [NSString stringWithFormat:@"Patient %@ updated Info | CPF:%@ | Nome:%@", patient.patientObjectId, patient.patientCPFString, patient.patientNameString];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:patient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+    
 }
 - (void) generatePatientDeleteLog:(Patient *)patient{
+    
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", patient.patientCPFString];
+    log.logActivityType = @"Patient - Deleted";
+    log.logActivityRegister = [NSString stringWithFormat:@"Patient %@ was deleted | CPF:%@ | Nome:%@", patient.patientObjectId, patient.patientCPFString, patient.patientNameString];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:patient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
     
 }
 
 #pragma mark - Log Queries (Diagnosis)
 - (void) generateDiagnosisCreationLog:(Diagnosis *)diagnosis{
     
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", diagnosis.diagnosisAuthor];
+    log.logActivityType = @"Diagnosis - created";
+    log.logActivityRegister = [NSString stringWithFormat:@"Diagnosis %@ was created | Confirmed At:%@ | Description:%@", diagnosis.diagnosisObjectId, diagnosis.diagnosisConfirmedAt, diagnosis.diagnosisDescription];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:diagnosis.diagnosisPatient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+    
 }
+
+//USE WHEN THE METHOD OF THE CLASSE VersionHistory.h IS CALLED
 - (void) generateDiagnosisUpdateLog:(Diagnosis *)diagnosis{
+    
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", diagnosis.diagnosisAuthor];
+    log.logActivityType = @"Diagnosis - Updated";
+    log.logActivityRegister = [NSString stringWithFormat:@"Diagnosis %@ was created | Confirmed At:%@ | Description:%@", diagnosis.diagnosisObjectId, diagnosis.diagnosisConfirmedAt, diagnosis.diagnosisDescription];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:diagnosis.diagnosisPatient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
     
 }
 - (void) generateDiagnosisDeleteLog:(Diagnosis *)diagnosis{
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
     
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", diagnosis.diagnosisAuthor];
+    log.logActivityType = @"Diagnosis - Deleted";
+    log.logActivityRegister = [NSString stringWithFormat:@"Diagnosis %@ was deleted| Confirmed At:%@ | Description:%@", diagnosis.diagnosisObjectId, diagnosis.diagnosisConfirmedAt, diagnosis.diagnosisDescription];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:diagnosis.diagnosisPatient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
 }
 
 #pragma mark - Log Queries (Exam)
 - (void) generateExamCreationLog:(Exam *)exam{
     
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", exam.examApplicant];
+    log.logActivityType = @"Exam - created";
+    log.logActivityRegister = [NSString stringWithFormat:@"Exam %@ was created | Type:%@ | Description:%@", exam.examObjectId, exam.examType, exam.examDescription];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:exam.examPatient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+    
 }
 - (void) generateExamUpdateLog:(Exam *)exam{
     
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", exam.examApplicant];
+    log.logActivityType = @"Exam - Updated";
+    log.logActivityRegister = [NSString stringWithFormat:@"Exam %@ was updated | CreatedAt:%@ | Description:%@", exam.examObjectId, exam.examCreatedAt, exam.examDescription];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:exam.examPatient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+    
 }
 - (void) generateExamDeleteLog:(Exam *)exam{
+    
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", exam.examApplicant];
+    log.logActivityType = @"Exam - Deleted";
+    log.logActivityRegister = [NSString stringWithFormat:@"Exam %@ was updated | CreatedAt:%@ | Description:%@", exam.examObjectId, exam.examCreatedAt, exam.examDescription];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:exam.examPatient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
     
 }
 
 #pragma mark - Log Queries (Appointment)
 - (void) generateAppointmentCreationLog:(Appointment *)appointment{
     
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", appointment.appointmentDoctor];
+    log.logActivityType = @"Appointment - Created";
+    log.logActivityRegister = [NSString stringWithFormat:@"Appointment %@ was created | Patient:%@", appointment.appointmentObjectId, appointment.appointmentPatient];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:appointment.appointmentPatient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+
+    
 }
 - (void) generateAppointmentUpdateLog:(Appointment *)appointment{
     
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", appointment.appointmentDoctor];
+    log.logActivityType = @"Appointment - Updated";
+    log.logActivityRegister = [NSString stringWithFormat:@"Appointment %@ was updated | Patient:%@", appointment.appointmentObjectId, appointment.appointmentPatient];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:appointment.appointmentPatient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+    
 }
 - (void) generateAppointmentDeleteLog:(Appointment *)appointment{
+    
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", appointment.appointmentDoctor];
+    log.logActivityType = @"Appointment - Deleted";
+    log.logActivityRegister = [NSString stringWithFormat:@"Appointment %@ was deleted | Patient:%@", appointment.appointmentObjectId, appointment.appointmentPatient];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:appointment.appointmentPatient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
     
 }
 
 #pragma mark - Log Queries (Forum)
 - (void) generateForumCreationLog:(ForumTopic *)forumTopic{
+
     
 }
 - (void) generateForumUpdateLog:(ForumTopic *)forumTopic{
@@ -853,11 +1244,89 @@
 #pragma mark - Log Queries (Treatment)
 - (void) generateTreatmentCreationLog:(Treatment *)treatment{
     
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", treatment.treatmentDoctor];
+    log.logActivityType = @"Treatment - Creation";
+    log.logActivityRegister = [NSString stringWithFormat:@"Treatment %@ was created | Patient:%@ | Description: %@ " , treatment.treatmentObjectId, treatment.treatmentPatient, treatment.treatmentDescription];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:treatment.treatmentPatient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+    
 }
 - (void) generateTreatmentUpdateLog:(Treatment *)treatment{
     
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", treatment.treatmentDoctor];
+    log.logActivityType = @"Treatment - Update";
+    log.logActivityRegister = [NSString stringWithFormat:@"Treatment %@ was updated | Patient:%@ | Description: %@ " , treatment.treatmentObjectId, treatment.treatmentPatient, treatment.treatmentDescription];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:treatment.treatmentPatient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+    
 }
 - (void) generateTreatmentDeleteLog:(Treatment *)treatment{
+    
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", treatment.treatmentDoctor];
+    log.logActivityType = @"Treatment - Deleted";
+    log.logActivityRegister = [NSString stringWithFormat:@"Treatment %@ was deleteds | Patient:%@ | Description: %@ " , treatment.treatmentObjectId, treatment.treatmentPatient, treatment.treatmentDescription];
+    log.logPatientsEnvolved = [NSArray arrayWithObjects:treatment.treatmentPatient, nil];
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
     
 }
 

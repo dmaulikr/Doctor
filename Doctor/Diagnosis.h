@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Doctor.h>
 
 @interface Diagnosis : NSObject
 
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) NSMutableArray* diagnosisVersionHistory;
 @property (strong, nonatomic) NSDate* diagnosisUpdatedAt;
 
-
+@property (strong, nonatomic) Doctor* diagnosisAuthor;
+@property (strong, nonatomic) Patient* diagnosisPatient;
 
 @end

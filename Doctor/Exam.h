@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Doctor.h"
+#import "Patient.h"
 
 @interface Exam : NSObject
 
@@ -15,10 +17,11 @@
 @property (weak,nonatomic) NSData* examPhoto;
 @property (strong, nonatomic) NSMutableArray* examVersionHistory;
 @property (strong, nonatomic) NSDate* examUpdatedAt;
+@property (strong, nonatomic) NSDate* examCreatedAt;
+
 @property (strong, nonatomic) NSString* examObjectId;
 
-
-
-
+@property (strong, nonatomic) Doctor* examApplicant;
+@property (strong, nonatomic) Patient* examPatient;
 
 @end
