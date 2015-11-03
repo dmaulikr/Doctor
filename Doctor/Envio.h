@@ -19,6 +19,10 @@
 #import "Medication.h"
 #import "ForumTopic.h"
 #import "Message.h"
+#import "Log.h"
+#import "LogActivity.h"
+
+
 
 @interface Envio : NSObject
 
@@ -65,6 +69,7 @@
 
 #pragma mark - User interface error
 - (void) showAlertViewError: (NSError*)error;
+- (void) showAlertViewConfirmation;
 
 #pragma mark - Log Queries (Doctor)
 - (void) generateDoctorCreationLog;

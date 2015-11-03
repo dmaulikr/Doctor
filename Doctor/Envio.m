@@ -14,7 +14,15 @@
     UIAlertController* errorAlertView = [UIAlertController alertControllerWithTitle:@"Atenção!" message:[NSString stringWithFormat:@"Problema ao tentar conexão com servidor, tente outra vez. Erro: %@", error.description] preferredStyle:UIAlertControllerStyleAlert];
     
     [errorAlertView showDetailViewController:errorAlertView sender:nil];
-    
+}
+
+- (void) showAlertViewConfirmation{
+
+        
+        UIAlertController* errorAlertView = [UIAlertController alertControllerWithTitle:@"Tudo certo!" message:[NSString stringWithFormat:@"Atividade feita com sucesso!"] preferredStyle:UIAlertControllerStyleAlert];
+        [errorAlertView showDetailViewController:errorAlertView sender:nil];
+
+
 }
 
 #pragma mark newDoctor
@@ -712,15 +720,39 @@
 - (void) deleteExam: (Exam*)exam withCompletion: (void (^)(BOOL succeded))completion{
     [self generateExamDeleteLog];
 }
+ 
 
 #pragma mark - Log Queries (Doctor)
 - (void) generateDoctorCreationLog:(Doctor *)doctor{
-    NSString* registeredBy = [[NSString alloc] initWithFormat:@"%@", doctor.doctorCRMString];
-    NSString* activityType = @"Doctor creation";
-    NSString* activityRegister = [[NSString alloc] initWithFormat:@"Doctor %@ was created | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorCelularString];
-    NSArray* patientsEnvolved = [[NSArray alloc] initWithObjects:@"", nil];
-    NSString* date = [self getSystemDate];
+    
+    Log* log = [[Log alloc]init];
+    PFObject* newLog = [PFObject objectWithClassName:@"Log"];
+    
+    log.logRegisteredBy = [NSString stringWithFormat:@"%@", doctor.doctorCRMString];
+    log.logActivityType = @"Doctor creation";
+    log.logActivityRegister = [NSString stringWithFormat:@"Doctor %@ was created | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorCelularString];
+    log.logPatientsEnvolved = nil;
+    log.logCreatedAt = [self getSystemDate];
+    
+    newLog[@"registeredBy"] = log.logRegisteredBy;
+    newLog[@"activityType"] = log.logActivityType;
+    newLog[@"activityRegister"] = log.logActivityRegister;
+    newLog[@"patientsEnvolved"] = log.logPatientsEnvolved;
+    newLog[@"createdAt"] = log.logCreatedAt;
+    
+    [newLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self showAlertViewConfirmation];
+            
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
 }
+
+
 - (void) generateDoctorUpdateInfoLog:(Doctor *)doctor{
     
 }
