@@ -492,8 +492,8 @@
 #pragma mark fetchTreatment
 - (void)fetchTreatmentPassingPatient:(Patient *)patient
         withCompletion:(void (^)(NSMutableArray * treatmentArray))completion{
-    Treatment* treatment;
-    
+    Treatment* treatment = [[Treatment alloc] init];
+    NSMutableArray* treatmentArray = [[NSMutableArray alloc] init];
     PFQuery *query = [PFQuery queryWithClassName:@"Treatment"];
     [query whereKey:@"PatientEnvolved" equalTo:patient.patientCPFString];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -507,9 +507,10 @@
                 treatment.treatmentObjectId = [object objectForKey:@"objectId"];
                 treatment.treatmentVersionHistory = [object objectForKey:@"versionHistory"];
                 treatment.treatmentUpdatedAt = [object objectForKey:@"updatedAt"];
+                [treatmentArray addObject:treatment];
             }
-            if (treatment) {
-                completion(treatment);
+            if (treatmentArray) {
+                completion(treatmentArray);
             }else{
                 completion(nil);
                 NSLog(@"404 - Envio.m - fetchTreatment");
@@ -518,14 +519,13 @@
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
             [self  showAlertViewError:error];
-
         }
     }];
 }
 
-- (void)fetchAllTreatments:(void (^)(Treatment* treatment))completion{
+- (void)fetchAllTreatments:(void (^)(NSMutableArray* treatmentArray))completion{
     Treatment* treatment;
-    
+    NSMutableArray* treatmentArray = [[NSMutableArray alloc] init];
     PFQuery *query = [PFQuery queryWithClassName:@"Treatment"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -540,8 +540,8 @@
                 treatment.treatmentUpdatedAt = [object objectForKey:@"updatedAt"];
             }
             
-            if (treatment) {
-                completion(treatment);
+            if (treatmentArray) {
+                completion(treatmentArray);
             }else{
                 completion(nil);
                 NSLog(@"404 - Envio.m - fetchAllTreatments");

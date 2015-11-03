@@ -8,6 +8,7 @@
 
 #import "PatientSelectedExamsTableViewController.h"
 #import "Envio.h"
+#import "PatientSelectedHeaderTableViewCell.h"
 
 @interface PatientSelectedExamsTableViewController (){
     NSMutableArray* tableViewDataArray;
@@ -32,18 +33,43 @@
     return tableViewDataArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString* ExamCellID = @"ExamsCellID";
-    NSString* HeaderCellID = @"headerCellID";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ExamCellID];
-    if (cell==nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ExamCellID];
+    if(indexPath.row == 0){
+        NSString* cellIdentifier = @"headerCellID";
+        
+        PatientSelectedHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell==nil) {
+            cell = [[PatientSelectedHeaderTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        Exam* exam = [[Exam alloc] init];
+        exam = tableViewDataArray[indexPath.row];
+        //cell.textLabel.text = exam.examDescription;
+        cell.patientNameLabel.text = @"testeaaaa";
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
     }
-    Exam* exam = [[Exam alloc] init];
-    exam = tableViewDataArray[indexPath.row];
-    cell.textLabel.text = exam.examDescription;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    else{
+        NSString* cellIdentifier = @"ExamsCellID";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell==nil) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        Exam* exam = [[Exam alloc] init];
+        exam = tableViewDataArray[indexPath.row];
+        cell.textLabel.text = exam.examDescription;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row == 0){
+        return 140;
+    }
+    else{
+        return 30;
+    }
 }
 
 #pragma mark - Setups

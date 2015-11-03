@@ -741,7 +741,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="156" id="d7c-yI-bef">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="headerCellID" rowHeight="156" id="d7c-yI-bef" customClass="PatientSelectedHeaderTableViewCell">
                                 <rect key="frame" x="0.0" y="92" width="375" height="156"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d7c-yI-bef" id="cYM-hP-TEg">
@@ -770,6 +770,11 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <outlet property="headerSectionSelectedImageView" destination="ulc-sb-jZv" id="s1L-hY-nIq"/>
+                                    <outlet property="lastSeenLabel" destination="VKG-wF-joy" id="e1E-dS-tqK"/>
+                                    <outlet property="patientNameLabel" destination="9yN-Wd-lbf" id="vRl-fs-TeO"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExamsCellID" rowHeight="50" id="QKc-wr-Zym">
                                 <rect key="frame" x="0.0" y="248" width="375" height="50"/>
