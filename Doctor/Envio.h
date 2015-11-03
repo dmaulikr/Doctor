@@ -110,4 +110,8 @@
 #pragma mark - Other log queries
 - (void) generateLogInLog;
 
+
+- (void)fetchLastSeen:(Doctor *)doctor :(Patient *) patient :(void (^)(NSString * lastSeen))completion;
+
+
 @end

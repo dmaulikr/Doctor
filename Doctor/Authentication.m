@@ -8,6 +8,8 @@
 
 #import "Authentication.h"
 #import "Parse.h"
+#import "AppDelegate.h"
+#import "Doctor.h"
 
 @implementation Authentication
 
@@ -19,6 +21,10 @@
             for (PFObject *object in objects) {
                 if ([object[@"password"] isEqualToString:password]) {
                     self.granted = true;
+                    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                    Doctor* doctor = [[Doctor alloc] init];
+                    doctor.doctorCRMString = object[@"CRM"];
+                    appDelegate.doctor = doctor;
                 }else{
                     self.granted = false;
                     NSLog(@"Wrong");

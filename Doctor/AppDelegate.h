@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Doctor.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) Doctor* doctor;
 
 @end
 

@@ -13,6 +13,9 @@
 #import "PatientSelectedEditTableViewController.h"
 #import "PatientSelectedDataTableViewController.h"
 #import "PatientSelectedTreatmentsTableViewController.h"
+#import "Doctor.h"
+#import "Envio.h"
+#import "AppDelegate.h"
 
 @interface PatientSelectedTableViewController ()
 
@@ -41,6 +44,20 @@
 - (void) setupDataFromPatient{
     self.patientSelectedNameLabel.text = self.patient.patientNameString;
     self.patientInitialsLabel.text = [self.patient.patientNameString substringToIndex:1];
+    
+    Doctor* doctor = [[Doctor alloc] init];
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    doctor = appDelegate.doctor;
+    Envio* envio = [[Envio alloc] init];
+    
+    [envio fetchLastSeen:doctor :self.patient :^void (NSString * lastSeen){
+        if (lastSeen != nil) {
+            NSString* finalString = [[NSString alloc] initWithFormat:@"Atendido pela última vez em %@", lastSeen];
+            self.patientCameSinceLabel.text = finalString;
+            self.patientCameSinceLabel.numberOfLines = 0;
+            
+        }
+    }];
 }
 
 #pragma mark - UITableViewDelegate
