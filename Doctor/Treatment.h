@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Doctor.h"
+#import "Patient.h"
 
 @interface Treatment : NSObject
 
@@ -24,7 +25,7 @@
 @property (strong, nonatomic) NSDate* treatmentUpdatedAt;
 
 @property (strong, nonatomic) Doctor* treatmentDoctor;
-@property (strong, nonatomic) Patient* treatmentPatient;
+//@property (strong, nonatomic) Patient* treatmentPatient;
 
 
 @end
