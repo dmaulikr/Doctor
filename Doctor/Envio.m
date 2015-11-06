@@ -24,6 +24,27 @@
 
 }
 
+- (void) newForumTopic:(ForumTopic *)forumTopic{
+    
+    PFObject* topic = [PFObject objectWithClassName:@"Forum"];
+    topic[@"Owner"] = forumTopic.topicForumOwner;
+    topic[@"Sinopse"] = forumTopic.topicForumSinopse;
+    topic[@"Subject"] = forumTopic.topicForumSubject;
+    topic[@"UpdatedBy"] = forumTopic.topicForumUpdatedAt;
+    
+    [topic saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self generateForumCreationLog];
+        } else {
+            // There was a problem, check error.description
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+    
+
+}
+
 #pragma mark newDoctor
 
 - (void) newDoctor: (Doctor*)doctor;
@@ -1344,7 +1365,6 @@
 
 
 - (void)fetchAllForumTopics :(void (^)(NSMutableArray* forumTopicsArray))completion{
-    ForumTopic* forumTopic = [[ForumTopic alloc] init];
     NSMutableArray* forumTopicsArray = [[NSMutableArray alloc] init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Forum"];
@@ -1352,6 +1372,7 @@
         if (!error) {
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
+                ForumTopic* forumTopic = [[ForumTopic alloc] init];
                 forumTopic.topicForumOwner = [object objectForKey:@"Owner"];
                 forumTopic.topicForumSinopse = [object objectForKey:@"Sinopse"];
                 forumTopic.topicForumSubject = [object objectForKey:@"Subject"];
@@ -1381,6 +1402,7 @@
 - (void) generateMessageDeleteLog:(Message *)message{
     
 }
+
 
 #pragma mark - Other log queries
 - (void) generateLogInLog{

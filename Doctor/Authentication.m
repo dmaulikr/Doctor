@@ -24,6 +24,7 @@
                     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
                     Doctor* doctor = [[Doctor alloc] init];
                     doctor.doctorCRMString = object[@"CRM"];
+                    doctor.doctorNameString = object[@"Nome"];
                     appDelegate.doctor = doctor;
                 }else{
                     self.granted = false;

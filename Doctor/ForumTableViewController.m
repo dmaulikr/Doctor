@@ -24,9 +24,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     tableViewDataArray = [[NSMutableArray alloc] init];
-    [self setupLoadingAnimation];
-    [self setupDataSource];
     self.tableView.tableFooterView = [UIView new];
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [self setupDataSource];
+    [self.tableView reloadData];
 }
 
 #pragma mark - IBActions
@@ -52,6 +55,7 @@
 
 #pragma mark - Setups
 - (void) setupDataSource{
+    [self setupLoadingAnimation];
     Envio *envio = [[Envio alloc] init];
     self.forumTopicsArray = [[NSMutableArray alloc] init];
     

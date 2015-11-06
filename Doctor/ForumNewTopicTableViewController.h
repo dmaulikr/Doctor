@@ -10,4 +10,8 @@
 
 @interface ForumNewTopicTableViewController : UITableViewController
 
+@property (nonatomic, strong) IBOutlet UILabel* ownerLabel;
+@property (nonatomic, strong) IBOutlet UITextField* subjectTextField;
+@property (nonatomic, strong) IBOutlet UITextView* contentTextView;
+
 @end

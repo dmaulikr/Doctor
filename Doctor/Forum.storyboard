@@ -60,7 +60,7 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Paciente se sentindo mole, com dores no corpo e febre alta. Apesar da suspeita de dengue, há um agravante que deve ser le..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fxb-WZ-Ydr">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Paciente se sentindo mole, com dores no corpo e febre alta. Apesar da suspeita de dengue, há um agravante que deve ser le..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fxb-WZ-Ydr">
                                             <rect key="frame" x="17" y="50" width="348" height="79.5"/>
                                             <animations/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,32 +105,109 @@
             </objects>
             <point key="canvasLocation" x="-523.5" y="705.5"/>
         </scene>
-        <!--Forum New Topic Table View Controller-->
+        <!--Novo tópico-->
         <scene sceneID="k03-UB-Znq">
             <objects>
                 <tableViewController id="6dC-sc-CRE" customClass="ForumNewTopicTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nei-7x-APf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nei-7x-APf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Kge-zY-izQ">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kge-zY-izQ" id="ASY-4t-CHk">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </tableViewCellContentView>
-                                <animations/>
-                            </tableViewCell>
-                        </prototypes>
+                        <sections>
+                            <tableViewSection id="N0Q-TD-mzX">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Kge-zY-izQ">
+                                        <rect key="frame" x="0.0" y="64" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kge-zY-izQ" id="ASY-4t-CHk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="brunomuniz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65e-K8-TLj">
+                                                    <rect key="frame" x="66" y="21" width="132" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="registrar-nome" translatesAutoresizingMaskIntoConstraints="NO" id="Pa8-Gf-uN3">
+                                                    <rect key="frame" x="26" y="17" width="15" height="28.5"/>
+                                                    <animations/>
+                                                </imageView>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="57" id="CqN-8M-JR0">
+                                        <rect key="frame" x="0.0" y="124" width="375" height="57"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CqN-8M-JR0" id="Azs-Wm-v9I">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="assunto-cinza" translatesAutoresizingMaskIntoConstraints="NO" id="6jG-vo-pMN">
+                                                    <rect key="frame" x="21" y="17" width="22" height="22.5"/>
+                                                    <animations/>
+                                                </imageView>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ex: Suspeita de um novo surto" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MyD-Ph-I7Z">
+                                                    <rect key="frame" x="66" y="5" width="301" height="48"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="482" id="jhg-8a-7Ix">
+                                        <rect key="frame" x="0.0" y="181" width="375" height="482"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jhg-8a-7Ix" id="50k-xi-zbU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="481.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-n1-otQ">
+                                                    <rect key="frame" x="59" y="6" width="308" height="397.5"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <mutableString key="text">Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos</mutableString>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mensagem-cinza" translatesAutoresizingMaskIntoConstraints="NO" id="0XL-1j-7CM">
+                                                    <rect key="frame" x="25" y="194" width="20" height="20.5"/>
+                                                    <animations/>
+                                                </imageView>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="6dC-sc-CRE" id="W6Z-V8-TQN"/>
                             <outlet property="delegate" destination="6dC-sc-CRE" id="o2v-ba-xB9"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Novo tópico" id="ejN-Dx-Gny">
+                        <barButtonItem key="rightBarButtonItem" title="Criar" id="kho-OM-Vgj">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="tappedCreateButton:" destination="6dC-sc-CRE" id="JvV-cu-hcx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contentTextView" destination="Sac-n1-otQ" id="cxW-zG-VAe"/>
+                        <outlet property="ownerLabel" destination="65e-K8-TLj" id="EPf-l2-5VI"/>
+                        <outlet property="subjectTextField" destination="MyD-Ph-I7Z" id="us8-Ku-Iae"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpD-Cx-xfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -169,6 +246,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="assunto-cinza" width="53" height="53"/>
         <image name="icone-menu" width="21" height="16"/>
+        <image name="mensagem-cinza" width="51" height="51"/>
+        <image name="registrar-nome" width="25" height="57"/>
     </resources>
 </document>
