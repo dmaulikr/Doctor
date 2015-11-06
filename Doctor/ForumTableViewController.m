@@ -104,6 +104,7 @@
     cell.topicOwner.text = forumTopic.topicForumOwner;
     cell.topicSubject.text = forumTopic.topicForumSubject;
     cell.topicSinopse.text = forumTopic.topicForumSinopse;
+    cell.topicObjectId = forumTopic.topicObjectId;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -114,8 +115,10 @@
     return rightUtilityButtons;
 }
 
-- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
-    NSLog(@"did tapped to fav");
+- (void)swipeableTableViewCell:(ForumTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    Envio* envio = [[Envio alloc] init];
+    [envio setTopicAsFavourite:cell.topicObjectId :self.doctor];
+    [cell hideUtilityButtonsAnimated:YES];
 }
 
 

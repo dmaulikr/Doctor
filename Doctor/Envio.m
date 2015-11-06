@@ -372,6 +372,34 @@
 }
 
 
+- (void) setTopicAsFavourite:(NSString *)topicId :(Doctor *)doctor{
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:@"CRM" equalTo:doctor.doctorCRMString];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSMutableArray* favArray = [[NSMutableArray alloc] initWithArray:object[@"favForumTopics"]];
+                [favArray addObject:topicId];
+                object[@"favForumTopics"] = favArray;
+               
+                PFQuery *query2 = [PFQuery queryWithClassName:@"User"];
+                [query2 getObjectInBackgroundWithId:object.objectId block:^(PFObject *query2, NSError *error) {
+                    query2[@"favForumTopics"] = favArray;
+                    [query2 saveInBackground];
+                }];
+                return ;
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+
+}
+
+
 - (void)fetchExamsPassingPatient:(Patient*)patient
                withCompletion:(void (^)(NSMutableArray* examsArray))completion{
   

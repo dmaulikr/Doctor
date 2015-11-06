@@ -15,5 +15,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *topicSubject;
 @property (nonatomic, strong) IBOutlet UILabel *topicDate;
 @property (nonatomic, strong) IBOutlet UITextView *topicSinopse;
+@property (nonatomic, strong) NSString* topicObjectId;
 
 @end
