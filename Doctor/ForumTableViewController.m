@@ -11,10 +11,13 @@
 #import "ForumTableViewCell.h"
 #import "Envio.h"
 #import "SWTableViewCell.h"
+#import "ForumNewTopicTableViewController.h"
+#import "ForumSeeTopicTableViewController.h"
 
 @interface ForumTableViewController (){
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView *spinner;
+    ForumTopic* topicClicked;
 }
 @property (nonatomic, strong) NSMutableArray* forumTopicsArray;
 
@@ -44,13 +47,20 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    topicClicked = [[ForumTopic alloc] init];
+    topicClicked = tableViewDataArray[indexPath.row];
     [self performSegueWithIdentifier:@"clickedToSeeTopicSegueId" sender:self];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"clickedToSeeTopicSegueId"]) {
+        ForumSeeTopicTableViewController* seeTopic = segue.destinationViewController;
+        [seeTopic setDoctor:self.doctor];
+        [seeTopic setForumTopic:topicClicked];
     }
     else if ([segue.identifier isEqualToString:@"clickedToCreateTopicSegueId"]){
+        ForumNewTopicTableViewController* newTopic = segue.destinationViewController;
+        [newTopic setDoctor:self.doctor];
     }
 }
 

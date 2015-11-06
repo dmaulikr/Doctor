@@ -17,7 +17,7 @@
 
 - (void) showAlertViewConfirmation{
 
-        
+    
         UIAlertController* errorAlertView = [UIAlertController alertControllerWithTitle:@"Tudo certo!" message:[NSString stringWithFormat:@"Atividade feita com sucesso!"] preferredStyle:UIAlertControllerStyleAlert];
         [errorAlertView showDetailViewController:errorAlertView sender:nil];
 
@@ -1378,6 +1378,7 @@
                 topic.topicForumSinopse = object[@"Sinopse"];
                 topic.topicForumOwner = object[@"Owner"];
                 topic.topicForumSubject = object[@"Subject"];
+                topic.topicObjectId = object.objectId;
                 [forumTopicsArray addObject:topic];
             }
             if (forumTopicsArray) {
@@ -1395,6 +1396,38 @@
     }];
 
 }
+
+- (void)fetchMessagesFromTopic: (NSString *)relatedIdForum withCompletion:(void (^)(NSMutableArray* messageArray))completion{
+    NSMutableArray* messagesFromForum = [[NSMutableArray alloc] init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"ForumMessages"];
+    [query whereKey:@"forumId" equalTo:relatedIdForum];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                ForumTopicMessage * message = [[ForumTopicMessage alloc] init];
+                message.messageForumContent = object[@"messageContent"];
+                message.messageForumCreatedAt = object[@"whenCreated"];
+                message.messageForumOwner = object[@"messageOwner"];
+                message.messageForumRelatedId = object[@"forumId"];
+                [messagesFromForum addObject:message];
+            }
+            if (messagesFromForum) {
+                completion(messagesFromForum);
+            }else{
+                completion(nil);
+                NSLog(@"404 - Envio.m - fetchAllMessages");
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+}
+
 
 #pragma mark - Log Queries (Message - Cryptography ASAP)
 - (void) generateMessageCreationLog:(Message *)message{

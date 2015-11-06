@@ -12,11 +12,9 @@
 
 @interface ForumTopicMessage : NSObject
 
-
-@property (strong, nonatomic) NSString* messageForumObjectId;
-@property (strong, nonatomic) NSString* messageForumCreatedBy;
-//@property (strong, nonatomic) NSString* messageForumText;
-//@property (strong, nonatomic) ForumTopic* messageForumTopic;
+@property (strong, nonatomic) NSString* messageForumRelatedId;
+@property (strong, nonatomic) NSString* messageForumOwner;
 @property (strong, nonatomic) NSString* messageForumCreatedAt;
+@property (strong, nonatomic) NSString* messageForumContent;
 
 @end

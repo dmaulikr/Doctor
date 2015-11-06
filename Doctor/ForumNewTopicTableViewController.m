@@ -19,15 +19,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.doctor = [[Doctor alloc] init];
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.doctor = appDelegate.doctor;
     [self setupData];
 }
 
 #pragma mark - Setups
 - (void) setupData{
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    Doctor *doctor = [[Doctor alloc] init];
-    doctor = appDelegate.doctor;
-    self.ownerLabel.text = doctor.doctorNameString;
+    self.ownerLabel.text = self.doctor.doctorNameString;
 }
 
 #pragma mark - IBActions

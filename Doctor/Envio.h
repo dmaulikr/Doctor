@@ -65,6 +65,8 @@
 
 - (void)fetchAllForumTopics :(void (^)(NSMutableArray* forumTopicsArray))completion;
 
+- (void)fetchMessagesFromTopic: (NSString *)relatedIdForum withCompletion:(void (^)(NSMutableArray* messageArray))completion;
+
 #pragma mark - Deleting Queries
 - (void) deleteTreatment: (Treatment*)treatment withCompletion: (void (^)(BOOL succeded))completion;
 - (void) deletePatient: (Patient*)patient fromDoctor: (Doctor*)doctor; //only drops the patient from the doctor's patientArray, not from our platform

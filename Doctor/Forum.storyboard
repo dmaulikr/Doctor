@@ -213,25 +213,53 @@
             </objects>
             <point key="canvasLocation" x="-523.5" y="1476.5"/>
         </scene>
-        <!--Forum See Topic Table View Controller-->
+        <!--Tópico-->
         <scene sceneID="jAq-zd-I6h">
             <objects>
                 <tableViewController id="MOc-YK-0Hb" customClass="ForumSeeTopicTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="F7Y-xc-nFi">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="F7Y-xc-nFi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ymZ-Bu-AOU">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ForumMessageCellID" rowHeight="100" id="kbt-Er-6mt" customClass="ForumMessageTableViewCell">
+                                <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ymZ-Bu-AOU" id="KfM-vX-X6f">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kbt-Er-6mt" id="gx4-3f-EGv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="brunomuniz - 01241898910" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMQ-MI-C48">
+                                            <rect key="frame" x="17" y="10" width="234" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I2-GD-bkY">
+                                            <rect key="frame" x="286" y="12" width="79" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Paciente se sentindo mole, com dores no corpo e febre alta. Apesar da suspeita de dengue, há um agravante que deve ser le..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rDp-AV-6BS">
+                                            <rect key="frame" x="17" y="27" width="348" height="79.5"/>
+                                            <animations/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <outlet property="messageContent" destination="rDp-AV-6BS" id="Jr4-MS-BD9"/>
+                                    <outlet property="messageDate" destination="8I2-GD-bkY" id="h1I-RU-mWS"/>
+                                    <outlet property="messageOwner" destination="hMQ-MI-C48" id="9Jt-3s-m2J"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -239,6 +267,7 @@
                             <outlet property="delegate" destination="MOc-YK-0Hb" id="JZw-FK-8lB"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Tópico" id="mkY-ao-nK8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k50-j0-Suc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

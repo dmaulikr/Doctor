@@ -8,11 +8,14 @@
 
 #import "ForumSeeTopicTableViewController.h"
 #import "ForumMessageTableViewCell.h"
+#import "ForumTopicMessage.h"
+#import "Envio.h"
 
 @interface ForumSeeTopicTableViewController (){
     NSMutableArray* tableViewDataArray;
-
+    UIActivityIndicatorView* spinner;
 }
+@property (nonatomic, strong) NSMutableArray *messageArray;
 
 @end
 
@@ -21,26 +24,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     tableViewDataArray = [[NSMutableArray alloc] init];
+    [self setupLoadingAnimation];
     [self setupDataSource];
-
+    self.tableView.tableFooterView = [UIView new];
 }
-//
-//#pragma mark - IBActions
-//-(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{
-//   	[self.menuContainerViewController toggleLeftSideMenuCompletion:^{}];
-//}
-//
-//-(IBAction)didTappedCreateTopicBarButton:(UIBarButtonItem *)sender{
-//    [self performSegueWithIdentifier:@"clickedToCreateTopicSegueId" sender:self];
-//}
-
 
 #pragma mark - Setups
 - (void) setupDataSource{
-    //query fetch all forum topics from parse
-    NSMutableArray* arrayOriundoDoParse = [[NSMutableArray alloc] init];
-    tableViewDataArray = arrayOriundoDoParse;
-    [self.tableView reloadData];
+    self.messageArray = [[NSMutableArray alloc] init];
+    Envio* envio = [[Envio alloc] init];
+    [envio fetchMessagesFromTopic:self.forumTopic.topicObjectId withCompletion:^(NSMutableArray* messagesArray){
+        self.messageArray = messagesArray;
+        tableViewDataArray = self.messageArray;
+        [self.tableView reloadData];
+        [spinner stopAnimating];
+    }];
 }
 
 #pragma mark - UITableViewDelegates
@@ -51,22 +49,33 @@
     if (cell==nil) {
         cell = [[ForumMessageTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ForumMessageCellID];
     }
-    //    cell.rightUtilityButtons = [self rightButtons];
-    //    cell.delegate = self;
-    //
-    //    Patient* patient = [[Patient alloc] init];
-    //    patient = tableViewDataArray[indexPath.row];
-    //
-    //    cell.patientNameLabel.text = patient.patientNameString;
-    //    cell.patientAgeLabel.text = patient.patientAgeString;
-    //    cell.patientGenderLabel.text = patient.patientGenderString;
-    //    cell.patientInitialsLabel.text = [patient.patientNameString substringToIndex:1];
-    //    //cell.patientCameSinceLabel.text = tableViewDataArray[];
+   
+    ForumTopicMessage* message = [[ForumTopicMessage alloc] init];
+    message = tableViewDataArray[indexPath.row];
+    cell.messageContent.text = message.messageForumContent;
+    cell.messageDate.text = message.messageForumCreatedAt;
+    cell.messageOwner.text = message.messageForumOwner;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return tableViewDataArray.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
+- (void) setupLoadingAnimation{
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = self.view.center;
+    spinner.tag = 12;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
+}
 
 @end
 
