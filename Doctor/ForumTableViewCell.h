@@ -10,4 +10,9 @@
 
 @interface ForumTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) IBOutlet UILabel *topicOwner;
+@property (nonatomic, strong) IBOutlet UILabel *topicSubject;
+@property (nonatomic, strong) IBOutlet UILabel *topicDate;
+@property (nonatomic, strong) IBOutlet UITextView *topicSinopse;
+
 @end

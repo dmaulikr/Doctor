@@ -51,35 +51,31 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
+    [PFUser logOut];
     self.navigationController.navigationBarHidden = YES;
 }
 
 #pragma mark - IBActions
 - (IBAction)didTappedLoginButton:(UIButton *)sender{
-//    
-//    Doctor* doctor = [[Doctor alloc]init];
-//    doctor.doctorUsernameString = self.loginTextField.text;
-//    doctor.doctorPasswordString = self.passwordTextField.text;
-//    
-//    Envio* envio = [[Envio alloc]init];
-//    [envio signIn:doctor];
-    
     [self.view addSubview:spinner];
     [spinner startAnimating];
-    [authentication verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
+    
+    Envio* envio = [[Envio alloc]init];
+    Authentication* auth = [Authentication alloc];
+    [envio logIn:self.loginTextField.text withPassword:self.passwordTextField.text :^void (BOOL finished){
         if (finished) {
-            self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kFeedStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kFeedNavID];
-            [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
-            [spinner stopAnimating];
-        }else{
+            [auth verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (bool finished){
+                self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kFeedStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kFeedNavID];
+                [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+                [spinner stopAnimating];
+            }];
+        }
+        else{
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Houve algo errado." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [alert show];
             [spinner stopAnimating];
         }
     }];
-
-    
-
 }
 
 - (IBAction)didTappedSignInButton:(UIButton *)sender{

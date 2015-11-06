@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Doctor.h>
+#import "Doctor.h"
+#import "Patient.h"
 
 @interface Diagnosis : NSObject
 

@@ -7,7 +7,6 @@
 //
 
 #import "Envio.h"
-
 @implementation Envio
 
 - (void) showAlertViewError: (NSError*)error{
@@ -190,21 +189,34 @@
 
 #pragma mark Queries
 #pragma mark Sign In
-- (void)signIn: (NSString*)username
-  withPassword: (NSString*)password{
+- (void)signIn: (NSString*)username withPassword: (NSString*)password :(void (^)(BOOL finished))completion{
+    PFUser *user = [PFUser user];
+    user.username = username;
+    user.password = password;
     
-    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser* user, NSError* error){
-        if (!error){
-            NSLog(@"Doctor: %@ logged with success!", username);
-            [self generateLogInLog];
-        }else{
-            NSLog(@"Login failed due: %@", error.description);
-            [self  showAlertViewError:error];
-
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            completion(true);
+            NSLog(@"foi");
+        } else {
+            completion(false);
         }
     }];
-    
+}
+- (void)logIn: (NSString*)username withPassword: (NSString*)password :(void (^)(BOOL finished))completion{    
+    PFUser* user = [[PFUser alloc] init];
+    user.username = username;
+    user.password = password;
 
+    [PFUser logInWithUsernameInBackground:user.username password:user.password block:^(PFUser* user, NSError* error){
+        if (!error){
+            completion(true);
+            //[self generateLogInLog];
+        }else{
+            completion(false);
+            //[self  showAlertViewError:error];
+        }
+    }];
 }
 
 #pragma mark fetchPatient
@@ -1250,9 +1262,9 @@
     
     log.logRegisteredBy = [NSString stringWithFormat:@"%@", treatment.treatmentDoctor];
     log.logActivityType = @"Treatment - Creation";
-    log.logActivityRegister = [NSString stringWithFormat:@"Treatment %@ was created | Patient:%@ | Description: %@ " , treatment.treatmentObjectId, treatment.treatmentPatient, treatment.treatmentDescription];
-    log.logPatientsEnvolved = [NSArray arrayWithObjects:treatment.treatmentPatient, nil];
-    log.logCreatedAt = [self getSystemDate];
+//    log.logActivityRegister = [NSString stringWithFormat:@"Treatment %@ was created | Patient:%@ | Description: %@ " , treatment.treatmentObjectId, treatment.treatmentPatient, treatment.treatmentDescription];
+//    log.logPatientsEnvolved = [NSArray arrayWithObjects:treatment.treatmentPatient, nil];
+//    log.logCreatedAt = [self getSystemDate];
     
     newLog[@"registeredBy"] = log.logRegisteredBy;
     newLog[@"activityType"] = log.logActivityType;
@@ -1277,11 +1289,11 @@
     Log* log = [[Log alloc]init];
     PFObject* newLog = [PFObject objectWithClassName:@"Log"];
     
-    log.logRegisteredBy = [NSString stringWithFormat:@"%@", treatment.treatmentDoctor];
-    log.logActivityType = @"Treatment - Update";
-    log.logActivityRegister = [NSString stringWithFormat:@"Treatment %@ was updated | Patient:%@ | Description: %@ " , treatment.treatmentObjectId, treatment.treatmentPatient, treatment.treatmentDescription];
-    log.logPatientsEnvolved = [NSArray arrayWithObjects:treatment.treatmentPatient, nil];
-    log.logCreatedAt = [self getSystemDate];
+//    log.logRegisteredBy = [NSString stringWithFormat:@"%@", treatment.treatmentDoctor];
+//    log.logActivityType = @"Treatment - Update";
+//    log.logActivityRegister = [NSString stringWithFormat:@"Treatment %@ was updated | Patient:%@ | Description: %@ " , treatment.treatmentObjectId, treatment.treatmentPatient, treatment.treatmentDescription];
+//    log.logPatientsEnvolved = [NSArray arrayWithObjects:treatment.treatmentPatient, nil];
+//    log.logCreatedAt = [self getSystemDate];
     
     newLog[@"registeredBy"] = log.logRegisteredBy;
     newLog[@"activityType"] = log.logActivityType;
@@ -1306,12 +1318,12 @@
     Log* log = [[Log alloc]init];
     PFObject* newLog = [PFObject objectWithClassName:@"Log"];
     
-    log.logRegisteredBy = [NSString stringWithFormat:@"%@", treatment.treatmentDoctor];
-    log.logActivityType = @"Treatment - Deleted";
-    log.logActivityRegister = [NSString stringWithFormat:@"Treatment %@ was deleteds | Patient:%@ | Description: %@ " , treatment.treatmentObjectId, treatment.treatmentPatient, treatment.treatmentDescription];
-    log.logPatientsEnvolved = [NSArray arrayWithObjects:treatment.treatmentPatient, nil];
-    log.logCreatedAt = [self getSystemDate];
-    
+//    log.logRegisteredBy = [NSString stringWithFormat:@"%@", treatment.treatmentDoctor];
+//    log.logActivityType = @"Treatment - Deleted";
+//    log.logActivityRegister = [NSString stringWithFormat:@"Treatment %@ was deleteds | Patient:%@ | Description: %@ " , treatment.treatmentObjectId, treatment.treatmentPatient, treatment.treatmentDescription];
+//    log.logPatientsEnvolved = [NSArray arrayWithObjects:treatment.treatmentPatient, nil];
+//    log.logCreatedAt = [self getSystemDate];
+//    
     newLog[@"registeredBy"] = log.logRegisteredBy;
     newLog[@"activityType"] = log.logActivityType;
     newLog[@"activityRegister"] = log.logActivityRegister;
@@ -1329,6 +1341,39 @@
         }
     }];
     
+}
+
+
+- (void)fetchAllForumTopics :(void (^)(NSMutableArray* forumTopicsArray))completion{
+    ForumTopic* forumTopic = [[ForumTopic alloc] init];
+    NSMutableArray* forumTopicsArray = [[NSMutableArray alloc] init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Forum"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                forumTopic.topicForumObjectId = [object objectForKey:@"objectId"];
+                forumTopic.topicForumTitle = [object objectForKey:@"Owner"];
+                forumTopic.topicSinopse = [object objectForKey:@"Sinopse"];
+                forumTopic.topicForumSubject = [object objectForKey:@"Subject"];
+                forumTopic.topicForumUpdatedAt = [object objectForKey:@"UpdatedBy"];
+                [forumTopicsArray addObject:forumTopic];
+            }
+            if (forumTopicsArray) {
+                completion(forumTopicsArray);
+            }else{
+                completion(nil);
+                NSLog(@"404 - Envio.m - fetchAllTopicsForum");
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+
 }
 
 #pragma mark - Log Queries (Message - Cryptography ASAP)

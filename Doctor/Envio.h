@@ -22,6 +22,7 @@
 #import "Log.h"
 #import "LogActivity.h"
 #import "ForumHeader.h"
+//#import "LogActivity.h"
 
 
 
@@ -38,7 +39,8 @@
 
 #pragma mark - Retrieving Queries
 - (void)fetchRootTreatment:(Treatment*) rootTreatment withCompletion:(void (^)(Treatment* treatment))completion;
-- (void)signIn: (Doctor*)doctor;
+- (void)signIn: (NSString*)username withPassword: (NSString*)password :(void (^)(BOOL finished))completion;
+- (void)logIn: (NSString*)username withPassword: (NSString*)password :(void (^)(BOOL finished))completion;
 
 - (void)fetchPatientPassingCPF: (NSString*)CPF withCompletion:(void (^)(Patient* patient))completion;
 - (void)fetchAllPatients: (void (^)(NSMutableArray* patientArray))completion;
@@ -59,6 +61,8 @@
 - (void)fetchDoctorPassingCRM: (NSString*)CRM withCompletion:(void (^)(Doctor* doctor))completion;
 
 - (void)fetchExamsPassingPatient: (Patient*)patient withCompletion:(void (^)(NSMutableArray* examsArray))completion;
+
+- (void)fetchAllForumTopics :(void (^)(NSMutableArray* forumTopicsArray))completion;
 
 #pragma mark - Deleting Queries
 - (void) deleteTreatment: (Treatment*)treatment withCompletion: (void (^)(BOOL succeded))completion;
