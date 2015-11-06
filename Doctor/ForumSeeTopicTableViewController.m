@@ -10,10 +10,13 @@
 #import "ForumMessageTableViewCell.h"
 #import "ForumTopicMessage.h"
 #import "Envio.h"
+#import "ForumMessageSendTableViewCell.h"
 
-@interface ForumSeeTopicTableViewController (){
+@interface ForumSeeTopicTableViewController () <ForumMessageSendTableViewCellDelegate>{
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
+    Envio* envio;
+
 }
 @property (nonatomic, strong) NSMutableArray *messageArray;
 
@@ -23,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    envio = [[Envio alloc] init];
     tableViewDataArray = [[NSMutableArray alloc] init];
     [self setupLoadingAnimation];
     [self setupDataSource];
@@ -32,7 +36,6 @@
 #pragma mark - Setups
 - (void) setupDataSource{
     self.messageArray = [[NSMutableArray alloc] init];
-    Envio* envio = [[Envio alloc] init];
     [envio fetchMessagesFromTopic:self.forumTopic.topicObjectId withCompletion:^(NSMutableArray* messagesArray){
         self.messageArray = messagesArray;
         tableViewDataArray = self.messageArray;
@@ -43,30 +46,49 @@
 
 #pragma mark - UITableViewDelegates
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString* ForumMessageCellID = @"ForumMessageCellID";
     
-    ForumMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ForumMessageCellID];
-    if (cell==nil) {
-        cell = [[ForumMessageTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ForumMessageCellID];
+    if(indexPath.row == tableViewDataArray.count){
+        NSString *ForumMessageSendCellID = @"ForumSendCellID";
+        
+        ForumMessageSendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ForumMessageSendCellID];
+        if (cell==nil) {
+            cell = [[ForumMessageSendTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ForumMessageSendCellID];
+        }
+        cell.delegate = self;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
     }
-   
-    ForumTopicMessage* message = [[ForumTopicMessage alloc] init];
-    message = tableViewDataArray[indexPath.row];
-    cell.messageContent.text = message.messageForumContent;
-    cell.messageDate.text = message.messageForumCreatedAt;
-    cell.messageOwner.text = message.messageForumOwner;
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    else{
+        NSString* ForumMessageCellID = @"ForumMessageCellID";
+        
+        ForumMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ForumMessageCellID];
+        if (cell==nil) {
+            cell = [[ForumMessageTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ForumMessageCellID];
+        }
+        
+        ForumTopicMessage* message = [[ForumTopicMessage alloc] init];
+        message = tableViewDataArray[indexPath.row];
+        cell.messageContent.text = message.messageForumContent;
+        cell.messageDate.text = message.messageForumCreatedAt;
+        cell.messageOwner.text = message.messageForumOwner;
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return tableViewDataArray.count;
+    return tableViewDataArray.count+1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    if (indexPath.row == tableViewDataArray.count) {
+        return 53;
+    }
+    else{
+        return 100;
+    }
 }
 
 - (void) setupLoadingAnimation{
@@ -75,6 +97,23 @@
     spinner.tag = 12;
     [self.view addSubview:spinner];
     [spinner startAnimating];
+}
+- (void) didTappedSendButtom:(NSString *)text{
+    ForumTopicMessage* topicMessage = [[ForumTopicMessage alloc] init];
+    topicMessage.messageForumContent = text;
+    topicMessage.messageForumCreatedAt = @"10:30 AM";
+    topicMessage.messageForumOwner = self.doctor.doctorNameString;
+    topicMessage.messageForumRelatedId = self.forumTopic.topicObjectId;
+    
+    [envio newMessage:topicMessage whenComplete:^void(BOOL finished){
+        if (finished) {
+            [self setupDataSource];
+            [self setupLoadingAnimation];
+        }
+        else{
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 @end

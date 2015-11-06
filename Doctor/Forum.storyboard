@@ -261,6 +261,37 @@
                                     <outlet property="messageOwner" destination="hMQ-MI-C48" id="9Jt-3s-m2J"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ForumSendCellID" rowHeight="53" id="A2q-i4-Pc1" customClass="ForumMessageSendTableViewCell">
+                                <rect key="frame" x="0.0" y="192" width="375" height="53"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A2q-i4-Pc1" id="LvJ-dC-JHs">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite aqui sua mensagem" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FgP-PP-DH7">
+                                            <rect key="frame" x="8" y="12" width="287" height="30"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvo-1V-zrQ">
+                                            <rect key="frame" x="314" y="12" width="53" height="30"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                            <state key="normal" title="Enviar"/>
+                                            <connections>
+                                                <action selector="tappedSendButton:" destination="A2q-i4-Pc1" eventType="touchUpInside" id="pOf-XX-Od0"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <color key="backgroundColor" red="0.91761862743457701" green="0.9382139705759327" blue="1" alpha="0.26504434121621623" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="sendMessageTextField" destination="FgP-PP-DH7" id="qhv-eh-zy1"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="MOc-YK-0Hb" id="6Fd-V1-5h7"/>

@@ -36,7 +36,8 @@
 - (void) newTreatment: (Treatment*)treatment;
 - (void) newExam: (Exam*)tipo;
 - (void) newCaseHistory: (CaseHistory*)caseHistory;
-- (void) newForumTopic: (ForumTopic *)forumTopic;
+- (void) newForumTopic:(ForumTopic *)forumTopic withCompletion:(void (^)(BOOL finished))completion;
+- (void) newMessage:(ForumTopicMessage *)message whenComplete:(void (^)(BOOL finished))completion;
 
 #pragma mark - Retrieving Queries
 - (void)fetchRootTreatment:(Treatment*) rootTreatment withCompletion:(void (^)(Treatment* treatment))completion;

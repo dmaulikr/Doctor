@@ -13,6 +13,7 @@
 #import "SWTableViewCell.h"
 #import "ForumNewTopicTableViewController.h"
 #import "ForumSeeTopicTableViewController.h"
+#import "AppDelegate.h"
 
 @interface ForumTableViewController (){
     NSMutableArray* tableViewDataArray;
@@ -29,11 +30,12 @@
     [super viewDidLoad];
     tableViewDataArray = [[NSMutableArray alloc] init];
     self.tableView.tableFooterView = [UIView new];
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.doctor = appDelegate.doctor;
 }
 
 - (void) viewWillAppear:(BOOL)animated{
     [self setupDataSource];
-    [self.tableView reloadData];
 }
 
 #pragma mark - IBActions
@@ -75,11 +77,12 @@
             self.forumTopicsArray = forumTopicsArray;
             tableViewDataArray = self.forumTopicsArray;
             [spinner stopAnimating];
+            [self.tableView reloadData];
         }else{
             NSLog(@"Erro - setupForumTopics block");
         }
-        [self.tableView reloadData];
     }];
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDelegates

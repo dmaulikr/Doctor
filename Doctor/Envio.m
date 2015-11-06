@@ -24,7 +24,7 @@
 
 }
 
-- (void) newForumTopic:(ForumTopic *)forumTopic{
+- (void) newForumTopic:(ForumTopic *)forumTopic withCompletion:(void (^)(BOOL))completion{
     
     PFObject* topic = [PFObject objectWithClassName:@"Forum"];
     topic[@"Owner"] = forumTopic.topicForumOwner;
@@ -34,7 +34,8 @@
     
     [topic saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [self generateForumCreationLog];
+            //[self generateForumCreationLog];
+            completion(true);
         } else {
             // There was a problem, check error.description
             [self  showAlertViewError:error];
@@ -1428,6 +1429,26 @@
     }];
 }
 
+
+- (void) newMessage:(ForumTopicMessage *)message whenComplete:(void (^)(BOOL finished))completion{
+    PFObject* messageParse = [PFObject objectWithClassName:@"ForumMessages"];
+    messageParse[@"messageOwner"] = message.messageForumOwner;
+    messageParse[@"messageContent"] = message.messageForumContent;
+    messageParse[@"whenCreated"] = message.messageForumCreatedAt;
+    messageParse[@"forumId"] = message.messageForumRelatedId;
+    
+    [messageParse saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+          //  [self generateForumCreationLog];
+            completion(true);
+        } else {
+            // There was a problem, check error.description
+         //   [self  showAlertViewError:error];
+            completion(false);
+        }
+    }];
+
+}
 
 #pragma mark - Log Queries (Message - Cryptography ASAP)
 - (void) generateMessageCreationLog:(Message *)message{

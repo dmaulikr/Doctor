@@ -11,7 +11,9 @@
 #import "Doctor.h"
 #import "Envio.h"
 
-@interface ForumNewTopicTableViewController ()
+@interface ForumNewTopicTableViewController (){
+    UIActivityIndicatorView *spinner;
+}
 
 @end
 
@@ -32,8 +34,8 @@
 
 #pragma mark - IBActions
 -(IBAction)tappedCreateButton:(UIBarButtonItem *)createButton{
+    [self setupLoadingAnimation];
     [self createNewTopic];
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Private Methods
@@ -44,7 +46,20 @@
     topic.topicForumSinopse = self.contentTextView.text;
     topic.topicForumSubject = [self.subjectTextField.text isEqualToString:@""] ? @"(Sem assunto)" : self.subjectTextField.text ;
     topic.topicForumUpdatedAt = @"06:00 AM";
-    [envio newForumTopic:topic];
+    [envio newForumTopic:topic withCompletion:^void(BOOL FINISHED){
+        if (FINISHED) {
+            [spinner stopAnimating];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+}
+
+- (void) setupLoadingAnimation{
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = self.view.center;
+    spinner.tag = 12;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
 }
 
 @end
