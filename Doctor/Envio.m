@@ -1373,7 +1373,12 @@
         if (!error) {
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
-                [forumTopicsArray addObject:forumTopic];
+                ForumTopic * topic = [[ForumTopic alloc] init];
+                topic.topicForumUpdatedAt = object[@"UpdatedBy"];
+                topic.topicForumSinopse = object[@"Sinopse"];
+                topic.topicForumOwner = object[@"Owner"];
+                topic.topicForumSubject = object[@"Subject"];
+                [forumTopicsArray addObject:topic];
             }
             if (forumTopicsArray) {
                 completion(forumTopicsArray);
@@ -1413,143 +1418,143 @@
 #pragma mark - Forum Fetchs and Entries
 
 #pragma mark - Entries
-- (void) newTopic: (ForumTopic*) topic{
-    
-    PFObject* newTopic = [PFObject objectWithClassName:@"Topics"];
-    newTopic[@"title"] = topic.topicForumTitle;
-    newTopic[@"createdBy"] = topic.topicForumCreatedBy;
-    newTopic[@"subject"] = topic.topicSubject;
-    
-    [newTopic saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            NSLog(@"New topic created! - '%@' ", topic.topicForumTitle);
-        } else {
-            // There was a problem, check error.description
-            [self  showAlertViewError:error];
-            
-        }
-    }];
-}
-
-- (void) newTopicMessage: (ForumTopicMessage*) message{
-    
-    PFObject* newTopicMessage = [PFObject objectWithClassName:@"ForumMessages"];
-    newTopicMessage[@"text"] = message.messageForumText;
-    newTopicMessage[@"createdBy"] = message.messageForumCreatedBy;
-    newTopicMessage[@"topic"] = message.messageForumTopic;
-    
-    [newTopicMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            NSLog(@"New topic message created!");
-        } else {
-            // There was a problem, check error.description
-            [self  showAlertViewError:error];
-        }
-    }];
-}
+//- (void) newTopic: (ForumTopic*) topic{
+//    
+//    PFObject* newTopic = [PFObject objectWithClassName:@"Topics"];
+//    newTopic[@"title"] = topic.topicForumTitle;
+//    newTopic[@"createdBy"] = topic.topicForumCreatedBy;
+//    newTopic[@"subject"] = topic.topicSubject;
+//    
+//    [newTopic saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            NSLog(@"New topic created! - '%@' ", topic.topicForumTitle);
+//        } else {
+//            // There was a problem, check error.description
+//            [self  showAlertViewError:error];
+//            
+//        }
+//    }];
+//}
+//
+//- (void) newTopicMessage: (ForumTopicMessage*) message{
+//    
+//    PFObject* newTopicMessage = [PFObject objectWithClassName:@"ForumMessages"];
+//    newTopicMessage[@"text"] = message.messageForumText;
+//    newTopicMessage[@"createdBy"] = message.messageForumCreatedBy;
+//    newTopicMessage[@"topic"] = message.messageForumTopic;
+//    
+//    [newTopicMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            NSLog(@"New topic message created!");
+//        } else {
+//            // There was a problem, check error.description
+//            [self  showAlertViewError:error];
+//        }
+//    }];
+//}
 
 
 #pragma mark - Forum Fetchs
-- (void) fetchAllTopicsAboutSubject: (ForumSubject*)subject
-              withCompletion:(void (^)(ForumTopic* topic))completion{
-    
-    ForumTopic* topic;
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Topics"];
-    [query whereKey:@"subject" equalTo:subject];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
-                topic.topicForumObjectId = [object objectForKey:@"objectId"];
-                topic.topicForumCreatedBy = [object objectForKey:@"createdBy"];
-                topic.topicForumCreatedAt = [object objectForKey:@"createdAt"];
-                topic.topicForumUpdatedAt = [object objectForKey:@"updatedAt"];
-                topic.topicSubject = [object objectForKey:@"subject"];
-                topic.topicForumTitle = [object objectForKey:@"title"];
-            }
-            if (topic) {
-                completion(topic);
-            }else{
-                completion(nil);
-                NSLog(@"404 - Envio.m - fetchTopic");
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
-            
-        }
-    }];
-}
+//- (void) fetchAllTopicsAboutSubject: (ForumSubject*)subject
+//              withCompletion:(void (^)(ForumTopic* topic))completion{
+//    
+//    ForumTopic* topic;
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"Topics"];
+//    [query whereKey:@"subject" equalTo:subject];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            for (PFObject *object in objects) {
+//                NSLog(@"%@", object.objectId);
+//                topic.topicForumObjectId = [object objectForKey:@"objectId"];
+//                topic.topicForumCreatedBy = [object objectForKey:@"createdBy"];
+//                topic.topicForumCreatedAt = [object objectForKey:@"createdAt"];
+//                topic.topicForumUpdatedAt = [object objectForKey:@"updatedAt"];
+//                topic.topicSubject = [object objectForKey:@"subject"];
+//                topic.topicForumTitle = [object objectForKey:@"title"];
+//            }
+//            if (topic) {
+//                completion(topic);
+//            }else{
+//                completion(nil);
+//                NSLog(@"404 - Envio.m - fetchTopic");
+//            }
+//        } else {
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//            [self  showAlertViewError:error];
+//            
+//        }
+//    }];
+//}
 
-- (void) fetchTopicsThatIncludes: (NSString*) search
-                  withCompletion: (void (^)(ForumTopic* topic))completion{
-    
-    ForumTopic* topic;
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Topics"];
-    [query whereKey:@"title" containsString:search];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
-                topic.topicForumObjectId = [object objectForKey:@"objectId"];
-                topic.topicForumCreatedBy = [object objectForKey:@"createdBy"];
-                topic.topicForumCreatedAt = [object objectForKey:@"createdAt"];
-                topic.topicForumUpdatedAt = [object objectForKey:@"updatedAt"];
-                topic.topicSubject = [object objectForKey:@"subject"];
-                topic.topicForumTitle = [object objectForKey:@"title"];
-                
-            }
-            if (topic) {
-                completion(topic);
-            }else{
-                completion(nil);
-                NSLog(@"404 - Envio.m - fetchTopicThatIncludes");
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
-            
-        }
-    }];
-}
+//- (void) fetchTopicsThatIncludes: (NSString*) search
+//                  withCompletion: (void (^)(ForumTopic* topic))completion{
+//    
+//    ForumTopic* topic;
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"Topics"];
+//    [query whereKey:@"title" containsString:search];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            for (PFObject *object in objects) {
+//                NSLog(@"%@", object.objectId);
+//                topic.topicForumObjectId = [object objectForKey:@"objectId"];
+//                topic.topicForumCreatedBy = [object objectForKey:@"createdBy"];
+//                topic.topicForumCreatedAt = [object objectForKey:@"createdAt"];
+//                topic.topicForumUpdatedAt = [object objectForKey:@"updatedAt"];
+//                topic.topicSubject = [object objectForKey:@"subject"];
+//                topic.topicForumTitle = [object objectForKey:@"title"];
+//                
+//            }
+//            if (topic) {
+//                completion(topic);
+//            }else{
+//                completion(nil);
+//                NSLog(@"404 - Envio.m - fetchTopicThatIncludes");
+//            }
+//        } else {
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//            [self  showAlertViewError:error];
+//            
+//        }
+//    }];
+//}
 
-- (void) fetchAllTopicMessagesOfTopic: (ForumTopic*)topic
-                       withCompletion: (void (^)(ForumTopicMessage* message))completion{
-    
-    ForumTopicMessage* message;
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Topics"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
-                message.messageForumObjectId = [object objectForKey:@"objectId"];
-                message.messageForumCreatedBy = [object objectForKey:@"createdBy"];
-                message.messageForumCreatedAt = [object objectForKey:@"createdAt"];
-                message.messageForumText = [object objectForKey:@"text"];
-                message.messageForumTopic = [object objectForKey:@"topic"];
-                
-            }
-            if (message) {
-                completion(message);
-            }else{
-                completion(nil);
-                NSLog(@"404 - Envio.m - fetchAllMessagesFromTopic");
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
-            
-        }
-    }];
-
-    
-}
+//- (void) fetchAllTopicMessagesOfTopic: (ForumTopic*)topic
+//                       withCompletion: (void (^)(ForumTopicMessage* message))completion{
+//    
+//    ForumTopicMessage* message;
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"Topics"];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            for (PFObject *object in objects) {
+//                NSLog(@"%@", object.objectId);
+//                message.messageForumObjectId = [object objectForKey:@"objectId"];
+//                message.messageForumCreatedBy = [object objectForKey:@"createdBy"];
+//                message.messageForumCreatedAt = [object objectForKey:@"createdAt"];
+//                message.messageForumText = [object objectForKey:@"text"];
+//                message.messageForumTopic = [object objectForKey:@"topic"];
+//                
+//            }
+//            if (message) {
+//                completion(message);
+//            }else{
+//                completion(nil);
+//                NSLog(@"404 - Envio.m - fetchAllMessagesFromTopic");
+//            }
+//        } else {
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//            [self  showAlertViewError:error];
+//            
+//        }
+//    }];
+//
+//    
+//}
 
 
 @end

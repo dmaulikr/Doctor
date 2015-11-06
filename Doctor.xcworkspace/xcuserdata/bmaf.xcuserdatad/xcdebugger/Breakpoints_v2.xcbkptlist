@@ -77,7 +77,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
             endingLineNumber = "36"
-            landmarkName = "-newCaseHistory:"
+            landmarkName = "-newTreatment:"
             landmarkType = "4">
          </BreakpointContent>
       </BreakpointProxy>
@@ -301,7 +301,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
             endingLineNumber = "64"
-            landmarkName = "-fetchAllForumTopics:"
+            landmarkName = "-fetchExamsPassingPatient:withCompletion:"
             landmarkType = "4">
          </BreakpointContent>
       </BreakpointProxy>

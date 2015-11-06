@@ -20,7 +20,7 @@
 #import "ForumTopic.h"
 #import "Message.h"
 #import "Log.h"
-#import "LogActivity.h"
+//#import "LogActivity.h"
 #import "ForumHeader.h"
 //#import "LogActivity.h"
 
