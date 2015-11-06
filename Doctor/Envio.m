@@ -1342,6 +1342,38 @@
     
 }
 
+
+- (void)fetchAllForumTopics :(void (^)(NSMutableArray* forumTopicsArray))completion{
+    ForumTopic* forumTopic = [[ForumTopic alloc] init];
+    NSMutableArray* forumTopicsArray = [[NSMutableArray alloc] init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Forum"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                forumTopic.topicForumOwner = [object objectForKey:@"Owner"];
+                forumTopic.topicForumSinopse = [object objectForKey:@"Sinopse"];
+                forumTopic.topicForumSubject = [object objectForKey:@"Subject"];
+                forumTopic.topicForumUpdatedAt = [object objectForKey:@"UpdatedBy"];
+                [forumTopicsArray addObject:forumTopic];
+            }
+            if (forumTopicsArray) {
+                completion(forumTopicsArray);
+            }else{
+                completion(nil);
+                NSLog(@"404 - Envio.m - fetchAllTopicsForum");
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+
+}
+
 #pragma mark - Log Queries (Message - Cryptography ASAP)
 - (void) generateMessageCreationLog:(Message *)message{
     

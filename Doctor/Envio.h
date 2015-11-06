@@ -60,6 +60,8 @@
 
 - (void)fetchExamsPassingPatient: (Patient*)patient withCompletion:(void (^)(NSMutableArray* examsArray))completion;
 
+- (void)fetchAllForumTopics :(void (^)(NSMutableArray* forumTopicsArray))completion;
+
 #pragma mark - Deleting Queries
 - (void) deleteTreatment: (Treatment*)treatment withCompletion: (void (^)(BOOL succeded))completion;
 - (void) deletePatient: (Patient*)patient fromDoctor: (Doctor*)doctor; //only drops the patient from the doctor's patientArray, not from our platform

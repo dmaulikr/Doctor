@@ -9,10 +9,13 @@
 #import "ForumTableViewController.h"
 #import "MFSideMenu.h"
 #import "ForumTableViewCell.h"
+#import "Envio.h"
 
 @interface ForumTableViewController (){
     NSMutableArray* tableViewDataArray;
+    UIActivityIndicatorView *spinner;
 }
+@property (nonatomic, strong) NSMutableArray* forumTopicsArray;
 
 @end
 
@@ -21,7 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     tableViewDataArray = [[NSMutableArray alloc] init];
+    [self setupLoadingAnimation];
     [self setupDataSource];
+    self.tableView.tableFooterView = [UIView new];
 }
 
 #pragma mark - IBActions
@@ -47,10 +52,19 @@
 
 #pragma mark - Setups
 - (void) setupDataSource{
-    //query fetch all forum topics from parse
-    NSMutableArray* arrayOriundoDoParse = [[NSMutableArray alloc] init];
-    tableViewDataArray = arrayOriundoDoParse;
-    [self.tableView reloadData];
+    Envio *envio = [[Envio alloc] init];
+    self.forumTopicsArray = [[NSMutableArray alloc] init];
+    
+    [envio fetchAllForumTopics:^void(NSMutableArray* forumTopicsArray){
+        if (forumTopicsArray){
+            self.forumTopicsArray = forumTopicsArray;
+            tableViewDataArray = self.forumTopicsArray;
+            [spinner stopAnimating];
+        }else{
+            NSLog(@"Erro - setupForumTopics block");
+        }
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - UITableViewDelegates
@@ -61,20 +75,33 @@
     if (cell==nil) {
         cell = [[ForumTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ForumCellID];
     }
-//    cell.rightUtilityButtons = [self rightButtons];
-//    cell.delegate = self;
-//    
-//    Patient* patient = [[Patient alloc] init];
-//    patient = tableViewDataArray[indexPath.row];
-//    
-//    cell.patientNameLabel.text = patient.patientNameString;
-//    cell.patientAgeLabel.text = patient.patientAgeString;
-//    cell.patientGenderLabel.text = patient.patientGenderString;
-//    cell.patientInitialsLabel.text = [patient.patientNameString substringToIndex:1];
-//    //cell.patientCameSinceLabel.text = tableViewDataArray[];
     
+    ForumTopic* forumTopic = [[ForumTopic alloc] init];
+    forumTopic = tableViewDataArray[indexPath.row];
+    
+    cell.topicDate.text = forumTopic.topicForumUpdatedAt;
+    cell.topicOwner.text = forumTopic.topicForumOwner;
+    cell.topicSubject.text = forumTopic.topicForumSubject;
+    cell.topicSinopse.text = forumTopic.topicForumSinopse;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return tableViewDataArray.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 130;
+}
+
+- (void) setupLoadingAnimation{
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = self.view.center;
+    spinner.tag = 12;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
 }
 
 
