@@ -9,10 +9,10 @@
 #import "AFDropdownNotification.h"
 
 #define kDropdownImageSize 40
-#define kDropdownPadding 10
+#define kDropdownPadding 3
 #define kDropdownTitleFontSize 19
 #define kDropdownSubtitleFontSize 14
-#define kDropdownButtonWidth 75
+#define kDropdownButtonWidth 0
 #define kDropdownButtonHeight 30
 
 @interface AFDropdownNotification ()
@@ -44,12 +44,12 @@
         
         _titleLabel = [UILabel new];
         _titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:15];
-        _titleLabel.textColor = [UIColor blackColor];
+        _titleLabel.textColor = [UIColor whiteColor];
         
         _subtitleLabel = [UILabel new];
         _subtitleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:13];
         _subtitleLabel.numberOfLines = 0;
-        _subtitleLabel.textColor = [UIColor blackColor];
+        _subtitleLabel.textColor = [UIColor whiteColor];
         
         _imageView = [UIImageView new];
         _imageView.image = nil;
