@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ForumHeader.h"
 #import "ForumTopic.h"
 
 @interface ForumTopicMessage : NSObject
 
+
+@property (strong, nonatomic) NSString* messageForumObjectId;
 @property (strong, nonatomic) NSString* messageForumCreatedBy;
-@property (strong, nonatomic) NSString* messageForumContent;
-@property (strong, nonatomic) ForumTopic* forumTopic;
+@property (strong, nonatomic) NSString* messageForumText;
+@property (strong, nonatomic) ForumTopic* messageForumTopic;
 @property (strong, nonatomic) NSString* messageForumCreatedAt;
 
 @end

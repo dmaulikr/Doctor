@@ -117,4 +117,39 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
     if ([_doctorTelephoneTextField isFirstResponder] && [touch view] != _doctorTelephoneTextField) [_doctorTelephoneTextField resignFirstResponder];
 }
 
+#pragma mark PhotoPicker
+
+- (IBAction)takePhoto:(UIButton *)sender{
+    UIImagePickerController* takePhotoView = [[UIImagePickerController alloc] init];
+    takePhotoView.delegate = self;
+    takePhotoView.allowsEditing = YES;
+    takePhotoView.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:takePhotoView animated:YES completion:NULL];
+}
+
+- (IBAction)selectPhoto:(UIButton *)sender{
+    
+    UIImagePickerController *selectPhotoView = [[UIImagePickerController alloc] init];
+    selectPhotoView.delegate = self;
+    selectPhotoView.allowsEditing = YES;
+    selectPhotoView.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:selectPhotoView animated:YES completion:NULL];
+    
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    NSData* photoData = [[NSData alloc]init];
+    photoData = UIImageJPEGRepresentation(chosenImage, 0.5f );
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+
+
+
 @end
