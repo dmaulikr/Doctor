@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWTableViewCell.h"
 
-@interface ForumTableViewCell : UITableViewCell
+@interface ForumTableViewCell : SWTableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *topicOwner;
 @property (nonatomic, strong) IBOutlet UILabel *topicSubject;

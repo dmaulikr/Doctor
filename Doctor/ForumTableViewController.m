@@ -10,6 +10,7 @@
 #import "MFSideMenu.h"
 #import "ForumTableViewCell.h"
 #import "Envio.h"
+#import "SWTableViewCell.h"
 
 @interface ForumTableViewController (){
     NSMutableArray* tableViewDataArray;
@@ -83,6 +84,9 @@
     ForumTopic* forumTopic = [[ForumTopic alloc] init];
     forumTopic = tableViewDataArray[indexPath.row];
     
+    cell.rightUtilityButtons = [self rightButtons];
+    cell.delegate = self;
+    
     cell.topicDate.text = forumTopic.topicForumUpdatedAt;
     cell.topicOwner.text = forumTopic.topicForumOwner;
     cell.topicSubject.text = forumTopic.topicForumSubject;
@@ -90,6 +94,17 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+
+- (NSArray *)rightButtons {
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(247/255.0f) green:(146/255.0f) blue:(30/255.0f) alpha:1.0] icon:[UIImage imageNamed:@"icone-favoritarpaciente"]];
+    return rightUtilityButtons;
+}
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    NSLog(@"did tapped to fav");
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return tableViewDataArray.count;
