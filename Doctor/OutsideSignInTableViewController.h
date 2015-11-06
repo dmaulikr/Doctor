@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OutsideSignInTableViewController : UITableViewController
+@interface OutsideSignInTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end

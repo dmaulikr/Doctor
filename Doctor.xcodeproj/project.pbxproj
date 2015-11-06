@@ -58,6 +58,7 @@
 		02F15C691BD6D8080078279D /* PatientSelectedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F15C681BD6D8080078279D /* PatientSelectedTableViewController.m */; };
 		1BD2E29A1BD1240D004413F9 /* Forum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2E2991BD1240D004413F9 /* Forum.storyboard */; };
 		7000F8971BE8E55A002A7B22 /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7000F8961BE8E55A002A7B22 /* Log.m */; };
+		7000F8A01BEA21A9002A7B22 /* ForumSubject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7000F89F1BEA21A9002A7B22 /* ForumSubject.m */; };
 		7020D11E1BD52DBD0059A226 /* Envio.m in Sources */ = {isa = PBXBuildFile; fileRef = 7020D11D1BD52DBD0059A226 /* Envio.m */; };
 		7020D1221BD53A4E0059A226 /* Register.m in Sources */ = {isa = PBXBuildFile; fileRef = 7020D1211BD53A4E0059A226 /* Register.m */; };
 		7020D1261BD53A840059A226 /* Treatment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7020D1251BD53A840059A226 /* Treatment.m */; };
@@ -203,6 +204,9 @@
 		7000F8951BE8E55A002A7B22 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		7000F8961BE8E55A002A7B22 /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Log.m; sourceTree = "<group>"; };
 		7000F89D1BE8EE08002A7B22 /* Activities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Activities.h; sourceTree = "<group>"; };
+		7000F89E1BEA21A9002A7B22 /* ForumSubject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumSubject.h; sourceTree = "<group>"; };
+		7000F89F1BEA21A9002A7B22 /* ForumSubject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumSubject.m; sourceTree = "<group>"; };
+		7000F8A21BEA229D002A7B22 /* ForumHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForumHeader.h; sourceTree = "<group>"; };
 		7020D11C1BD52DBD0059A226 /* Envio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Envio.h; sourceTree = "<group>"; };
 		7020D11D1BD52DBD0059A226 /* Envio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Envio.m; sourceTree = "<group>"; };
 		7020D1201BD53A4E0059A226 /* Register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Register.h; sourceTree = "<group>"; };
@@ -526,10 +530,13 @@
 		02CD6C401BD2D81000C38B6D /* ModelForum */ = {
 			isa = PBXGroup;
 			children = (
+				7000F8A21BEA229D002A7B22 /* ForumHeader.h */,
 				0297C9701BE6F8060068757C /* ForumTopic.h */,
 				0297C9711BE6F8060068757C /* ForumTopic.m */,
 				0297C9731BE6F82F0068757C /* ForumTopicMessage.h */,
 				0297C9741BE6F82F0068757C /* ForumTopicMessage.m */,
+				7000F89E1BEA21A9002A7B22 /* ForumSubject.h */,
+				7000F89F1BEA21A9002A7B22 /* ForumSubject.m */,
 			);
 			name = ModelForum;
 			sourceTree = "<group>";
@@ -1005,6 +1012,7 @@
 				02E7A9A81BDC50FB008059BD /* PatientSelectedDataTableViewController.m in Sources */,
 				028C3F661BE83B4800685039 /* PatientSelectedHeaderTableViewCell.m in Sources */,
 				7020D11E1BD52DBD0059A226 /* Envio.m in Sources */,
+				7000F8A01BEA21A9002A7B22 /* ForumSubject.m in Sources */,
 				0297C9751BE6F82F0068757C /* ForumTopicMessage.m in Sources */,
 				022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */,
 				0297C9791BE6F8940068757C /* Message.m in Sources */,

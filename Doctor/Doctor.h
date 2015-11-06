@@ -20,5 +20,6 @@
 //In test
 @property (strong, nonatomic) NSMutableArray* doctorPatientsArray;
 @property (strong, nonatomic) NSString* doctorObjectId;
+@property (strong,nonatomic) NSData* doctorPhotoData;
 
 @end

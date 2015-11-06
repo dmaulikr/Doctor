@@ -7,13 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ForumHeader.h"
+#import "ForumSubject.h"
+#import "Doctor.h"
 
 @interface ForumTopic : NSObject
 
-@property (strong, nonatomic) NSString* topicForumTheme;
-@property (strong, nonatomic) NSString* topicForumDescription;
-@property (strong, nonatomic) NSString* topicForumCreatedBy;
-@property (strong, nonatomic) NSString* topicForumUpdatedAt;
-@property (strong, nonatomic) NSString* topicForumContentPreview;
+@property (strong, nonatomic) NSString* topicForumObjectId;
+@property (strong, nonatomic) Doctor* topicForumCreatedBy;
+@property (strong, nonatomic) NSDate* topicForumCreatedAt;
+@property (strong, nonatomic) NSDate* topicForumUpdatedAt;
+@property (strong, nonatomic) NSString* topicForumTitle;
+@property (strong, nonatomic) ForumSubject* topicSubject;
 
 @end

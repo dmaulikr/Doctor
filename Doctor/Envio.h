@@ -21,6 +21,7 @@
 #import "Message.h"
 #import "Log.h"
 #import "LogActivity.h"
+#import "ForumHeader.h"
 
 
 
@@ -117,6 +118,19 @@
 
 
 - (void)fetchLastSeen:(Doctor *)doctor :(Patient *) patient :(void (^)(NSString * lastSeen))completion;
+
+
+#pragma mark forum
+
+- (void) newTopic: (ForumTopic*) topic;
+- (void) newTopicMessage: (ForumTopicMessage*) message;
+- (void) fetchAllTopicsAboutSubject: (ForumSubject*)subject
+                     withCompletion:(void (^)(ForumTopic* topic))completion;
+- (void) fetchTopicsThatIncludes: (NSString*) search
+                  withCompletion: (void (^)(ForumTopic* topic))completion;
+- (void) fetchAllTopicMessagesFromTopic: (ForumTopic*)topic
+                         withCompletion: (void (^)(ForumTopicMessage* message))completion;
+
 
 
 @end
