@@ -351,23 +351,17 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                NSLog(@"%@", object[@"category"]);
-                
                 Medication* medication = [[Medication alloc]init];
                 medication.medicationCategoryString = [object objectForKey:@"category"];
                 medication.medicationActivePrincipleString = [object objectForKey:@"activeprinciples"];
-                
                 [medications addObject:medication];
-                
-                if (medication) {
-                    completion(medication);
+                if (medications) {
+                    completion(medications);
                 }else{
                     completion(nil);
                     NSLog(@"404 - Envio.m - fetchAllMedications");
                 }
             }
-            
-            
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);

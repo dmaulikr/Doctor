@@ -10,10 +10,12 @@
 #import "MFSideMenu.h"
 #import "Medication.h"
 #import "Envio.h"
+#import "MedicationSelectedTableViewController.h"
 
 @interface MedicationsTableViewController () <UISearchBarDelegate> {
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
+    Medication* medicationClicked;
     BOOL isSearching;
 }
 
@@ -27,6 +29,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    medicationClicked = [[Medication alloc] init];
+    tableViewDataArray = [[NSMutableArray alloc] init];
+    self.filteredMedicationsArray = [[NSMutableArray alloc] init];
+    self.medicationsArray = [[NSMutableArray alloc] init];
     [self setupLoadingAnimation];
     [self setupDataSource];
 }
@@ -60,22 +66,25 @@
 
 #pragma mark - Setups
 - (void)setupDataSource{
-    tableViewDataArray = [[NSMutableArray alloc] init];
-    self.filteredMedicationsArray = [[NSMutableArray alloc] init];
     Envio* newEnvio = [[Envio alloc]init];
     [newEnvio fetchAllMedications: ^void (NSMutableArray* medicationArray){
-            if (medicationArray){
-                self.medicationsArray = medicationArray;
-                tableViewDataArray = medicationArray;
-                [self.tableView reloadData];
-                [spinner stopAnimating];
-            }else{
-                NSLog(@"Erro - setupMedicationsDatasource block");
-            }
-        }];
-    tableViewDataArray = self.medicationsArray;
+        if (medicationArray){
+            self.medicationsArray = medicationArray;
+            tableViewDataArray = self.medicationsArray;
+            [self.tableView reloadData];
+            [spinner stopAnimating];
+        }else{
+            NSLog(@"Erro - setupMedicationsDatasource block");
+        }
+    }];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"clickedAtMedicationCategorySegueID"]) {
+        MedicationSelectedTableViewController* medicationSelected = segue.destinationViewController;
+        [medicationSelected setMedication:medicationClicked];
+    }
+}
 
 - (void) setupLoadingAnimation{
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
