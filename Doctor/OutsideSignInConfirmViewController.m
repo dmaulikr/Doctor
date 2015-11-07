@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self textViewSetups];
+    self.confirmButton.backgroundColor = [UIColor grayColor];
     NSString* cellPhoneSentWas = [[NSString alloc] initWithFormat:@"+ 55 81 %@", self.phoneAsAParameter];
     self.cellPhoneToSendConfirmationLabel.text = cellPhoneSentWas;
     self.confirmButton.layer.cornerRadius = 3;
@@ -43,38 +44,77 @@
 }
 
 - (IBAction)didTappedConfirmButton:(UIButton *)sender{
-    if (![self.firstTokenCharacterTextView.text isEqualToString:@""] && ![self.secondTokenCharacterTextView.text isEqualToString:@""] && ![self.thirdTokenCharacterTextView.text isEqualToString:@""] && ![self.fourthTokenCharacterTextView.text isEqualToString:@""]) {
+    if (self.confirmButton.backgroundColor != [UIColor grayColor]) {
         [self codeInputComplete];
     }
-    else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Há campos do código que ainda estão em branco." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        alert.tag = 404;
-        [alert show];
-    }
-    
 }
 
 #pragma mark - UITextViewDelegates
 -(void)textViewDidChange:(UITextView *)textView{
     switch (textView.tag) {
         case 1:
-            if (![textView.text isEqualToString:@""]) {
-                [self.secondTokenCharacterTextView becomeFirstResponder];
+            if (textView.text.length > 1) {
+                textView.text = [textView.text substringWithRange:NSMakeRange(0, 1)];
+            }
+            if (![self.firstTokenCharacterTextView.text isEqualToString:@""] && ![self.secondTokenCharacterTextView.text isEqualToString:@""] && ![self.thirdTokenCharacterTextView.text isEqualToString:@""] && ![self.fourthTokenCharacterTextView.text isEqualToString:@""]) {
+                self.confirmButton.backgroundColor = [UIColor colorWithRed:(5/255.0f) green:(127/255.0f) blue:(6/255.0f) alpha:1.0f];
+                [self codeInputComplete];
+            }
+            else{
+                if (![textView.text isEqualToString:@""]) {
+                    [self.secondTokenCharacterTextView becomeFirstResponder];
+                 }
+                else{
+                    self.confirmButton.backgroundColor = [UIColor grayColor];
+                }
             }
             break;
         case 2:
-            if (![textView.text isEqualToString:@""]) {
-                [self.thirdTokenCharacterTextView becomeFirstResponder];
+            if (textView.text.length > 1) {
+                textView.text = [textView.text substringWithRange:NSMakeRange(0, 1)];
             }
+            if (![self.firstTokenCharacterTextView.text isEqualToString:@""] && ![self.secondTokenCharacterTextView.text isEqualToString:@""] && ![self.thirdTokenCharacterTextView.text isEqualToString:@""] && ![self.fourthTokenCharacterTextView.text isEqualToString:@""]) {
+                self.confirmButton.backgroundColor = [UIColor colorWithRed:(5/255.0f) green:(127/255.0f) blue:(6/255.0f) alpha:1.0f];
+                [self codeInputComplete];
+            }
+            else{
+                if (![textView.text isEqualToString:@""]) {
+                    [self.thirdTokenCharacterTextView becomeFirstResponder];
+                }
+                else{
+                    self.confirmButton.backgroundColor = [UIColor grayColor];
+                }
+            }
+
             break;
         case 3:
-            if (![textView.text isEqualToString:@""]) {
-                [self.fourthTokenCharacterTextView becomeFirstResponder];
+            if (textView.text.length > 1) {
+                textView.text = [textView.text substringWithRange:NSMakeRange(0, 1)];
             }
+            if (![self.firstTokenCharacterTextView.text isEqualToString:@""] && ![self.secondTokenCharacterTextView.text isEqualToString:@""] && ![self.thirdTokenCharacterTextView.text isEqualToString:@""] && ![self.fourthTokenCharacterTextView.text isEqualToString:@""]) {
+                [self codeInputComplete];
+                self.confirmButton.backgroundColor = [UIColor colorWithRed:(5/255.0f) green:(127/255.0f) blue:(6/255.0f) alpha:1.0f];
+            }
+            else{
+                if (![textView.text isEqualToString:@""]) {
+                    [self.fourthTokenCharacterTextView becomeFirstResponder];
+                }
+                else{
+                    self.confirmButton.backgroundColor = [UIColor grayColor];
+                }
+            }
+
             break;
         case 4:
-            if (![textView.text isEqualToString:@""]) {
+            if (textView.text.length > 1) {
+                textView.text = [textView.text substringWithRange:NSMakeRange(0, 1)];
+            }
+            if (![self.firstTokenCharacterTextView.text isEqualToString:@""] && ![self.secondTokenCharacterTextView.text isEqualToString:@""] && ![self.thirdTokenCharacterTextView.text isEqualToString:@""] && ![self.fourthTokenCharacterTextView.text isEqualToString:@""]) {
                 [self codeInputComplete];
+                self.confirmButton.backgroundColor = [UIColor colorWithRed:(5/255.0f) green:(127/255.0f) blue:(6/255.0f) alpha:1.0f];
+            }
+            else{
+                self.confirmButton.backgroundColor = [UIColor grayColor];
             }
             break;
         default:
@@ -84,7 +124,7 @@
 
 - (void) codeInputComplete{
     NSString* codeInput = [[NSString alloc] initWithFormat:@"O código inserido:\n%@%@%@%@\n Confere?", self.firstTokenCharacterTextView.text, self.secondTokenCharacterTextView.text, self.thirdTokenCharacterTextView.text, self.fourthTokenCharacterTextView.text];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:codeInput delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:codeInput delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Confirmar", nil];
     alert.tag = 123456;
     [alert show];
 }

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField* doctorPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField* doctorConfirmPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField* doctorUsernameTextField;
+@property (weak, nonatomic) IBOutlet UILabel* doctorAreaCodeLabel;
 
 @end
 
@@ -29,6 +30,10 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
     self.tableView.tableFooterView = [UIView new];
     self.doctorPasswordTextField.secureTextEntry = YES;
     self.doctorConfirmPasswordTextField.secureTextEntry = YES;
+
+    UITapGestureRecognizer* tapAreaCode = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickedIntoAreaCodeLabel)];
+    [self.doctorAreaCodeLabel setUserInteractionEnabled:YES];
+    [self.doctorAreaCodeLabel addGestureRecognizer:tapAreaCode];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -149,7 +154,23 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
     
 }
 
+- (void) didClickedIntoAreaCodeLabel{
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Pernambuco (81)",@"Pernambuco (87)", nil];
+    [actionSheet showInView:self.view];
+}
 
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            self.doctorAreaCodeLabel.text = @"81";
+            break;
+        case 1:
+            self.doctorAreaCodeLabel.text = @"87";
+            break;
+        default:
+        break;
+    }
+}
 
 
 @end

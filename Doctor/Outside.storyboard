@@ -282,7 +282,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Confirmar senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uN8-P3-Lsc">
+                                                <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirmar senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uN8-P3-Lsc">
                                                     <rect key="frame" x="60" y="17" width="285" height="30"/>
                                                     <animations/>
                                                     <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -357,6 +357,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doctorAreaCodeLabel" destination="ZHc-aG-m5s" id="pY9-7I-8e2"/>
                         <outlet property="doctorCRMTextField" destination="6h2-EM-YQH" id="BGK-v3-PUF"/>
                         <outlet property="doctorConfirmPasswordTextField" destination="uN8-P3-Lsc" id="D4v-pv-bHY"/>
                         <outlet property="doctorNameTextField" destination="FAp-3b-9p0" id="V2m-Cw-tmB"/>
@@ -449,8 +450,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+ 55 81 9 9939 6494" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbh-jO-Icn">
-                                <rect key="frame" x="80" y="154" width="215" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+++++++++++++++++++" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbh-jO-Icn">
+                                <rect key="frame" x="80" y="154" width="216" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -498,7 +499,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKq-O3-WrK">
                                 <rect key="frame" x="65" y="428" width="243" height="41"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.021267100890584978" green="0.5" blue="0.023397905196528179" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.019607843137254902" green="0.49803921568627452" blue="0.023529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Confirmar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -538,12 +539,9 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Registrar" id="d4f-Ik-3cp">
-                        <barButtonItem key="rightBarButtonItem" title="Finalizar" id="TCt-Ix-HhS">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Registrar" id="d4f-Ik-3cp"/>
                     <connections>
+                        <outlet property="cellPhoneToSendConfirmationLabel" destination="xbh-jO-Icn" id="i81-R4-iPq"/>
                         <outlet property="confirmButton" destination="WKq-O3-WrK" id="oyw-9B-7G1"/>
                         <outlet property="firstTokenCharacterTextView" destination="lR1-Y1-m5V" id="cBa-Vs-7LF"/>
                         <outlet property="fourthTokenCharacterTextView" destination="Rxc-Wt-9hs" id="itS-m5-4Am"/>
