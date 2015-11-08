@@ -29,6 +29,7 @@
     NSString* cellPhoneSentWas = [[NSString alloc] initWithFormat:@"+ 55 81 %@", self.phoneAsAParameter];
     self.cellPhoneToSendConfirmationLabel.text = cellPhoneSentWas;
     self.confirmButton.layer.cornerRadius = 3;
+    self.navigationController.navigationBar.backItem.title = @"";
 }
 
 #pragma mark - Setups

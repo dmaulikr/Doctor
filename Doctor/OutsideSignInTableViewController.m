@@ -39,6 +39,7 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 - (void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.topItem.title = @"Registrar";
+    self.navigationController.navigationBar.backItem.title = @"";
 }
 
 #pragma mark - IBActions
