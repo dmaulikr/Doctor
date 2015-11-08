@@ -383,19 +383,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome de usuário" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPK-r1-hhZ">
-                                <rect key="frame" x="74" y="214" width="229" height="30"/>
-                                <animations/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-usuario" translatesAutoresizingMaskIntoConstraints="NO" id="QWs-cJ-a9b">
-                                <rect key="frame" x="36" y="219" width="16" height="19"/>
+                                <rect key="frame" x="26" y="194" width="16" height="19"/>
                                 <animations/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sba-GR-796">
-                                <rect key="frame" x="0.0" y="255" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="230" width="375" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.51483585860000003" green="0.51483585860000003" blue="0.51483585860000003" alpha="0.28673986486486486" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -403,7 +396,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWl-5w-cyl">
-                                <rect key="frame" x="0.0" y="196" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="171" width="375" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.51483585860000003" green="0.51483585860000003" blue="0.51483585860000003" alpha="0.29143792229729731" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -411,7 +404,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYe-0I-GoZ">
-                                <rect key="frame" x="129" y="355" width="49" height="2"/>
+                                <rect key="frame" x="129" y="330" width="49" height="2"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -419,7 +412,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecV-jm-Vad">
-                                <rect key="frame" x="63" y="355" width="49" height="2"/>
+                                <rect key="frame" x="63" y="330" width="49" height="2"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -427,7 +420,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqo-JF-iza">
-                                <rect key="frame" x="263" y="355" width="49" height="2"/>
+                                <rect key="frame" x="263" y="330" width="49" height="2"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -435,7 +428,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56H-4U-q7C">
-                                <rect key="frame" x="195" y="355" width="49" height="2"/>
+                                <rect key="frame" x="195" y="330" width="49" height="2"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -443,7 +436,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUT-zy-GeO">
-                                <rect key="frame" x="18" y="72" width="339" height="102"/>
+                                <rect key="frame" x="18" y="42" width="339" height="96"/>
                                 <animations/>
                                 <string key="text">Insira seu nome de usuário e clique em Próximo. Em instantes, será enviado um código de 4 dígitos para o número do celular cadastrado pelo usuário.</string>
                                 <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -451,23 +444,77 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qO7-g5-Xab">
-                                <rect key="frame" x="33" y="414" width="308" height="39"/>
+                                <rect key="frame" x="33" y="389" width="308" height="39"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.45242637769999999" green="0.45242637769999999" blue="0.45242637769999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Entrar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGY-Qr-vdT">
+                                <rect key="frame" x="273" y="189" width="96" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Próximo">
+                                    <color key="titleColor" red="0.45242637769999999" green="0.45242637769999999" blue="0.45242637769999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmLoginButtonTapped:" destination="t1w-wp-AK2" eventType="touchUpInside" id="mvy-kK-Fgi"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="G3d-DC-nKM">
+                                <rect key="frame" x="63" y="251" width="49" height="77"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="51"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZJR-T2-fiM">
+                                <rect key="frame" x="129" y="251" width="49" height="77"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="51"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LUK-Ch-Dct">
+                                <rect key="frame" x="195" y="251" width="49" height="77"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="51"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yHG-rP-364">
+                                <rect key="frame" x="263" y="251" width="49" height="77"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="51"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Nome de usuário" translatesAutoresizingMaskIntoConstraints="NO" id="Aup-0x-fp1">
+                                <rect key="frame" x="55" y="187" width="215" height="33"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Recuperar Senha" id="XmR-fs-z6v">
-                        <barButtonItem key="rightBarButtonItem" title="Próximo" id="p10-K0-PAz">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Recuperar Senha" id="XmR-fs-z6v"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="confirmLoginButton" destination="VGY-Qr-vdT" id="jeT-ch-dbJ"/>
+                        <outlet property="confirmTokenButton" destination="qO7-g5-Xab" id="8d7-CE-eeI"/>
+                        <outlet property="firstTokenTextView" destination="G3d-DC-nKM" id="DzI-IF-K7P"/>
+                        <outlet property="fourTokenTextView" destination="yHG-rP-364" id="YkE-dD-ZGy"/>
+                        <outlet property="labelFirstToken" destination="ecV-jm-Vad" id="JOF-VJ-jP9"/>
+                        <outlet property="labelFourthToken" destination="xqo-JF-iza" id="Ncw-sV-A1k"/>
+                        <outlet property="labelSecondToken" destination="cYe-0I-GoZ" id="cby-h4-ixr"/>
+                        <outlet property="labelThirdToken" destination="56H-4U-q7C" id="0Wn-B8-i8Z"/>
+                        <outlet property="loginToRecoverTextView" destination="Aup-0x-fp1" id="T6m-ZE-tWJ"/>
+                        <outlet property="secondTokenTextView" destination="ZJR-T2-fiM" id="CU7-6c-xFN"/>
+                        <outlet property="thirdTokenTextView" destination="LUK-Ch-Dct" id="AuU-pp-Uwb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePn-Ir-5ur" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
