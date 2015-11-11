@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		020AAE381BDFA68F004766D5 /* ForumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AAE371BDFA68F004766D5 /* ForumTableViewCell.m */; };
 		020AAE3B1BDFA6CD004766D5 /* ForumMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AAE3A1BDFA6CD004766D5 /* ForumMessageTableViewCell.m */; };
+		0226B1571BF2C92E00009147 /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0226B1561BF2C92E00009147 /* FeedTableViewCell.m */; };
 		022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DB1BCFC9CC00B7C1E0 /* MainViewController.m */; };
 		022928E01BCFCA5500B7C1E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */; };
 		022928E31BCFCCF200B7C1E0 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022928E21BCFCCF200B7C1E0 /* Feed.storyboard */; };
@@ -109,6 +110,8 @@
 		020AAE371BDFA68F004766D5 /* ForumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTableViewCell.m; sourceTree = "<group>"; };
 		020AAE391BDFA6CD004766D5 /* ForumMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumMessageTableViewCell.h; sourceTree = "<group>"; };
 		020AAE3A1BDFA6CD004766D5 /* ForumMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumMessageTableViewCell.m; sourceTree = "<group>"; };
+		0226B1551BF2C92E00009147 /* FeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewCell.h; sourceTree = "<group>"; };
+		0226B1561BF2C92E00009147 /* FeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell.m; sourceTree = "<group>"; };
 		022928D91BCFC73200B7C1E0 /* Storyboards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storyboards.h; sourceTree = "<group>"; };
 		022928DA1BCFC9CC00B7C1E0 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		022928DB1BCFC9CC00B7C1E0 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -444,6 +447,8 @@
 			children = (
 				02921D5D1BD11707001B6F5E /* FeedTableViewController.h */,
 				02921D5E1BD11707001B6F5E /* FeedTableViewController.m */,
+				0226B1551BF2C92E00009147 /* FeedTableViewCell.h */,
+				0226B1561BF2C92E00009147 /* FeedTableViewCell.m */,
 			);
 			name = ViewsFeed;
 			sourceTree = "<group>";
@@ -1018,6 +1023,7 @@
 				028C3F661BE83B4800685039 /* PatientSelectedHeaderTableViewCell.m in Sources */,
 				7020D11E1BD52DBD0059A226 /* Envio.m in Sources */,
 				7000F8A01BEA21A9002A7B22 /* ForumSubject.m in Sources */,
+				0226B1571BF2C92E00009147 /* FeedTableViewCell.m in Sources */,
 				0297C9751BE6F82F0068757C /* ForumTopicMessage.m in Sources */,
 				022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */,
 				0297C9791BE6F8940068757C /* Message.m in Sources */,
