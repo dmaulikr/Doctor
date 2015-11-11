@@ -39,17 +39,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="brunomuniz - 01241898910" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePe-Ve-Vwf">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suspeita de novo surto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePe-Ve-Vwf">
                                             <rect key="frame" x="22" y="10" width="234" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suspeita de novo surto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVU-K2-XRG">
-                                            <rect key="frame" x="22" y="34" width="176" height="21"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -67,15 +60,22 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bruno Muniz - 06894960445" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVU-K2-XRG">
+                                            <rect key="frame" x="22" y="35" width="204" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
                                     <outlet property="topicDate" destination="QA5-PG-TQL" id="Eoy-az-tNY"/>
-                                    <outlet property="topicOwner" destination="ePe-Ve-Vwf" id="oJi-db-qqe"/>
+                                    <outlet property="topicOwner" destination="IVU-K2-XRG" id="3lX-CM-274"/>
                                     <outlet property="topicSinopse" destination="Fxb-WZ-Ydr" id="KGs-07-YNk"/>
-                                    <outlet property="topicSubject" destination="IVU-K2-XRG" id="SvY-Zb-FXb"/>
+                                    <outlet property="topicSubject" destination="ePe-Ve-Vwf" id="hAj-JP-EBO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -151,12 +151,13 @@
                                                     <rect key="frame" x="21" y="17" width="22" height="22.5"/>
                                                     <animations/>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ex: Suspeita de um novo surto" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MyD-Ph-I7Z">
-                                                    <rect key="frame" x="66" y="5" width="301" height="48"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Ex: Suspeita de um novo surto" translatesAutoresizingMaskIntoConstraints="NO" id="xN8-9h-ffS">
+                                                    <rect key="frame" x="61" y="11" width="310" height="40.5"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -170,10 +171,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-n1-otQ">
-                                                    <rect key="frame" x="59" y="6" width="308" height="397.5"/>
+                                                    <rect key="frame" x="59" y="6" width="308" height="356.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <string key="text">Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos Suspeita de dengue alocada a um teste de HIV e exame sangue com TRE4- ativo por 5 dias seguidos</string>
+                                                    <string key="text">Ex: Caso suspeito de dengue com sinais de alarme.  A infecção por dengue pode ser assintomática ou causar doença cujo espectro inclui desde formas oligossintomáticas até quadros graves com choque com ou sem hemorragia, podendo evoluir para o óbito.
+Normalmente, a primeira manifestação da dengue é a febre alta (39° a 40°C) de início abrupto que geralmente dura de 2 a 7 dias, acompanhada de dor de cabeça, dores no corpo e articulações, prostração, fraqueza, dor atrás dos olhos, erupção e prurido cutâneo. Perda de peso, náuseas e vômitos são comuns. Nessa fase febril inicial da doença pode ser difícil diferenciá-la de outras doenças febris, por isso uma prova do laço positiva aumenta a probabilidade de dengue. </string>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -204,9 +206,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="contentImageView" destination="0XL-1j-7CM" id="B4B-U6-t4h"/>
                         <outlet property="contentTextView" destination="Sac-n1-otQ" id="cxW-zG-VAe"/>
+                        <outlet property="ownerImageView" destination="Pa8-Gf-uN3" id="Gdt-kF-XWk"/>
                         <outlet property="ownerLabel" destination="65e-K8-TLj" id="EPf-l2-5VI"/>
-                        <outlet property="subjectTextField" destination="MyD-Ph-I7Z" id="us8-Ku-Iae"/>
+                        <outlet property="subjectImageView" destination="6jG-vo-pMN" id="pSe-te-mhs"/>
+                        <outlet property="subjectTextView" destination="xN8-9h-ffS" id="kFe-77-SpB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpD-Cx-xfm" userLabel="First Responder" sceneMemberID="firstResponder"/>

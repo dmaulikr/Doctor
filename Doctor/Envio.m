@@ -31,6 +31,7 @@
     topic[@"Sinopse"] = forumTopic.topicForumSinopse;
     topic[@"Subject"] = forumTopic.topicForumSubject;
     topic[@"UpdatedBy"] = forumTopic.topicForumUpdatedAt;
+    topic[@"OwnerCRM"] = forumTopic.topicForumOwnerCRM;
     
     [topic saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
@@ -1400,6 +1401,7 @@
                 topic.topicForumUpdatedAt = object[@"UpdatedBy"];
                 topic.topicForumSinopse = object[@"Sinopse"];
                 topic.topicForumOwner = object[@"Owner"];
+                topic.topicForumOwnerCRM = object[@"OwnerCRM"];
                 topic.topicForumSubject = object[@"Subject"];
                 topic.topicObjectId = object.objectId;
                 [forumTopicsArray addObject:topic];

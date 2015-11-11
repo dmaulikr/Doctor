@@ -101,7 +101,7 @@
     cell.delegate = self;
     
     cell.topicDate.text = forumTopic.topicForumUpdatedAt;
-    cell.topicOwner.text = forumTopic.topicForumOwner;
+    cell.topicOwner.text = [NSString stringWithFormat:@"%@ - %@", forumTopic.topicForumOwner, forumTopic.topicForumOwnerCRM];
     cell.topicSubject.text = forumTopic.topicForumSubject;
     cell.topicSinopse.text = forumTopic.topicForumSinopse;
     cell.topicObjectId = forumTopic.topicObjectId;
