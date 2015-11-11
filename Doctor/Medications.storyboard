@@ -32,7 +32,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Buscar categoria" id="Tn2-Cj-XIa">
-                            <rect key="frame" x="0.0" y="0.0" width="825" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <animations/>
                             <textInputTraits key="textInputTraits"/>
@@ -60,13 +60,9 @@
                     <navigationItem key="navigationItem" title="Medicamentos" id="dWO-kg-h5e">
                         <barButtonItem key="leftBarButtonItem" image="icone-menu" id="qW8-i2-gHb">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="didTappedMenuBarButton:" destination="axL-Kc-ZpO" id="fab-Xx-CT4"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="medicationsSearchBar" destination="Tn2-Cj-XIa" id="gm9-sE-k3x"/>
                         <segue destination="Mpv-M2-ZVa" kind="show" identifier="clickedAtMedicationCategorySegueID" id="J4j-ca-xnl"/>
                     </connections>
                 </tableViewController>
@@ -93,19 +89,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fRF-jF-Myz">
-                                                    <rect key="frame" x="330" y="8" width="37" height="38.5"/>
-                                                    <animations/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziA-A9-Yl6">
                                                     <rect key="frame" x="73" y="18" width="60" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-medicamentos-classes" translatesAutoresizingMaskIntoConstraints="NO" id="x7R-fJ-w8O">
-                                                    <rect key="frame" x="28" y="18" width="25" height="28.5"/>
+                                                    <rect key="frame" x="28" y="18" width="25" height="25.5"/>
+                                                    <animations/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta-direita" translatesAutoresizingMaskIntoConstraints="NO" id="fRF-jF-Myz">
+                                                    <rect key="frame" x="346" y="18" width="13" height="23.5"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -120,19 +116,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sss-He-t2K">
-                                                    <rect key="frame" x="330" y="8" width="37" height="38.5"/>
-                                                    <animations/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Laboratórios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdQ-jf-PTk">
                                                     <rect key="frame" x="73" y="18" width="97" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-medicamentos-laboratorios" translatesAutoresizingMaskIntoConstraints="NO" id="f30-z9-J1D">
-                                                    <rect key="frame" x="28" y="18" width="25" height="28.5"/>
+                                                    <rect key="frame" x="28" y="18" width="25" height="25.5"/>
+                                                    <animations/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta-direita" translatesAutoresizingMaskIntoConstraints="NO" id="XJa-yh-PlA">
+                                                    <rect key="frame" x="346" y="18" width="13" height="23.5"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -147,19 +143,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4sc-ru-Q1G">
-                                                    <rect key="frame" x="330" y="8" width="37" height="38.5"/>
-                                                    <animations/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Princípios ativos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svy-se-CJ3">
                                                     <rect key="frame" x="73" y="18" width="125" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-medicamentos-principioativo" translatesAutoresizingMaskIntoConstraints="NO" id="HUL-oj-ug8">
-                                                    <rect key="frame" x="28" y="18" width="25" height="28.5"/>
+                                                    <rect key="frame" x="28" y="18" width="25" height="25.5"/>
+                                                    <animations/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta-direita" translatesAutoresizingMaskIntoConstraints="NO" id="RR0-OV-85t">
+                                                    <rect key="frame" x="346" y="18" width="13" height="23.5"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -174,21 +170,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-medicamentos-" translatesAutoresizingMaskIntoConstraints="NO" id="Lbe-63-U1x">
-                                                    <rect key="frame" x="28" y="18" width="25" height="28.5"/>
-                                                    <animations/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ruu-Vz-GMN">
-                                                    <rect key="frame" x="330" y="8" width="37" height="38.5"/>
-                                                    <animations/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nomes comerciais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doR-Uf-rwc">
                                                     <rect key="frame" x="73" y="18" width="142" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nomes-comerciais" translatesAutoresizingMaskIntoConstraints="NO" id="Lbe-63-U1x">
+                                                    <rect key="frame" x="28" y="18" width="24" height="24"/>
+                                                    <animations/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta-direita" translatesAutoresizingMaskIntoConstraints="NO" id="0Rn-kU-p4U">
+                                                    <rect key="frame" x="346" y="18" width="13" height="23.5"/>
+                                                    <animations/>
+                                                </imageView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -203,13 +199,53 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Medicamentos" id="TpB-Af-0YO">
-                        <barButtonItem key="leftBarButtonItem" image="icone-menu" id="UGP-qP-X8O"/>
+                        <barButtonItem key="leftBarButtonItem" image="icone-menu" id="UGP-qP-X8O">
+                            <connections>
+                                <action selector="didTappedMenuBarButton:" destination="Cyw-qZ-uG8" id="Dvp-0f-VS7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="EcB-Or-UY5" kind="show" id="QW9-4y-brC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0u-7K-wey" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5.5" y="1011.5"/>
+        </scene>
+        <!--Depende-->
+        <scene sceneID="u3M-Dq-ebA">
+            <objects>
+                <tableViewController id="EcB-Or-UY5" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CRe-Oq-MFe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tjM-AU-lPK">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tjM-AU-lPK" id="EaG-6T-48c">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EcB-Or-UY5" id="LVC-6G-HAX"/>
+                            <outlet property="delegate" destination="EcB-Or-UY5" id="io2-yO-4Bm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Depende" id="31g-jF-RdI"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oRV-No-X6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5.5" y="1783.5"/>
         </scene>
         <!--Medication Selected Table View Controller-->
         <scene sceneID="tij-au-Ssj">
@@ -245,10 +281,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-medicamentos-" width="21" height="16"/>
         <image name="icon-medicamentos-classes" width="46" height="53"/>
         <image name="icon-medicamentos-laboratorios" width="48" height="48"/>
         <image name="icon-medicamentos-principioativo" width="53" height="54"/>
         <image name="icone-menu" width="21" height="16"/>
+        <image name="nomes-comerciais" width="50" height="50"/>
+        <image name="seta-direita" width="23" height="37"/>
     </resources>
 </document>

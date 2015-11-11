@@ -58,7 +58,7 @@
                 textView.text = [textView.text substringWithRange:NSMakeRange(0, 1)];
             }
             if (![self.firstTokenCharacterTextView.text isEqualToString:@""] && ![self.secondTokenCharacterTextView.text isEqualToString:@""] && ![self.thirdTokenCharacterTextView.text isEqualToString:@""] && ![self.fourthTokenCharacterTextView.text isEqualToString:@""]) {
-                self.confirmButton.backgroundColor = [UIColor colorWithRed:(5/255.0f) green:(127/255.0f) blue:(6/255.0f) alpha:1.0f];
+                self.confirmButton.backgroundColor = [UIColor colorWithRed:(222/255.0f) green:(132/255.0f) blue:(45/255.0f) alpha:1.0f];
                 [self codeInputComplete];
             }
             else{
@@ -75,7 +75,7 @@
                 textView.text = [textView.text substringWithRange:NSMakeRange(0, 1)];
             }
             if (![self.firstTokenCharacterTextView.text isEqualToString:@""] && ![self.secondTokenCharacterTextView.text isEqualToString:@""] && ![self.thirdTokenCharacterTextView.text isEqualToString:@""] && ![self.fourthTokenCharacterTextView.text isEqualToString:@""]) {
-                self.confirmButton.backgroundColor = [UIColor colorWithRed:(5/255.0f) green:(127/255.0f) blue:(6/255.0f) alpha:1.0f];
+                self.confirmButton.backgroundColor = [UIColor colorWithRed:(222/255.0f) green:(132/255.0f) blue:(45/255.0f) alpha:1.0f];
                 [self codeInputComplete];
             }
             else{
@@ -94,7 +94,7 @@
             }
             if (![self.firstTokenCharacterTextView.text isEqualToString:@""] && ![self.secondTokenCharacterTextView.text isEqualToString:@""] && ![self.thirdTokenCharacterTextView.text isEqualToString:@""] && ![self.fourthTokenCharacterTextView.text isEqualToString:@""]) {
                 [self codeInputComplete];
-                self.confirmButton.backgroundColor = [UIColor colorWithRed:(5/255.0f) green:(127/255.0f) blue:(6/255.0f) alpha:1.0f];
+                self.confirmButton.backgroundColor = [UIColor colorWithRed:(222/255.0f) green:(132/255.0f) blue:(45/255.0f) alpha:1.0f];
             }
             else{
                 if (![textView.text isEqualToString:@""]) {
@@ -112,7 +112,7 @@
             }
             if (![self.firstTokenCharacterTextView.text isEqualToString:@""] && ![self.secondTokenCharacterTextView.text isEqualToString:@""] && ![self.thirdTokenCharacterTextView.text isEqualToString:@""] && ![self.fourthTokenCharacterTextView.text isEqualToString:@""]) {
                 [self codeInputComplete];
-                self.confirmButton.backgroundColor = [UIColor colorWithRed:(5/255.0f) green:(127/255.0f) blue:(6/255.0f) alpha:1.0f];
+                self.confirmButton.backgroundColor = [UIColor colorWithRed:(222/255.0f) green:(132/255.0f) blue:(45/255.0f) alpha:1.0f];
             }
             else{
                 self.confirmButton.backgroundColor = [UIColor grayColor];

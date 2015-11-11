@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.tableFooterView = [UIView new];
 }
 
 -(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{

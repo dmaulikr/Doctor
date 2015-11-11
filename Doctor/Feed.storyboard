@@ -77,7 +77,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed-grupo" translatesAutoresizingMaskIntoConstraints="NO" id="yZL-Lb-ph9">
-                                                    <rect key="frame" x="17" y="28" width="50" height="45"/>
+                                                    <rect key="frame" x="17" y="28" width="35" height="30"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -132,7 +132,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed-medicamentos" translatesAutoresizingMaskIntoConstraints="NO" id="f31-7Z-fQV">
-                                                    <rect key="frame" x="14" y="21" width="49" height="39"/>
+                                                    <rect key="frame" x="14" y="21" width="35" height="30"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -162,7 +162,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed-atualizacaopaciente" translatesAutoresizingMaskIntoConstraints="NO" id="dWF-nm-qJW">
-                                                    <rect key="frame" x="16" y="29" width="49" height="42"/>
+                                                    <rect key="frame" x="16" y="29" width="35" height="30"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -199,7 +199,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed-chat-privado" translatesAutoresizingMaskIntoConstraints="NO" id="uNz-me-NhF">
-                                                    <rect key="frame" x="17" y="26" width="46" height="40"/>
+                                                    <rect key="frame" x="17" y="26" width="35" height="30"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -229,7 +229,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCf-OS-pfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="417.5" y="625.5"/>
+            <point key="canvasLocation" x="423.5" y="626.5"/>
         </scene>
     </scenes>
     <resources>

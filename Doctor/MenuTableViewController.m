@@ -20,13 +20,13 @@
 typedef NS_ENUM(NSUInteger, MenuItem) {
     MenuItemNull=0,
     MenuItemFeed,
-    MenuItemAppointments,
+    //MenuItemAppointments,
     MenuItemInbox,
     MenuItemPatients,
     MenuItemMedications,
     MenuItemForum,
     MenuItemConfigurations,
-    MenuItemLogOut=8 ,
+    MenuItemLogOut=7 ,
 };
 
 - (void)viewDidLoad {
@@ -49,10 +49,10 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
             sbName = kFeedStoryboard;
             sbiewControllerID = kFeedNavID;
             break;
-        case MenuItemAppointments:
-            sbName = kAppointmentsStoryboard;
-            sbiewControllerID = kAppointmentsNavID;
-            break;
+//        case MenuItemAppointments:
+//            sbName = kAppointmentsStoryboard;
+//            sbiewControllerID = kAppointmentsNavID;
+//            break;
         case MenuItemInbox:
             sbName = kInboxStoryboard;
             sbiewControllerID = kInboxNavID;
