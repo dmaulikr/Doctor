@@ -25,8 +25,8 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
     MenuItemPatients,
     MenuItemMedications,
     MenuItemForum,
-   // MenuItemConfigurations,
-    MenuItemLogOut=7 ,
+    MenuItemConfigurations,
+    MenuItemLogOut=8 ,
 };
 
 - (void)viewDidLoad {
@@ -69,10 +69,10 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
             sbName = kForumStoryboard;
             sbiewControllerID = kForumNavID;
             break;
-//        case MenuItemConfigurations:
-//            sbName = kSettingsStoryboard;
-//            sbiewControllerID = kSettingsNavID;
-//            break;
+        case MenuItemConfigurations:
+            sbName = kSettingsStoryboard;
+            sbiewControllerID = kSettingsNavID;
+            break;
         case MenuItemLogOut:
             sbName = kOutsideStoryboard;
             sbiewControllerID = kOutsideNavID;

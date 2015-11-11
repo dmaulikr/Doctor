@@ -101,7 +101,7 @@
 - (void) didTappedSendButtom:(NSString *)text{
     ForumTopicMessage* topicMessage = [[ForumTopicMessage alloc] init];
     topicMessage.messageForumContent = text;
-    topicMessage.messageForumCreatedAt = @"10:30 AM";
+    topicMessage.messageForumCreatedAt = [self currentHour];
     topicMessage.messageForumOwner = self.doctor.doctorNameString;
     topicMessage.messageForumRelatedId = self.forumTopic.topicObjectId;
     
@@ -114,6 +114,45 @@
             [self.tableView reloadData];
         }
     }];
+}
+
+- (NSString *)currentHour
+{
+    NSDate *date = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
+    NSInteger hour = [components hour];
+    NSInteger minute = [components minute];
+    
+    NSString* amPm;
+    NSString* hourInString;
+    NSString* minuteInString;
+    
+    if (hour < 12) {
+        amPm = @"AM";
+    }
+    else{
+        hour = hour - 12;
+        amPm = @"PM";
+    }
+    
+    if (hour < 10) {
+        hourInString = [NSString stringWithFormat:@"0%li", hour];
+    }
+    else{
+        hourInString = [NSString stringWithFormat:@"%li", hour];
+    }
+    
+    if (minute < 10) {
+        minuteInString = [NSString stringWithFormat:@"0%li", minute];
+    }
+    else{
+        minuteInString = [NSString stringWithFormat:@"%li", minute];
+    }
+    
+    
+    NSString* hourCompleted = [NSString stringWithFormat:@"%@:%@ %@", hourInString, minuteInString, amPm];
+    return hourCompleted;
 }
 
 @end
