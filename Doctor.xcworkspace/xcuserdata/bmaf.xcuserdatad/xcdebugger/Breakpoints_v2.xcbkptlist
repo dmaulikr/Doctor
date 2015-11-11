@@ -88,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "468852082.198467"
+            timestampString = "468973044.461717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "-newAppointment:"
             landmarkType = "5">
             <Locations>
@@ -104,7 +104,7 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "468946629.627977"
+                  timestampString = "468973467.782441"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -119,7 +119,7 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "468946629.628273"
+                  timestampString = "468973467.782759"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "468852082.198467"
+            timestampString = "468973044.461717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "520"
-            endingLineNumber = "520"
+            startingLineNumber = "525"
+            endingLineNumber = "525"
             landmarkName = "-fetchAppointmentPassingPatient:withCompletion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -168,7 +168,7 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/PatientSelectedAppointmentsTableViewController.m"
-                  timestampString = "468946629.631797"
+                  timestampString = "468973467.786171"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "55"
@@ -183,7 +183,7 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/PatientSelectedAppointmentsTableViewController.m"
-                  timestampString = "468946629.63203"
+                  timestampString = "468973467.786378"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "55"
@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "468852082.198467"
+            timestampString = "468973044.461717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "405"
-            endingLineNumber = "405"
+            startingLineNumber = "410"
+            endingLineNumber = "410"
             landmarkName = "-fetchExamsPassingPatient:withCompletion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -216,11 +216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "468852082.198467"
+            timestampString = "468973044.461717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
             landmarkName = "-fetchLastSeen:::"
             landmarkType = "5">
          </BreakpointContent>
@@ -232,11 +232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "468852082.198467"
+            timestampString = "468973044.461717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "318"
-            endingLineNumber = "318"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
             landmarkName = "-fetchLastSeen:::"
             landmarkType = "5">
          </BreakpointContent>
@@ -248,11 +248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "468852082.198467"
+            timestampString = "468973044.461717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
             landmarkName = "-fetchLastSeen:::"
             landmarkType = "5">
          </BreakpointContent>
@@ -280,11 +280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "468852082.198467"
+            timestampString = "468973044.461717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "323"
-            endingLineNumber = "323"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
             landmarkName = "-fetchLastSeen:::"
             landmarkType = "5">
          </BreakpointContent>
@@ -391,70 +391,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Doctor/ForumSeeTopicTableViewController.m"
-            timestampString = "468515157.069457"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-setupDataSource"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Doctor/ForumSeeTopicTableViewController.m"
-            timestampString = "468515157.069457"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "-setupDataSource"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ForumSeeTopicTableViewController setupDataSource]"
-                  moduleName = "Doctor"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/ForumSeeTopicTableViewController.m"
-                  timestampString = "468946629.63586"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "103">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__51-[ForumSeeTopicTableViewController setupDataSource]_block_invoke"
-                  moduleName = "Doctor"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/ForumSeeTopicTableViewController.m"
-                  timestampString = "468946629.636098"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Doctor/ForumTableViewController.m"
             timestampString = "468523050.502484"
             startingColumnNumber = "9223372036854775807"
@@ -488,11 +424,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "468852245.471368"
+            timestampString = "468973044.461717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1438"
-            endingLineNumber = "1438"
+            startingLineNumber = "1443"
+            endingLineNumber = "1443"
             landmarkName = "-fetchMessagesFromTopic:withCompletion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -516,7 +452,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/ForumTableViewController.m"
@@ -536,11 +472,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "468852245.471368"
+            timestampString = "468973044.461717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1464"
-            endingLineNumber = "1464"
+            startingLineNumber = "1469"
+            endingLineNumber = "1469"
             landmarkName = "-newMessage:whenComplete:"
             landmarkType = "5">
             <Locations>
@@ -584,12 +520,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "468852082.198467"
+            timestampString = "468973044.461717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "383"
-            endingLineNumber = "383"
-            landmarkName = "-setTopicAsFavourite::"
+            startingLineNumber = "385"
+            endingLineNumber = "385"
+            landmarkName = "-setTopicAsFavourite::withCompletion:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -605,6 +541,86 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "9"
             endingLineNumber = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Doctor/FeedTableViewController.m"
+            timestampString = "468971905.879905"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-setupNotification"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Doctor/FeedTableViewController.m"
+            timestampString = "468971905.879905"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-setupNotification"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Doctor/FeedTableViewController.m"
+            timestampString = "468971380.782774"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "-setupNotification"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[FeedTableViewController setupNotification]"
+                  moduleName = "Doctor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/FeedTableViewController.m"
+                  timestampString = "468970713.197459"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "230">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__44-[FeedTableViewController setupNotification]_block_invoke"
+                  moduleName = "Doctor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/FeedTableViewController.m"
+                  timestampString = "468970713.197681"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

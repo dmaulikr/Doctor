@@ -139,6 +139,7 @@
 - (void) fetchAllTopicMessagesFromTopic: (ForumTopic*)topic
                          withCompletion: (void (^)(ForumTopicMessage* message))completion;
 
-- (void) setTopicAsFavourite:(NSString *)topicId :(Doctor *)doctor;
+- (void) setTopicAsFavourite:(NSString *)topicId :(Doctor *)doctor withCompletion: (void (^)(BOOL* finished))completion;
 
 @end
+

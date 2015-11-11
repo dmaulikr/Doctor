@@ -124,8 +124,13 @@
 
 - (void)swipeableTableViewCell:(ForumTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     Envio* envio = [[Envio alloc] init];
-    [envio setTopicAsFavourite:cell.topicObjectId :self.doctor];
+    [envio setTopicAsFavourite:cell.topicObjectId :self.doctor withCompletion:^void(BOOL* finished){
+        if (finished) {
+            [self.tableView reloadData];
+        }
+    }];
     [cell hideUtilityButtonsAnimated:YES];
+    
 }
 
 

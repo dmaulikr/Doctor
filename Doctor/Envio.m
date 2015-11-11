@@ -7,6 +7,8 @@
 //
 
 #import "Envio.h"
+#import "AppDelegate.h"
+
 @implementation Envio
 
 - (void) showAlertViewError: (NSError*)error{
@@ -373,7 +375,7 @@
 }
 
 
-- (void) setTopicAsFavourite:(NSString *)topicId :(Doctor *)doctor{
+- (void) setTopicAsFavourite:(NSString *)topicId :(Doctor *)doctor withCompletion:(void (^)(BOOL *finished))completion{
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
     [query whereKey:@"CRM" equalTo:doctor.doctorCRMString];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -386,6 +388,9 @@
                 PFQuery *query2 = [PFQuery queryWithClassName:@"User"];
                 [query2 getObjectInBackgroundWithId:object.objectId block:^(PFObject *query2, NSError *error) {
                     query2[@"favForumTopics"] = favArray;
+                    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                    appDelegate.doctor.favTopicsArray = favArray;
+                    completion(true);
                     [query2 saveInBackground];
                 }];
                 return ;
@@ -1633,6 +1638,7 @@
 //
 //    
 //}
+
 
 
 @end

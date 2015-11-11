@@ -58,6 +58,7 @@
 #pragma mark - IBActions
 - (IBAction)didTappedLoginButton:(UIButton *)sender{
     [self.view addSubview:spinner];
+    [self.loginButton setEnabled:NO];
     [spinner startAnimating];
     
     Envio* envio = [[Envio alloc]init];
@@ -68,11 +69,13 @@
                 self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kFeedStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kFeedNavID];
                 [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
                 [spinner stopAnimating];
+                [self.loginButton setEnabled:YES];
             }];
         }
         else{
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Houve algo errado." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+           UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Houve algo errado." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [alert show];
+            [self.loginButton setEnabled:YES];
             [spinner stopAnimating];
         }
     }];

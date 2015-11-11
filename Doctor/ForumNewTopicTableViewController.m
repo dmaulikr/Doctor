@@ -11,9 +11,14 @@
 #import "Doctor.h"
 #import "Envio.h"
 
+
+NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarme.  A infecção por dengue pode ser assintomática ou causar doença cujo espectro inclui desde formas oligossintomáticas até quadros graves com choque com ou sem hemorragia, podendo evoluir para o óbito. Normalmente, a primeira manifestação da dengue é a febre alta (39° a 40°C) de início abrupto que geralmente dura de 2 a 7 dias, acompanhada de dor de cabeça, dores no corpo e articulações, prostração, fraqueza, dor atrás dos olhos, erupção e prurido cutâneo. Perda de peso, náuseas e vômitos são comuns. Nessa fase febril inicial da doença pode ser difícil diferenciá-la de outras doenças febris, por isso uma prova do laço positiva aumenta a probabilidade de dengue.";
+
 @interface ForumNewTopicTableViewController () <UITextViewDelegate> {
     UIActivityIndicatorView *spinner;
 }
+
+@property (nonatomic, weak) IBOutlet UIBarButtonItem* createButton;
 
 @end
 
@@ -41,6 +46,9 @@
 #pragma mark - IBActions
 -(IBAction)tappedCreateButton:(UIBarButtonItem *)createButton{
     [self setupLoadingAnimation];
+    [self textViewDidEndEditing:self.contentTextView];
+    [self textViewDidEndEditing:self.subjectTextView];
+    [self.createButton setEnabled:NO];
     [self createNewTopic];
 }
 
@@ -50,8 +58,8 @@
     ForumTopic* topic = [[ForumTopic alloc] init];
     topic.topicForumOwner = self.doctor.doctorNameString;
     topic.topicForumOwnerCRM = self.doctor.doctorCRMString;
-    topic.topicForumSinopse = self.contentTextView.text;
-    topic.topicForumSubject = [self.subjectTextView.text isEqualToString:@""] ? @"(Sem assunto)" : self.subjectTextView.text ;
+    topic.topicForumSinopse = [self.contentTextView.text isEqualToString:kHugeMessage] ? @"(Corpo do tópico vazio)" : self.contentTextView.text;
+    topic.topicForumSubject = [self.subjectTextView.text isEqualToString:@"Ex: Suspeita de um novo surto"] ? @"(Sem assunto)" : self.subjectTextView.text ;
     topic.topicForumUpdatedAt = [self currentHour];
     [envio newForumTopic:topic withCompletion:^void(BOOL FINISHED){
         if (FINISHED) {
@@ -71,17 +79,26 @@
     }
 }
 - (void)textViewDidBeginEditing:(UITextView *)textView{
-    if (textView.tag == 1 && [textView.text isEqualToString:@"(Sem Assunto)"]) {
+    if (textView.tag == 1 && [textView.text isEqualToString:@"Ex: Suspeita de um novo surto"]) {
+        textView.textColor = [UIColor blackColor];
         textView.text = @"";
     }
-    if (textView.tag == 2 && [textView.text isEqualToString:@""]) {
+    if (textView.tag == 2 && [textView.text isEqualToString:kHugeMessage]) {
+        textView.textColor = [UIColor blackColor];
         textView.text = @"";
     }
 }
 - (void)textViewDidEndEditing:(UITextView *)textView{
     if (textView.tag == 1) {
         if ([textView.text isEqualToString:@""]) {
-            textView.text = @"(Sem assunto)";
+            textView.textColor = [UIColor grayColor];
+            textView.text = @"Ex: Suspeita de um novo surto";
+        }
+    }
+    if (textView.tag == 2) {
+        if ([textView.text isEqualToString:@""]) {
+            textView.textColor = [UIColor grayColor];
+            textView.text = kHugeMessage;
         }
     }
 }

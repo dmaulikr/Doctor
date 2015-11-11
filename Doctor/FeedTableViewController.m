@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     [self setupNotification];
     self.menuContainerViewController.panMode = YES;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -46,10 +47,9 @@
     notification = [[AFDropdownNotification alloc] init];
     notification.notificationDelegate = self;
     notification.titleText = @"Olá, ";
-    notification.subtitleText = @"Seu fórum sobre cardiologia foi atualizado, quer dar uma olhada?";
+    notification.subtitleText = @"Seu tópico sobre cardiologia foi atualizado, quer dar uma olhada?";
     notification.dismissOnTap = YES;
     [notification listenEventsWithBlock:^(AFDropdownNotificationEvent event) {
-        
         switch (event) {
             case AFDropdownNotificationEventTopButton:
                 [notification dismissWithGravityAnimation:NO];
@@ -62,8 +62,9 @@
                 break;
                 
             case AFDropdownNotificationEventTap:
-                [notification dismissWithGravityAnimation:NO];
-                 openedNotification = false;
+//                self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:@"Forum" bundle:nil] instantiateViewControllerWithIdentifier:@"ForumNavigationControllerID"];
+                NSLog(@"tapped");
+                
                 break;
             default:
                 break;

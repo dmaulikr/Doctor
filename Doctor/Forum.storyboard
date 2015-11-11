@@ -39,11 +39,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suspeita de novo surto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePe-Ve-Vwf">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Sem assunto)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePe-Ve-Vwf">
                                             <rect key="frame" x="26" y="10" width="234" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QA5-PG-TQL">
@@ -64,7 +64,7 @@
                                             <rect key="frame" x="26" y="35" width="204" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bolinha-naolido" translatesAutoresizingMaskIntoConstraints="NO" id="mWj-dS-nhp">
@@ -138,7 +138,7 @@
                                                     <rect key="frame" x="66" y="21" width="132" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="registrar-nome" translatesAutoresizingMaskIntoConstraints="NO" id="Pa8-Gf-uN3">
@@ -165,6 +165,7 @@
                                                     <rect key="frame" x="61" y="11" width="310" height="40.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -184,8 +185,7 @@
                                                     <rect key="frame" x="59" y="6" width="308" height="356.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <string key="text">Ex: Caso suspeito de dengue com sinais de alarme.  A infecção por dengue pode ser assintomática ou causar doença cujo espectro inclui desde formas oligossintomáticas até quadros graves com choque com ou sem hemorragia, podendo evoluir para o óbito.
-Normalmente, a primeira manifestação da dengue é a febre alta (39° a 40°C) de início abrupto que geralmente dura de 2 a 7 dias, acompanhada de dor de cabeça, dores no corpo e articulações, prostração, fraqueza, dor atrás dos olhos, erupção e prurido cutâneo. Perda de peso, náuseas e vômitos são comuns. Nessa fase febril inicial da doença pode ser difícil diferenciá-la de outras doenças febris, por isso uma prova do laço positiva aumenta a probabilidade de dengue. </string>
+                                                    <mutableString key="text">Ex: Caso suspeito de dengue com sinais de alarme.  A infecção por dengue pode ser assintomática ou causar doença cujo espectro inclui desde formas oligossintomáticas até quadros graves com choque com ou sem hemorragia, podendo evoluir para o óbito. Normalmente, a primeira manifestação da dengue é a febre alta (39° a 40°C) de início abrupto que geralmente dura de 2 a 7 dias, acompanhada de dor de cabeça, dores no corpo e articulações, prostração, fraqueza, dor atrás dos olhos, erupção e prurido cutâneo. Perda de peso, náuseas e vômitos são comuns. Nessa fase febril inicial da doença pode ser difícil diferenciá-la de outras doenças febris, por isso uma prova do laço positiva aumenta a probabilidade de dengue.</mutableString>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -218,6 +218,7 @@ Normalmente, a primeira manifestação da dengue é a febre alta (39° a 40°C) 
                     <connections>
                         <outlet property="contentImageView" destination="0XL-1j-7CM" id="B4B-U6-t4h"/>
                         <outlet property="contentTextView" destination="Sac-n1-otQ" id="cxW-zG-VAe"/>
+                        <outlet property="createButton" destination="kho-OM-Vgj" id="2aC-Xu-XT7"/>
                         <outlet property="ownerImageView" destination="Pa8-Gf-uN3" id="Gdt-kF-XWk"/>
                         <outlet property="ownerLabel" destination="65e-K8-TLj" id="EPf-l2-5VI"/>
                         <outlet property="subjectImageView" destination="6jG-vo-pMN" id="pSe-te-mhs"/>
@@ -249,7 +250,7 @@ Normalmente, a primeira manifestação da dengue é a febre alta (39° a 40°C) 
                                             <rect key="frame" x="17" y="10" width="234" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I2-GD-bkY">
