@@ -82,11 +82,11 @@
                         <sections>
                             <tableViewSection id="NHb-Bp-nld">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="57" id="0Fo-u4-adA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="57" id="0Fo-u4-adA">
                                         <rect key="frame" x="0.0" y="64" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Fo-u4-adA" id="dHt-U7-BdX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziA-A9-Yl6">
@@ -100,20 +100,16 @@
                                                     <rect key="frame" x="28" y="18" width="25" height="25.5"/>
                                                     <animations/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta-direita" translatesAutoresizingMaskIntoConstraints="NO" id="fRF-jF-Myz">
-                                                    <rect key="frame" x="346" y="18" width="13" height="23.5"/>
-                                                    <animations/>
-                                                </imageView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="57" id="o7e-S6-dGb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="57" id="o7e-S6-dGb">
                                         <rect key="frame" x="0.0" y="121" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o7e-S6-dGb" id="sL2-b9-55h">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Laboratórios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdQ-jf-PTk">
@@ -127,20 +123,16 @@
                                                     <rect key="frame" x="28" y="18" width="25" height="25.5"/>
                                                     <animations/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta-direita" translatesAutoresizingMaskIntoConstraints="NO" id="XJa-yh-PlA">
-                                                    <rect key="frame" x="346" y="18" width="13" height="23.5"/>
-                                                    <animations/>
-                                                </imageView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="57" id="Mzg-3v-8aS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="57" id="Mzg-3v-8aS">
                                         <rect key="frame" x="0.0" y="178" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mzg-3v-8aS" id="DQ2-8N-pyg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Princípios ativos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svy-se-CJ3">
@@ -154,20 +146,16 @@
                                                     <rect key="frame" x="28" y="18" width="25" height="25.5"/>
                                                     <animations/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta-direita" translatesAutoresizingMaskIntoConstraints="NO" id="RR0-OV-85t">
-                                                    <rect key="frame" x="346" y="18" width="13" height="23.5"/>
-                                                    <animations/>
-                                                </imageView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="57" id="ld0-Aq-4X3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="57" id="ld0-Aq-4X3">
                                         <rect key="frame" x="0.0" y="235" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ld0-Aq-4X3" id="ETT-8e-kk2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nomes comerciais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doR-Uf-rwc">
@@ -179,10 +167,6 @@
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nomes-comerciais" translatesAutoresizingMaskIntoConstraints="NO" id="Lbe-63-U1x">
                                                     <rect key="frame" x="28" y="18" width="24" height="24"/>
-                                                    <animations/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta-direita" translatesAutoresizingMaskIntoConstraints="NO" id="0Rn-kU-p4U">
-                                                    <rect key="frame" x="346" y="18" width="13" height="23.5"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -207,25 +191,82 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="EcB-Or-UY5" kind="show" id="QW9-4y-brC"/>
+                        <segue destination="oPj-ku-Edv" kind="show" identifier="medicationsClasses" id="WuT-k7-ksP"/>
+                        <segue destination="EcB-Or-UY5" kind="show" identifier="medicationsLabs" id="0se-0o-k0S"/>
+                        <segue destination="HFv-Z2-ZIz" kind="show" identifier="medicationsComercials" id="VKF-a1-8Mi"/>
+                        <segue destination="xYH-zf-UQl" kind="show" identifier="medicationsPrinciples" id="vnd-8m-y7i"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0u-7K-wey" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5.5" y="1011.5"/>
         </scene>
-        <!--Depende-->
+        <!--Classes-->
+        <scene sceneID="bNP-YE-93R">
+            <objects>
+                <tableViewController id="oPj-ku-Edv" customClass="MedicationsClassesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KnY-9H-dBk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="SYt-4Y-Hit">
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="oPj-ku-Edv" id="GTG-Vr-3k3"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicationsClassesTableViewCellID" id="T6b-2K-FhB">
+                                <rect key="frame" x="0.0" y="136" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T6b-2K-FhB" id="0Jb-hI-NZ6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oPj-ku-Edv" id="qpO-T7-riT"/>
+                            <outlet property="delegate" destination="oPj-ku-Edv" id="L69-aH-pDW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Classes" id="rv9-iK-UO4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="medicationsSearchBar" destination="SYt-4Y-Hit" id="9iH-Vt-MtQ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k0v-N4-gDA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-707.5" y="1882.5"/>
+        </scene>
+        <!--Laboratórios-->
         <scene sceneID="u3M-Dq-ebA">
             <objects>
-                <tableViewController id="EcB-Or-UY5" sceneMemberID="viewController">
+                <tableViewController id="EcB-Or-UY5" customClass="MedicationsLabsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CRe-Oq-MFe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="96J-rK-MsS">
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="EcB-Or-UY5" id="yLg-va-rdC"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tjM-AU-lPK">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicationsLabsTableViewCellID" id="tjM-AU-lPK">
+                                <rect key="frame" x="0.0" y="136" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tjM-AU-lPK" id="EaG-6T-48c">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -240,12 +281,105 @@
                             <outlet property="delegate" destination="EcB-Or-UY5" id="io2-yO-4Bm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Depende" id="31g-jF-RdI"/>
+                    <navigationItem key="navigationItem" title="Laboratórios" id="31g-jF-RdI"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="medicationsSearchBar" destination="96J-rK-MsS" id="GOJ-Ez-WVC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oRV-No-X6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5.5" y="1783.5"/>
+            <point key="canvasLocation" x="-245.5" y="1882.5"/>
+        </scene>
+        <!--Princípios ativos-->
+        <scene sceneID="3Bf-mF-opX">
+            <objects>
+                <tableViewController id="xYH-zf-UQl" customClass="MedicationsPrinciplesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vPe-jC-cnN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="bKh-0x-yyK">
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="xYH-zf-UQl" id="Ejf-Zu-JWI"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicationsPrinciplesTableViewCellID" id="fCt-SC-ZaO">
+                                <rect key="frame" x="0.0" y="136" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fCt-SC-ZaO" id="DPF-0F-mnj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xYH-zf-UQl" id="8GS-ok-w8Z"/>
+                            <outlet property="delegate" destination="xYH-zf-UQl" id="ubZ-dy-Mup"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Princípios ativos" id="hQs-dE-045"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="medicationsSearchBar" destination="bKh-0x-yyK" id="MbB-Zr-Jpy"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kZ7-3E-bdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="241.5" y="1882.5"/>
+        </scene>
+        <!--Nomes comerciais-->
+        <scene sceneID="7xV-EC-XFV">
+            <objects>
+                <tableViewController id="HFv-Z2-ZIz" customClass="MedicationsComercialsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rav-m4-X4e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="NgX-ov-Q7v">
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="HFv-Z2-ZIz" id="V7d-AW-lwT"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicationsComercialsTableViewCellID" id="ADf-vN-JcK">
+                                <rect key="frame" x="0.0" y="136" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ADf-vN-JcK" id="SBf-bJ-iFc">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HFv-Z2-ZIz" id="Rt8-k8-bvo"/>
+                            <outlet property="delegate" destination="HFv-Z2-ZIz" id="kjx-J6-XmR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Nomes comerciais" id="jyt-te-ZNz"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="medicationsSearchBar" destination="NgX-ov-Q7v" id="OnY-Ow-INS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6iI-mL-DYk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="695.5" y="1882.5"/>
         </scene>
         <!--Medication Selected Table View Controller-->
         <scene sceneID="tij-au-Ssj">
@@ -286,6 +420,5 @@
         <image name="icon-medicamentos-principioativo" width="53" height="54"/>
         <image name="icone-menu" width="21" height="16"/>
         <image name="nomes-comerciais" width="50" height="50"/>
-        <image name="seta-direita" width="23" height="37"/>
     </resources>
 </document>

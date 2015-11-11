@@ -22,4 +22,7 @@
 @property (strong, nonatomic) NSString* doctorObjectId;
 @property (strong,nonatomic) NSData* doctorPhotoData;
 
+
+@property (nonatomic, strong) NSMutableArray *favTopicsArray;
+
 @end

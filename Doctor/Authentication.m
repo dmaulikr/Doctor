@@ -25,6 +25,7 @@
                     Doctor* doctor = [[Doctor alloc] init];
                     doctor.doctorCRMString = object[@"CRM"];
                     doctor.doctorNameString = object[@"Nome"];
+                    doctor.favTopicsArray = object[@"favForumTopics"];
                     appDelegate.doctor = doctor;
                 }else{
                     self.granted = false;

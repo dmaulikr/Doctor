@@ -105,6 +105,13 @@
     cell.topicSubject.text = forumTopic.topicForumSubject;
     cell.topicSinopse.text = forumTopic.topicForumSinopse;
     cell.topicObjectId = forumTopic.topicObjectId;
+    
+    if ([self.doctor.favTopicsArray containsObject:forumTopic.topicObjectId]) {
+        cell.favImageView.image = [UIImage imageNamed:@"estrelinha-topicofavorito"];
+    }
+    else{
+        cell.favImageView.image = [UIImage imageNamed:@""];
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

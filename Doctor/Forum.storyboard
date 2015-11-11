@@ -40,7 +40,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suspeita de novo surto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePe-Ve-Vwf">
-                                            <rect key="frame" x="22" y="10" width="234" height="21"/>
+                                            <rect key="frame" x="26" y="10" width="234" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -54,24 +54,34 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Paciente se sentindo mole, com dores no corpo e febre alta. Apesar da suspeita de dengue, há um agravante que deve ser le..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fxb-WZ-Ydr">
-                                            <rect key="frame" x="17" y="50" width="348" height="79.5"/>
+                                            <rect key="frame" x="23" y="50" width="348" height="79.5"/>
                                             <animations/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bruno Muniz - 06894960445" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVU-K2-XRG">
-                                            <rect key="frame" x="22" y="35" width="204" height="21"/>
+                                            <rect key="frame" x="26" y="35" width="204" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bolinha-naolido" translatesAutoresizingMaskIntoConstraints="NO" id="mWj-dS-nhp">
+                                            <rect key="frame" x="8" y="15" width="11" height="11"/>
+                                            <animations/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="estrelinha-topicofavorito" translatesAutoresizingMaskIntoConstraints="NO" id="adg-jo-efJ">
+                                            <rect key="frame" x="8" y="40" width="11" height="11"/>
+                                            <animations/>
+                                        </imageView>
                                     </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
+                                    <outlet property="favImageView" destination="adg-jo-efJ" id="Tbx-QI-T95"/>
+                                    <outlet property="nonReadImageView" destination="mWj-dS-nhp" id="eWK-mn-g0F"/>
                                     <outlet property="topicDate" destination="QA5-PG-TQL" id="Eoy-az-tNY"/>
                                     <outlet property="topicOwner" destination="IVU-K2-XRG" id="3lX-CM-274"/>
                                     <outlet property="topicSinopse" destination="Fxb-WZ-Ydr" id="KGs-07-YNk"/>
@@ -312,6 +322,8 @@ Normalmente, a primeira manifestação da dengue é a febre alta (39° a 40°C) 
     </scenes>
     <resources>
         <image name="assunto-cinza" width="53" height="53"/>
+        <image name="bolinha-naolido" width="28" height="28"/>
+        <image name="estrelinha-topicofavorito" width="29" height="28"/>
         <image name="icone-menu" width="21" height="16"/>
         <image name="mensagem-cinza" width="51" height="51"/>
         <image name="registrar-nome" width="25" height="57"/>
