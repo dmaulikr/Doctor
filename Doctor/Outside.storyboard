@@ -466,6 +466,9 @@
                                 <state key="normal" title="Entrar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="confirmTokenButtonTapped:" destination="t1w-wp-AK2" eventType="touchUpInside" id="0Lo-9e-xm7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGY-Qr-vdT">
                                 <rect key="frame" x="273" y="189" width="96" height="30"/>
@@ -530,11 +533,88 @@
                         <outlet property="loginToRecoverTextView" destination="Aup-0x-fp1" id="T6m-ZE-tWJ"/>
                         <outlet property="secondTokenTextView" destination="ZJR-T2-fiM" id="CU7-6c-xFN"/>
                         <outlet property="thirdTokenTextView" destination="LUK-Ch-Dct" id="AuU-pp-Uwb"/>
+                        <segue destination="Vwf-Mz-hqk" kind="show" identifier="tokenConfirmedSegue" id="4Nv-l7-drX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePn-Ir-5ur" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1025.5" y="1287.5"/>
+        </scene>
+        <!--Recuperar Senha-->
+        <scene sceneID="DKc-e0-gkc">
+            <objects>
+                <viewController id="Vwf-Mz-hqk" customClass="OutsideRecoverNewPasswordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ml4-TZ-gK4"/>
+                        <viewControllerLayoutGuide type="bottom" id="hKw-EJ-Kr0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nsP-NK-0bh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Olá Bruno Muniz. Sua senha foi resetada com sucesso e você agora pode criar uma nova" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oux-4O-k2L">
+                                <rect key="frame" x="30" y="47" width="315" height="96"/>
+                                <animations/>
+                                <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ro-e7-yyk">
+                                <rect key="frame" x="0.0" y="219" width="375" height="1"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.2765519425675676" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Nova senha" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tXz-P2-Kn2">
+                                <rect key="frame" x="73" y="178" width="240" height="34"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-lock" translatesAutoresizingMaskIntoConstraints="NO" id="oYL-d1-RX2">
+                                <rect key="frame" x="30" y="183" width="16" height="18"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-lock" translatesAutoresizingMaskIntoConstraints="NO" id="8Rf-HH-ntM">
+                                <rect key="frame" x="30" y="237" width="16" height="18"/>
+                                <animations/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Confirmar senha" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mPl-n3-Bra">
+                                <rect key="frame" x="73" y="229" width="240" height="34"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Recuperar Senha" id="if2-Gl-GOj">
+                        <barButtonItem key="rightBarButtonItem" title="Próximo" id="9bp-wZ-NNN">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="didTappedNextButton:" destination="Vwf-Mz-hqk" id="xrv-es-zyg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="itsFineTextView" destination="oux-4O-k2L" id="p6F-Yh-hQo"/>
+                        <outlet property="passwordConfirmImageView" destination="8Rf-HH-ntM" id="RRq-Yh-jmX"/>
+                        <outlet property="passwordConfirmTextView" destination="mPl-n3-Bra" id="84H-SH-ooA"/>
+                        <outlet property="passwordImageView" destination="oYL-d1-RX2" id="Trl-U5-9WE"/>
+                        <outlet property="passwordTextView" destination="tXz-P2-Kn2" id="XMe-Cb-uU1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tvu-6x-gi2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025.5" y="2059.5"/>
         </scene>
         <!--Registrar-->
         <scene sceneID="L8b-WN-khX">

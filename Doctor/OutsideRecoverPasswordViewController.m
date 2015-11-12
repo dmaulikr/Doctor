@@ -221,4 +221,10 @@
     }
 }
 
+- (IBAction)confirmTokenButtonTapped:(id)sender{
+    if (self.confirmTokenButton.backgroundColor != [UIColor grayColor]) {
+        [self performSegueWithIdentifier:@"tokenConfirmedSegue" sender:self];
+    }
+}
+
 @end

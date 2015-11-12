@@ -141,5 +141,9 @@
 
 - (void) setTopicAsFavourite:(NSString *)topicId :(Doctor *)doctor withCompletion: (void (^)(BOOL* finished))completion;
 
+- (void) setTopicAsSaw:(NSString *)topicId :(Doctor *)doctor withCompletion: (void (^)(BOOL* finished))completion;
+
+
+
 @end
 

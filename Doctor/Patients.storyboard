@@ -1760,7 +1760,11 @@
                             <outlet property="delegate" destination="sQY-TJ-fAg" id="EDm-Ya-ct1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Adicionar Paciente" id="tCV-tq-7ER"/>
+                    <navigationItem key="navigationItem" title="Adicionar Paciente" id="tCV-tq-7ER">
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="v5b-yX-GfE">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="693"/>
                     <connections>

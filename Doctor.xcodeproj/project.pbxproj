@@ -18,6 +18,7 @@
 		02755B5A1BE10679000A5183 /* Appointments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02755B591BE10679000A5183 /* Appointments.storyboard */; };
 		02755B5F1BE1084B000A5183 /* AppointmentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02755B5E1BE1084B000A5183 /* AppointmentsTableViewController.m */; };
 		02755B621BE10854000A5183 /* InboxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02755B611BE10854000A5183 /* InboxTableViewController.m */; };
+		027A8AAC1BF4EAA200967ADA /* OutsideRecoverNewPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027A8AAB1BF4EAA200967ADA /* OutsideRecoverNewPasswordViewController.m */; };
 		02807F931BCE9DE10008D018 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807F921BCE9DE10008D018 /* main.m */; };
 		02807F961BCE9DE10008D018 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807F951BCE9DE10008D018 /* AppDelegate.m */; };
 		02807F991BCE9DE10008D018 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807F981BCE9DE10008D018 /* ViewController.m */; };
@@ -131,6 +132,8 @@
 		02755B5E1BE1084B000A5183 /* AppointmentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentsTableViewController.m; sourceTree = "<group>"; };
 		02755B601BE10854000A5183 /* InboxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxTableViewController.h; sourceTree = "<group>"; };
 		02755B611BE10854000A5183 /* InboxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxTableViewController.m; sourceTree = "<group>"; };
+		027A8AAA1BF4EAA200967ADA /* OutsideRecoverNewPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideRecoverNewPasswordViewController.h; sourceTree = "<group>"; };
+		027A8AAB1BF4EAA200967ADA /* OutsideRecoverNewPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutsideRecoverNewPasswordViewController.m; sourceTree = "<group>"; };
 		02807F8E1BCE9DE10008D018 /* Doctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02807F921BCE9DE10008D018 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		02807F941BCE9DE10008D018 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -502,6 +505,8 @@
 			children = (
 				02CD6C2C1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.h */,
 				02CD6C2D1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m */,
+				027A8AAA1BF4EAA200967ADA /* OutsideRecoverNewPasswordViewController.h */,
+				027A8AAB1BF4EAA200967ADA /* OutsideRecoverNewPasswordViewController.m */,
 			);
 			name = OutsideRecoverPassword;
 			sourceTree = "<group>";
@@ -1028,6 +1033,7 @@
 				02755B621BE10854000A5183 /* InboxTableViewController.m in Sources */,
 				02CD6C4A1BD2DAAC00C38B6D /* Doctor.m in Sources */,
 				02EB33D21BF38E42006D6529 /* MedicationsComercialsTableViewController.m in Sources */,
+				027A8AAC1BF4EAA200967ADA /* OutsideRecoverNewPasswordViewController.m in Sources */,
 				02EB33C61BF3815F006D6529 /* SettingsTableViewCell.m in Sources */,
 				02E7A9B41BDC5254008059BD /* PatientSelectedAppointmentSelectedTableViewController.m in Sources */,
 				02F15C651BD6D5490078279D /* ForumTableViewController.m in Sources */,

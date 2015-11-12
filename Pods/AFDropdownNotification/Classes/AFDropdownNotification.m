@@ -76,6 +76,9 @@
         _screenSize = [[UIScreen mainScreen] bounds].size;
         
         _dismissOnTap = NO;
+        
+        UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bottomButtonTapped)];
+        [_notificationView addGestureRecognizer:tap];
     }
     
     return self;

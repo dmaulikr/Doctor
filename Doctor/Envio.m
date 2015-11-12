@@ -405,6 +405,36 @@
 
 }
 
+- (void) setTopicAsSaw:(NSString *)topicId :(Doctor *)doctor withCompletion: (void (^)(BOOL* finished))completion{
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:@"CRM" equalTo:doctor.doctorCRMString];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSMutableArray* sawArray = [[NSMutableArray alloc] initWithArray:object[@"sawForumTopics"]];
+                [sawArray addObject:topicId];
+                object[@"sawForumTopics"] = sawArray;
+                
+                PFQuery *query2 = [PFQuery queryWithClassName:@"User"];
+                [query2 getObjectInBackgroundWithId:object.objectId block:^(PFObject *query2, NSError *error) {
+                    query2[@"sawForumTopics"] = sawArray;
+                    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                    appDelegate.doctor.sawTopicsArray = sawArray;
+                    completion(true);
+                    [query2 saveInBackground];
+                }];
+                return ;
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+   
+}
+
 
 - (void)fetchExamsPassingPatient:(Patient*)patient
                withCompletion:(void (^)(NSMutableArray* examsArray))completion{

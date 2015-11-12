@@ -31,6 +31,8 @@
     [self setupLoadingAnimation];
     [self setupDataSource];
     self.tableView.tableFooterView = [UIView new];
+   
+    [envio setTopicAsSaw:self.forumTopic.topicObjectId :self.doctor withCompletion:^void(BOOL* finished){}];
 }
 
 #pragma mark - Setups

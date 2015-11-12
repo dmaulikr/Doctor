@@ -106,12 +106,10 @@
     cell.topicSinopse.text = forumTopic.topicForumSinopse;
     cell.topicObjectId = forumTopic.topicObjectId;
     
-    if ([self.doctor.favTopicsArray containsObject:forumTopic.topicObjectId]) {
-        cell.favImageView.image = [UIImage imageNamed:@"estrelinha-topicofavorito"];
-    }
-    else{
-        cell.favImageView.image = [UIImage imageNamed:@""];
-    }
+    cell.favImageView.image = [self.doctor.favTopicsArray containsObject:forumTopic.topicObjectId] ? [UIImage imageNamed:@"estrelinha-topicofavorito"] : [UIImage imageNamed:@""];
+    
+    cell.nonReadImageView.image = [self.doctor.sawTopicsArray containsObject:forumTopic.topicObjectId] ? [UIImage imageNamed:@""] : [UIImage imageNamed:@"bolinha-naolido"];
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

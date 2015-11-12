@@ -9,7 +9,7 @@
 #import "OutsideSignInTableViewController.h"
 #import "OutsideSignInConfirmViewController.h"
 
-@interface OutsideSignInTableViewController () <UIAlertViewDelegate, UITextViewDelegate>
+@interface OutsideSignInTableViewController () <UIAlertViewDelegate, UITextViewDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView* doctorNameTextView;
 @property (weak, nonatomic) IBOutlet UITextView* doctorCRMTextView;
@@ -169,19 +169,20 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 
 - (void) didClickedIntoAreaCodeLabel{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Pernambuco (81)",@"Pernambuco (87)", nil];
+    [actionSheet becomeFirstResponder];
     [actionSheet showInView:self.view];
+   
 }
 
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
             self.doctorAreaCodeLabel.text = @"81";
-            self.doctorAreaCodeImageView.image = [UIImage imageNamed:@"registrar-telefone-laranjaw"];
+            self.doctorAreaCodeImageView.image = [UIImage imageNamed:@"registrar-telefone-laranja"];
             break;
         case 1:
             self.doctorAreaCodeLabel.text = @"87";
-            self.doctorAreaCodeImageView.image = [UIImage imageNamed:@"registrar-telefone-laranjaw"];
-
+            self.doctorAreaCodeImageView.image = [UIImage imageNamed:@"registrar-telefone-laranja"];
             break;
         default:
         break;
@@ -341,6 +342,7 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
         default:
             break;
     }
+    [textView resignFirstResponder];
 }
 
 @end
