@@ -176,14 +176,16 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
     switch (buttonIndex) {
         case 0:
             self.doctorAreaCodeLabel.text = @"81";
+            self.doctorAreaCodeImageView.image = [UIImage imageNamed:@"registrar-telefone-laranjaw"];
             break;
         case 1:
             self.doctorAreaCodeLabel.text = @"87";
+            self.doctorAreaCodeImageView.image = [UIImage imageNamed:@"registrar-telefone-laranjaw"];
+
             break;
         default:
         break;
     }
-    self.doctorAreaCodeImageView.image = [UIImage imageNamed:@"registrar-telefone-laranjaw"];
 }
 
 - (void) setTextViewsDelegates{
