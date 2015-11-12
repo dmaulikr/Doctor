@@ -20,4 +20,6 @@
 @property (nonatomic, strong) IBOutlet UIImageView* subjectImageView;
 @property (nonatomic, strong) IBOutlet UIImageView* contentImageView;
 
+@property (nonatomic, strong) IBOutlet UILabel* letterCounter;
+
 @end

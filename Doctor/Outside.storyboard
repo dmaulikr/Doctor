@@ -148,17 +148,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome Completo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FAp-3b-9p0">
-                                                    <rect key="frame" x="60" y="17" width="285" height="30"/>
-                                                    <animations/>
-                                                    <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="registrar-nome" translatesAutoresizingMaskIntoConstraints="NO" id="1lM-GX-H7i">
                                                     <rect key="frame" x="30" y="14" width="16" height="32"/>
                                                     <animations/>
                                                 </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Nome" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lEh-c5-fEd">
+                                                    <rect key="frame" x="61" y="15" width="289" height="36"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -171,17 +172,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CRM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6h2-EM-YQH">
-                                                    <rect key="frame" x="60" y="17" width="285" height="30"/>
-                                                    <animations/>
-                                                    <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="registrar-crm" translatesAutoresizingMaskIntoConstraints="NO" id="Ihn-UN-Jgt">
                                                     <rect key="frame" x="30" y="20" width="19" height="19"/>
                                                     <animations/>
                                                 </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="CRM" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ms6-SQ-lNY">
+                                                    <rect key="frame" x="61" y="15" width="289" height="37.5"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -194,17 +196,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q8P-bn-8JF">
-                                                    <rect key="frame" x="60" y="17" width="285" height="30"/>
-                                                    <animations/>
-                                                    <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone-email" translatesAutoresizingMaskIntoConstraints="NO" id="cKJ-yQ-dz9">
                                                     <rect key="frame" x="30" y="22" width="21" height="16"/>
                                                     <animations/>
                                                 </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="E-mail" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vzS-mK-k4w">
+                                                    <rect key="frame" x="61" y="15" width="289" height="37.5"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -228,8 +231,8 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Código de área" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHc-aG-m5s">
                                                     <rect key="frame" x="60" y="17" width="121" height="30"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.73333333333333328" green="0.72941176470588232" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Dn-9k-mGz">
@@ -240,13 +243,14 @@
                                                     <color key="textColor" red="0.73333333329999995" green="0.72941176470000002" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Telefone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RD5-ZC-cNK">
-                                                    <rect key="frame" x="230" y="17" width="130" height="30"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Telefone" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p9D-5M-nWn">
+                                                    <rect key="frame" x="238" y="14" width="137" height="37.5"/>
                                                     <animations/>
-                                                    <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -259,17 +263,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dQy-xJ-jXe">
-                                                    <rect key="frame" x="60" y="17" width="285" height="30"/>
-                                                    <animations/>
-                                                    <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-lock" translatesAutoresizingMaskIntoConstraints="NO" id="UUu-qb-5mH">
                                                     <rect key="frame" x="30" y="20" width="16" height="19"/>
                                                     <animations/>
                                                 </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Senha" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OpG-Sd-wlE">
+                                                    <rect key="frame" x="61" y="14" width="289" height="37.5"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -282,17 +287,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirmar senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uN8-P3-Lsc">
-                                                    <rect key="frame" x="60" y="17" width="285" height="30"/>
-                                                    <animations/>
-                                                    <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-lock" translatesAutoresizingMaskIntoConstraints="NO" id="SvC-J3-e9f">
                                                     <rect key="frame" x="30" y="20" width="16" height="19"/>
                                                     <animations/>
                                                 </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Confirme senha" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FkT-Q5-HO9">
+                                                    <rect key="frame" x="61" y="14" width="289" height="37.5"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -305,17 +311,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome de usuário" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gmk-1U-ygo">
-                                                    <rect key="frame" x="60" y="17" width="285" height="30"/>
-                                                    <animations/>
-                                                    <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-usuario" translatesAutoresizingMaskIntoConstraints="NO" id="OQp-zV-ak0">
                                                     <rect key="frame" x="30" y="20" width="16" height="19"/>
                                                     <animations/>
                                                 </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Nome de usuário" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rcm-X0-tUN">
+                                                    <rect key="frame" x="61" y="14" width="289" height="37.5"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -357,13 +364,22 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doctorAreaCodeImageView" destination="5q6-je-AVg" id="dSL-TX-xVr"/>
                         <outlet property="doctorAreaCodeLabel" destination="ZHc-aG-m5s" id="pY9-7I-8e2"/>
-                        <outlet property="doctorCRMTextField" destination="6h2-EM-YQH" id="BGK-v3-PUF"/>
-                        <outlet property="doctorConfirmPasswordTextField" destination="uN8-P3-Lsc" id="D4v-pv-bHY"/>
-                        <outlet property="doctorNameTextField" destination="FAp-3b-9p0" id="V2m-Cw-tmB"/>
-                        <outlet property="doctorPasswordTextField" destination="dQy-xJ-jXe" id="x7p-gv-6ja"/>
-                        <outlet property="doctorTelephoneTextField" destination="RD5-ZC-cNK" id="RfH-ou-PYf"/>
-                        <outlet property="doctorUsernameTextField" destination="gmk-1U-ygo" id="8JP-Zv-Dfq"/>
+                        <outlet property="doctorCRMImageView" destination="Ihn-UN-Jgt" id="pcT-rR-C0e"/>
+                        <outlet property="doctorCRMTextView" destination="ms6-SQ-lNY" id="xLN-eX-aiY"/>
+                        <outlet property="doctorConfirmPasswordImageView" destination="SvC-J3-e9f" id="6cU-qx-zTE"/>
+                        <outlet property="doctorConfirmPasswordTextView" destination="FkT-Q5-HO9" id="ce3-Xz-03A"/>
+                        <outlet property="doctorEmailImageView" destination="cKJ-yQ-dz9" id="NZE-Xg-v6X"/>
+                        <outlet property="doctorEmailTextView" destination="vzS-mK-k4w" id="3E9-kM-iqM"/>
+                        <outlet property="doctorNameImageView" destination="1lM-GX-H7i" id="zMq-bv-3pb"/>
+                        <outlet property="doctorNameTextView" destination="lEh-c5-fEd" id="8e8-eZ-Aae"/>
+                        <outlet property="doctorPasswordImageView" destination="UUu-qb-5mH" id="Jsf-U1-k6x"/>
+                        <outlet property="doctorPasswordTextView" destination="OpG-Sd-wlE" id="vxV-WR-sGa"/>
+                        <outlet property="doctorTelephoneImageView" destination="gYS-sp-nf3" id="Sgb-Mh-A8k"/>
+                        <outlet property="doctorTelephoneTextView" destination="p9D-5M-nWn" id="CL1-ZE-xvh"/>
+                        <outlet property="doctorUsernameImageView" destination="OQp-zV-ak0" id="ESM-Br-bRG"/>
+                        <outlet property="doctorUsernameTextView" destination="Rcm-X0-tUN" id="BvK-e0-tlL"/>
                         <segue destination="lYV-Hb-cPp" kind="show" identifier="clickedInNextSignInSegueId" id="KnE-AG-oHX"/>
                     </connections>
                 </tableViewController>
@@ -392,7 +408,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.51483585860000003" green="0.51483585860000003" blue="0.51483585860000003" alpha="0.28673986486486486" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWl-5w-cyl">
@@ -400,7 +416,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.51483585860000003" green="0.51483585860000003" blue="0.51483585860000003" alpha="0.29143792229729731" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYe-0I-GoZ">
@@ -408,7 +424,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecV-jm-Vad">
@@ -416,7 +432,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqo-JF-iza">
@@ -424,7 +440,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56H-4U-q7C">
@@ -432,7 +448,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUT-zy-GeO">

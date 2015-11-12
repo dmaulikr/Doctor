@@ -16,6 +16,7 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
 
 @interface ForumNewTopicTableViewController () <UITextViewDelegate> {
     UIActivityIndicatorView *spinner;
+    int subjectLimit;
 }
 
 @property (nonatomic, weak) IBOutlet UIBarButtonItem* createButton;
@@ -26,6 +27,8 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    subjectLimit = 24;
+    self.letterCounter.text = [NSString stringWithFormat:@"%i", subjectLimit];
     self.subjectTextView.delegate = self;
     self.contentTextView.delegate = self;
     self.subjectTextView.tag = 1;
@@ -73,6 +76,11 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
 - (void)textViewDidChange:(UITextView *)textView{
     if (textView.tag == 1) {
         self.subjectImageView.image = [UIImage imageNamed:@"assunto-laranja"];
+        
+        if (self.subjectTextView.text.length <= subjectLimit) {
+            self.letterCounter.text = [NSString stringWithFormat:@"%i", 24-self.subjectTextView.text.length];
+        }
+        NSLog([NSString stringWithFormat:@"texto:%@", textView.text]);
     }
     if (textView.tag == 2) {
         self.contentImageView.image = [UIImage imageNamed:@"mensagem-laranja"];

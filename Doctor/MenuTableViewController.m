@@ -19,14 +19,14 @@
 
 typedef NS_ENUM(NSUInteger, MenuItem) {
     MenuItemNull=0,
-    MenuItemFeed,
+    //MenuItemFeed,
     //MenuItemAppointments,
     //MenuItemInbox,
     MenuItemPatients,
     MenuItemMedications,
     MenuItemForum,
     MenuItemConfigurations,
-    MenuItemLogOut=6 ,
+    MenuItemLogOut=5 ,
 };
 
 - (void)viewDidLoad {
@@ -45,10 +45,10 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
             [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
             return;
             break;
-        case MenuItemFeed:
-            sbName = kFeedStoryboard;
-            sbiewControllerID = kFeedNavID;
-            break;
+//        case MenuItemFeed:
+//            sbName = kFeedStoryboard;
+//            sbiewControllerID = kFeedNavID;
+//            break;
 //        case MenuItemAppointments:
 //            sbName = kAppointmentsStoryboard;
 //            sbiewControllerID = kAppointmentsNavID;

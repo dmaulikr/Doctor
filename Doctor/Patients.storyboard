@@ -1643,7 +1643,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="observacoes-laranja" translatesAutoresizingMaskIntoConstraints="NO" id="e92-jK-xke">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="observacoes-cinza" translatesAutoresizingMaskIntoConstraints="NO" id="e92-jK-xke">
                                                     <rect key="frame" x="28" y="16" width="22" height="23"/>
                                                     <animations/>
                                                 </imageView>
@@ -1836,7 +1836,7 @@
         <image name="icone-tratamentos" width="68" height="69"/>
         <image name="icone-tratamentos-grande" width="142" height="143"/>
         <image name="medicamentos-cinza" width="45" height="46"/>
-        <image name="observacoes-laranja" width="47" height="47"/>
+        <image name="observacoes-cinza" width="47" height="47"/>
         <image name="peso-cinza" width="53" height="43"/>
         <image name="sexo-cinza" width="41" height="39"/>
         <image name="tiposanguineo-cinza" width="29" height="42"/>
