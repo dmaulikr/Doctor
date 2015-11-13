@@ -23,6 +23,7 @@
     [super viewDidLoad];
     [self setupNotification];
     self.menuContainerViewController.panMode = YES;
+    self.navigationController.navigationBarHidden = YES;
 }
 
 #pragma mark - IBActions

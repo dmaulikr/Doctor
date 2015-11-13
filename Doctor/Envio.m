@@ -297,6 +297,7 @@
                 patient.patientAgeString = [object objectForKey:@"age"];
                 patient.patientRGString = [object objectForKey:@"RG"];
                 patient.patientGenderString = [object objectForKey:@"gender"];
+                patient.patientObjectId = object.objectId;
                 
                 [patients addObject:patient];
                 
@@ -1670,5 +1671,19 @@
 //}
 
 
+- (void) updatePatient:(NSString *)patientId withPatient:(Patient *)patient withCompletion:(void (^)(BOOL *))completion{
+    PFQuery* query = [[PFQuery alloc] initWithClassName:@"Patient"];
+    [query getObjectInBackgroundWithId:patientId block:^(PFObject* object, NSError *error){
+        if (patient.patientGenderString) {
+            object[@"gender"] = patient.patientGenderString;
+        }
+        if (patient.patientAdressString) {
+            object[@"address"] = patient.patientAdressString;
+        }
+        [object saveInBackground];
+        completion(true);
+    }];
+    
+}
 
 @end

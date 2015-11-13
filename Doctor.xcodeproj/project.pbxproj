@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		020AAE381BDFA68F004766D5 /* ForumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AAE371BDFA68F004766D5 /* ForumTableViewCell.m */; };
 		020AAE3B1BDFA6CD004766D5 /* ForumMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AAE3A1BDFA6CD004766D5 /* ForumMessageTableViewCell.m */; };
+		0215BFB51BF58368001FF080 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0215BFB41BF58368001FF080 /* HomeViewController.m */; };
 		0226B1571BF2C92E00009147 /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0226B1561BF2C92E00009147 /* FeedTableViewCell.m */; };
 		022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DB1BCFC9CC00B7C1E0 /* MainViewController.m */; };
 		022928E01BCFCA5500B7C1E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */; };
@@ -116,6 +117,8 @@
 		020AAE371BDFA68F004766D5 /* ForumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTableViewCell.m; sourceTree = "<group>"; };
 		020AAE391BDFA6CD004766D5 /* ForumMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumMessageTableViewCell.h; sourceTree = "<group>"; };
 		020AAE3A1BDFA6CD004766D5 /* ForumMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumMessageTableViewCell.m; sourceTree = "<group>"; };
+		0215BFB31BF58368001FF080 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		0215BFB41BF58368001FF080 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		0226B1551BF2C92E00009147 /* FeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewCell.h; sourceTree = "<group>"; };
 		0226B1561BF2C92E00009147 /* FeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell.m; sourceTree = "<group>"; };
 		022928D91BCFC73200B7C1E0 /* Storyboards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storyboards.h; sourceTree = "<group>"; };
@@ -467,6 +470,8 @@
 				02921D5E1BD11707001B6F5E /* FeedTableViewController.m */,
 				0226B1551BF2C92E00009147 /* FeedTableViewCell.h */,
 				0226B1561BF2C92E00009147 /* FeedTableViewCell.m */,
+				0215BFB31BF58368001FF080 /* HomeViewController.h */,
+				0215BFB41BF58368001FF080 /* HomeViewController.m */,
 			);
 			name = ViewsFeed;
 			sourceTree = "<group>";
@@ -1047,6 +1052,7 @@
 				7020D1321BD53B560059A226 /* CaseHistory.m in Sources */,
 				0297C9721BE6F8060068757C /* ForumTopic.m in Sources */,
 				70E0499E1BDFF1FB001A186F /* VersionHistory.m in Sources */,
+				0215BFB51BF58368001FF080 /* HomeViewController.m in Sources */,
 				02CD6C461BD2D86600C38B6D /* Medication.m in Sources */,
 				02CD6C311BD2C11700C38B6D /* OutsideSignInTableViewController.m in Sources */,
 				02807F931BCE9DE10008D018 /* main.m in Sources */,

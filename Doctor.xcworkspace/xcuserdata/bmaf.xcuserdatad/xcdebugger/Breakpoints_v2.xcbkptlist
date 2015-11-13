@@ -104,7 +104,7 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "469047426.438154"
+                  timestampString = "469072823.73566"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -119,7 +119,7 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "469047426.438343"
+                  timestampString = "469072823.735961"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "469033942.166117"
+            timestampString = "469072099.228572"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "555"
-            endingLineNumber = "555"
+            startingLineNumber = "556"
+            endingLineNumber = "556"
             landmarkName = "-fetchAppointmentPassingPatient:withCompletion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -152,7 +152,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "468973044.461717"
+            timestampString = "469072099.228572"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
+            landmarkName = "-fetchLastSeen:::"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Doctor/Envio.m"
+            timestampString = "469072099.228572"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "321"
@@ -168,27 +184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "468973044.461717"
+            timestampString = "469072099.228572"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
-            landmarkName = "-fetchLastSeen:::"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Doctor/Envio.m"
-            timestampString = "468973044.461717"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
             landmarkName = "-fetchLastSeen:::"
             landmarkType = "5">
          </BreakpointContent>
@@ -360,11 +360,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "469033942.166117"
+            timestampString = "469072099.228572"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1499"
-            endingLineNumber = "1499"
+            startingLineNumber = "1500"
+            endingLineNumber = "1500"
             landmarkName = "-newMessage:whenComplete:"
             landmarkType = "5">
             <Locations>
@@ -408,11 +408,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "468973044.461717"
+            timestampString = "469072099.228572"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "385"
-            endingLineNumber = "385"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
             landmarkName = "-setTopicAsFavourite::withCompletion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -460,6 +460,54 @@
             startingLineNumber = "225"
             endingLineNumber = "225"
             landmarkName = "-confirmTokenButtonTapped:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Doctor/PatientSelectedEditTableViewController.m"
+            timestampString = "469070669.695885"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "-didTappedSaveButton:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Doctor/Envio.m"
+            timestampString = "469072301.497331"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
+            landmarkName = "-fetchAllPatients:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Doctor/PatientsTableViewController.m"
+            timestampString = "469072340.100669"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "-setupPatientsDataSource"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

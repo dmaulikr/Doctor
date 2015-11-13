@@ -7,6 +7,7 @@
 //
 
 #import "PatientsAddTableViewController.h"
+#import "Patient.h"
 
 @interface PatientsAddTableViewController () <UITextViewDelegate>
 
@@ -167,10 +168,19 @@
 - (void) textViewDidBeginEditing:(UITextView *)textView{
     switch (textView.tag) {
         case 1:
+            if ([textView.text isEqualToString:@"Nome"]) {
+                textView.text = @"";
+            }
             break;
         case 2:
+            if ([textView.text isEqualToString:@"Sobrenome"]) {
+                textView.text = @"";
+            }
             break;
         case 3:
+            if ([textView.text isEqualToString:@"Telefone"]) {
+                textView.text = @"";
+            }
             break;
         case 4:
             if ([textView.text isEqualToString:@"Data de nascimento"]) {
@@ -404,4 +414,16 @@
     [actionSheet showInView:self.view];
 }
 
+- (IBAction)didTappedForSaveNewPatient:(id)sender{
+    Patient* patient = [[Patient alloc] init];
+    patient.patientNameString = self.patientNameTextView.text;
+    patient.patientGenderString = self.patientSexTextView.text;
+   // patient.patientRGString = self.patientRGTextView.text;
+   // patient.patientCPFString = self.patienCPFTextView.text;
+   // patient.patientAgeString = self.patientAgeTextView.text;
+    patient.patientBirthDateString = self.patientBirthdateTextView.text;
+    patient.patientAdressString = self.patientAdressTextView.text;
+  //  patient.patientWeightString = self.patientWeightTextView.text;
+  //  patient.patientHeightString = self.patientHeightTextView.text;
+}
 @end

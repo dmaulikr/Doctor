@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
         <!--Pacientes-->
@@ -382,13 +382,14 @@
                                                     <color key="textColor" red="0.89410604199292931" green="0.67454821138700449" blue="0.15660906610425324" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="04 de Setembro de 1995 (20 anos)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLi-ii-eh8">
-                                                    <rect key="frame" x="163" y="15" width="172" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="04 de Setembro de 1995 (20 anos)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7MF-iO-Maz">
+                                                    <rect key="frame" x="157" y="11" width="195" height="26.5"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -415,13 +416,6 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Masculino" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41A-Ge-fpa">
-                                                    <rect key="frame" x="75" y="14" width="67" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSz-iU-nsl">
                                                     <rect key="frame" x="171" y="0.0" width="1" height="50"/>
                                                     <animations/>
@@ -430,13 +424,22 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="O+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1u-iK-8bY">
-                                                    <rect key="frame" x="302" y="14" width="27" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Masculino" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lBp-L5-bnu">
+                                                    <rect key="frame" x="60" y="11" width="85" height="28"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="O+" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3Dw-Cc-Cb0">
+                                                    <rect key="frame" x="296" y="10" width="32" height="28"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -456,20 +459,14 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pressão Baixa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qu0-el-n5u">
-                                                    <rect key="frame" x="163" y="10" width="68" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Pressão baixa, apnéia do sono" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j5b-SH-L7Y">
+                                                    <rect key="frame" x="158" y="6" width="85" height="40"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Apnéia do Sono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Met-zM-M5W">
-                                                    <rect key="frame" x="163" y="25" width="76" height="21"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -489,13 +486,14 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fludrocortisona" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xde-cj-6sy">
-                                                    <rect key="frame" x="162" y="15" width="76" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Fludrocortisona" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KM6-8Z-esm">
+                                                    <rect key="frame" x="158" y="13" width="90" height="25"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -515,13 +513,14 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Não consta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6q-JZ-ISO">
-                                                    <rect key="frame" x="163" y="15" width="76" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Não consta" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="la6-Nh-La4">
+                                                    <rect key="frame" x="159" y="12" width="85" height="28"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -541,13 +540,14 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Não consta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMA-aR-Fqk">
-                                                    <rect key="frame" x="163" y="15" width="76" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Não consta" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qWL-dX-3Ps">
+                                                    <rect key="frame" x="159" y="12" width="85" height="28"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -574,20 +574,22 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="58,3 kgs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYi-RL-Twf">
-                                                    <rect key="frame" x="67" y="14" width="76" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="58,3 kgs" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ghr-mC-kzF">
+                                                    <rect key="frame" x="69" y="11" width="85" height="28"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1,63 m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxd-FV-OkV">
-                                                    <rect key="frame" x="276" y="14" width="76" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="1,56 m" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Uaj-Ap-TSa">
+                                                    <rect key="frame" x="247" y="11" width="85" height="28"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -607,20 +609,14 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bruno Azevedo (Pai)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsI-zX-imf">
-                                                    <rect key="frame" x="179" y="5" width="98" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Bruno Azevedo (Pai) 1410914014-1" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BUo-zm-rKd">
+                                                    <rect key="frame" x="178" y="5" width="108" height="39"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Telefone: (81) 9999 8888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SS-8L-HG7">
-                                                    <rect key="frame" x="179" y="23" width="124" height="21"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -640,20 +636,14 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Av. Boa Viagem , 2712" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2b-q0-d8k">
-                                                    <rect key="frame" x="132" y="8" width="124" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Av. Boa Viagem, 2145 apt 510" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wqw-kh-7BU">
+                                                    <rect key="frame" x="127" y="3" width="119" height="36"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edf ABC2, apt 201" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Bs-H9-fAC">
-                                                    <rect key="frame" x="132" y="26" width="124" height="21"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -669,10 +659,25 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Dados" id="iAk-sC-gAu"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="addressTextView" destination="wqw-kh-7BU" id="cau-Od-g91"/>
+                        <outlet property="alergiesTextView" destination="la6-Nh-La4" id="tfd-iV-3a1"/>
+                        <outlet property="birthDateTextView" destination="7MF-iO-Maz" id="vLr-jM-cEf"/>
+                        <outlet property="bloodTypeTextView" destination="3Dw-Cc-Cb0" id="hha-GN-fiR"/>
+                        <outlet property="clinicalConditionsTextView" destination="j5b-SH-L7Y" id="Cx5-Hm-e2g"/>
+                        <outlet property="emergencyContactTextView" destination="BUo-zm-rKd" id="Wqr-Uy-06b"/>
+                        <outlet property="heightTextView" destination="Uaj-Ap-TSa" id="kDS-po-Y1h"/>
+                        <outlet property="lastSeenLabel" destination="dyP-Kq-03r" id="VO7-Bo-bH3"/>
+                        <outlet property="medicationsTextView" destination="KM6-8Z-esm" id="NPa-E9-LOA"/>
+                        <outlet property="nameLabel" destination="1Q8-oR-UCh" id="guQ-Qw-dGF"/>
+                        <outlet property="observationsTextView" destination="qWL-dX-3Ps" id="zLf-xa-qq7"/>
+                        <outlet property="sexTextView" destination="lBp-L5-bnu" id="TcD-41-t1C"/>
+                        <outlet property="weightTextView" destination="Ghr-mC-kzF" id="bSb-zY-JDX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2e-QP-Fag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-157.5" y="1142.5"/>
+            <point key="canvasLocation" x="-193.5" y="1103.5"/>
         </scene>
         <!--Tratamento-->
         <scene sceneID="Sgb-IB-eND">
@@ -1152,13 +1157,14 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="04 de Setembro de 1995 (20 anos)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQc-5c-WWd">
-                                                    <rect key="frame" x="163" y="15" width="172" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="28 de janeiro de 2012" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xls-eo-CEY">
+                                                    <rect key="frame" x="157" y="11" width="131" height="26.5"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -1185,13 +1191,6 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Masculino" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpV-it-qJC">
-                                                    <rect key="frame" x="75" y="14" width="67" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mbb-n9-sEZ">
                                                     <rect key="frame" x="171" y="0.0" width="1" height="50"/>
                                                     <animations/>
@@ -1200,13 +1199,22 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="O+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f51-2C-Fkf">
-                                                    <rect key="frame" x="302" y="14" width="27" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Masculino" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e05-WO-pZC">
+                                                    <rect key="frame" x="65" y="11" width="98" height="28"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="O+" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5vc-JZ-CtI">
+                                                    <rect key="frame" x="292" y="11" width="60" height="28"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -1226,20 +1234,14 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pressão Baixa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KI6-ji-Gho">
-                                                    <rect key="frame" x="163" y="10" width="68" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Pressão baixa, Apnéia do sono" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jPT-sF-q9Q">
+                                                    <rect key="frame" x="157" y="6" width="108" height="40"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Apnéia do Sono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRF-Tb-jLa">
-                                                    <rect key="frame" x="163" y="25" width="76" height="21"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -1259,13 +1261,14 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fludrocortisona" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZm-R4-AhS">
-                                                    <rect key="frame" x="162" y="15" width="76" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Fludrocortisona" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sva-eY-hm4">
+                                                    <rect key="frame" x="157" y="12" width="131" height="28"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -1285,13 +1288,14 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Não consta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZk-uj-wLi">
-                                                    <rect key="frame" x="163" y="15" width="76" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Não consta" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gp5-cF-6kL">
+                                                    <rect key="frame" x="158" y="12" width="131" height="28"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -1311,13 +1315,14 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Não consta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quX-95-Q1x">
-                                                    <rect key="frame" x="163" y="15" width="76" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Não consta" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GSe-R0-rR4">
+                                                    <rect key="frame" x="159" y="11" width="131" height="28"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -1344,20 +1349,22 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="58,3 kgs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ean-Cf-9ev">
-                                                    <rect key="frame" x="67" y="14" width="76" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="57,3 kgs" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W5R-uy-O3K">
+                                                    <rect key="frame" x="69" y="11" width="81" height="28"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1,63 m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOc-Wc-nbq">
-                                                    <rect key="frame" x="276" y="14" width="76" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="1,64 m" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EbH-Fu-MaH">
+                                                    <rect key="frame" x="241" y="12" width="81" height="28"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -1377,20 +1384,14 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bruno Azevedo (Pai)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dL-MV-4m7">
-                                                    <rect key="frame" x="179" y="5" width="98" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Bruno Azevedo (Pai)  +558199396494" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aDq-rM-Lhg">
+                                                    <rect key="frame" x="178" y="6" width="164" height="40"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Telefone: (81) 9999 8888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6P-pd-dGq">
-                                                    <rect key="frame" x="179" y="23" width="124" height="21"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -1410,20 +1411,14 @@
                                                     <color key="textColor" red="0.89410604199999999" green="0.67454821139999999" blue="0.1566090661" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Av. Boa Viagem , 2712" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbq-8V-HCR">
-                                                    <rect key="frame" x="132" y="8" width="124" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Av. Boa Viagem, 2712 Edf ABC2, apt 201" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VkV-nu-vxo">
+                                                    <rect key="frame" x="123" y="7" width="195" height="40"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edf ABC2, apt 201" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klW-db-IL5">
-                                                    <rect key="frame" x="132" y="26" width="124" height="21"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -1437,8 +1432,30 @@
                             <outlet property="delegate" destination="9tq-jf-VNi" id="Hvh-cs-MQl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Editar" id="wll-fp-RU6"/>
+                    <navigationItem key="navigationItem" title="Editar" id="wll-fp-RU6">
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="eRv-q5-hA7">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didTappedSaveButton:" destination="9tq-jf-VNi" id="NEa-Y6-YqW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="addressTextView" destination="VkV-nu-vxo" id="0WU-ZY-Fif"/>
+                        <outlet property="alergiesTextView" destination="gp5-cF-6kL" id="sjA-dg-lQj"/>
+                        <outlet property="birthDateTextView" destination="xls-eo-CEY" id="LT5-9M-za1"/>
+                        <outlet property="bloodTypeTextView" destination="5vc-JZ-CtI" id="aSa-kk-dAY"/>
+                        <outlet property="clinicalConditionsTextView" destination="jPT-sF-q9Q" id="ddB-me-9rc"/>
+                        <outlet property="emergencyContactTextView" destination="aDq-rM-Lhg" id="6ON-YV-Ilb"/>
+                        <outlet property="heightTextView" destination="EbH-Fu-MaH" id="YMX-oy-HTP"/>
+                        <outlet property="lastSeenLabel" destination="n11-ht-eEF" id="CWr-eL-cy7"/>
+                        <outlet property="medicationsTextView" destination="Sva-eY-hm4" id="zBz-gg-YAt"/>
+                        <outlet property="nameLabel" destination="mqE-WC-RVT" id="m5J-0b-QlQ"/>
+                        <outlet property="observationsTextView" destination="GSe-R0-rR4" id="9cQ-Pg-XPX"/>
+                        <outlet property="sexTextView" destination="e05-WO-pZC" id="hSQ-96-FQp"/>
+                        <outlet property="weightTextView" destination="W5R-uy-O3K" id="wnM-pf-QIs"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fP4-mQ-aqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1763,6 +1780,9 @@
                     <navigationItem key="navigationItem" title="Adicionar Paciente" id="tCV-tq-7ER">
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="v5b-yX-GfE">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didTappedForSaveNewPatient:" destination="sQY-TJ-fAg" id="6I1-5b-l14"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
