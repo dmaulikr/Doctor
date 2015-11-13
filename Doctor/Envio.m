@@ -83,19 +83,19 @@
 - (void) newPatient:(Patient*)patient {
     
     PFObject* newPatient = [PFObject objectWithClassName:@"Patient"];
-    newPatient[@"name"] = patient.patientNameString;
-    newPatient[@"CPF"] = patient.patientCPFString;
-    newPatient[@"RG"] = patient.patientRGString;
-    newPatient[@"age"] = patient.patientAgeString;
-    newPatient[@"address"] = patient.patientAdressString;
-    newPatient[@"gender"] = patient.patientGenderString;
+    newPatient[@"name"] = patient.patientNameString ? patient.patientNameString : @"";
+    newPatient[@"CPF"] = patient.patientCPFString ? patient.patientCPFString : @"";
+    newPatient[@"RG"] = patient.patientRGString ? patient.patientRGString : @"";
+    newPatient[@"age"] = patient.patientAgeString ? patient.patientAgeString : @"";
+    newPatient[@"address"] = patient.patientAdressString ? patient.patientAdressString : @"";
+    newPatient[@"gender"] = patient.patientGenderString? patient.patientGenderString : @"";
     
     [newPatient saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [self generatePatientCreationLog];
+          //  [self generatePatientCreationLog];
         } else {
             // There was a problem, check error.description
-            [self  showAlertViewError:error];
+         //   [self  showAlertViewError:error];
 
         }
     }];

@@ -8,8 +8,11 @@
 
 #import "PatientsAddTableViewController.h"
 #import "Patient.h"
+#import "Envio.h"
 
-@interface PatientsAddTableViewController () <UITextViewDelegate>
+@interface PatientsAddTableViewController () <UITextViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>{
+    UIImagePickerController* imagePickerController;
+}
 
 @property (weak, nonatomic) IBOutlet UIImageView* cameraImageView;
 
@@ -48,6 +51,7 @@
     [super viewDidLoad];
     [self setupCameraGestureRecognizer];
     [self setupTextViewsDelegate];
+    imagePickerController = [[UIImagePickerController alloc] init];
 }
 
 #pragma mark - UITextViewDelegate Methods
@@ -165,6 +169,7 @@
         }
     }
 }
+
 - (void) textViewDidBeginEditing:(UITextView *)textView{
     switch (textView.tag) {
         case 1:
@@ -241,6 +246,7 @@
             break;
     }
 }
+
 - (void) textViewDidEndEditing:(UITextView *)textView{
     if (textView.text.length > 0) {
         switch (textView.tag) {
@@ -416,7 +422,7 @@
 
 - (IBAction)didTappedForSaveNewPatient:(id)sender{
     Patient* patient = [[Patient alloc] init];
-    patient.patientNameString = self.patientNameTextView.text;
+    patient.patientNameString =  self.patientNameTextView.text;
     patient.patientGenderString = self.patientSexTextView.text;
    // patient.patientRGString = self.patientRGTextView.text;
    // patient.patientCPFString = self.patienCPFTextView.text;
@@ -425,5 +431,48 @@
     patient.patientAdressString = self.patientAdressTextView.text;
   //  patient.patientWeightString = self.patientWeightTextView.text;
   //  patient.patientHeightString = self.patientHeightTextView.text;
+    
+    Envio* envio = [[Envio alloc] init];
+    [envio newPatient:patient];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)getPhoto{
+    if (!imagePickerController) {
+        imagePickerController = [[UIImagePickerController alloc] init];
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+            [imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+        } else {
+            [imagePickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        }
+        [imagePickerController setDelegate:self];
+    }
+    [self presentModalViewController:imagePickerController animated:YES];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+ //   image = [ImageHelpers imageWithImage:image scaledToSize:CGSizeMake(480, 640)];
+    [self.cameraImageView setImage:image];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void) takePhoto{
+    
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            //rolo
+            [self getPhoto];
+            break;
+        case 1:
+            [self takePhoto];
+            break;
+       
+        default:
+            break;
+    }
 }
 @end
