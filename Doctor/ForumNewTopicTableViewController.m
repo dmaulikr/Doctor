@@ -86,6 +86,35 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
         self.contentImageView.image = [UIImage imageNamed:@"mensagem-laranja"];
     }
 }
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    NSUInteger newLength = [textView.text length] + [text length] - range.length;
+    BOOL aproval;
+    switch (textView.tag) {
+        case 1:
+            if(range.length + range.location > textView.text.length)
+            {
+                return NO;
+            }
+            
+            aproval = newLength <= 24;
+            break;
+            case 2:
+            if(range.length + range.location > textView.text.length)
+            {
+                return NO;
+            }
+            
+            NSUInteger newLength2 = [textView.text length] + [text length] - range.length;
+            aproval = newLength2 <= 900;
+            break;
+            
+        default:
+            break;
+    }
+    return aproval;
+}
+
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     if (textView.tag == 1 && [textView.text isEqualToString:@"Ex: Suspeita de um novo surto"]) {
         textView.textColor = [UIColor blackColor];

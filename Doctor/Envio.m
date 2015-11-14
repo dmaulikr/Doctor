@@ -383,7 +383,13 @@
         if (!error) {
             for (PFObject *object in objects) {
                 NSMutableArray* favArray = [[NSMutableArray alloc] initWithArray:object[@"favForumTopics"]];
-                [favArray addObject:topicId];
+                
+                if ([favArray containsObject:topicId]) {
+                    [favArray removeObject:topicId];
+                }
+                else{
+                    [favArray addObject:topicId];
+                }
                 object[@"favForumTopics"] = favArray;
                
                 PFQuery *query2 = [PFQuery queryWithClassName:@"User"];
