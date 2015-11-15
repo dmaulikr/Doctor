@@ -33,6 +33,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    self.navigationItem.title = @"Pacientes";
     [self setupLoadingAnimation];
     [self setupPatientsDataSource];
     [self setupSearch];
@@ -41,10 +45,6 @@
     
     //Test version History
     [self testVersion];
-}
-
-- (void) viewWillAppear:(BOOL)animated{
-    self.navigationItem.title = @"Pacientes";
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate

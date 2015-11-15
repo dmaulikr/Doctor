@@ -140,6 +140,7 @@
             if (buttonIndex == 1) {
             //[VerifyClient checkPinCode:@"1234"];
                 NSLog(@"confirmed");
+                //CREATE NEW DOCTOR AND PUT isFirstTime (Boolean) as TRUE
             }
             break;
         default:

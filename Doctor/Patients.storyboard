@@ -31,7 +31,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bruno Muniz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAW-BH-q2J">
-                                            <rect key="frame" x="128" y="17" width="204" height="21"/>
+                                            <rect key="frame" x="128" y="17" width="239" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,7 +52,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYh-U0-e0B">
-                                            <rect key="frame" x="163" y="56" width="32" height="21"/>
+                                            <rect key="frame" x="163" y="56" width="212" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -66,7 +66,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Masculino" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45I-zp-iUh">
-                                            <rect key="frame" x="159" y="74" width="49" height="21"/>
+                                            <rect key="frame" x="159" y="74" width="208" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1525,7 +1525,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Data de nascimento" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2zr-KH-I2e">
-                                                    <rect key="frame" x="76" y="12" width="181" height="33.5"/>
+                                                    <rect key="frame" x="76" y="12" width="291" height="33.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1561,7 +1561,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sexo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="msd-PJ-4Yx">
-                                                    <rect key="frame" x="76" y="12" width="90" height="33.5"/>
+                                                    <rect key="frame" x="76" y="12" width="92" height="33.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1593,7 +1593,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Condições clínicas" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2J8-40-4Br">
-                                                    <rect key="frame" x="76" y="12" width="131" height="33.5"/>
+                                                    <rect key="frame" x="76" y="12" width="274" height="33.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1613,7 +1613,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Medicamentos" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eoa-wP-DGs">
-                                                    <rect key="frame" x="76" y="12" width="131" height="33.5"/>
+                                                    <rect key="frame" x="76" y="12" width="266" height="33.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1641,7 +1641,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Alergias" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4wh-dc-zJd">
-                                                    <rect key="frame" x="76" y="12" width="131" height="33.5"/>
+                                                    <rect key="frame" x="76" y="12" width="266" height="33.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1665,7 +1665,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Observações" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O7T-AZ-hui">
-                                                    <rect key="frame" x="76" y="12" width="131" height="33.5"/>
+                                                    <rect key="frame" x="76" y="12" width="266" height="33.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1701,7 +1701,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Peso (kg)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ong-xb-ERj">
-                                                    <rect key="frame" x="76" y="12" width="77" height="33.5"/>
+                                                    <rect key="frame" x="76" y="12" width="92" height="33.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1709,7 +1709,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Altura (cm)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zzb-qj-iF7">
-                                                    <rect key="frame" x="227" y="11" width="131" height="33.5"/>
+                                                    <rect key="frame" x="227" y="11" width="140" height="33.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1733,7 +1733,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Contato de emergência" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wd9-Qd-hSK">
-                                                    <rect key="frame" x="76" y="12" width="176" height="33.5"/>
+                                                    <rect key="frame" x="76" y="12" width="266" height="33.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1757,7 +1757,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Endereço" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ayt-Tl-6Yz">
-                                                    <rect key="frame" x="76" y="12" width="131" height="33.5"/>
+                                                    <rect key="frame" x="76" y="12" width="266" height="33.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>

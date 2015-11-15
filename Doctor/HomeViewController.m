@@ -18,8 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.doctor.isFirstTime) {
+        
+    }
     self.navigationController.navigationBarHidden = YES;
-    // Do any additional setup after loading the view.
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
 
 - (IBAction)didTappedPatientButton:(id)sender{
