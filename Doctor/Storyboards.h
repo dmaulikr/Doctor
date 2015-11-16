@@ -1,6 +1,7 @@
 
 #define kFeedStoryboard @"Feed"
 #define kFeedNavID @"FeedNavigationControllerID"
+#define kFeedFTNavID @"FeedNavigationFTControllerID"
 
 #define kMainStoryboard @"Main"
 #define kMainMenuID @"MenuTableViewControllerID"

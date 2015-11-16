@@ -26,6 +26,7 @@
                     doctor.doctorCRMString = object[@"CRM"];
                     doctor.doctorNameString = object[@"Nome"];
                     doctor.favTopicsArray = object[@"favForumTopics"];
+                    doctor.isFirstTime = [object[@"isFirstTime"] boolValue];
                     appDelegate.doctor = doctor;
                 }else{
                     self.granted = false;

@@ -35,6 +35,8 @@
 		0297C9721BE6F8060068757C /* ForumTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C9711BE6F8060068757C /* ForumTopic.m */; };
 		0297C9751BE6F82F0068757C /* ForumTopicMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C9741BE6F82F0068757C /* ForumTopicMessage.m */; };
 		0297C9791BE6F8940068757C /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C9781BE6F8940068757C /* Message.m */; };
+		02C11D511BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C11D501BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m */; };
+		02C11D5D1BF966E200BBE0D0 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C11D5C1BF966E200BBE0D0 /* TutorialViewController.m */; };
 		02CD6C2E1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C2D1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m */; };
 		02CD6C311BD2C11700C38B6D /* OutsideSignInTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C301BD2C11700C38B6D /* OutsideSignInTableViewController.m */; };
 		02CD6C341BD2C9D700C38B6D /* OutsideSignInConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C331BD2C9D700C38B6D /* OutsideSignInConfirmViewController.m */; };
@@ -166,6 +168,10 @@
 		0297C9741BE6F82F0068757C /* ForumTopicMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTopicMessage.m; sourceTree = "<group>"; };
 		0297C9771BE6F8940068757C /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		0297C9781BE6F8940068757C /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		02C11D4F1BF95AAE00BBE0D0 /* TutorialFirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialFirstPageViewController.h; sourceTree = "<group>"; };
+		02C11D501BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialFirstPageViewController.m; sourceTree = "<group>"; };
+		02C11D5B1BF966E200BBE0D0 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		02C11D5C1BF966E200BBE0D0 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		02CD6C2C1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideRecoverPasswordViewController.h; sourceTree = "<group>"; };
 		02CD6C2D1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutsideRecoverPasswordViewController.m; sourceTree = "<group>"; };
 		02CD6C2F1BD2C11700C38B6D /* OutsideSignInTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideSignInTableViewController.h; sourceTree = "<group>"; };
@@ -466,6 +472,7 @@
 		02921D5C1BD116D2001B6F5E /* ViewsFeed */ = {
 			isa = PBXGroup;
 			children = (
+				02C11D4E1BF95A6100BBE0D0 /* ViewsTutorial */,
 				02921D5D1BD11707001B6F5E /* FeedTableViewController.h */,
 				02921D5E1BD11707001B6F5E /* FeedTableViewController.m */,
 				0226B1551BF2C92E00009147 /* FeedTableViewCell.h */,
@@ -503,6 +510,17 @@
 				0297C9781BE6F8940068757C /* Message.m */,
 			);
 			name = ModelInbox;
+			sourceTree = "<group>";
+		};
+		02C11D4E1BF95A6100BBE0D0 /* ViewsTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				02C11D4F1BF95AAE00BBE0D0 /* TutorialFirstPageViewController.h */,
+				02C11D501BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m */,
+				02C11D5B1BF966E200BBE0D0 /* TutorialViewController.h */,
+				02C11D5C1BF966E200BBE0D0 /* TutorialViewController.m */,
+			);
+			name = ViewsTutorial;
 			sourceTree = "<group>";
 		};
 		02CD6C351BD2CE1E00C38B6D /* OutsideRecoverPassword */ = {
@@ -1041,6 +1059,7 @@
 				027A8AAC1BF4EAA200967ADA /* OutsideRecoverNewPasswordViewController.m in Sources */,
 				02EB33C61BF3815F006D6529 /* SettingsTableViewCell.m in Sources */,
 				02E7A9B41BDC5254008059BD /* PatientSelectedAppointmentSelectedTableViewController.m in Sources */,
+				02C11D5D1BF966E200BBE0D0 /* TutorialViewController.m in Sources */,
 				02F15C651BD6D5490078279D /* ForumTableViewController.m in Sources */,
 				02E7A9B81BDC5809008059BD /* MedicationSelectedTableViewController.m in Sources */,
 				703E632E1BCFDA4100205A82 /* PatientsTableViewController.m in Sources */,
@@ -1057,6 +1076,7 @@
 				02CD6C311BD2C11700C38B6D /* OutsideSignInTableViewController.m in Sources */,
 				02807F931BCE9DE10008D018 /* main.m in Sources */,
 				02E7A9AC1BDC51F5008059BD /* PatientSelectedExamSelectedTableViewController.m in Sources */,
+				02C11D511BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m in Sources */,
 				02CD6C521BD2E14500C38B6D /* MedicationsTableViewController.m in Sources */,
 				02ECD6311BDEC34900A82D0E /* Authentication.m in Sources */,
 				02E7A9A81BDC50FB008059BD /* PatientSelectedDataTableViewController.m in Sources */,

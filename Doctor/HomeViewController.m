@@ -18,9 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.doctor.isFirstTime) {
-        
-    }
     self.navigationController.navigationBarHidden = YES;
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }

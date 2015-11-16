@@ -11,6 +11,7 @@
 #import "Storyboards.h"
 #import "Authentication.h"
 #import "Parse.h"
+#import "AppDelegate.h"
 #import "Envio.h"
 
 @interface OutsideStartViewController () <UITextFieldDelegate>{
@@ -66,8 +67,22 @@
     [envio logIn:self.loginTextField.text withPassword:self.passwordTextField.text :^void (BOOL finished){
         if (finished) {
             [auth verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (bool finished){
-                self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kFeedStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kFeedNavID];
+                
+                
+                AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                
+                
+                self.menuContainerViewController.centerViewController = [[UIStoryboard
+                                                                          storyboardWithName:kFeedStoryboard
+                                                                          bundle:nil]
+                                                                         instantiateViewControllerWithIdentifier:appDelegate.doctor.isFirstTime ? kFeedFTNavID: kFeedNavID];
+                
                 [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+                
+                
+                
+                
+                
                 [spinner stopAnimating];
                 [self.loginButton setEnabled:YES];
             }];

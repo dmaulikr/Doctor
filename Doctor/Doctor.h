@@ -26,6 +26,6 @@
 @property (nonatomic, strong) NSMutableArray *favTopicsArray;
 @property (nonatomic, strong) NSMutableArray *sawTopicsArray;
 
-@property (nonatomic) BOOL *isFirstTime;
+@property (nonatomic) BOOL isFirstTime;
 
 @end
