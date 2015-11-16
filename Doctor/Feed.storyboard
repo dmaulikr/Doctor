@@ -75,7 +75,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ff-ja-v9o">
-                                <rect key="frame" x="65" y="531" width="39" height="36.5"/>
+                                <rect key="frame" x="65" y="531" width="39" height="37"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.11570845238218741" green="1" blue="0.071200499397738315" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -189,15 +189,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbN-4I-HVL">
-                                <rect key="frame" x="39" y="336" width="316" height="184"/>
+                                <rect key="frame" x="20" y="336" width="335" height="184"/>
                                 <animations/>
-                                <string key="text">Aqui você tem acesso aos prontuários dos seus pacientes.                               Acesse histórico de condições clínicas, tratamentos, consultas e exames de maneira prática e rápida.</string>
+                                <string key="text">Aqui você tem acesso aos prontuários dos seus pacientes. Acesse histórico de condições clínicas, tratamentos, consultas e exames de maneira prática e rápida.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone-tutorial-pacientes" translatesAutoresizingMaskIntoConstraints="NO" id="WOz-ko-G2y">
-                                <rect key="frame" x="150" y="539" width="74" height="72"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone-tutorial-sair" translatesAutoresizingMaskIntoConstraints="NO" id="WOz-ko-G2y">
+                                <rect key="frame" x="145" y="528" width="85" height="85"/>
                                 <animations/>
                             </imageView>
                         </subviews>
@@ -350,7 +350,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wsg-B3-Slz" id="9qD-2c-Sj2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="219.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GRUPOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hp-dH-Wpt">
@@ -405,7 +405,7 @@
                                         <rect key="frame" x="0.0" y="220" width="375" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iAE-Pn-awg" id="48B-1l-NDu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="169.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Foram adicionados novos 40 medicamentos na sua biblioteca. Dentre eles destaque para:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dJ-iA-ynv">
@@ -456,7 +456,7 @@
                                         <rect key="frame" x="0.0" y="390" width="375" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IsU-g2-ZUd" id="yxZ-iz-wYN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ATUALIZAÇÃO PACIENTES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znV-nM-5vE">
@@ -486,7 +486,7 @@
                                         <rect key="frame" x="0.0" y="511" width="375" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BcW-lU-CEQ" id="Yvm-AO-Eg5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="107.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CHAT PRIVADO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYm-pj-4GB">
@@ -504,7 +504,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pedro Morais: &quot;Bruno, preciso de uma receita.&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1o-Vd-pZp">
-                                                    <rect key="frame" x="82" y="51" width="248" height="32.5"/>
+                                                    <rect key="frame" x="82" y="51" width="248" height="33"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -551,9 +551,9 @@
         <image name="feed-medicamentos" width="80" height="62"/>
         <image name="home-logo" width="949" height="329"/>
         <image name="icone-menu" width="21" height="16"/>
-        <image name="icone-tutorial-pacientes" width="148" height="160"/>
+        <image name="icone-tutorial-sair" width="118" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3xa-8q-Ldl"/>
+        <segue reference="8Zb-hu-U2u"/>
     </inferredMetricsTieBreakers>
 </document>
