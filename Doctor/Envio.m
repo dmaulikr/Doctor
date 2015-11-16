@@ -57,7 +57,7 @@
     user.password = doctor.doctorPasswordString;
     user.email = doctor.doctorEmailString;
     user[@"CRM"] = doctor.doctorCRMString;
-    user[@"celular"] = doctor.doctorCelularString;
+    user[@"celular"] = doctor.doctorContactString;
     user[@"patients"] = doctor.doctorPatientsArray;
     
     PFFile* userPhoto = [PFFile fileWithData:doctor.doctorPhotoData];
@@ -496,7 +496,7 @@
                 NSLog(@"%@", object.objectId);
                 
                 Doctor* doctor = [[Doctor alloc]init];
-                doctor.doctorCelularString = [object objectForKey:@"celular"];
+                doctor.doctorContactString = [object objectForKey:@"celular"];
                 doctor.doctorCRMString = [object objectForKey:@"CRM"];
                 doctor.doctorEmailString = [object objectForKey:@"email"];
                 doctor.doctorNameString = [object objectForKey:@"name"];
@@ -859,7 +859,7 @@
     
     log.logRegisteredBy = [NSString stringWithFormat:@"%@", doctor.doctorCRMString];
     log.logActivityType = @"Doctor - Creation";
-    log.logActivityRegister = [NSString stringWithFormat:@"Doctor %@ was created | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorCelularString];
+    log.logActivityRegister = [NSString stringWithFormat:@"Doctor %@ was created | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorContactString];
     log.logPatientsEnvolved = nil;
     log.logCreatedAt = [self getSystemDate];
     
@@ -889,7 +889,7 @@
     
     log.logRegisteredBy = [NSString stringWithFormat:@"%@", doctor.doctorCRMString];
     log.logActivityType = @"Doctor - Updated Info";
-    log.logActivityRegister = [NSString stringWithFormat:@"Doctor %@ updated something | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorCelularString];
+    log.logActivityRegister = [NSString stringWithFormat:@"Doctor %@ updated something | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorContactString];
     log.logPatientsEnvolved = nil;
     log.logCreatedAt = [self getSystemDate];
     
@@ -918,7 +918,7 @@
     
     log.logRegisteredBy = [NSString stringWithFormat:@"%@", doctor.doctorCRMString];
     log.logActivityType = @"Doctor creation";
-    log.logActivityRegister = [NSString stringWithFormat:@"Doctor %@ Interacted | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorCelularString];
+    log.logActivityRegister = [NSString stringWithFormat:@"Doctor %@ Interacted | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorContactString];
     log.logPatientsEnvolved = nil;
     log.logCreatedAt = [self getSystemDate];
     
@@ -947,7 +947,7 @@
     
     log.logRegisteredBy = [NSString stringWithFormat:@"%@", doctor.doctorCRMString];
     log.logActivityType = @"Doctor creation";
-    log.logActivityRegister = [NSString stringWithFormat:@"Doctor %@ was Deleted of our platform | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorCelularString];
+    log.logActivityRegister = [NSString stringWithFormat:@"Doctor %@ was Deleted of our platform | CRM:%@ | E-mail:%@ | Username:%@ | Celular:%@ ", doctor.doctorNameString, doctor.doctorCRMString, doctor.doctorEmailString, doctor.doctorUsernameString, doctor.doctorContactString];
     log.logPatientsEnvolved = nil;
     log.logCreatedAt = [self getSystemDate];
     

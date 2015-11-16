@@ -31,6 +31,8 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
 @property (nonatomic, weak) IBOutlet UITextView* instructionsTextView;
 @property (nonatomic, weak) IBOutlet UIImageView* sectionImageView;
 
+@property (nonatomic, weak) IBOutlet UIPageControl* pageControl;
+
 @end
 
 @implementation TutorialViewController
@@ -50,6 +52,9 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
     self.leaveLabel.alpha = 1.0;
     self.instructionsTextView.alpha = 0.0;
     self.sectionImageView.alpha = 0.0;
+    self.pageControl.alpha = 0.0;
+    
+    self.pageControl.numberOfPages = 5;
     
     self.instructionsTextView.textColor = [UIColor whiteColor];
     self.instructionsTextView.font = [UIFont fontWithName:@"Helvetica" size:17];
@@ -64,19 +69,24 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
     i++;
     switch (i) {
         case 1:
+            self.pageControl.currentPage = 0;
             [self performFirstAnimation];
             break;
         case 2:
             [self performSecondAnimation];
+            self.pageControl.currentPage = 1;
             break;
         case 3:
             [self performThirdAnimation];
+            self.pageControl.currentPage = 2;
             break;
         case 4:
             [self performFourthAnimation];
+            self.pageControl.currentPage = 3;
             break;
         case 5:
             [self performFifthAnimation];
+            self.pageControl.currentPage = 4;
             break;
             case 6:
             [self performSegueWithIdentifier:@"finishedTutorialSegue" sender:self];
@@ -94,6 +104,7 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
         
         self.instructionsTextView.alpha = 1.0;
         self.sectionImageView.alpha = 1.0;
+        self.pageControl.alpha = 1.0;
         
         self.instructionsTextView.text = kFirstTextViewText;
         
@@ -110,6 +121,7 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
         
         self.instructionsTextView.alpha = 1.0;
         self.sectionImageView.alpha = 1.0;
+        self.pageControl.alpha = 1.0;
         
         self.instructionsTextView.text = kSecondTextViewText;
         
@@ -128,6 +140,7 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
         
         self.instructionsTextView.alpha = 1.0;
         self.sectionImageView.alpha = 1.0;
+        self.pageControl.alpha = 1.0;
         
         self.instructionsTextView.text = kThirdTextViewText;
         
@@ -146,6 +159,7 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
         
         self.instructionsTextView.alpha = 1.0;
         self.sectionImageView.alpha = 1.0;
+        self.pageControl.alpha = 1.0;
         
         self.instructionsTextView.text = kFourthTextViewText;
         
@@ -164,6 +178,7 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
         
         self.instructionsTextView.alpha = 1.0;
         self.sectionImageView.alpha = 1.0;
+        self.pageControl.alpha = 1.0;
         
         self.instructionsTextView.text = kFifthTextViewText;
         

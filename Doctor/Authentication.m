@@ -27,6 +27,10 @@
                     doctor.doctorNameString = object[@"Nome"];
                     doctor.favTopicsArray = object[@"favForumTopics"];
                     doctor.isFirstTime = [object[@"isFirstTime"] boolValue];
+                    doctor.doctorEmailString = object[@"Email"];
+                    doctor.doctorAddressString = object[@"Address"];
+                    doctor.doctorUsernameString = user;
+                    doctor.doctorContactString = object[@"Contact"];
                     appDelegate.doctor = doctor;
                 }else{
                     self.granted = false;

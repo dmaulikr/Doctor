@@ -13,6 +13,7 @@
 @interface TutorialFirstPageViewController ()
 
 @property (nonatomic, weak) IBOutlet UILabel* nonThanksLabel;
+@property (nonatomic, weak) IBOutlet UIButton* goToTutoButton;
 
 @end
 
@@ -25,6 +26,8 @@
     self.nonThanksLabel.backgroundColor = [UIColor clearColor];
     self.nonThanksLabel.layer.borderColor = [UIColor whiteColor].CGColor;
     self.nonThanksLabel.layer.borderWidth = 3.0;
+    
+    [self.goToTutoButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
 }
 
 - (IBAction)clickedNonTapped:(id)sender{

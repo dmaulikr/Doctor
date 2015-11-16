@@ -100,6 +100,7 @@
                     <navigationItem key="navigationItem" id="c5v-F8-evU"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="goToTutoButton" destination="OD0-OC-4nZ" id="VtD-9t-NVC"/>
                         <outlet property="nonThanksLabel" destination="4Ff-ja-v9o" id="UDw-MZ-tvw"/>
                         <segue destination="iOO-UF-ud5" kind="show" identifier="goToAppSegue" id="3xa-8q-Ldl"/>
                         <segue destination="CwZ-My-doY" kind="show" identifier="goToTutorialSegue" id="nW7-8P-wvi"/>
@@ -196,8 +197,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ntj-3i-cqo">
+                                <rect key="frame" x="142" y="594" width="90" height="37"/>
+                                <animations/>
+                            </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone-tutorial-sair" translatesAutoresizingMaskIntoConstraints="NO" id="WOz-ko-G2y">
-                                <rect key="frame" x="145" y="528" width="85" height="85"/>
+                                <rect key="frame" x="145" y="487" width="85" height="85"/>
                                 <animations/>
                             </imageView>
                         </subviews>
@@ -210,6 +215,7 @@
                         <outlet property="instructionsTextView" destination="EbN-4I-HVL" id="jx5-CM-19Y"/>
                         <outlet property="leaveLabel" destination="Zr6-n9-aU5" id="BGM-cz-zxz"/>
                         <outlet property="medicationsLabel" destination="D3m-af-zbw" id="kBL-RT-GOu"/>
+                        <outlet property="pageControl" destination="Ntj-3i-cqo" id="bbr-LZ-pbQ"/>
                         <outlet property="patientsLabel" destination="1X4-nl-llQ" id="Dbz-g8-nUg"/>
                         <outlet property="sectionImageView" destination="WOz-ko-G2y" id="dmm-V8-Pth"/>
                         <outlet property="settingsLabel" destination="MvP-7L-nBP" id="emF-Ng-mGg"/>

@@ -14,6 +14,7 @@
 		022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DB1BCFC9CC00B7C1E0 /* MainViewController.m */; };
 		022928E01BCFCA5500B7C1E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */; };
 		022928E31BCFCCF200B7C1E0 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022928E21BCFCCF200B7C1E0 /* Feed.storyboard */; };
+		02424B751BF9F5770001B77B /* SettingsSAAPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02424B741BF9F5770001B77B /* SettingsSAAPTableViewController.m */; };
 		024FD6AB1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 024FD6AA1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m */; };
 		02755B581BE10669000A5183 /* Inbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02755B571BE10669000A5183 /* Inbox.storyboard */; };
 		02755B5A1BE10679000A5183 /* Appointments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02755B591BE10679000A5183 /* Appointments.storyboard */; };
@@ -129,6 +130,8 @@
 		022928DE1BCFCA5500B7C1E0 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		022928E21BCFCCF200B7C1E0 /* Feed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		02424B731BF9F5770001B77B /* SettingsSAAPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSAAPTableViewController.h; sourceTree = "<group>"; };
+		02424B741BF9F5770001B77B /* SettingsSAAPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSAAPTableViewController.m; sourceTree = "<group>"; };
 		024FD6A91BECF2D9001B5057 /* ForumMessageSendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumMessageSendTableViewCell.h; sourceTree = "<group>"; };
 		024FD6AA1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumMessageSendTableViewCell.m; sourceTree = "<group>"; };
 		02755B571BE10669000A5183 /* Inbox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Inbox.storyboard; sourceTree = "<group>"; };
@@ -608,6 +611,8 @@
 				02CD6C4E1BD2DE6300C38B6D /* SettingsTableViewController.m */,
 				02EB33C41BF3815F006D6529 /* SettingsTableViewCell.h */,
 				02EB33C51BF3815F006D6529 /* SettingsTableViewCell.m */,
+				02424B731BF9F5770001B77B /* SettingsSAAPTableViewController.h */,
+				02424B741BF9F5770001B77B /* SettingsSAAPTableViewController.m */,
 			);
 			name = ViewsSettings;
 			sourceTree = "<group>";
@@ -1056,6 +1061,7 @@
 				02755B621BE10854000A5183 /* InboxTableViewController.m in Sources */,
 				02CD6C4A1BD2DAAC00C38B6D /* Doctor.m in Sources */,
 				02EB33D21BF38E42006D6529 /* MedicationsComercialsTableViewController.m in Sources */,
+				02424B751BF9F5770001B77B /* SettingsSAAPTableViewController.m in Sources */,
 				027A8AAC1BF4EAA200967ADA /* OutsideRecoverNewPasswordViewController.m in Sources */,
 				02EB33C61BF3815F006D6529 /* SettingsTableViewCell.m in Sources */,
 				02E7A9B41BDC5254008059BD /* PatientSelectedAppointmentSelectedTableViewController.m in Sources */,
