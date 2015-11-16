@@ -568,14 +568,14 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                appointment.appointmentDoctor = [object objectForKey:@"doctor"];
+                appointment.appointmentDoctor = [object objectForKey:@"DoctorEnvolved"];
                 appointment.appointmentCreatedAt = [object objectForKey:@"createdAt"];
-                appointment.appointmentDiagnosis = [object objectForKey:@"diagnosis"];
-                appointment.appointmentPatient = [object objectForKey:@"patient"];
-                appointment.appointmentTreatment = [object objectForKey:@"treatment"];
+                appointment.appointmentDiagnosis = [object objectForKey:@"Diagnosis"];
+                appointment.appointmentPatient = [object objectForKey:@"PatientEnvolved"];
+                appointment.appointmentTreatment = [object objectForKey:@"Treatment"];
                 appointment.appointmentCaseHistory = [object objectForKey:@"caseHistory"];
                 appointment.appointmentObjectId = [object objectForKey:@"objectId"];
-                appointment.appointmentExams = [object objectForKey:@"exams"];
+                appointment.appointmentExams = [object objectForKey:@"Exams"];
                 [appointmentArray addObject:appointment];
             }
             if (appointmentArray) {

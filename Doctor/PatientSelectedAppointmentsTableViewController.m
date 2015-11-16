@@ -8,6 +8,7 @@
 
 #import "PatientSelectedAppointmentsTableViewController.h"
 #import "Envio.h"
+#import "Appointment.h"
 #import "Patient.h"
 
 @interface PatientSelectedAppointmentsTableViewController (){
@@ -39,11 +40,18 @@
     NSString* AppointmentAreaCellID = @"AppointmentsAreaTableViewCellID";
     NSString* HeaderCellID = @"headerCellID";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AppointmentCellID];
+    NSString* notHeaderCellID = indexPath.row % 2 == 0 ? AppointmentCellID : AppointmentAreaCellID;
+    
+    NSString* cellIdentifier = indexPath.row == 0 ? HeaderCellID : notHeaderCellID;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
     if (cell==nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AppointmentCellID];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    cell.textLabel.text = @"teste";
+    Appointment* appointment = [[Appointment alloc] init];
+    appointment = tableViewDataArray[indexPath.row];
+    cell.textLabel.text = appointment.appointmentPatient.patientNameString;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -70,5 +78,11 @@
     [self.view addSubview:spinner];
     [spinner startAnimating];
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return indexPath.row == 0 ? 156 : 50;
+}
+
 
 @end
