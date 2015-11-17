@@ -7,7 +7,8 @@
 //
 
 #import "MedicationsLabsTableViewController.h"
-#import "Medication.h"
+#import "MedicationsLabsTableViewCell.h"
+#import "Lab.h"
 #import "Envio.h"
 
 @interface MedicationsLabsTableViewController () <UISearchBarDelegate> {
@@ -17,8 +18,8 @@ BOOL isSearching;
 }
 
 @property (strong, nonatomic) IBOutlet UISearchBar *medicationsSearchBar;
-@property (strong, nonatomic) NSMutableArray* medicationsArray;
-@property (strong, nonatomic) NSMutableArray* filteredMedicationsArray;
+@property (strong, nonatomic) NSMutableArray* labsArray;
+@property (strong, nonatomic) NSMutableArray* filteredLabsArray;
 
 @end
 
@@ -27,10 +28,11 @@ BOOL isSearching;
 - (void)viewDidLoad {
     [super viewDidLoad];
     tableViewDataArray = [[NSMutableArray alloc] init];
-    self.filteredMedicationsArray = [[NSMutableArray alloc] init];
-    self.medicationsArray = [[NSMutableArray alloc] init];
+    self.filteredLabsArray = [[NSMutableArray alloc] init];
+    self.labsArray = [[NSMutableArray alloc] init];
     [self setupLoadingAnimation];
     [self setupDataSource];
+    self.tableView.tableFooterView = [UIView new];
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
@@ -41,14 +43,15 @@ BOOL isSearching;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString* MedicationsTableViewCellID = @"MedicationsLabsTableViewCellID";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MedicationsTableViewCellID];
+    MedicationsLabsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MedicationsTableViewCellID];
     if (cell==nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MedicationsTableViewCellID];
+        cell = [[MedicationsLabsTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MedicationsTableViewCellID];
     }
     
-    Medication* medication = [[Medication alloc] init];
-    medication = tableViewDataArray[indexPath.row];
-    cell.textLabel.text = medication.medicationCategoryString;
+    Lab* lab = [[Lab alloc] init];
+    lab = tableViewDataArray[indexPath.row];
+    cell.labSiglaLabel.text = lab.labSigla;
+    cell.labExtensoLabel.text = lab.labExtenso;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -60,10 +63,10 @@ BOOL isSearching;
 #pragma mark - Setups
 - (void)setupDataSource{
     Envio* newEnvio = [[Envio alloc]init];
-    [newEnvio fetchAllMedications: ^void (NSMutableArray* medicationArray){
-        if (medicationArray){
-            self.medicationsArray = medicationArray;
-            tableViewDataArray = self.medicationsArray;
+    [newEnvio fetchAllLabs: ^void (NSMutableArray* labsArray){
+        if (labsArray){
+            self.labsArray = labsArray;
+            tableViewDataArray = self.labsArray;
             [self.tableView reloadData];
             [spinner stopAnimating];
         }else{
@@ -90,21 +93,21 @@ BOOL isSearching;
 #pragma mark - UISearchBarDelegate Methods
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([searchText isEqualToString:@""]) {
-        tableViewDataArray = self.medicationsArray;
+        tableViewDataArray = self.labsArray;
         [self.tableView reloadData];
     }
     else{
         isSearching = true;
-        [self.filteredMedicationsArray removeAllObjects];
-        for (int i = 0; i < self.medicationsArray.count; i++) {
-            Medication* medicationsSearching  = [[Medication alloc] init];
-            medicationsSearching = self.medicationsArray[i];
-            NSString* toCheck = [medicationsSearching.medicationCategoryString lowercaseString];
+        [self.filteredLabsArray removeAllObjects];
+        for (int i = 0; i < self.labsArray.count; i++) {
+            Lab* labSearching  = [[Lab alloc] init];
+            labSearching = self.labsArray[i];
+            NSString* toCheck = [labSearching.labSigla lowercaseString];
             if ([toCheck containsString:[searchText lowercaseString]]) {
-                [self.filteredMedicationsArray addObject:medicationsSearching];
+                [self.filteredLabsArray addObject:labSearching];
             }
         }
-        tableViewDataArray = self.filteredMedicationsArray;
+        tableViewDataArray = self.filteredLabsArray;
         [self.tableView reloadData];
     }
 }

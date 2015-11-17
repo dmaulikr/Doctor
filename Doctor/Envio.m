@@ -8,6 +8,8 @@
 
 #import "Envio.h"
 #import "AppDelegate.h"
+#import "Lab.h"
+#import "PA.h"
 
 @implementation Envio
 
@@ -370,7 +372,58 @@
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
             [self  showAlertViewError:error];
-
+            
+        }
+    }];
+}
+- (void)fetchAllLabs:(void (^)(NSMutableArray *))completion{
+    NSMutableArray* labsArray = [[NSMutableArray alloc]init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Labs"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                Lab* lab = [[Lab alloc]init];
+                lab.labSigla = [object objectForKey:@"Sigla"];
+                lab.labExtenso = [object objectForKey:@"Extenso"];
+                [labsArray addObject:lab];
+                if (labsArray) {
+                    completion(labsArray);
+                }else{
+                    completion(nil);
+                    NSLog(@"404 - Envio.m - fetchAllLabs");
+                }
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+}
+- (void)fetchAllPas:(void (^)(NSMutableArray *))completion{
+    NSMutableArray* PAsArray = [[NSMutableArray alloc]init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"ActivePrinciples"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                PA* pa = [[PA alloc] init];
+                pa.paString = [object objectForKey:@"ativeprinciples"];
+                [PAsArray addObject:pa];
+                if (PAsArray) {
+                    completion(PAsArray);
+                }else{
+                    completion(nil);
+                    NSLog(@"404 - Envio.m - fetchAllPAs");
+                }
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+            
         }
     }];
 }

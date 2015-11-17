@@ -36,6 +36,9 @@
 		02921D5F1BD11707001B6F5E /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D5E1BD11707001B6F5E /* FeedTableViewController.m */; };
 		02921D7D1BD14DE7001B6F5E /* Outside.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02921D7C1BD14DE7001B6F5E /* Outside.storyboard */; };
 		02921D811BD14E9A001B6F5E /* OutsideStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D801BD14E9A001B6F5E /* OutsideStartViewController.m */; };
+		029385B81BFAA4CD0071DD31 /* Lab.m in Sources */ = {isa = PBXBuildFile; fileRef = 029385B71BFAA4CD0071DD31 /* Lab.m */; };
+		029385BF1BFAA9830071DD31 /* MedicationsLabsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 029385BE1BFAA9830071DD31 /* MedicationsLabsTableViewCell.m */; };
+		029385C21BFAAC350071DD31 /* PA.m in Sources */ = {isa = PBXBuildFile; fileRef = 029385C11BFAAC350071DD31 /* PA.m */; };
 		0297C9721BE6F8060068757C /* ForumTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C9711BE6F8060068757C /* ForumTopic.m */; };
 		0297C9751BE6F82F0068757C /* ForumTopicMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C9741BE6F82F0068757C /* ForumTopicMessage.m */; };
 		0297C9791BE6F8940068757C /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C9781BE6F8940068757C /* Message.m */; };
@@ -174,6 +177,12 @@
 		02921D7C1BD14DE7001B6F5E /* Outside.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Outside.storyboard; sourceTree = "<group>"; };
 		02921D7F1BD14E9A001B6F5E /* OutsideStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideStartViewController.h; sourceTree = "<group>"; };
 		02921D801BD14E9A001B6F5E /* OutsideStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutsideStartViewController.m; sourceTree = "<group>"; };
+		029385B61BFAA4CD0071DD31 /* Lab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lab.h; sourceTree = "<group>"; };
+		029385B71BFAA4CD0071DD31 /* Lab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lab.m; sourceTree = "<group>"; };
+		029385BD1BFAA9830071DD31 /* MedicationsLabsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicationsLabsTableViewCell.h; sourceTree = "<group>"; };
+		029385BE1BFAA9830071DD31 /* MedicationsLabsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationsLabsTableViewCell.m; sourceTree = "<group>"; };
+		029385C01BFAAC350071DD31 /* PA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PA.h; sourceTree = "<group>"; };
+		029385C11BFAAC350071DD31 /* PA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PA.m; sourceTree = "<group>"; };
 		0297C9701BE6F8060068757C /* ForumTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumTopic.h; sourceTree = "<group>"; };
 		0297C9711BE6F8060068757C /* ForumTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTopic.m; sourceTree = "<group>"; };
 		0297C9731BE6F82F0068757C /* ForumTopicMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumTopicMessage.h; sourceTree = "<group>"; };
@@ -515,6 +524,44 @@
 			name = ViewsOutside;
 			sourceTree = "<group>";
 		};
+		029385B91BFAA9450071DD31 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				02EB33C71BF38E1E006D6529 /* MedicationsClassesTableViewController.h */,
+				02EB33C81BF38E1E006D6529 /* MedicationsClassesTableViewController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		029385BA1BFAA94B0071DD31 /* Laboratorios */ = {
+			isa = PBXGroup;
+			children = (
+				029385BD1BFAA9830071DD31 /* MedicationsLabsTableViewCell.h */,
+				029385BE1BFAA9830071DD31 /* MedicationsLabsTableViewCell.m */,
+				02EB33CA1BF38E2B006D6529 /* MedicationsLabsTableViewController.h */,
+				02EB33CB1BF38E2B006D6529 /* MedicationsLabsTableViewController.m */,
+			);
+			name = Laboratorios;
+			sourceTree = "<group>";
+		};
+		029385BB1BFAA9520071DD31 /* PAs */ = {
+			isa = PBXGroup;
+			children = (
+				02EB33CD1BF38E36006D6529 /* MedicationsPrinciplesTableViewController.h */,
+				02EB33CE1BF38E36006D6529 /* MedicationsPrinciplesTableViewController.m */,
+			);
+			name = PAs;
+			sourceTree = "<group>";
+		};
+		029385BC1BFAA95C0071DD31 /* Comerciais */ = {
+			isa = PBXGroup;
+			children = (
+				02EB33D01BF38E42006D6529 /* MedicationsComercialsTableViewController.h */,
+				02EB33D11BF38E42006D6529 /* MedicationsComercialsTableViewController.m */,
+			);
+			name = Comerciais;
+			sourceTree = "<group>";
+		};
 		0297C9761BE6F8720068757C /* ModelInbox */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,6 +633,10 @@
 			children = (
 				02CD6C441BD2D86600C38B6D /* Medication.h */,
 				02CD6C451BD2D86600C38B6D /* Medication.m */,
+				029385B61BFAA4CD0071DD31 /* Lab.h */,
+				029385B71BFAA4CD0071DD31 /* Lab.m */,
+				029385C01BFAAC350071DD31 /* PA.h */,
+				029385C11BFAAC350071DD31 /* PA.m */,
 			);
 			name = ModelMedications;
 			sourceTree = "<group>";
@@ -638,14 +689,10 @@
 				02CD6C501BD2E14500C38B6D /* MedicationsTableViewController.h */,
 				02CD6C511BD2E14500C38B6D /* MedicationsTableViewController.m */,
 				02E7A9B51BDC57F7008059BD /* MedicationSelected */,
-				02EB33C71BF38E1E006D6529 /* MedicationsClassesTableViewController.h */,
-				02EB33C81BF38E1E006D6529 /* MedicationsClassesTableViewController.m */,
-				02EB33CA1BF38E2B006D6529 /* MedicationsLabsTableViewController.h */,
-				02EB33CB1BF38E2B006D6529 /* MedicationsLabsTableViewController.m */,
-				02EB33CD1BF38E36006D6529 /* MedicationsPrinciplesTableViewController.h */,
-				02EB33CE1BF38E36006D6529 /* MedicationsPrinciplesTableViewController.m */,
-				02EB33D01BF38E42006D6529 /* MedicationsComercialsTableViewController.h */,
-				02EB33D11BF38E42006D6529 /* MedicationsComercialsTableViewController.m */,
+				029385B91BFAA9450071DD31 /* Classes */,
+				029385BA1BFAA94B0071DD31 /* Laboratorios */,
+				029385BB1BFAA9520071DD31 /* PAs */,
+				029385BC1BFAA95C0071DD31 /* Comerciais */,
 			);
 			name = ViewsMedications;
 			sourceTree = "<group>";
@@ -1067,6 +1114,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				029385C21BFAAC350071DD31 /* PA.m in Sources */,
 				02807F991BCE9DE10008D018 /* ViewController.m in Sources */,
 				703E63311BCFDA6A00205A82 /* PatientsTableViewCell.m in Sources */,
 				02E7A99C1BDC50D5008059BD /* PatientSelectedAppointmentsTableViewController.m in Sources */,
@@ -1082,6 +1130,7 @@
 				02EB33C61BF3815F006D6529 /* SettingsTableViewCell.m in Sources */,
 				02E7A9B41BDC5254008059BD /* PatientSelectedAppointmentSelectedTableViewController.m in Sources */,
 				02C11D5D1BF966E200BBE0D0 /* TutorialViewController.m in Sources */,
+				029385BF1BFAA9830071DD31 /* MedicationsLabsTableViewCell.m in Sources */,
 				02F15C651BD6D5490078279D /* ForumTableViewController.m in Sources */,
 				02E7A9B81BDC5809008059BD /* MedicationSelectedTableViewController.m in Sources */,
 				703E632E1BCFDA4100205A82 /* PatientsTableViewController.m in Sources */,
@@ -1100,6 +1149,7 @@
 				02807F931BCE9DE10008D018 /* main.m in Sources */,
 				02E7A9AC1BDC51F5008059BD /* PatientSelectedExamSelectedTableViewController.m in Sources */,
 				02C11D511BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m in Sources */,
+				029385B81BFAA4CD0071DD31 /* Lab.m in Sources */,
 				02CD6C521BD2E14500C38B6D /* MedicationsTableViewController.m in Sources */,
 				02ECD6311BDEC34900A82D0E /* Authentication.m in Sources */,
 				02E7A9A81BDC50FB008059BD /* PatientSelectedDataTableViewController.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "MedicationsPrinciplesTableViewController.h"
 #import "Envio.h"
-#import "Medication.h"
+#import "PA.h"
 
 @interface MedicationsPrinciplesTableViewController () <UISearchBarDelegate> {
 NSMutableArray* tableViewDataArray;
@@ -17,8 +17,8 @@ BOOL isSearching;
 }
 
 @property (strong, nonatomic) IBOutlet UISearchBar *medicationsSearchBar;
-@property (strong, nonatomic) NSMutableArray* medicationsArray;
-@property (strong, nonatomic) NSMutableArray* filteredMedicationsArray;
+@property (strong, nonatomic) NSMutableArray* pasArray;
+@property (strong, nonatomic) NSMutableArray* filteredPasArray;
 
 @end
 
@@ -27,8 +27,8 @@ BOOL isSearching;
 - (void)viewDidLoad {
     [super viewDidLoad];
     tableViewDataArray = [[NSMutableArray alloc] init];
-    self.filteredMedicationsArray = [[NSMutableArray alloc] init];
-    self.medicationsArray = [[NSMutableArray alloc] init];
+    self.filteredPasArray = [[NSMutableArray alloc] init];
+    self.pasArray = [[NSMutableArray alloc] init];
     [self setupLoadingAnimation];
     [self setupDataSource];
 }
@@ -39,16 +39,15 @@ BOOL isSearching;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString* MedicationsTableViewCellID = @"MedicationsPrinciplesTableViewCellID";
+    NSString* MedicationsPATableViewCellID = @"MedicationsPrinciplesTableViewCellID";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MedicationsTableViewCellID];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MedicationsPATableViewCellID];
     if (cell==nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MedicationsTableViewCellID];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MedicationsPATableViewCellID];
     }
-    
-    Medication* medication = [[Medication alloc] init];
-    medication = tableViewDataArray[indexPath.row];
-    cell.textLabel.text = medication.medicationCategoryString;
+    PA* pa = [[PA alloc] init];
+    pa = tableViewDataArray[indexPath.row];
+    cell.textLabel.text = pa.paString;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -60,10 +59,10 @@ BOOL isSearching;
 #pragma mark - Setups
 - (void)setupDataSource{
     Envio* newEnvio = [[Envio alloc]init];
-    [newEnvio fetchAllMedications: ^void (NSMutableArray* medicationArray){
-        if (medicationArray){
-            self.medicationsArray = medicationArray;
-            tableViewDataArray = self.medicationsArray;
+    [newEnvio fetchAllPas: ^void (NSMutableArray* pasArray){
+        if (pasArray){
+            self.pasArray = pasArray;
+            tableViewDataArray = self.pasArray;
             [self.tableView reloadData];
             [spinner stopAnimating];
         }else{
@@ -90,21 +89,21 @@ BOOL isSearching;
 #pragma mark - UISearchBarDelegate Methods
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([searchText isEqualToString:@""]) {
-        tableViewDataArray = self.medicationsArray;
+        tableViewDataArray = self.pasArray;
         [self.tableView reloadData];
     }
     else{
         isSearching = true;
-        [self.filteredMedicationsArray removeAllObjects];
-        for (int i = 0; i < self.medicationsArray.count; i++) {
-            Medication* medicationsSearching  = [[Medication alloc] init];
-            medicationsSearching = self.medicationsArray[i];
-            NSString* toCheck = [medicationsSearching.medicationCategoryString lowercaseString];
+        [self.filteredPasArray removeAllObjects];
+        for (int i = 0; i < self.pasArray.count; i++) {
+            PA* paSearching  = [[PA alloc] init];
+            paSearching = self.pasArray[i];
+            NSString* toCheck = [paSearching.paString lowercaseString];
             if ([toCheck containsString:[searchText lowercaseString]]) {
-                [self.filteredMedicationsArray addObject:medicationsSearching];
+                [self.filteredPasArray addObject:paSearching];
             }
         }
-        tableViewDataArray = self.filteredMedicationsArray;
+        tableViewDataArray = self.filteredPasArray;
         [self.tableView reloadData];
     }
 }

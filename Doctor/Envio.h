@@ -45,9 +45,12 @@
 - (void)logIn: (NSString*)username withPassword: (NSString*)password :(void (^)(BOOL finished))completion;
 
 - (void)fetchPatientPassingCPF: (NSString*)CPF withCompletion:(void (^)(Patient* patient))completion;
-- (void)fetchAllPatients: (void (^)(NSMutableArray* patientArray))completion;
 
-- (void)fetchAllMedications: (void (^)(NSMutableArray* medicationArray))completion;
+- (void)fetchAllPatients: (void (^)(NSMutableArray* patientArray))completion;
+- (void)fetchAllMedications:(void (^)(NSMutableArray* medicationArray))completion;
+- (void)fetchAllLabs:(void (^)(NSMutableArray* labsArray))completion;
+- (void)fetchAllPas:(void (^)(NSMutableArray *))completion;
+
 
 - (void)fetchAppointmentPassingDoctor:(Doctor *)doctor withCompletion:(void (^)(NSMutableArray* appointmentArray))completion;
 - (void)fetchAppointmentPassingPatient:(Patient *)patient withCompletion:(void (^)(NSMutableArray* appointmentArray))completion;
