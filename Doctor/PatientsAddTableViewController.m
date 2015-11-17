@@ -9,9 +9,11 @@
 #import "PatientsAddTableViewController.h"
 #import "Patient.h"
 #import "Envio.h"
+#import "UIImageResizing.h"
 
 @interface PatientsAddTableViewController () <UITextViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>{
     UIImagePickerController* imagePickerController;
+    BOOL tookFromCamera;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView* cameraImageView;
@@ -52,6 +54,7 @@
     [self setupCameraGestureRecognizer];
     [self setupTextViewsDelegate];
     imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
 }
 
 #pragma mark - UITextViewDelegate Methods
@@ -437,51 +440,38 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)getPhoto{
-    if (!imagePickerController) {
-        imagePickerController = [[UIImagePickerController alloc] init];
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-            [imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
-        } else {
-            [imagePickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-        }
-        [imagePickerController setDelegate:self];
-    }
-    [self presentModalViewController:imagePickerController animated:YES];
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
- //   image = [ImageHelpers imageWithImage:image scaledToSize:CGSizeMake(480, 640)];
-    [self.cameraImageView setImage:image];
-    [self dismissModalViewControllerAnimated:YES];
-}
-
-- (void) takePhoto{
-    @try{
-        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        picker.delegate = self;
-        [self presentModalViewController:picker animated:YES];
-    }
-    @catch (NSException *exception){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Camera" message:@"Camera is not available" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alert show];
-    }
-}
-
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
-            //rolo
-            [self getPhoto];
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            tookFromCamera = false;
+            [self presentModalViewController:imagePickerController animated:YES];
             break;
         case 1:
-            [self takePhoto];
+            @try{
+                imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+                tookFromCamera = true;
+                [self presentModalViewController:imagePickerController animated:YES];
+            }
+            @catch (NSException *exception){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sem câmera!" message:@"Algo ocorreu, e a câmera não está disponível." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            }
             break;
-       
         default:
             break;
     }
 }
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage* smallImage = [image scaleToSize:CGSizeMake(180,640)];
+    self.cameraImageView.layer.cornerRadius = self.cameraImageView.frame.size.height/2;
+    self.cameraImageView.layer.masksToBounds = YES;
+    if (tookFromCamera) self.cameraImageView.transform = CGAffineTransformMakeRotation(M_PI_2);
+    [self.cameraImageView setImage:smallImage];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 @end
