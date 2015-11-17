@@ -20,4 +20,6 @@
 @property (strong, nonatomic) NSString* patientObjectId;
 @property (strong, nonatomic) NSMutableArray* patientDoctors;
 
+@property (strong, nonatomic) NSData* patientPhotoData;
+
 @end

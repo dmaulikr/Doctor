@@ -55,7 +55,13 @@
     [self setupTextViewsDelegate];
     imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.delegate = self;
+    
 }
+
+//-(void) viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//}
 
 #pragma mark - UITextViewDelegate Methods
 - (void) textViewDidChange:(UITextView *)textView{
@@ -430,10 +436,13 @@
    // patient.patientRGString = self.patientRGTextView.text;
    // patient.patientCPFString = self.patienCPFTextView.text;
    // patient.patientAgeString = self.patientAgeTextView.text;
+    UIImage* patientImage = self.cameraImageView.image;
+    patient.patientPhotoData = UIImagePNGRepresentation(patientImage);
     patient.patientBirthDateString = self.patientBirthdateTextView.text;
     patient.patientAdressString = self.patientAdressTextView.text;
   //  patient.patientWeightString = self.patientWeightTextView.text;
   //  patient.patientHeightString = self.patientHeightTextView.text;
+    
     
     Envio* envio = [[Envio alloc] init];
     [envio newPatient:patient];
@@ -466,6 +475,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     UIImage* smallImage = [image scaleToSize:CGSizeMake(180,640)];
+    NSData* photoData = UIImagePNGRepresentation(smallImage);
+    
     self.cameraImageView.layer.cornerRadius = self.cameraImageView.frame.size.height/2;
     self.cameraImageView.layer.masksToBounds = YES;
     if (tookFromCamera) self.cameraImageView.transform = CGAffineTransformMakeRotation(M_PI_2);

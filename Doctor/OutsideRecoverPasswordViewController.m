@@ -75,6 +75,8 @@
                 else{
                     self.confirmTokenButton.backgroundColor = [UIColor grayColor];
                 }
+                
+            
             }
             break;
         case 2:

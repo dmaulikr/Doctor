@@ -8,6 +8,8 @@
 
 #import "OutsideSignInTableViewController.h"
 #import "OutsideSignInConfirmViewController.h"
+#import "Doctor.h"
+#import "Envio.h"
 
 @interface OutsideSignInTableViewController () <UIAlertViewDelegate, UITextViewDelegate, UIActionSheetDelegate>
 
@@ -29,6 +31,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView* doctorEmailImageView;
 @property (weak, nonatomic) IBOutlet UIImageView* doctorAreaCodeImageView;
 
+@property (weak, nonatomic) IBOutlet UIImage* doctorPhotoImage;
+
 @end
 
 NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esses dados só serão usados para verificar sua veracidade. Talvez a senha não digitada não tenha sido a mesma.";
@@ -49,9 +53,13 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.topItem.title = @"Registrar";
     self.navigationController.navigationBar.backItem.title = @"";
+    
+    
 }
 
 #pragma mark - IBActions
@@ -103,6 +111,23 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 //                                          // see the VerifyError class for details on what to expect
 //                                      }];
 //}
+
+- (void)sendNewDoctorToParse
+{
+    Doctor* newDoctor = [[Doctor alloc]init];
+    newDoctor.doctorNameString = self.doctorNameTextView.text;
+    newDoctor.doctorEmailString = self.doctorEmailTextView.text;
+    newDoctor.doctorPasswordString = self.doctorPasswordTextView.text;
+    newDoctor.doctorUsernameString = self.doctorUsernameTextView.text;
+    
+    UIImage* doctorPhotoImage = self.doctorPhotoImage;
+    NSData* doctorPhotoData = UIImagePNGRepresentation(doctorPhotoImage);
+    newDoctor.doctorPhotoData = doctorPhotoData;
+    
+    Envio* envio = [[Envio alloc]init];
+    
+    [envio newDoctor:newDoctor];
+}
 
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -160,8 +185,7 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    NSData* photoData = [[NSData alloc]init];
-    photoData = UIImageJPEGRepresentation(chosenImage, 0.5f );
+    self.doctorPhotoImage = chosenImage;
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     

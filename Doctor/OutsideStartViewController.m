@@ -32,7 +32,7 @@
     [self setupLoadingAnimation];
     self.loginButton.layer.cornerRadius = 3;
     self.menuContainerViewController.panMode = NO;
- //   [self setupTextFieldDelegates];
+// [self setupTextFieldDelegates];
     authentication = [[Authentication alloc] init];
     self.passwordTextField.secureTextEntry = YES;
     
@@ -53,6 +53,7 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     [PFUser logOut];
+    [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
 }
 
@@ -66,7 +67,7 @@
     Authentication* auth = [Authentication alloc];
     [envio logIn:self.loginTextField.text withPassword:self.passwordTextField.text :^void (BOOL finished){
         if (finished) {
-            [auth verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (bool finished){
+            [auth verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
                 
                 
                 AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
