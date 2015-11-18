@@ -44,7 +44,7 @@
     isSearching = false;
     
     //Test version History
-    [self testVersion];
+    //[self testVersion];
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate

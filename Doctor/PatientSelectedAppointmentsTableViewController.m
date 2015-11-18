@@ -16,7 +16,9 @@
     UIActivityIndicatorView* spinner;
 }
 
-
+@property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel* patientCameSinceLabel;
+@property (nonatomic, weak) IBOutlet UIImageView* patientImageView;
 
 @end
 
@@ -27,7 +29,6 @@
     [self setupLoadingAnimation];
     [self setupAppointmentsDataSource];
     self.patientCameSinceLabel.numberOfLines = 0;
-    self.patientCameSinceLabel.backgroundColor = [UIColor redColor];
     self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
     self.tableView.tableFooterView = [UIView new];
 }

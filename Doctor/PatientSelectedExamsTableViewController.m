@@ -14,6 +14,10 @@
     UIActivityIndicatorView* spinner;
 }
 
+@property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel* patientCameSinceLabel;
+@property (nonatomic, weak) IBOutlet UIImageView* patientImageView;
+
 @end
 
 @implementation PatientSelectedExamsTableViewController
