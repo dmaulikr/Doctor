@@ -508,17 +508,17 @@
         if (!error) {
             for (PFObject *object in objects) {
                 NSLog(@"%@", object.objectId);
+                Exam* exam = [[Exam alloc] init];
+                exam.examObjectId = object.objectId;
+                exam.examDescription = object[@"examDescription"];
+               // exam.examCreatedAt = object[@"createdAt"];
+                exam.examPatient = object[@"patientEnvolved"];
+               // exam.examPhoto = object[@"examPhoto"];
+                exam.examType = object[@"examType"];
+               // exam.examVersionHistory = object[@"versionHistory"];
+               // exam.examApplicant = object[@"examApplicant"];
+               // exam.examUpdatedAt = object[@"updatedAt"];
                 
-//                Doctor* doctor = [[Doctor alloc]init];
-//                doctor.doctorCelularString = [object objectForKey:@"celular"];
-//                doctor.doctorCRMString = [object objectForKey:@"CRM"];
-//                doctor.doctorEmailString = [object objectForKey:@"email"];
-//                doctor.doctorNameString = [object objectForKey:@"name"];
-//                doctor.doctorPasswordString = [object objectForKey:@"password"];
-//                doctor.doctorUsernameString = [object objectForKey:@"username"];
-//                doctor.doctorObjectId = [object objectForKey:@"objectId"];
-                Exam *exam = [[Exam alloc] init];
-                exam.examDescription = @"lilau";
                 [examsArray addObject:exam];
             }
             if (examsArray) {

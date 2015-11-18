@@ -33,6 +33,8 @@
 		02807FAC1BCE9DE10008D018 /* DoctorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807FAB1BCE9DE10008D018 /* DoctorTests.m */; };
 		02807FB71BCE9DE10008D018 /* DoctorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807FB61BCE9DE10008D018 /* DoctorUITests.m */; };
 		028472631BFAB1C50071C6C1 /* UIImageResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 028472621BFAB1C50071C6C1 /* UIImageResizing.m */; };
+		028FDFAC1BFC163000303979 /* PatientSelectedExamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 028FDFAB1BFC163000303979 /* PatientSelectedExamTableViewCell.m */; };
+		028FDFAF1BFC1D8200303979 /* PatientSelectedTreatmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 028FDFAE1BFC1D8200303979 /* PatientSelectedTreatmentTableViewCell.m */; };
 		02921D5F1BD11707001B6F5E /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D5E1BD11707001B6F5E /* FeedTableViewController.m */; };
 		02921D7D1BD14DE7001B6F5E /* Outside.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02921D7C1BD14DE7001B6F5E /* Outside.storyboard */; };
 		02921D811BD14E9A001B6F5E /* OutsideStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D801BD14E9A001B6F5E /* OutsideStartViewController.m */; };
@@ -172,6 +174,10 @@
 		02807FB81BCE9DE10008D018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		028472611BFAB1C50071C6C1 /* UIImageResizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageResizing.h; sourceTree = "<group>"; };
 		028472621BFAB1C50071C6C1 /* UIImageResizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageResizing.m; sourceTree = "<group>"; };
+		028FDFAA1BFC163000303979 /* PatientSelectedExamTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientSelectedExamTableViewCell.h; sourceTree = "<group>"; };
+		028FDFAB1BFC163000303979 /* PatientSelectedExamTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientSelectedExamTableViewCell.m; sourceTree = "<group>"; };
+		028FDFAD1BFC1D8200303979 /* PatientSelectedTreatmentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientSelectedTreatmentTableViewCell.h; sourceTree = "<group>"; };
+		028FDFAE1BFC1D8200303979 /* PatientSelectedTreatmentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientSelectedTreatmentTableViewCell.m; sourceTree = "<group>"; };
 		02921D5D1BD11707001B6F5E /* FeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewController.h; sourceTree = "<group>"; };
 		02921D5E1BD11707001B6F5E /* FeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewController.m; sourceTree = "<group>"; };
 		02921D7C1BD14DE7001B6F5E /* Outside.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Outside.storyboard; sourceTree = "<group>"; };
@@ -743,6 +749,8 @@
 		02E7A9971BDC5085008059BD /* PatientSelectedExams */ = {
 			isa = PBXGroup;
 			children = (
+				028FDFAA1BFC163000303979 /* PatientSelectedExamTableViewCell.h */,
+				028FDFAB1BFC163000303979 /* PatientSelectedExamTableViewCell.m */,
 				02E7A9A31BDC50F3008059BD /* PatientSelectedExamsTableViewController.h */,
 				02E7A9A41BDC50F3008059BD /* PatientSelectedExamsTableViewController.m */,
 				02E7A9A91BDC51CD008059BD /* PatientSelectedExamSelected */,
@@ -753,6 +761,8 @@
 		02E7A9981BDC5093008059BD /* PatientSelectedTreatments */ = {
 			isa = PBXGroup;
 			children = (
+				028FDFAD1BFC1D8200303979 /* PatientSelectedTreatmentTableViewCell.h */,
+				028FDFAE1BFC1D8200303979 /* PatientSelectedTreatmentTableViewCell.m */,
 				02E7A9A01BDC50E9008059BD /* PatientSelectedTreatmentsTableViewController.h */,
 				02E7A9A11BDC50E9008059BD /* PatientSelectedTreatmentsTableViewController.m */,
 				02E7A9AD1BDC5204008059BD /* PatientSelectedTreatmentSelected */,
@@ -1135,6 +1145,7 @@
 				02E7A9B81BDC5809008059BD /* MedicationSelectedTableViewController.m in Sources */,
 				703E632E1BCFDA4100205A82 /* PatientsTableViewController.m in Sources */,
 				02EB33CF1BF38E36006D6529 /* MedicationsPrinciplesTableViewController.m in Sources */,
+				028FDFAC1BFC163000303979 /* PatientSelectedExamTableViewCell.m in Sources */,
 				02807F961BCE9DE10008D018 /* AppDelegate.m in Sources */,
 				02E7A99F1BDC50DE008059BD /* PatientSelectedEditTableViewController.m in Sources */,
 				7000F8971BE8E55A002A7B22 /* Log.m in Sources */,
@@ -1180,6 +1191,7 @@
 				02F15C691BD6D8080078279D /* PatientSelectedTableViewController.m in Sources */,
 				024FD6AB1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m in Sources */,
 				02921D5F1BD11707001B6F5E /* FeedTableViewController.m in Sources */,
+				028FDFAF1BFC1D8200303979 /* PatientSelectedTreatmentTableViewCell.m in Sources */,
 				02E7A9A51BDC50F3008059BD /* PatientSelectedExamsTableViewController.m in Sources */,
 				7020D1221BD53A4E0059A226 /* Register.m in Sources */,
 			);

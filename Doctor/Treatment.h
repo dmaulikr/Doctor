@@ -13,10 +13,10 @@
 @interface Treatment : NSObject
 
 
-@property (weak,nonatomic) NSString* treatmentDescription;
-@property (weak,nonatomic) NSNumber* treatmentDuration;
-@property (weak,nonatomic) NSNumber* treatmentStatus;
-@property (weak,nonatomic) NSDate* treatementFinishedAt;
+@property (strong, nonatomic) NSString* treatmentDescription;
+@property (strong, nonatomic) NSNumber* treatmentDuration;
+@property (strong, nonatomic) NSNumber* treatmentStatus;
+@property (strong, nonatomic) NSDate* treatementFinishedAt;
 @property (strong, nonatomic) NSDate* treatmentCreatedAt;
 
 //Still in test, don't move it

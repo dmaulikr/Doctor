@@ -7,6 +7,7 @@
 //
 
 #import "PatientSelectedExamsTableViewController.h"
+#import "PatientSelectedExamTableViewCell.h"
 #import "Envio.h"
 
 @interface PatientSelectedExamsTableViewController (){
@@ -37,22 +38,23 @@
     return tableViewDataArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-        NSString* cellIdentifier = @"ExamsCellID";
+        NSString* cellIdentifier = @"examsCellID";
         
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        PatientSelectedExamTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (cell==nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            cell = [[PatientSelectedExamTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         Exam* exam = [[Exam alloc] init];
         exam = tableViewDataArray[indexPath.row];
-        cell.textLabel.text = exam.examDescription;
+        cell.examTypeLabel.text = exam.examType;
+        cell.examDescriptionLabel.text = exam.examDescription;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 30;
+    return 61;
 }
 
 #pragma mark - Setups
@@ -60,7 +62,6 @@
     self.patientNameLabel.text = self.patient.patientNameString;
     self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
     //self.patientImageView.image = self.patient.patientImage;
-    
     
     tableViewDataArray = [[NSMutableArray alloc] init];
     Envio* newEnvio = [[Envio alloc]init];

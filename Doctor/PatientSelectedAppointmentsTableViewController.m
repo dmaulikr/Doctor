@@ -54,7 +54,6 @@
     }
     Appointment* appointment = [[Appointment alloc] init];
     appointment = tableViewDataArray[indexPath.row];
-    cell.textLabel.text = appointment.appointmentPatient.patientNameString;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

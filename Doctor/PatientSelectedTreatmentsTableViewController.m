@@ -8,6 +8,7 @@
 
 #import "PatientSelectedTreatmentsTableViewController.h"
 #import "Envio.h"
+#import "PatientSelectedTreatmentTableViewCell.h"
 
 @interface PatientSelectedTreatmentsTableViewController (){
     NSMutableArray* tableViewDataArray;
@@ -38,13 +39,16 @@
     return tableViewDataArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString* TreatmentAreaCellID = @"TreatmentsAreaCellID";
     NSString* TreatmentCellID = @"TreatmentsCellID";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TreatmentCellID];
+    NSString* cellIdentifier = indexPath.row %2 == 0 ? TreatmentAreaCellID : TreatmentCellID;
+    
+    PatientSelectedTreatmentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell==nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TreatmentCellID];
+        cell = [[PatientSelectedTreatmentTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    cell.textLabel.text = @"teste";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -66,6 +70,10 @@
             NSLog(@"Erro - setupTreatmentsDataSource block");
         }
     }];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return indexPath.row %2 == 0 ? 50 : 64;
 }
 
 - (void) setupLoadingAnimation{
