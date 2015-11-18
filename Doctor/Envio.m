@@ -92,6 +92,9 @@
     newPatient[@"address"] = patient.patientAdressString ? patient.patientAdressString : @"";
     newPatient[@"gender"] = patient.patientGenderString? patient.patientGenderString : @"";
     
+    PFFile* patientPhoto = [PFFile fileWithData:patient.patientPhotoData];
+    newPatient[@"photo"] = patientPhoto;
+    
     [newPatient saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
           //  [self generatePatientCreationLog];

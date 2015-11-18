@@ -21,4 +21,6 @@
 @property (strong, nonatomic) NSMutableArray* patientDoctors;
 @property (strong, nonatomic) NSString* patientCameSinceString;
 
+@property (strong, nonatomic) NSData* patientPhotoData;
+
 @end
