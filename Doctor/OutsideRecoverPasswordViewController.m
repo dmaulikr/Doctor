@@ -142,6 +142,15 @@
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView{
+    
+    //Scroll view when taps in the first textField
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.35f];
+    CGRect frame = self.view.frame;
+    frame.origin.y = -100;
+    [self.view setFrame:frame];
+    [UIView commitAnimations];
+    
     if (textView.tag == 100) {
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
@@ -149,6 +158,7 @@
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView{
+    
     if (textView.tag == 100 && [textView.text isEqualToString:@""]) {
         textView.textColor = [UIColor grayColor];
         textView.text = @"Nome de usuário";
