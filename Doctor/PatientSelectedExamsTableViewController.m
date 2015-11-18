@@ -8,7 +8,6 @@
 
 #import "PatientSelectedExamsTableViewController.h"
 #import "Envio.h"
-#import "PatientSelectedHeaderTableViewCell.h"
 
 @interface PatientSelectedExamsTableViewController (){
     NSMutableArray* tableViewDataArray;
@@ -22,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupLoadingAnimation];
+    self.patientCameSinceLabel.numberOfLines = 0;
     [self setupExamsDataSource];
     self.tableView.tableFooterView = [UIView new];
 }
@@ -33,21 +33,6 @@
     return tableViewDataArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.row == 0){
-        NSString* cellIdentifier = @"headerCellID";
-        
-        PatientSelectedHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell==nil) {
-            cell = [[PatientSelectedHeaderTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-        Exam* exam = [[Exam alloc] init];
-        exam = tableViewDataArray[indexPath.row];
-        //cell.textLabel.text = exam.examDescription;
-        cell.patientNameLabel.text = @"testeaaaa";
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
-    }
-    else{
         NSString* cellIdentifier = @"ExamsCellID";
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -59,21 +44,20 @@
         cell.textLabel.text = exam.examDescription;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
-    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0){
-        return 140;
-    }
-    else{
-        return 30;
-    }
+    return 30;
 }
 
 #pragma mark - Setups
 - (void) setupExamsDataSource {
+    self.patientNameLabel.text = self.patient.patientNameString;
+    self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
+    //self.patientImageView.image = self.patient.patientImage;
+    
+    
     tableViewDataArray = [[NSMutableArray alloc] init];
     Envio* newEnvio = [[Envio alloc]init];
     [newEnvio fetchExamsPassingPatient:self.patient withCompletion: ^void (NSMutableArray* examsArray){

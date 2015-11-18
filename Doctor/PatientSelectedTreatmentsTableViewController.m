@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupLoadingAnimation];
+    self.patientCameSinceLabel.numberOfLines = 0;
     [self setupTreatmentsDataSource];
     self.tableView.tableFooterView = [UIView new];
 }
@@ -34,7 +35,6 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString* TreatmentCellID = @"TreatmentsCellID";
-    NSString* HeaderCellID = @"headerCellID";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TreatmentCellID];
     if (cell==nil) {
@@ -47,6 +47,10 @@
 
 #pragma mark - Setups
 - (void) setupTreatmentsDataSource {
+    self.patientNameLabel.text = self.patient.patientNameString;
+    self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
+    //self.patientImageView.image = self.patient.patientImage;
+    
     tableViewDataArray = [[NSMutableArray alloc] init];
     Envio* newEnvio = [[Envio alloc]init];
     [newEnvio fetchTreatmentPassingPatient:self.patient withCompletion: ^void (NSMutableArray* treatmentArray){

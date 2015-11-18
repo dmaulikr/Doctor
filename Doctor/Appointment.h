@@ -26,5 +26,4 @@
 @property (weak,nonatomic) NSString* appointmentObjectId;
 @property (weak,nonatomic) NSDate* appointmentUpdatedAt;
 
-
 @end

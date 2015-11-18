@@ -19,10 +19,9 @@
 
 @interface PatientSelectedTableViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel* patientSelectedNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel* patientCameSinceLabel;
-@property (weak, nonatomic) IBOutlet UILabel* patientInitialsLabel;
-@property (weak, nonatomic) IBOutlet UIView* patientGrayNameInitialsView;
+@property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel* patientCameSinceLabel;
+@property (nonatomic, weak) IBOutlet UIImageView* patientImageView;
 
 @end
 
@@ -30,24 +29,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.tableFooterView = [UIView new];
+    self.patientCameSinceLabel.numberOfLines = 0;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    self.tableView.tableFooterView = [UIView new];
     self.navigationController.navigationBar.topItem.title = @"Detalhes";
     [self setupDataFromPatient];
-    
-    self.patientGrayNameInitialsView.layer.cornerRadius = self.patientGrayNameInitialsView.frame.size.height/2;
-    self.patientGrayNameInitialsView.layer.masksToBounds = YES;
-    self.patientGrayNameInitialsView.layer.borderWidth = 0;
-    
 }
 
 #pragma mark - Setup
 - (void) setupDataFromPatient{
-    self.patientSelectedNameLabel.text = self.patient.patientNameString;
-    self.patientInitialsLabel.text = [self.patient.patientNameString substringToIndex:1];
-    
+    self.patientNameLabel.text = self.patient.patientNameString;
+
     Doctor* doctor = [[Doctor alloc] init];
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     doctor = appDelegate.doctor;
@@ -58,7 +52,10 @@
             NSString* finalString = [[NSString alloc] initWithFormat:@"Atendido pela última vez em %@", lastSeen];
             self.patientCameSinceLabel.text = finalString;
             self.patientCameSinceLabel.numberOfLines = 0;
-            
+            self.patient.patientCameSinceString = finalString;
+        }
+        else{
+            self.patient.patientCameSinceString = @"Nunca antes atendido por você.";
         }
     }];
 }
@@ -66,19 +63,19 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 1:
+        case 0:
             [self performSegueWithIdentifier:@"clickedInDataSegueId" sender:self];
             break;
-        case 2:
+        case 1:
             [self performSegueWithIdentifier:@"clickedInAppointmentsSegueId" sender:self];
             break;
-        case 3:
+        case 2:
             [self performSegueWithIdentifier:@"clickedInExamsSegueId" sender:self];
             break;
-        case 4:
+        case 3:
                 [self performSegueWithIdentifier:@"clickedInTreatmentsSegueId" sender:self];
             break;
-        case 5:
+        case 4:
                 [self performSegueWithIdentifier:@"clickedInEditSegueId" sender:self];
             break;
         default:

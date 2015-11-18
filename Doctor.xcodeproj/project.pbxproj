@@ -33,7 +33,6 @@
 		02807FAC1BCE9DE10008D018 /* DoctorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807FAB1BCE9DE10008D018 /* DoctorTests.m */; };
 		02807FB71BCE9DE10008D018 /* DoctorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02807FB61BCE9DE10008D018 /* DoctorUITests.m */; };
 		028472631BFAB1C50071C6C1 /* UIImageResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 028472621BFAB1C50071C6C1 /* UIImageResizing.m */; };
-		028C3F661BE83B4800685039 /* PatientSelectedHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 028C3F651BE83B4800685039 /* PatientSelectedHeaderTableViewCell.m */; };
 		02921D5F1BD11707001B6F5E /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D5E1BD11707001B6F5E /* FeedTableViewController.m */; };
 		02921D7D1BD14DE7001B6F5E /* Outside.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02921D7C1BD14DE7001B6F5E /* Outside.storyboard */; };
 		02921D811BD14E9A001B6F5E /* OutsideStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02921D801BD14E9A001B6F5E /* OutsideStartViewController.m */; };
@@ -173,8 +172,6 @@
 		02807FB81BCE9DE10008D018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		028472611BFAB1C50071C6C1 /* UIImageResizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageResizing.h; sourceTree = "<group>"; };
 		028472621BFAB1C50071C6C1 /* UIImageResizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageResizing.m; sourceTree = "<group>"; };
-		028C3F641BE83B4800685039 /* PatientSelectedHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientSelectedHeaderTableViewCell.h; sourceTree = "<group>"; };
-		028C3F651BE83B4800685039 /* PatientSelectedHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientSelectedHeaderTableViewCell.m; sourceTree = "<group>"; };
 		02921D5D1BD11707001B6F5E /* FeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewController.h; sourceTree = "<group>"; };
 		02921D5E1BD11707001B6F5E /* FeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewController.m; sourceTree = "<group>"; };
 		02921D7C1BD14DE7001B6F5E /* Outside.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Outside.storyboard; sourceTree = "<group>"; };
@@ -822,8 +819,6 @@
 			children = (
 				02F15C671BD6D8080078279D /* PatientSelectedTableViewController.h */,
 				02F15C681BD6D8080078279D /* PatientSelectedTableViewController.m */,
-				028C3F641BE83B4800685039 /* PatientSelectedHeaderTableViewCell.h */,
-				028C3F651BE83B4800685039 /* PatientSelectedHeaderTableViewCell.m */,
 				02E7A9961BDC507A008059BD /* PatientSelectedAppointments */,
 				02E7A9991BDC509E008059BD /* PatientSelectedEdit */,
 				02E7A9981BDC5093008059BD /* PatientSelectedTreatments */,
@@ -1158,7 +1153,6 @@
 				02CD6C521BD2E14500C38B6D /* MedicationsTableViewController.m in Sources */,
 				02ECD6311BDEC34900A82D0E /* Authentication.m in Sources */,
 				02E7A9A81BDC50FB008059BD /* PatientSelectedDataTableViewController.m in Sources */,
-				028C3F661BE83B4800685039 /* PatientSelectedHeaderTableViewCell.m in Sources */,
 				7020D11E1BD52DBD0059A226 /* Envio.m in Sources */,
 				7000F8A01BEA21A9002A7B22 /* ForumSubject.m in Sources */,
 				0226B1571BF2C92E00009147 /* FeedTableViewCell.m in Sources */,

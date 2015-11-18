@@ -16,6 +16,8 @@
     UIActivityIndicatorView* spinner;
 }
 
+
+
 @end
 
 @implementation PatientSelectedAppointmentsTableViewController
@@ -24,6 +26,9 @@
     [super viewDidLoad];
     [self setupLoadingAnimation];
     [self setupAppointmentsDataSource];
+    self.patientCameSinceLabel.numberOfLines = 0;
+    self.patientCameSinceLabel.backgroundColor = [UIColor redColor];
+    self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
     self.tableView.tableFooterView = [UIView new];
 }
 
@@ -38,11 +43,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString* AppointmentCellID = @"AppointmentsTableViewCellID";
     NSString* AppointmentAreaCellID = @"AppointmentsAreaTableViewCellID";
-    NSString* HeaderCellID = @"headerCellID";
     
-    NSString* notHeaderCellID = indexPath.row % 2 == 0 ? AppointmentCellID : AppointmentAreaCellID;
-    
-    NSString* cellIdentifier = indexPath.row == 0 ? HeaderCellID : notHeaderCellID;
+    NSString* cellIdentifier = indexPath.row %2 == 0 ? AppointmentAreaCellID : AppointmentCellID;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -58,6 +60,10 @@
 
 #pragma mark - Setups
 - (void) setupAppointmentsDataSource {
+    self.patientNameLabel.text = self.patient.patientNameString;
+    self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
+    //self.patientImageView.image = self.patient.patientImage;
+    
     tableViewDataArray = [[NSMutableArray alloc] init];
     Envio* newEnvio = [[Envio alloc]init];
     [newEnvio fetchAppointmentPassingPatient:self.patient withCompletion: ^void (NSMutableArray* appointmentArray){
@@ -81,7 +87,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return indexPath.row == 0 ? 156 : 50;
+    return 50;
 }
 
 
