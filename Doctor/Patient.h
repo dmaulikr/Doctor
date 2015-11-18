@@ -21,6 +21,15 @@
 @property (strong, nonatomic) NSMutableArray* patientDoctors;
 @property (strong, nonatomic) NSString* patientCameSinceString;
 
+@property (strong, nonatomic) NSString* patientBloodTypeString;
+@property (strong, nonatomic) NSString* patientClinicalConditionsString;
+@property (strong, nonatomic) NSString* patientMedicationsString;
+@property (strong, nonatomic) NSString* patientAlergiesString;
+@property (strong, nonatomic) NSString* patientObservationsString;
+@property (strong, nonatomic) NSString* patientWeightString;
+@property (strong, nonatomic) NSString* patientHeightString;
+@property (strong, nonatomic) NSString* patientEmergencyContactString;
+
 @property (strong, nonatomic) NSData* patientPhotoData;
 
 @end

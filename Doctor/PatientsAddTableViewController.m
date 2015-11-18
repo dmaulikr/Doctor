@@ -440,8 +440,13 @@
     patient.patientPhotoData = UIImagePNGRepresentation(patientImage);
     patient.patientBirthDateString = self.patientBirthdateTextView.text;
     patient.patientAdressString = self.patientAdressTextView.text;
-  //  patient.patientWeightString = self.patientWeightTextView.text;
-  //  patient.patientHeightString = self.patientHeightTextView.text;
+    patient.patientWeightString = self.patientWeightTextView.text;
+    patient.patientHeightString = self.patientHeightTextView.text;
+    patient.patientBloodTypeString = self.patientBloodTypeTextView.text;
+    patient.patientEmergencyContactString = self.patientEmergencyContactTextView.text;
+    patient.patientMedicationsString = self.patientMedicationsTextView.text;
+    patient.patientObservationsString = self.patientObservationsTextView.text;
+    patient.patientAlergiesString = self.patientAlergiesTextView.text;
     
     
     Envio* envio = [[Envio alloc] init];

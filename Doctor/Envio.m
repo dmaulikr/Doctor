@@ -85,12 +85,21 @@
 - (void) newPatient:(Patient*)patient {
     
     PFObject* newPatient = [PFObject objectWithClassName:@"Patient"];
+    
     newPatient[@"name"] = patient.patientNameString ? patient.patientNameString : @"";
     newPatient[@"CPF"] = patient.patientCPFString ? patient.patientCPFString : @"";
-    newPatient[@"RG"] = patient.patientRGString ? patient.patientRGString : @"";
     newPatient[@"age"] = patient.patientAgeString ? patient.patientAgeString : @"";
+    newPatient[@"RG"] = patient.patientRGString ? patient.patientRGString : @"";
+    newPatient[@"gender"] = patient.patientGenderString ? patient.patientGenderString : @"";
     newPatient[@"address"] = patient.patientAdressString ? patient.patientAdressString : @"";
-    newPatient[@"gender"] = patient.patientGenderString? patient.patientGenderString : @"";
+    newPatient[@"alergies"] = patient.patientAlergiesString ? patient.patientAlergiesString : @"";
+    newPatient[@"birthdate"] = patient.patientBirthDateString ? patient.patientBirthDateString : @"";
+    newPatient[@"bloodtype"] = patient.patientBloodTypeString ? patient.patientBloodTypeString : @"";
+    newPatient[@"clinicalConditions"] = patient.patientClinicalConditionsString ? patient.patientClinicalConditionsString : @"";
+    newPatient[@"emergencyContact"] = patient.patientEmergencyContactString ? patient.patientEmergencyContactString : @"";
+    newPatient[@"weight"] = patient.patientWeightString ? patient.patientWeightString : @"";
+    newPatient[@"height"] = patient.patientHeightString ? patient.patientHeightString : @"";
+    newPatient[@"medications"] = patient.patientMedicationsString ? patient.patientMedicationsString : @"";
     
     PFFile* patientPhoto = [PFFile fileWithData:patient.patientPhotoData];
     newPatient[@"photo"] = patientPhoto;
@@ -265,8 +274,17 @@
                 patient.patientCPFString = [object objectForKey:@"CPF"];
                 patient.patientAgeString = [object objectForKey:@"age"];
                 patient.patientRGString = [object objectForKey:@"RG"];
-                patient.patientDoctors = [object objectForKey:@"doctors"];
-                patient.patientObjectId = [object objectForKey:@"objectId"];
+                patient.patientGenderString = [object objectForKey:@"gender"];
+                patient.patientObjectId = object.objectId;
+                patient.patientAdressString = [object objectForKey:@"address"];
+                patient.patientAlergiesString = [object objectForKey:@"alergies"];
+                patient.patientBirthDateString = [object objectForKey:@"birthdate"];
+                patient.patientBloodTypeString = [object objectForKey:@"bloodtype"];
+                patient.patientClinicalConditionsString = [object objectForKey:@"clinicalConditions"];
+                patient.patientEmergencyContactString = [object objectForKey:@"emergencyContact"];
+                patient.patientWeightString = [object objectForKey:@"weight"];
+                patient.patientHeightString = [object objectForKey:@"height"];
+                patient.patientMedicationsString = [object objectForKey:@"medications"];
                 
                 if (patient) {
                     completion(patient);
@@ -303,7 +321,15 @@
                 patient.patientRGString = [object objectForKey:@"RG"];
                 patient.patientGenderString = [object objectForKey:@"gender"];
                 patient.patientObjectId = object.objectId;
-                
+                patient.patientAdressString = [object objectForKey:@"address"];
+                patient.patientAlergiesString = [object objectForKey:@"alergies"];
+                patient.patientBirthDateString = [object objectForKey:@"birthdate"];
+                patient.patientBloodTypeString = [object objectForKey:@"bloodtype"];
+                patient.patientClinicalConditionsString = [object objectForKey:@"clinicalConditions"];
+                patient.patientEmergencyContactString = [object objectForKey:@"emergencyContact"];
+                patient.patientWeightString = [object objectForKey:@"weight"];
+                patient.patientHeightString = [object objectForKey:@"height"];
+                patient.patientMedicationsString = [object objectForKey:@"medications"];
                 [patients addObject:patient];
                 
                 if (patients) {
@@ -1735,16 +1761,21 @@
 - (void) updatePatient:(NSString *)patientId withPatient:(Patient *)patient withCompletion:(void (^)(BOOL *))completion{
     PFQuery* query = [[PFQuery alloc] initWithClassName:@"Patient"];
     [query getObjectInBackgroundWithId:patientId block:^(PFObject* object, NSError *error){
-        if (patient.patientGenderString) {
-            object[@"gender"] = patient.patientGenderString;
-        }
-        if (patient.patientAdressString) {
-            object[@"address"] = patient.patientAdressString;
-        }
+        object[@"name"] = patient.patientNameString;
+        object[@"medications"] = patient.patientMedicationsString;
+        object[@"age"] = patient.patientAgeString;
+        object[@"alergies"] = patient.patientAlergiesString;
+        object[@"observations"] = patient.patientObservationsString;
+        object[@"RG"] = patient.patientRGString;
+        object[@"height"] = patient.patientHeightString;
+        object[@"gender"] = patient.patientGenderString;
+        object[@"weight"] = patient.patientWeightString;
+        object[@"emergencyContact"] = patient.patientEmergencyContactString;
+        object[@"bloodType"] = patient.patientBloodTypeString;
+        object[@"address"] = patient.patientAdressString;
         [object saveInBackground];
         completion(true);
     }];
-    
 }
 
 @end

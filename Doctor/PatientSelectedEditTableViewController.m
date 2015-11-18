@@ -48,20 +48,18 @@
     
     self.birthDateTextView.text = self.patient.patientBirthDateString;
     self.sexTextView.text = self.patient.patientGenderString;
-//    self.bloodTypeTextView.text = self.patient.patientBloodTypeString;
-//    self.clinicalConditionsTextView.text = self.patient.patientClinicalConditionsString;
-//    self.medicationsTextView.text = self.patient.patientMedicationsString;
-//    self.alergiesTextView.text = self.patient.patientAlergiesString;
-//    self.observationsTextView.text = self.patient.patientObservationsString;
-//    self.weightTextView.text = self.patient.patientWeightString;
-//    self.heightTextView.text = self.patient.patientHeightString;
-//    self.emergencyContactTextView.text = self.patient.patientEmergencyContactString;
+    self.bloodTypeTextView.text = self.patient.patientBloodTypeString;
+    self.clinicalConditionsTextView.text = self.patient.patientClinicalConditionsString;
+    self.medicationsTextView.text = self.patient.patientMedicationsString;
+    self.alergiesTextView.text = self.patient.patientAlergiesString;
+    self.observationsTextView.text = self.patient.patientObservationsString;
+    self.weightTextView.text = self.patient.patientWeightString;
+    self.heightTextView.text = self.patient.patientHeightString;
+    self.emergencyContactTextView.text = self.patient.patientEmergencyContactString;
   //  self.nameLabel.text = self.patient.patientNameString;
-  //  self.lastSeenLabel.text = self.patient.patientLastSeenString;
-    
-    
-    self.addressTextView.text = self.patient.patientAdressString;
+   // self.lastSeenLabel.text = self.patient.patientLastSeenString;
 
+    self.addressTextView.text = self.patient.patientAdressString;
 }
 
 - (IBAction)didTappedSaveButton:(id)sender{
@@ -72,14 +70,6 @@
     patient.patientGenderString = self.sexTextView.text;
     
     Envio* envio = [[Envio alloc] init];
-    
-//    [envio updateThisPatient:self.patient withThis:patient withCompletion:^void(BOOL finished){
-//        if (finished) {
-//            [self.navigationController popViewControllerAnimated:YES];
-//            [spinner stopAnimating];
-//        }
-//    }];
-
     [envio updatePatient:self.patient.patientObjectId withPatient:patient withCompletion:^void(BOOL* finished){
         if (finished) {
             [self.navigationController popViewControllerAnimated:YES];
