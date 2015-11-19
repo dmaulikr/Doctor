@@ -77,6 +77,8 @@
 		02F15C651BD6D5490078279D /* ForumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F15C641BD6D5490078279D /* ForumTableViewController.m */; };
 		02F15C691BD6D8080078279D /* PatientSelectedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F15C681BD6D8080078279D /* PatientSelectedTableViewController.m */; };
 		1BD2E29A1BD1240D004413F9 /* Forum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2E2991BD1240D004413F9 /* Forum.storyboard */; };
+		7000E42B1BFCAFA400A4CA20 /* HSDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7000E4291BFCAFA400A4CA20 /* HSDatePickerViewController.m */; };
+		7000E42C1BFCAFA400A4CA20 /* HSDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7000E42A1BFCAFA400A4CA20 /* HSDatePickerViewController.xib */; };
 		7000F8971BE8E55A002A7B22 /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7000F8961BE8E55A002A7B22 /* Log.m */; };
 		7000F8A01BEA21A9002A7B22 /* ForumSubject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7000F89F1BEA21A9002A7B22 /* ForumSubject.m */; };
 		7020D11E1BD52DBD0059A226 /* Envio.m in Sources */ = {isa = PBXBuildFile; fileRef = 7020D11D1BD52DBD0059A226 /* Envio.m */; };
@@ -89,6 +91,8 @@
 		703E632B1BCFD8F600205A82 /* Patients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703E632A1BCFD8F600205A82 /* Patients.storyboard */; };
 		703E632E1BCFDA4100205A82 /* PatientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E632D1BCFDA4100205A82 /* PatientsTableViewController.m */; };
 		703E63311BCFDA6A00205A82 /* PatientsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E63301BCFDA6A00205A82 /* PatientsTableViewCell.m */; };
+		704D59621BFDD74E000E5D4A /* BirthDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704D59601BFDD74E000E5D4A /* BirthDateViewController.m */; };
+		704D59631BFDD74E000E5D4A /* BirthDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704D59611BFDD74E000E5D4A /* BirthDateViewController.xib */; };
 		70E0499E1BDFF1FB001A186F /* VersionHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E0499D1BDFF1FB001A186F /* VersionHistory.m */; };
 		9F559E2DC906E29334401480 /* libPods-Doctor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25499218369E12465EE581B5 /* libPods-Doctor.a */; };
 /* End PBXBuildFile section */
@@ -261,6 +265,9 @@
 		1BD2E2991BD1240D004413F9 /* Forum.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Forum.storyboard; sourceTree = "<group>"; };
 		25499218369E12465EE581B5 /* libPods-Doctor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Doctor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62531EE85C8BF5E4333DE691 /* Pods-Doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doctor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Doctor/Pods-Doctor.release.xcconfig"; sourceTree = "<group>"; };
+		7000E4281BFCAFA400A4CA20 /* HSDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSDatePickerViewController.h; sourceTree = "<group>"; };
+		7000E4291BFCAFA400A4CA20 /* HSDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSDatePickerViewController.m; sourceTree = "<group>"; };
+		7000E42A1BFCAFA400A4CA20 /* HSDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HSDatePickerViewController.xib; sourceTree = "<group>"; };
 		7000F8951BE8E55A002A7B22 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		7000F8961BE8E55A002A7B22 /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Log.m; sourceTree = "<group>"; };
 		7000F89D1BE8EE08002A7B22 /* Activities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Activities.h; sourceTree = "<group>"; };
@@ -286,6 +293,9 @@
 		703E632D1BCFDA4100205A82 /* PatientsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientsTableViewController.m; sourceTree = "<group>"; };
 		703E632F1BCFDA6A00205A82 /* PatientsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientsTableViewCell.h; sourceTree = "<group>"; };
 		703E63301BCFDA6A00205A82 /* PatientsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientsTableViewCell.m; sourceTree = "<group>"; };
+		704D595F1BFDD74E000E5D4A /* BirthDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirthDateViewController.h; sourceTree = "<group>"; };
+		704D59601BFDD74E000E5D4A /* BirthDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirthDateViewController.m; sourceTree = "<group>"; };
+		704D59611BFDD74E000E5D4A /* BirthDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BirthDateViewController.xib; sourceTree = "<group>"; };
 		70E0499C1BDFF1FB001A186F /* VersionHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionHistory.h; sourceTree = "<group>"; };
 		70E0499D1BDFF1FB001A186F /* VersionHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionHistory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -517,6 +527,7 @@
 			children = (
 				02D9874D1BE25C290010E74A /* PatientsAddTableViewController.h */,
 				02D9874E1BE25C290010E74A /* PatientsAddTableViewController.m */,
+				7000E4331BFCD29400A4CA20 /* BirthDatePicker */,
 			);
 			name = PatientsAdd;
 			sourceTree = "<group>";
@@ -851,6 +862,26 @@
 			name = ViewsForum;
 			sourceTree = "<group>";
 		};
+		7000E4271BFCAFA400A4CA20 /* HSDatePickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7000E4281BFCAFA400A4CA20 /* HSDatePickerViewController.h */,
+				7000E4291BFCAFA400A4CA20 /* HSDatePickerViewController.m */,
+				7000E42A1BFCAFA400A4CA20 /* HSDatePickerViewController.xib */,
+			);
+			path = HSDatePickerViewController;
+			sourceTree = "<group>";
+		};
+		7000E4331BFCD29400A4CA20 /* BirthDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				704D595F1BFDD74E000E5D4A /* BirthDateViewController.h */,
+				704D59601BFDD74E000E5D4A /* BirthDateViewController.m */,
+				704D59611BFDD74E000E5D4A /* BirthDateViewController.xib */,
+			);
+			name = BirthDatePicker;
+			sourceTree = "<group>";
+		};
 		7000F8941BE8E541002A7B22 /* ModelLog */ = {
 			isa = PBXGroup;
 			children = (
@@ -936,6 +967,7 @@
 		C37E74F5BD3D707C399A0E57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7000E4271BFCAFA400A4CA20 /* HSDatePickerViewController */,
 				25499218369E12465EE581B5 /* libPods-Doctor.a */,
 			);
 			name = Frameworks;
@@ -1065,6 +1097,8 @@
 				022928E31BCFCCF200B7C1E0 /* Feed.storyboard in Resources */,
 				02807F9C1BCE9DE10008D018 /* Main.storyboard in Resources */,
 				02CD6C3A1BD2D61200C38B6D /* Medications.storyboard in Resources */,
+				704D59631BFDD74E000E5D4A /* BirthDateViewController.xib in Resources */,
+				7000E42C1BFCAFA400A4CA20 /* HSDatePickerViewController.xib in Resources */,
 				02921D7D1BD14DE7001B6F5E /* Outside.storyboard in Resources */,
 				02755B581BE10669000A5183 /* Inbox.storyboard in Resources */,
 			);
@@ -1152,6 +1186,7 @@
 				02CDD9BF1BD6DBB300443828 /* ForumNewTopicTableViewController.m in Sources */,
 				7020D1321BD53B560059A226 /* CaseHistory.m in Sources */,
 				02424B7B1BF9FC470001B77B /* SettingsChangePasswordTableViewController.m in Sources */,
+				7000E42B1BFCAFA400A4CA20 /* HSDatePickerViewController.m in Sources */,
 				0297C9721BE6F8060068757C /* ForumTopic.m in Sources */,
 				70E0499E1BDFF1FB001A186F /* VersionHistory.m in Sources */,
 				0215BFB51BF58368001FF080 /* HomeViewController.m in Sources */,
@@ -1165,6 +1200,7 @@
 				02ECD6311BDEC34900A82D0E /* Authentication.m in Sources */,
 				02E7A9A81BDC50FB008059BD /* PatientSelectedDataTableViewController.m in Sources */,
 				7020D11E1BD52DBD0059A226 /* Envio.m in Sources */,
+				704D59621BFDD74E000E5D4A /* BirthDateViewController.m in Sources */,
 				7000F8A01BEA21A9002A7B22 /* ForumSubject.m in Sources */,
 				0226B1571BF2C92E00009147 /* FeedTableViewCell.m in Sources */,
 				0297C9751BE6F82F0068757C /* ForumTopicMessage.m in Sources */,

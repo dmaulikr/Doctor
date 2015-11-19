@@ -10,11 +10,18 @@
 #import "Patient.h"
 #import "Envio.h"
 #import "UIImageResizing.h"
+#import "BirthDateViewController.h"
 
-@interface PatientsAddTableViewController () <UITextViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>{
+@interface PatientsAddTableViewController () <UITextViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate>{
     UIImagePickerController* imagePickerController;
     BOOL tookFromCamera;
 }
+
+- (void)didClickedIntoSexLabel;
+- (void)setupSexGestureRecognizer;
+- (void)setupBloodGestureRecognizer;
+- (void)didClickedIntoBirthDateLabel;
+- (void) setBirthDateLabel:(NSNotification *)notice;
 
 @property (weak, nonatomic) IBOutlet UIImageView* cameraImageView;
 
@@ -52,11 +59,81 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupCameraGestureRecognizer];
+    [self setupSexGestureRecognizer];
+    [self setupBloodGestureRecognizer];
     [self setupTextViewsDelegate];
+    [self setupBirthDateGestureRecognizer];
     imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.delegate = self;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setBirthDateLabel:)
+                                                 name:@"datePicked!" object:nil];
 }
+
+
+- (void) setBirthDateLabel:(NSNotification *)notice{
+    NSDate* pickedDate = notice.object;
+    
+    NSDateFormatter* pickedDateFormatter = [[NSDateFormatter alloc]init];
+    [pickedDateFormatter setDateFormat:@"dd/MM/yyyy"];
+    
+    self.patientBirthdateTextView.text = [pickedDateFormatter stringFromDate:pickedDate];
+    
+}
+
+- (void)setupBirthDateGestureRecognizer{
+    NSLog(@"settingUp dateBirthDateGestureRecognizer");
+    UITapGestureRecognizer* tapBirthDateTextField = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickedIntoBirthDateLabel)];
+    [self.patientBirthdateTextView setUserInteractionEnabled:YES];
+    [self.patientBirthdateTextView addGestureRecognizer:tapBirthDateTextField];
+}
+
+- (void)setupBloodGestureRecognizer{
+    UITapGestureRecognizer* tapBloodTypeTextView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickedIntoBloodTypeLabel)];
+    [self.patientBloodTypeTextView setUserInteractionEnabled:YES];
+    [self.patientBloodTypeTextView addGestureRecognizer:tapBloodTypeTextView];
+    
+}
+
+
+- (void)setupSexGestureRecognizer
+{
+    //Sex action sheet, gesture recognizer
+    UITapGestureRecognizer* tapSexTextView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickedIntoSexLabel)];
+    [self.patientSexTextView setUserInteractionEnabled:YES];
+    [self.patientSexTextView addGestureRecognizer:tapSexTextView];
+}
+
+- (void)didClickedIntoBirthDateLabel{
+    
+    NSLog(@"did entered in DIDCLICKEDINTOBIRTH");
+    BirthDateViewController* birthDatePickerController = [[BirthDateViewController alloc]init];
+    
+    [self presentViewController:birthDatePickerController animated:YES completion:nil];
+    
+}
+
+
+- (void) didClickedIntoBloodTypeLabel
+{
+    [self.patientBloodTypeTextView resignFirstResponder];
+    [self.patientBloodTypeTextView endEditing:YES];
+
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"A+",@"A-",@"B+",@"B-",@"O+",@"O-",@"AB+",@"AB-", nil];
+    actionSheet.tag = 3;
+    [actionSheet becomeFirstResponder];
+    [actionSheet showInView:self.view];
+}
+
+- (void) didClickedIntoSexLabel
+{
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Masculino",@"Feminino", nil];
+    actionSheet.tag = 2;
+    [actionSheet becomeFirstResponder];
+    [actionSheet showInView:self.view];
+}
+
 
 //-(void) viewWillAppear:(BOOL)animated
 //{
@@ -426,6 +503,7 @@
 
 - (void) tappedOnCameraIcon{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar do rolo da câmera", @"Tirar uma foto", nil];
+    actionSheet.tag = 1;
     [actionSheet showInView:self.view];
 }
 
@@ -455,27 +533,84 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    switch (buttonIndex) {
-        case 0:
-            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-            tookFromCamera = false;
-            [self presentModalViewController:imagePickerController animated:YES];
-            break;
-        case 1:
-            @try{
-                imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-                tookFromCamera = true;
+    
+    
+    if(actionSheet.tag == 1) {
+        switch (buttonIndex) {
+            case 0:
+                imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                tookFromCamera = false;
                 [self presentModalViewController:imagePickerController animated:YES];
-            }
-            @catch (NSException *exception){
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sem câmera!" message:@"Algo ocorreu, e a câmera não está disponível." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alert show];
-            }
-            break;
-        default:
-            break;
+                break;
+            case 1:
+                @try{
+                    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    tookFromCamera = true;
+                    [self presentModalViewController:imagePickerController animated:YES];
+                }
+                @catch (NSException *exception){
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sem câmera!" message:@"Algo ocorreu, e a câmera não está disponível." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                }
+                break;
+            default:
+                break;
+        }
+
+    } else if(actionSheet.tag == 2) {
+        switch (buttonIndex) {
+            case 0:
+                self.patientSexTextView.text = @"Masculino";
+                self.patientSexImageView.image = [UIImage imageNamed:@"sexo-laranja"];
+                break;
+            case 1:
+                self.patientSexTextView.text = @"Feminino";
+                self.patientSexImageView.image = [UIImage imageNamed:@"sexo-laranja"];
+                break;
+            default:
+                break;
+        }
+    } else if(actionSheet.tag == 3){
+        switch (buttonIndex) {
+            case 0:
+                self.patientBloodTypeTextView.text = @"A+";
+                self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
+                break;
+            case 1:
+                self.patientBloodTypeTextView.text = @"A-";
+                self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
+                break;
+            case 2:
+                self.patientBloodTypeTextView.text = @"B+";
+                self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
+                break;
+            case 3:
+                self.patientBloodTypeTextView.text = @"B-";
+                self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
+                break;
+            case 4:
+                self.patientBloodTypeTextView.text = @"O+";
+                self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
+                break;
+            case 5:
+                self.patientBloodTypeTextView.text = @"O-";
+                self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
+                break;
+            case 6:
+                self.patientBloodTypeTextView.text = @"AB+";
+                self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
+                break;
+            case 7:
+                self.patientBloodTypeTextView.text = @"AB-";
+                self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
+                break;
+            default:
+                break;
+        }
+
     }
-}
+    
+   }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];

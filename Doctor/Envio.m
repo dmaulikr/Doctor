@@ -101,6 +101,8 @@
     newPatient[@"height"] = patient.patientHeightString ? patient.patientHeightString : @"";
     newPatient[@"medications"] = patient.patientMedicationsString ? patient.patientMedicationsString : @"";
     
+    
+    
     PFFile* patientPhoto = [PFFile fileWithData:patient.patientPhotoData];
     newPatient[@"photo"] = patientPhoto;
     

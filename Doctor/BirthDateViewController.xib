@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BirthDateViewController">
+            <connections>
+                <outlet property="birthDatePicker" destination="I1T-wi-MAY" id="lBb-dE-HdE"/>
+                <outlet property="view" destination="gEB-9P-zSw" id="0Oy-qm-z5d"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="P1u-bx-hmQ" customClass="BirthDateViewController">
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="375" y="340"/>
+        </viewController>
+        <view alpha="0.59999999999999998" contentMode="scaleToFill" id="gEB-9P-zSw">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rw4-yP-X01">
+                    <rect key="frame" x="172" y="551" width="30" height="30"/>
+                    <animations/>
+                    <state key="normal" title="OK"/>
+                    <connections>
+                        <action selector="okButton:" destination="-1" eventType="touchUpInside" id="JAa-At-Phj"/>
+                    </connections>
+                </button>
+                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="I1T-wi-MAY">
+                    <rect key="frame" x="8" y="190" width="359" height="309"/>
+                    <animations/>
+                    <date key="date" timeIntervalSinceReferenceDate="469620889.91753203">
+                        <!--2015-11-19 10:14:49 +0000-->
+                    </date>
+                </datePicker>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="352.5" y="1008.5"/>
+        </view>
+    </objects>
+</document>
