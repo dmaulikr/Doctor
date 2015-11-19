@@ -1758,24 +1758,53 @@
 //}
 
 
-- (void) updatePatient:(NSString *)patientId withPatient:(Patient *)patient withCompletion:(void (^)(BOOL *))completion{
-    PFQuery* query = [[PFQuery alloc] initWithClassName:@"Patient"];
-    [query getObjectInBackgroundWithId:patientId block:^(PFObject* object, NSError *error){
-        object[@"name"] = patient.patientNameString;
-        object[@"medications"] = patient.patientMedicationsString;
-        object[@"age"] = patient.patientAgeString;
-        object[@"alergies"] = patient.patientAlergiesString;
-        object[@"observations"] = patient.patientObservationsString;
-        object[@"RG"] = patient.patientRGString;
-        object[@"height"] = patient.patientHeightString;
-        object[@"gender"] = patient.patientGenderString;
-        object[@"weight"] = patient.patientWeightString;
-        object[@"emergencyContact"] = patient.patientEmergencyContactString;
-        object[@"bloodType"] = patient.patientBloodTypeString;
-        object[@"address"] = patient.patientAdressString;
-        [object saveInBackground];
-        completion(true);
-    }];
+- (void) updatePatient:(NSString *)patientId withPatient:(Patient *)patient withCompletion:(void (^)(BOOL* finished))completion{
+//    PFQuery* query = [[PFQuery alloc] initWithClassName:@"Patient"];
+//    [query getObjectInBackgroundWithId:patientId block:^(PFObject* object, NSError *error){
+//        if (patient.patientNameString) object[@"name"] = patient.patientNameString;
+//        if (patient.patientMedicationsString) object[@"medications"] = patient.patientMedicationsString;
+//        if (patient.patientAgeString) object[@"age"] = patient.patientAgeString;
+//        if (patient.patientAlergiesString) object[@"alergies"] = patient.patientAlergiesString;
+//        if (patient.patientObservationsString) object[@"observations"] = patient.patientObservationsString;
+//        if (patient.patientRGString) object[@"RG"] = patient.patientRGString;
+//        if (patient.patientHeightString) object[@"height"] = patient.patientHeightString;
+//        if (patient.patientGenderString) object[@"gender"] = patient.patientGenderString;
+//        if (patient.patientWeightString) object[@"weight"] = patient.patientWeightString;
+//        if (patient.patientEmergencyContactString) object[@"emergencyContact"] = patient.patientEmergencyContactString;
+//        if (patient.patientBloodTypeString) object[@"bloodType"] = patient.patientBloodTypeString;
+//        if (patient.patientAdressString) object[@"address"] = patient.patientAdressString;
+//        
+//        [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//            if (succeeded) {
+//                NSLog(@"updated");
+//                completion(true);
+//            } else {
+//                //This block never executes.
+//            }
+//        }];
+//    }];
+
+    // Create a pointer to an object of class Point with id dlkj83d
+    PFObject *point = [PFObject objectWithoutDataWithClassName:@"Patient" objectId:patientId];
+    
+    // Set a new value on quantity
+    if (patient.patientBloodTypeString) [point setObject:patient.patientBloodTypeString forKey:@"bloodtype"];
+    if (patient.patientBirthDateString) [point setObject:patient.patientBirthDateString forKey:@"birthdate"];
+    if (patient.patientClinicalConditionsString) [point setObject:patient.patientClinicalConditionsString forKey:@"clinicalConditions"];
+    if (patient.patientEmergencyContactString) [point setObject:patient.patientEmergencyContactString forKey:@"emergencyContact"];
+    if (patient.patientHeightString) [point setObject:patient.patientHeightString forKey:@"height"];
+    if (patient.patientWeightString) [point setObject:patient.patientWeightString forKey:@"weight"];
+    if (patient.patientMedicationsString) [point setObject:patient.patientMedicationsString forKey:@"medications"];
+    if (patient.patientAlergiesString) [point setObject:patient.patientAlergiesString forKey:@"alergies"];
+    if (patient.patientGenderString) [point setObject:patient.patientGenderString forKey:@"gender"];
+    if (patient.patientAgeString) [point setObject:patient.patientAgeString forKey:@"age"];
+    if (patient.patientAdressString) [point setObject:patient.patientAdressString forKey:@"address"];
+    if (patient.patientRGString) [point setObject:patient.patientRGString forKey:@"rg"];
+    if (patient.patientCPFString) [point setObject:patient.patientCPFString forKey:@"cpf"];
+    
+    // Save
+    [point save];
+    completion(true);
 }
 
 @end
