@@ -43,8 +43,6 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
     [super viewDidLoad];
     [self setTextViewsDelegates];
     self.tableView.tableFooterView = [UIView new];
-    self.doctorPasswordTextView.secureTextEntry = YES;
-    self.doctorConfirmPasswordTextView.secureTextEntry = YES;
     self.doctorAreaCodeLabel.textColor = [UIColor grayColor];
 
     UITapGestureRecognizer* tapAreaCode = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickedIntoAreaCodeLabel)];
@@ -99,7 +97,7 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 
 //- (void) sendVerifyingMessage{
 //    //SEM O NOVE NA FRENTE!
-//    NSString* phoneNumberToCheck = [[NSString alloc] initWithFormat:@"81%@", self.doctorTelephonetextview.text];
+//    NSString* phoneNumberToCheck = [[NSString alloc] initWithFormat:@"81%@", self.doctorTelephoneTextView.text];
 //    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:phoneNumberToCheck verifyInProgressBlock:^{
 //            // called when the verification process begins
 //        }
@@ -234,6 +232,9 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
     
     self.doctorEmailTextView.delegate = self;
     self.doctorEmailTextView.tag = 7;
+    
+    self.doctorPasswordTextView.secureTextEntry = YES;
+    self.doctorConfirmPasswordTextView.secureTextEntry = YES;
 }
 
 #pragma mark - UITextView Delegates

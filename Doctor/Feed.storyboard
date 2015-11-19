@@ -201,7 +201,7 @@
                                 <rect key="frame" x="142" y="594" width="90" height="37"/>
                                 <animations/>
                             </pageControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone-tutorial-sair" translatesAutoresizingMaskIntoConstraints="NO" id="WOz-ko-G2y">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone-tutorial-pacientes" translatesAutoresizingMaskIntoConstraints="NO" id="WOz-ko-G2y">
                                 <rect key="frame" x="145" y="487" width="85" height="85"/>
                                 <animations/>
                             </imageView>
@@ -557,7 +557,7 @@
         <image name="feed-medicamentos" width="80" height="62"/>
         <image name="home-logo" width="949" height="329"/>
         <image name="icone-menu" width="21" height="16"/>
-        <image name="icone-tutorial-sair" width="118" height="180"/>
+        <image name="icone-tutorial-pacientes" width="148" height="160"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8Zb-hu-U2u"/>
