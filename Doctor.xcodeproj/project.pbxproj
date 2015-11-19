@@ -44,6 +44,12 @@
 		0297C9721BE6F8060068757C /* ForumTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C9711BE6F8060068757C /* ForumTopic.m */; };
 		0297C9751BE6F82F0068757C /* ForumTopicMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C9741BE6F82F0068757C /* ForumTopicMessage.m */; };
 		0297C9791BE6F8940068757C /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C9781BE6F8940068757C /* Message.m */; };
+		029863241BFDFAEE0099C997 /* VerifyIosSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029863231BFDFAEE0099C997 /* VerifyIosSdk.framework */; };
+		029863251BFDFAEE0099C997 /* VerifyIosSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029863231BFDFAEE0099C997 /* VerifyIosSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		029863271BFDFAF40099C997 /* DeviceProperties.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029863261BFDFAF40099C997 /* DeviceProperties.framework */; };
+		029863281BFDFAF40099C997 /* DeviceProperties.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029863261BFDFAF40099C997 /* DeviceProperties.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0298632A1BFDFAFB0099C997 /* RequestSigning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029863291BFDFAFB0099C997 /* RequestSigning.framework */; };
+		0298632B1BFDFAFB0099C997 /* RequestSigning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029863291BFDFAFB0099C997 /* RequestSigning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02C11D511BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C11D501BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m */; };
 		02C11D5D1BF966E200BBE0D0 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C11D5C1BF966E200BBE0D0 /* TutorialViewController.m */; };
 		02CD6C2E1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C2D1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m */; };
@@ -121,6 +127,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				029863251BFDFAEE0099C997 /* VerifyIosSdk.framework in Embed Frameworks */,
+				0298632B1BFDFAFB0099C997 /* RequestSigning.framework in Embed Frameworks */,
+				029863281BFDFAF40099C997 /* DeviceProperties.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +208,9 @@
 		0297C9741BE6F82F0068757C /* ForumTopicMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTopicMessage.m; sourceTree = "<group>"; };
 		0297C9771BE6F8940068757C /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		0297C9781BE6F8940068757C /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		029863231BFDFAEE0099C997 /* VerifyIosSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = VerifyIosSdk.framework; path = "/Users/bmaf/Library/Developer/Xcode/DerivedData/Doctor-gthelsetkfmbitfergkudiknnsyv/Build/Products/Debug-iphoneos/VerifyIosSdk.framework"; sourceTree = "<absolute>"; };
+		029863261BFDFAF40099C997 /* DeviceProperties.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = DeviceProperties.framework; path = "/Users/bmaf/Library/Developer/Xcode/DerivedData/Doctor-gthelsetkfmbitfergkudiknnsyv/Build/Products/Debug-iphoneos/DeviceProperties.framework"; sourceTree = "<absolute>"; };
+		029863291BFDFAFB0099C997 /* RequestSigning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = RequestSigning.framework; path = "/Users/bmaf/Library/Developer/Xcode/DerivedData/Doctor-gthelsetkfmbitfergkudiknnsyv/Build/Products/Debug-iphoneos/RequestSigning.framework"; sourceTree = "<absolute>"; };
 		02C11D4F1BF95AAE00BBE0D0 /* TutorialFirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialFirstPageViewController.h; sourceTree = "<group>"; };
 		02C11D501BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialFirstPageViewController.m; sourceTree = "<group>"; };
 		02C11D5B1BF966E200BBE0D0 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
@@ -305,7 +317,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0298632A1BFDFAFB0099C997 /* RequestSigning.framework in Frameworks */,
+				029863241BFDFAEE0099C997 /* VerifyIosSdk.framework in Frameworks */,
 				9F559E2DC906E29334401480 /* libPods-Doctor.a in Frameworks */,
+				029863271BFDFAF40099C997 /* DeviceProperties.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -967,6 +982,9 @@
 		C37E74F5BD3D707C399A0E57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				029863291BFDFAFB0099C997 /* RequestSigning.framework */,
+				029863261BFDFAF40099C997 /* DeviceProperties.framework */,
+				029863231BFDFAEE0099C997 /* VerifyIosSdk.framework */,
 				7000E4271BFCAFA400A4CA20 /* HSDatePickerViewController */,
 				25499218369E12465EE581B5 /* libPods-Doctor.a */,
 			);

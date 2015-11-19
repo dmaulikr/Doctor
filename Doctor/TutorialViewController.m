@@ -125,7 +125,7 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
         
         self.instructionsTextView.text = kSecondTextViewText;
         
-        self.sectionImageView.image = [UIImage imageNamed:@"icone-tutorial-medicamentos"];
+        self.sectionImageView.image = [UIImage imageNamed:@"icone-tutorial-medicamentos-1"];
         
     } completion:^(BOOL finished) {}];
 }
@@ -144,7 +144,7 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
         
         self.instructionsTextView.text = kThirdTextViewText;
         
-        self.sectionImageView.image = [UIImage imageNamed:@"icone-tutorial-forum"];
+        self.sectionImageView.image = [UIImage imageNamed:@"icone-tutorial-forum-1"];
         
     } completion:^(BOOL finished) {}];
 }
@@ -163,7 +163,7 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
         
         self.instructionsTextView.text = kFourthTextViewText;
         
-        self.sectionImageView.image = [UIImage imageNamed:@"icone-tutorial-configuracoes"];
+        self.sectionImageView.image = [UIImage imageNamed:@"icone-tutorial-configuracoes-1"];
         
     } completion:^(BOOL finished) {}];
 }
@@ -182,7 +182,7 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
         
         self.instructionsTextView.text = kFifthTextViewText;
         
-        self.sectionImageView.image = [UIImage imageNamed:@"icone-tutorial-sair"];
+        self.sectionImageView.image = [UIImage imageNamed:@"icone-tutorial-sair-1"];
         
     } completion:^(BOOL finished) {}];
 }

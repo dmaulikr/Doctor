@@ -11,6 +11,7 @@
 #import "Doctor.h"
 #import "Envio.h"
 
+@import VerifyIosSdk;
 @interface OutsideSignInTableViewController () <UIAlertViewDelegate, UITextViewDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView* doctorNameTextView;
@@ -72,7 +73,7 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 
 #pragma mark - Private Methods
 - (BOOL) checkFieldsCompletion{
-    BOOL returning = true;
+    BOOL returning = false;
     if (![self.doctorNameTextView.text isEqualToString:@""] && ![self.doctorCRMTextView.text isEqualToString:@""] && ![self.doctorConfirmPasswordTextView.text isEqualToString:@""] && ![self.doctorPasswordTextView.text isEqualToString:@""] && ![self.doctorTelephoneTextView.text isEqualToString:@""] && ![self.doctorUsernameTextView.text isEqualToString:@""]) {
         if ([self.doctorPasswordTextView.text isEqualToString:self.doctorConfirmPasswordTextView.text]) {
             returning = true;
@@ -95,42 +96,10 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
     [alert show];
 }
 
-//- (void) sendVerifyingMessage{
-//    //SEM O NOVE NA FRENTE!
-//    NSString* phoneNumberToCheck = [[NSString alloc] initWithFormat:@"81%@", self.doctorTelephoneTextView.text];
-//    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:phoneNumberToCheck verifyInProgressBlock:^{
-//            // called when the verification process begins
-//        }
-//                               userVerifiedBlock:^{
-//                                   // called when the user has been successfully verified
-//                               }
-//                                      errorBlock:^(VerifyError error) {
-//                                          // called when some error occurrs during verification, e.g. wrong pin entered.
-//                                          // see the VerifyError class for details on what to expect
-//                                      }];
-//}
-
-- (void)sendNewDoctorToParse
-{
-    Doctor* newDoctor = [[Doctor alloc]init];
-    newDoctor.doctorNameString = self.doctorNameTextView.text;
-    newDoctor.doctorEmailString = self.doctorEmailTextView.text;
-    newDoctor.doctorPasswordString = self.doctorPasswordTextView.text;
-    newDoctor.doctorUsernameString = self.doctorUsernameTextView.text;
-    
-    UIImage* doctorPhotoImage = self.doctorPhotoImage;
-    NSData* doctorPhotoData = UIImagePNGRepresentation(doctorPhotoImage);
-    newDoctor.doctorPhotoData = doctorPhotoData;
-    
-    Envio* envio = [[Envio alloc]init];
-    
-    [envio newDoctor:newDoctor];
-}
 
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
-    //    [self sendVerifyingMessage];
         [self performSegueWithIdentifier:@"clickedInNextSignInSegueId" sender:self];
     }
 }
@@ -139,7 +108,22 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"clickedInNextSignInSegueId"]) {
         OutsideSignInConfirmViewController* confirmVC = segue.destinationViewController;
-        [confirmVC setPhoneAsAParameter:self.doctorTelephoneTextView.text];
+        
+        Doctor* newDoctor = [[Doctor alloc]init];
+        newDoctor.doctorNameString = self.doctorNameTextView.text;
+        newDoctor.doctorEmailString = self.doctorEmailTextView.text;
+        newDoctor.doctorPasswordString = self.doctorPasswordTextView.text;
+        newDoctor.doctorUsernameString = self.doctorUsernameTextView.text;
+
+        newDoctor.doctorContactString = [NSString stringWithFormat:@"%@%@", self.doctorAreaCodeLabel.text, self.doctorTelephoneTextView.text];
+        newDoctor.doctorCRMString = self.doctorCRMTextView.text;
+
+//      newDoctor.doctorAddressString = self.doctor
+//      UIImage* doctorPhotoImage = self.doctorPhotoImage;
+//      NSData* doctorPhotoData = UIImagePNGRepresentation(doctorPhotoImage);
+//      newDoctor.doctorPhotoData = doctorPhotoData;
+        
+        [confirmVC setDoctorBeingCreated:newDoctor];
     }
 }
 
@@ -369,5 +353,6 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
     }
     [textView resignFirstResponder];
 }
+
 
 @end

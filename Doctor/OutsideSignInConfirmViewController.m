@@ -8,8 +8,12 @@
 
 #import "OutsideSignInConfirmViewController.h"
 #import <Parse.h>
+#import "Envio.h"
 
-@interface OutsideSignInConfirmViewController () <UITextViewDelegate, UIAlertViewDelegate>
+@import VerifyIosSdk;
+@interface OutsideSignInConfirmViewController () <UITextViewDelegate, UIAlertViewDelegate>{
+    NSString* token;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel* cellPhoneToSendConfirmationLabel;
 @property (weak, nonatomic) IBOutlet UITextView* firstTokenCharacterTextView;
@@ -24,12 +28,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self sendVerifyingMessage];
     [self textViewSetups];
     self.confirmButton.backgroundColor = [UIColor grayColor];
-    NSString* cellPhoneSentWas = [[NSString alloc] initWithFormat:@"+ 55 81 %@", self.phoneAsAParameter];
+    NSString* cellPhoneSentWas = [[NSString alloc] initWithFormat:@"+55 %@", self.doctorBeingCreated.doctorContactString];
     self.cellPhoneToSendConfirmationLabel.text = cellPhoneSentWas;
     self.confirmButton.layer.cornerRadius = 3;
     self.navigationController.navigationBar.backItem.title = @"";
+}
+
+- (void) sendVerifyingMessage{
+    //SEM O NOVE NA FRENTE!
+    NSString* phoneNumberToCheck = [[NSString alloc] initWithFormat:@"%@", self.doctorBeingCreated.doctorContactString];
+    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:phoneNumberToCheck verifyInProgressBlock:^{
+        // called when the verification process begins
+    }
+                               userVerifiedBlock:^{
+                                   [self userVerifySuccess];
+                               }
+                                      errorBlock:^(VerifyError error) {
+                                          [self userVerifyFailed];
+                                      }];
 }
 
 #pragma mark - Setups
@@ -125,6 +144,9 @@
 
 - (void) codeInputComplete{
     NSString* codeInput = [[NSString alloc] initWithFormat:@"O código inserido:\n%@%@%@%@\n Confere?", self.firstTokenCharacterTextView.text, self.secondTokenCharacterTextView.text, self.thirdTokenCharacterTextView.text, self.fourthTokenCharacterTextView.text];
+    
+    token = [NSString stringWithFormat:@"%@%@%@%@", self.firstTokenCharacterTextView.text, self.secondTokenCharacterTextView.text, self.thirdTokenCharacterTextView.text, self.fourthTokenCharacterTextView.text];
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:codeInput delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Confirmar", nil];
     alert.tag = 123456;
     [alert show];
@@ -138,9 +160,7 @@
             break;
         case 123456:
             if (buttonIndex == 1) {
-            //[VerifyClient checkPinCode:@"1234"];
-                NSLog(@"confirmed");
-                //CREATE NEW DOCTOR AND PUT isFirstTime (Boolean) as TRUE
+                if (token) [VerifyClient checkPinCode:token];
             }
             break;
         default:
@@ -160,6 +180,17 @@
     if ([_thirdTokenCharacterTextView isFirstResponder] && [touch view] != _thirdTokenCharacterTextView) [_thirdTokenCharacterTextView resignFirstResponder];
     if ([_fourthTokenCharacterTextView isFirstResponder] && [touch view] != _fourthTokenCharacterTextView) [_fourthTokenCharacterTextView resignFirstResponder];
 }
+
+- (void) userVerifySuccess{
+    Envio* envio = [[Envio alloc]init];
+    [envio newDoctor:self.doctorBeingCreated];
+}
+
+- (void) userVerifyFailed{
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alerta" message:@"Bronca!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
 
 @end
 

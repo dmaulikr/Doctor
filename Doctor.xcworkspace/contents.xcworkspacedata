@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:verify-ios-sdk/VerifyIosSdk.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Doctor.xcodeproj">
    </FileRef>
    <FileRef

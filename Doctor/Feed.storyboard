@@ -190,7 +190,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbN-4I-HVL">
-                                <rect key="frame" x="20" y="336" width="335" height="184"/>
+                                <rect key="frame" x="20" y="318" width="335" height="184"/>
                                 <animations/>
                                 <string key="text">Aqui você tem acesso aos prontuários dos seus pacientes. Acesse histórico de condições clínicas, tratamentos, consultas e exames de maneira prática e rápida.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,11 +198,11 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ntj-3i-cqo">
-                                <rect key="frame" x="142" y="594" width="90" height="37"/>
+                                <rect key="frame" x="142" y="616" width="90" height="37"/>
                                 <animations/>
                             </pageControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone-tutorial-pacientes" translatesAutoresizingMaskIntoConstraints="NO" id="WOz-ko-G2y">
-                                <rect key="frame" x="145" y="487" width="85" height="85"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone-tutorial-pacientes-1" translatesAutoresizingMaskIntoConstraints="NO" id="WOz-ko-G2y">
+                                <rect key="frame" x="111" y="461" width="153" height="160"/>
                                 <animations/>
                             </imageView>
                         </subviews>
@@ -557,7 +557,7 @@
         <image name="feed-medicamentos" width="80" height="62"/>
         <image name="home-logo" width="949" height="329"/>
         <image name="icone-menu" width="21" height="16"/>
-        <image name="icone-tutorial-pacientes" width="148" height="160"/>
+        <image name="icone-tutorial-pacientes-1" width="173" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8Zb-hu-U2u"/>

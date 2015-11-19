@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 
+@import VerifyIosSdk;
 @interface AppDelegate ()
 
 @end
@@ -18,6 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [NexmoClient startWithApplicationId:@"53288670-f90b-4ddb-b046-60a76551920d" sharedSecretKey:@"6db087de035823a"];
+   
     // Override point for customization after application launch.
     
     // [Optional] Power your app with Local Datastore. For more info, go to
