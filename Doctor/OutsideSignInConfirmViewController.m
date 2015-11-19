@@ -9,6 +9,10 @@
 #import "OutsideSignInConfirmViewController.h"
 #import <Parse.h>
 #import "Envio.h"
+#import "AppDelegate.h"
+#import "Storyboards.h"
+#import "MFSideMenu.h"
+#import "Authentication.h"
 
 @import VerifyIosSdk;
 @interface OutsideSignInConfirmViewController () <UITextViewDelegate, UIAlertViewDelegate>{
@@ -38,17 +42,17 @@
 }
 
 - (void) sendVerifyingMessage{
-    //SEM O NOVE NA FRENTE!
-    NSString* phoneNumberToCheck = [[NSString alloc] initWithFormat:@"%@", self.doctorBeingCreated.doctorContactString];
-    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:phoneNumberToCheck verifyInProgressBlock:^{
-        // called when the verification process begins
-    }
-                               userVerifiedBlock:^{
+//    //SEM O NOVE NA FRENTE!
+//    NSString* phoneNumberToCheck = [[NSString alloc] initWithFormat:@"%@", self.doctorBeingCreated.doctorContactString];
+//    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:phoneNumberToCheck verifyInProgressBlock:^{
+//        // called when the verification process begins
+//    }
+//                               userVerifiedBlock:^{
                                    [self userVerifySuccess];
-                               }
-                                      errorBlock:^(VerifyError error) {
-                                          [self userVerifyFailed];
-                                      }];
+//                               }
+//                                      errorBlock:^(VerifyError error) {
+//                                          [self userVerifyFailed];
+//                                      }];
 }
 
 #pragma mark - Setups
@@ -183,12 +187,24 @@
 
 - (void) userVerifySuccess{
     Envio* envio = [[Envio alloc]init];
-    [envio newDoctor:self.doctorBeingCreated];
+    [envio newDoctor:self.doctorBeingCreated withCompletion:^void (BOOL* finished){
+        if (finished) {
+            Authentication* auth = [[Authentication alloc] init];
+            [auth verifyAuthenticity:self.doctorBeingCreated.doctorUsernameString :self.doctorBeingCreated.doctorPasswordString :^void (BOOL finished){
+                
+                AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                self.menuContainerViewController.centerViewController = [[UIStoryboard
+                                                                          storyboardWithName:kFeedStoryboard
+                                                                          bundle:nil]
+                                                                         instantiateViewControllerWithIdentifier:appDelegate.doctor.isFirstTime ? kFeedFTNavID: kFeedNavID];
+                
+                [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+            }];
+        }
+    }];
 }
 
 - (void) userVerifyFailed{
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alerta" message:@"Bronca!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-    [alert show];
 }
 
 

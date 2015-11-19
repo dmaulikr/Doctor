@@ -53,22 +53,46 @@
 
 #pragma mark newDoctor
 
-- (void) newDoctor: (Doctor*)doctor{
+- (void) newDoctor: (Doctor*)doctor withCompletion:(void (^)(BOOL *))completion{
     PFUser *user = [PFUser user];
-    user.username = doctor.doctorUsernameString;
-    user.password = doctor.doctorPasswordString;
-    user.email = doctor.doctorEmailString;
-    user[@"CRM"] = doctor.doctorCRMString;
-    user[@"celular"] = doctor.doctorContactString;
-    user[@"patients"] = doctor.doctorPatientsArray;
+    if (doctor.doctorUsernameString) user.username = doctor.doctorUsernameString;
+    if (doctor.doctorPasswordString) user.password = doctor.doctorPasswordString;
     
-    PFFile* userPhoto = [PFFile fileWithData:doctor.doctorPhotoData];
-    user[@"photo"] = userPhoto;
+    //PFFile* userPhoto = [PFFile fileWithData:doctor.doctorPhotoData];
+    //user[@"photo"] = userPhoto;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"Signed UP - OK!");
-            [self generateDoctorCreationLog:doctor];
+     //       [self generateDoctorCreationLog:doctor];
+            
+            PFObject* userAttributed = [PFObject objectWithClassName:@"User"];
+            
+            userAttributed[@"Nome"] = doctor.doctorNameString ? doctor.doctorNameString : @"";
+            userAttributed[@"CRM"] = doctor.doctorCRMString ? doctor.doctorCRMString : @"";
+            userAttributed[@"Contact"] = doctor.doctorContactString ? doctor.doctorContactString : @"";
+            userAttributed[@"Email"] = doctor.doctorEmailString ? doctor.doctorEmailString : @"";
+            userAttributed[@"username"] = doctor.doctorUsernameString ? doctor.doctorUsernameString : @"";
+            userAttributed[@"Address"] = doctor.doctorAddressString ? doctor.doctorAddressString : @"";
+            userAttributed[@"isFirstTime"] = @YES;
+            
+          //  PFFile* patientPhoto = [PFFile fileWithData:patient.patientPhotoData];
+          //  userAttributed[@"photo"] = patientPhoto;
+            
+            
+            [userAttributed saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    completion(true);
+                } else {
+                    // There was a problem, check error.description
+                    //   [self  showAlertViewError:error];
+                    
+                }
+            }];
+            
+            
+
+            
         } else {
             NSString *errorString = [error userInfo][@"error"];// Show the errorString somewhere and let the user try again.
             NSLog(@"%@", errorString);

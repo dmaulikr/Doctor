@@ -29,7 +29,7 @@
 @interface Envio : NSObject
 
 #pragma mark - Creational Queries
-- (void) newDoctor: (Doctor*)doctor;
+- (void) newDoctor: (Doctor*)doctor withCompletion:(void (^)(BOOL *))completion;
 - (void) newPatient: (Patient*)patient;
 - (void) newAppointment: (Appointment*)appointment;
 - (void) newDiagnosis: (Diagnosis*)diagnosis;
