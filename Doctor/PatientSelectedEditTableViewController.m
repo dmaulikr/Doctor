@@ -66,8 +66,15 @@
     [self setupLoadingAnimation];
     Patient *patient = [[Patient alloc] init];
     patient.patientBirthDateString = self.birthDateTextView.text;
-  //  patient.patientNameString = self.nameLabel.text;
+    patient.patientBloodTypeString = self.bloodTypeTextView.text;
     patient.patientGenderString = self.sexTextView.text;
+    patient.patientClinicalConditionsString = self.clinicalConditionsTextView.text;
+    patient.patientMedicationsString = self.medicationsTextView.text;
+    patient.patientAlergiesString = self.alergiesTextView.text;
+    patient.patientObservationsString = self.observationsTextView.text;
+    patient.patientWeightString = self.weightTextView.text;
+    patient.patientHeightString = self.heightTextView.text;
+    patient.patientEmergencyContactString = self.emergencyContactTextView.text;
     
     Envio* envio = [[Envio alloc] init];
     [envio updatePatient:self.patient.patientObjectId withPatient:patient withCompletion:^void(BOOL* finished){
