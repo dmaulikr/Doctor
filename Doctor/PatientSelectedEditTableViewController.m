@@ -9,7 +9,8 @@
 #import "PatientSelectedEditTableViewController.h"
 #import "Envio.h"
 
-@interface PatientSelectedEditTableViewController (){
+@interface PatientSelectedEditTableViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate> {
+    UIImagePickerController* imagePickerController;
     UIActivityIndicatorView* spinner;
 }
 
@@ -37,8 +38,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadPatientData];
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedPatientImage)];
+    [self.patientImageView setUserInteractionEnabled:YES];
+    [self.patientImageView addGestureRecognizer:tap];
     self.patientCameSinceLabel.numberOfLines = 0;
     self.tableView.tableFooterView = [UIView new];
+    imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
 }
 
 - (void) loadPatientData{
@@ -85,11 +91,54 @@
     }];
 }
 
+- (void) didTappedPatientImage{
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar do rolo da câmera", @"Tirar uma foto", nil];
+    actionSheet.tag = 1;
+    [actionSheet showInView:self.view];
+}
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (actionSheet.tag == 1) {
+        switch (buttonIndex) {
+            case 0:
+                imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                [self presentModalViewController:imagePickerController animated:YES];
+                break;
+            case 1:
+                @try{
+                    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    [self presentModalViewController:imagePickerController animated:YES];
+                }
+                @catch (NSException *exception){
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sem câmera!" message:@"Algo ocorreu, e a câmera não está disponível." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
 - (void) setupLoadingAnimation{
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     spinner.center = self.view.center;
     spinner.tag = 12;
     [self.view addSubview:spinner];
     [spinner startAnimating];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    // UIImage* smallImage = [image scaleToSize:CGSizeMake(180,640)];
+    // NSData* photoData = UIImagePNGRepresentation(smallImage);
+    
+    self.patientImageView.layer.cornerRadius = self.patientImageView.frame.size.height/2;
+    self.patientImageView.layer.masksToBounds = YES;
+    
+    //  if (tookFromCamera) self.cameraImageView.transform = CGAffineTransformMakeRotation(M_PI_2);
+    //  [self.cameraImageView setImage:smallImage];
+    [self.patientImageView setImage:image];
+    [self.patientImageView setContentMode:UIViewContentModeScaleAspectFill];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
