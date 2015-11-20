@@ -9,6 +9,8 @@
 #import "TutorialFirstPageViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TutorialViewController.h"
+#import "AppDelegate.h"
+#import "Envio.h"
 
 @interface TutorialFirstPageViewController ()
 
@@ -32,8 +34,10 @@
 
 - (IBAction)clickedNonTapped:(id)sender{
     [self performSegueWithIdentifier:@"goToAppSegue" sender:self];
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    Envio *envio = [[Envio alloc] init];
+    [envio updateFirstTime:appDelegate.doctor.doctorObjectId];
 }
-
 - (IBAction)clickedIntoTutorial:(id)sender{
     [self performSegueWithIdentifier:@"goToTutorialSegue" sender:self];
 }

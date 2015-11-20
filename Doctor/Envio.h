@@ -146,7 +146,10 @@
 
 - (void) setTopicAsSaw:(NSString *)topicId :(Doctor *)doctor withCompletion: (void (^)(BOOL* finished))completion;
 
-- (void) updatePatient:(NSString *)patientId withPatient:(Patient *)patient withCompletion: (void (^)(BOOL* finished))completion;
+- (void) updatePatient:(NSString *)patientId withPatient:(Patient *)patient withCompletion: (void (^)(BOOL finished))completion;
+- (void) updateDoctor:(NSString *)objectIdFromDoctor withDoctor:(Doctor *)doctor withCompletion: (void (^)(BOOL finished))completion;
+
+- (void) updateFirstTime:(NSString *)doctorObjectId;
 
 @end
 

@@ -77,7 +77,7 @@
     patient.patientEmergencyContactString = self.emergencyContactTextView.text;
     
     Envio* envio = [[Envio alloc] init];
-    [envio updatePatient:self.patient.patientObjectId withPatient:patient withCompletion:^void(BOOL* finished){
+    [envio updatePatient:self.patient.patientObjectId withPatient:patient withCompletion:^void(BOOL finished){
         if (finished) {
             [self.navigationController popViewControllerAnimated:YES];
         }

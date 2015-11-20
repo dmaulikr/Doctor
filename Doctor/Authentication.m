@@ -19,7 +19,6 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                if ([object[@"password"] isEqualToString:password]) {
                     self.granted = true;
                     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
                     Doctor* doctor = [[Doctor alloc] init];
@@ -30,12 +29,9 @@
                     doctor.doctorEmailString = object[@"Email"];
                     doctor.doctorAddressString = object[@"Address"];
                     doctor.doctorUsernameString = user;
+                doctor.doctorObjectId = object.objectId;
                     doctor.doctorContactString = object[@"Contact"];
                     appDelegate.doctor = doctor;
-                }else{
-                    self.granted = false;
-                    NSLog(@"Wrong");
-                }
             }
             if (self.granted) {
                 completion(true);

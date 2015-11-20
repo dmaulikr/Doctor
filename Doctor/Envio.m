@@ -1784,36 +1784,9 @@
 //}
 
 
-- (void) updatePatient:(NSString *)patientId withPatient:(Patient *)patient withCompletion:(void (^)(BOOL* finished))completion{
-//    PFQuery* query = [[PFQuery alloc] initWithClassName:@"Patient"];
-//    [query getObjectInBackgroundWithId:patientId block:^(PFObject* object, NSError *error){
-//        if (patient.patientNameString) object[@"name"] = patient.patientNameString;
-//        if (patient.patientMedicationsString) object[@"medications"] = patient.patientMedicationsString;
-//        if (patient.patientAgeString) object[@"age"] = patient.patientAgeString;
-//        if (patient.patientAlergiesString) object[@"alergies"] = patient.patientAlergiesString;
-//        if (patient.patientObservationsString) object[@"observations"] = patient.patientObservationsString;
-//        if (patient.patientRGString) object[@"RG"] = patient.patientRGString;
-//        if (patient.patientHeightString) object[@"height"] = patient.patientHeightString;
-//        if (patient.patientGenderString) object[@"gender"] = patient.patientGenderString;
-//        if (patient.patientWeightString) object[@"weight"] = patient.patientWeightString;
-//        if (patient.patientEmergencyContactString) object[@"emergencyContact"] = patient.patientEmergencyContactString;
-//        if (patient.patientBloodTypeString) object[@"bloodType"] = patient.patientBloodTypeString;
-//        if (patient.patientAdressString) object[@"address"] = patient.patientAdressString;
-//        
-//        [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//            if (succeeded) {
-//                NSLog(@"updated");
-//                completion(true);
-//            } else {
-//                //This block never executes.
-//            }
-//        }];
-//    }];
-
-    // Create a pointer to an object of class Point with id dlkj83d
+- (void) updatePatient:(NSString *)patientId withPatient:(Patient *)patient withCompletion:(void (^)(BOOL finished))completion{
     PFObject *point = [PFObject objectWithoutDataWithClassName:@"Patient" objectId:patientId];
     
-    // Set a new value on quantity
     if (patient.patientBloodTypeString) [point setObject:patient.patientBloodTypeString forKey:@"bloodtype"];
     if (patient.patientBirthDateString) [point setObject:patient.patientBirthDateString forKey:@"birthdate"];
     if (patient.patientClinicalConditionsString) [point setObject:patient.patientClinicalConditionsString forKey:@"clinicalConditions"];
@@ -1827,10 +1800,31 @@
     if (patient.patientAdressString) [point setObject:patient.patientAdressString forKey:@"address"];
     if (patient.patientRGString) [point setObject:patient.patientRGString forKey:@"rg"];
     if (patient.patientCPFString) [point setObject:patient.patientCPFString forKey:@"cpf"];
-    
-    // Save
+
     [point save];
     completion(true);
 }
 
+
+
+- (void) updateDoctor:(NSString *)objectIdFromDoctor withDoctor:(Doctor *)doctor withCompletion: (void (^)(BOOL finished))completion{
+    PFObject *point = [PFObject objectWithoutDataWithClassName:@"User" objectId:objectIdFromDoctor];
+    
+    if (doctor.doctorNameString) [point setObject:doctor.doctorNameString forKey:@"Nome"];
+    if (doctor.doctorCRMString) [point setObject:doctor.doctorCRMString forKey:@"CRM"];
+    if (doctor.doctorContactString) [point setObject:doctor.doctorContactString forKey:@"Contact"];
+    if (doctor.doctorEmailString) [point setObject:doctor.doctorEmailString forKey:@"Email"];
+    
+    [point saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            completion(true);
+        }
+    }];
+}
+
+- (void) updateFirstTime:(NSString *)doctorObjectId{
+    PFObject *point = [PFObject objectWithoutDataWithClassName:@"User" objectId:doctorObjectId];
+    [point setObject:@NO forKey:@"isFirstTime"];
+    [point save];
+}
 @end
