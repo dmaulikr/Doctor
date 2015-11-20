@@ -25,6 +25,7 @@
                     doctor.doctorCRMString = object[@"CRM"];
                     doctor.doctorNameString = object[@"Nome"];
                     doctor.favTopicsArray = object[@"favForumTopics"];
+                    doctor.sawTopicsArray = object[@"sawForumTopics"];
                     doctor.isFirstTime = [object[@"isFirstTime"] boolValue];
                     doctor.doctorEmailString = object[@"Email"];
                     doctor.doctorAddressString = object[@"Address"];

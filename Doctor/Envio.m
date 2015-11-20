@@ -86,13 +86,8 @@
                 } else {
                     // There was a problem, check error.description
                     //   [self  showAlertViewError:error];
-                    
                 }
             }];
-            
-            
-
-            
         } else {
             NSString *errorString = [error userInfo][@"error"];// Show the errorString somewhere and let the user try again.
             NSLog(@"%@", errorString);
@@ -527,17 +522,20 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                NSMutableArray* sawArray = [[NSMutableArray alloc] initWithArray:object[@"sawForumTopics"]];
-                [sawArray addObject:topicId];
-                object[@"sawForumTopics"] = sawArray;
-                
                 PFQuery *query2 = [PFQuery queryWithClassName:@"User"];
                 [query2 getObjectInBackgroundWithId:object.objectId block:^(PFObject *query2, NSError *error) {
-                    query2[@"sawForumTopics"] = sawArray;
-                    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-                    appDelegate.doctor.sawTopicsArray = sawArray;
-                    completion(true);
-                    [query2 saveInBackground];
+                    
+                    if (![query2[@"sawForumTopics"] containsObject:topicId]) {
+                        NSMutableArray* sawArray = [[NSMutableArray alloc] initWithArray:object[@"sawForumTopics"]];
+                        [sawArray addObject:topicId];
+                        
+                        object[@"sawForumTopics"] = sawArray;
+                        query2[@"sawForumTopics"] = sawArray;
+                        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                        appDelegate.doctor.sawTopicsArray = sawArray;
+                        completion(true);
+                        [query2 saveInBackground];
+                    }
                 }];
                 return ;
             }
