@@ -24,6 +24,7 @@
 @property (nonatomic, weak) IBOutlet UITextView* heightTextView;
 @property (nonatomic, weak) IBOutlet UITextView* emergencyContactTextView;
 @property (nonatomic, weak) IBOutlet UITextView* addressTextView;
+@property (nonatomic, weak) IBOutlet UITextView* cpfTextView;
 
 @property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel* patientCameSinceLabel;
@@ -56,10 +57,8 @@
     self.weightTextView.text = self.patient.patientWeightString;
     self.heightTextView.text = self.patient.patientHeightString;
     self.emergencyContactTextView.text = self.patient.patientEmergencyContactString;
-  //  self.nameLabel.text = self.patient.patientNameString;
-   // self.lastSeenLabel.text = self.patient.patientLastSeenString;
-
     self.addressTextView.text = self.patient.patientAdressString;
+    self.cpfTextView.text = self.patient.patientCPFString;
 }
 
 - (IBAction)didTappedSaveButton:(id)sender{
@@ -75,6 +74,8 @@
     patient.patientWeightString = self.weightTextView.text;
     patient.patientHeightString = self.heightTextView.text;
     patient.patientEmergencyContactString = self.emergencyContactTextView.text;
+    patient.patientAdressString = self.addressTextView.text;
+    patient.patientCPFString = self.cpfTextView.text;
     
     Envio* envio = [[Envio alloc] init];
     [envio updatePatient:self.patient.patientObjectId withPatient:patient withCompletion:^void(BOOL finished){

@@ -142,14 +142,15 @@
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView{
-    
-    //Scroll view when taps in the first textField
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.35f];
-    CGRect frame = self.view.frame;
-    frame.origin.y = -100;
-    [self.view setFrame:frame];
-    [UIView commitAnimations];
+    if (textView.tag == 1 || textView.tag == 2 || textView.tag == 3 || textView.tag == 4) {
+        //Scroll view when taps in the first textField
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.35f];
+        CGRect frame = self.view.frame;
+        frame.origin.y = -20;
+        [self.view setFrame:frame];
+        [UIView commitAnimations];
+    }
     
     if (textView.tag == 100) {
         textView.text = @"";
@@ -158,6 +159,15 @@
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView{
+//    if (textView.tag == 1 || textView.tag == 2 || textView.tag == 3 || textView.tag == 4) {
+//        //Scroll view when taps in the first textField
+//        [UIView beginAnimations:nil context:NULL];
+//        [UIView setAnimationDuration:0.35f];
+//        CGRect frame = self.view.frame;
+//        frame.origin.y = 20;
+//        [self.view setFrame:frame];
+//        [UIView commitAnimations];
+//    }
     
     if (textView.tag == 100 && [textView.text isEqualToString:@""]) {
         textView.textColor = [UIColor grayColor];
@@ -227,6 +237,7 @@
 
 - (IBAction)confirmLoginButtonTapped:(id)sender{
     if (self.confirmLoginButton.titleLabel.textColor != [UIColor grayColor]) {
+        [self.view endEditing:YES];
         [UIView animateWithDuration:.5f animations:^{
             [self liberateAlphas];
         } completion:^(BOOL finished) {}];

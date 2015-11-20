@@ -175,7 +175,9 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 
 - (void) didClickedIntoAreaCodeLabel{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Pernambuco (81)",@"Pernambuco (87)", nil];
-    [actionSheet becomeFirstResponder];
+    [self.view endEditing:YES];
+    
+ //   [actionSheet becomeFirstResponder];
     [actionSheet showInView:self.view];
    
 }

@@ -21,6 +21,7 @@
 @property (nonatomic, weak) IBOutlet UITextView* heightTextView;
 @property (nonatomic, weak) IBOutlet UITextView* emergencyContactTextView;
 @property (nonatomic, weak) IBOutlet UITextView* addressTextView;
+@property (nonatomic, weak) IBOutlet UITextView* cpfTextView;
 
 @property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel* patientCameSinceLabel;
@@ -51,9 +52,7 @@
     self.weightTextView.text = self.patient.patientWeightString;
     self.heightTextView.text = self.patient.patientHeightString;
     self.emergencyContactTextView.text = self.patient.patientEmergencyContactString;
-   // self.nameLabel.text = self.patient.patientNameString;
-   // self.lastSeenLabel.text = self.patient.patientLastSeenString;
     self.addressTextView.text = self.patient.patientAdressString;
-    
+    self.cpfTextView.text = self.patient.patientCPFString;
 }
 @end

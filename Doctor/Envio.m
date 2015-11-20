@@ -124,6 +124,7 @@
     newPatient[@"weight"] = patient.patientWeightString ? patient.patientWeightString : @"";
     newPatient[@"height"] = patient.patientHeightString ? patient.patientHeightString : @"";
     newPatient[@"medications"] = patient.patientMedicationsString ? patient.patientMedicationsString : @"";
+    newPatient[@"observations"] = patient.patientObservationsString ? patient.patientObservationsString : @"";
     
     
     
@@ -356,6 +357,7 @@
                 patient.patientWeightString = [object objectForKey:@"weight"];
                 patient.patientHeightString = [object objectForKey:@"height"];
                 patient.patientMedicationsString = [object objectForKey:@"medications"];
+                patient.patientObservationsString = [object objectForKey:@"observations"];
                 [patients addObject:patient];
                 
                 if (patients) {
@@ -1799,8 +1801,9 @@
     if (patient.patientAgeString) [point setObject:patient.patientAgeString forKey:@"age"];
     if (patient.patientAdressString) [point setObject:patient.patientAdressString forKey:@"address"];
     if (patient.patientRGString) [point setObject:patient.patientRGString forKey:@"rg"];
-    if (patient.patientCPFString) [point setObject:patient.patientCPFString forKey:@"cpf"];
-
+    if (patient.patientCPFString) [point setObject:patient.patientCPFString forKey:@"CPF"];
+    if (patient.patientObservationsString) [point setObject:patient.patientObservationsString forKey:@"observations"];
+    
     [point save];
     completion(true);
 }

@@ -39,7 +39,9 @@
 @property (weak, nonatomic) IBOutlet UITextView* patientHeightTextView;
 @property (weak, nonatomic) IBOutlet UITextView* patientEmergencyContactTextView;
 @property (weak, nonatomic) IBOutlet UITextView* patientAdressTextView;
+@property (weak, nonatomic) IBOutlet UITextView* patientCPFTextView;
 
+@property (weak, nonatomic) IBOutlet UIImageView* patientCPFImageView;
 @property (weak, nonatomic) IBOutlet UIImageView* patientBirthdateImageView;
 @property (weak, nonatomic) IBOutlet UIImageView* patientSexImageView;
 @property (weak, nonatomic) IBOutlet UIImageView* patientBloodTypeImageView;
@@ -205,6 +207,11 @@
                     self.patientAdressImageView.image = [UIImage imageNamed:@"endereco-laranja"];
                 }
                 break;
+            case 15:
+                if (![textView.text isEqualToString:@"CPF"]) {
+                    self.patientCPFImageView.image = [UIImage imageNamed:@"CPF-laranja"];
+                }
+                break;
             default:
                 break;
         }
@@ -249,6 +256,9 @@
                 break;
             case 14:
                 self.patientAdressImageView.image = [UIImage imageNamed:@"endereco-cinza"];
+                break;
+            case 15:
+                self.patientCPFImageView.image = [UIImage imageNamed:@"CPF-cinza"];
                 break;
             default:
                 break;
@@ -328,6 +338,11 @@
                 textView.text = @"";
             }
             break;
+            case 15:
+            if ([textView.text isEqualToString:@"CPF"]) {
+                textView.text = @"";
+            }
+            break;
         default:
             break;
     }
@@ -400,6 +415,11 @@
                     self.patientAdressImageView.image = [UIImage imageNamed:@"endereco-laranja"];
                 }
                 break;
+                case 15:
+                if (![textView.text isEqualToString:@"CPF"]) {
+                    self.patientCPFImageView.image = [UIImage imageNamed:@"CPF-laranja"];
+                }
+                break;
             default:
                 break;
         }
@@ -456,6 +476,10 @@
                 self.patientAdressImageView.image = [UIImage imageNamed:@"endereco-cinza"];
                 self.patientAdressTextView.text = @"Endereço";
                 break;
+                case 15:
+                self.patientCPFImageView.image = [UIImage imageNamed:@"CPF-cinza"];
+                self.patientCPFTextView.text = @"CPF";
+                break;
             default:
                 break;
         }
@@ -478,6 +502,8 @@
     [self.patientHeightTextView setDelegate:self];
     [self.patientEmergencyContactTextView setDelegate:self];
     [self.patientAdressTextView setDelegate:self];
+    [self.patientCPFTextView setDelegate:self];
+    
     
     [self.patientNameTextView setTag:1];
     [self.patientSurnameTextView setTag:2];
@@ -493,6 +519,7 @@
     [self.patientHeightTextView setTag:12];
     [self.patientEmergencyContactTextView setTag:13];
     [self.patientAdressTextView setTag:14];
+    [self.patientCPFTextView setTag:15];
 }
 
 - (void) setupCameraGestureRecognizer{
@@ -512,7 +539,7 @@
     patient.patientNameString =  self.patientNameTextView.text;
     patient.patientGenderString = self.patientSexTextView.text;
    // patient.patientRGString = self.patientRGTextView.text;
-   // patient.patientCPFString = self.patienCPFTextView.text;
+    patient.patientCPFString = self.patientCPFTextView.text;
    // patient.patientAgeString = self.patientAgeTextView.text;
     UIImage* patientImage = self.cameraImageView.image;
     patient.patientPhotoData = UIImagePNGRepresentation(patientImage);
@@ -525,6 +552,7 @@
     patient.patientMedicationsString = self.patientMedicationsTextView.text;
     patient.patientObservationsString = self.patientObservationsTextView.text;
     patient.patientAlergiesString = self.patientAlergiesTextView.text;
+    patient.patientClinicalConditionsString = self.patientClinicalConditionsTextView.text;
     
     
     Envio* envio = [[Envio alloc] init];
