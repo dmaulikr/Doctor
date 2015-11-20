@@ -607,20 +607,21 @@
             default:
                 break;
         }
-
     }
-    
-   }
+}
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImage* smallImage = [image scaleToSize:CGSizeMake(180,640)];
-    NSData* photoData = UIImagePNGRepresentation(smallImage);
+   // UIImage* smallImage = [image scaleToSize:CGSizeMake(180,640)];
+   // NSData* photoData = UIImagePNGRepresentation(smallImage);
     
     self.cameraImageView.layer.cornerRadius = self.cameraImageView.frame.size.height/2;
     self.cameraImageView.layer.masksToBounds = YES;
-    if (tookFromCamera) self.cameraImageView.transform = CGAffineTransformMakeRotation(M_PI_2);
-    [self.cameraImageView setImage:smallImage];
+   
+    //  if (tookFromCamera) self.cameraImageView.transform = CGAffineTransformMakeRotation(M_PI_2);
+  //  [self.cameraImageView setImage:smallImage];
+    [self.cameraImageView setImage:image];
+    [self.cameraImageView setContentMode:UIViewContentModeScaleAspectFill];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
