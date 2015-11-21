@@ -121,10 +121,10 @@
     newPatient[@"medications"] = patient.patientMedicationsString ? patient.patientMedicationsString : @"";
     newPatient[@"observations"] = patient.patientObservationsString ? patient.patientObservationsString : @"";
     
-    
-    
-    PFFile* patientPhoto = [PFFile fileWithData:patient.patientPhotoData];
-    newPatient[@"photo"] = patientPhoto;
+    if (patient.patientPhotoData) {
+        PFFile* patientPhoto = [PFFile fileWithData:patient.patientPhotoData];
+        newPatient[@"photo"] = patientPhoto;
+    }
     
     [newPatient saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
@@ -334,8 +334,6 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
-                
                 Patient* patient = [[Patient alloc]init];
                 patient.patientNameString = [object objectForKey:@"name"];
                 patient.patientCPFString = [object objectForKey:@"CPF"];
@@ -353,22 +351,19 @@
                 patient.patientHeightString = [object objectForKey:@"height"];
                 patient.patientMedicationsString = [object objectForKey:@"medications"];
                 patient.patientObservationsString = [object objectForKey:@"observations"];
+                PFFile* file = [object objectForKey:@"photo"];
+                if (file) patient.patientPhotoData = file.getData;
                 [patients addObject:patient];
-                
-                if (patients) {
-                    completion(patients);
-                }else{
-                    completion(nil);
-                    NSLog(@"404 - Envio.m - fetchAllPatients");
-                }
             }
-            
-
+            if (patients) {
+                completion(patients);
+            }else{
+                completion(nil);
+                NSLog(@"404 - Envio.m - fetchAllPatients");
+            }
         } else {
-            // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
             [self  showAlertViewError:error];
-
         }
     }];
 }

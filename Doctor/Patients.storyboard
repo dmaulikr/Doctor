@@ -82,6 +82,10 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone-foto" translatesAutoresizingMaskIntoConstraints="NO" id="VJF-bN-FpK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <animations/>
+                                                </imageView>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
@@ -104,6 +108,7 @@
                                     <outlet property="patientInitialsLabel" destination="07l-iU-rM1" id="Xw1-jR-8OX"/>
                                     <outlet property="patientInitialsView" destination="Rk3-ps-wdy" id="tKm-kV-Fnh"/>
                                     <outlet property="patientNameLabel" destination="jAW-BH-q2J" id="B1Q-QA-WPr"/>
+                                    <outlet property="patientPhotoImageView" destination="VJF-bN-FpK" id="0Dm-qW-w0S"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

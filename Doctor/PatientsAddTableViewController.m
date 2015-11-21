@@ -95,7 +95,6 @@
     UITapGestureRecognizer* tapBloodTypeTextView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickedIntoBloodTypeLabel)];
     [self.patientBloodTypeTextView setUserInteractionEnabled:YES];
     [self.patientBloodTypeTextView addGestureRecognizer:tapBloodTypeTextView];
-    
 }
 
 
@@ -523,12 +522,13 @@
 }
 
 - (void) setupCameraGestureRecognizer{
-    UITapGestureRecognizer* tapAreaCode = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedOnCameraIcon)];
+    UITapGestureRecognizer* tapCamera = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedOnCameraIcon)];
     [self.cameraImageView setUserInteractionEnabled:YES];
-    [self.cameraImageView addGestureRecognizer:tapAreaCode];
+    [self.cameraImageView addGestureRecognizer:tapCamera];
 }
 
 - (void) tappedOnCameraIcon{
+    [self.view endEditing:YES];
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar do rolo da câmera", @"Tirar uma foto", nil];
     actionSheet.tag = 1;
     [actionSheet showInView:self.view];
@@ -541,8 +541,10 @@
    // patient.patientRGString = self.patientRGTextView.text;
     patient.patientCPFString = self.patientCPFTextView.text;
    // patient.patientAgeString = self.patientAgeTextView.text;
-    UIImage* patientImage = self.cameraImageView.image;
-    patient.patientPhotoData = UIImagePNGRepresentation(patientImage);
+    if (![self.cameraImageView.image isEqual:[UIImage imageNamed:@"icone-foto"]]) {
+        UIImage* patientImage = self.cameraImageView.image;
+        patient.patientPhotoData = UIImageJPEGRepresentation(patientImage, 0.8);
+    }
     patient.patientBirthDateString = self.patientBirthdateTextView.text;
     patient.patientAdressString = self.patientAdressTextView.text;
     patient.patientWeightString = self.patientWeightTextView.text;
