@@ -43,16 +43,16 @@
 
 - (void) sendVerifyingMessage{
 //    //SEM O NOVE NA FRENTE!
-//    NSString* phoneNumberToCheck = [[NSString alloc] initWithFormat:@"%@", self.doctorBeingCreated.doctorContactString];
-//    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:phoneNumberToCheck verifyInProgressBlock:^{
-//        // called when the verification process begins
-//    }
-//                               userVerifiedBlock:^{
+    NSString* phoneNumberToCheck = [[NSString alloc] initWithFormat:@"%@", self.doctorBeingCreated.doctorContactString];
+    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:phoneNumberToCheck verifyInProgressBlock:^{
+        // called when the verification process begins
+    }
+                               userVerifiedBlock:^{
                                    [self userVerifySuccess];
-//                               }
-//                                      errorBlock:^(VerifyError error) {
-//                                          [self userVerifyFailed];
-//                                      }];
+                               }
+                                      errorBlock:^(VerifyError error) {
+                                          [self userVerifyFailed];
+                                      }];
 }
 
 #pragma mark - Setups

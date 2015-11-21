@@ -36,7 +36,9 @@
 
 @end
 
-NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esses dados só serão usados para verificar sua veracidade. Talvez a senha não digitada não tenha sido a mesma.";
+NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esses dados só serão usados para verificar sua veracidade.";
+
+NSString *const kTextToAlertViewAsWrongPassword = @"Talvez a senha digitada não tenha sido a mesma da confirmada... Tente novamente!";
 
 @implementation OutsideSignInTableViewController
 
@@ -64,7 +66,12 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 #pragma mark - IBActions
 - (IBAction)didTappedNextBarButton:(UIBarButtonItem *)sender{
     if ([self checkFieldsCompletion]) {
-        [self showAlertViewConfirmation];
+        if ([self confirmPassword]) {
+            [self showAlertViewConfirmation];
+        }
+        else{
+            [self showAlertViewBecauseOfWrongPassword];
+        }
     }
     else{
         [self showAlertViewBecauseOfBlankFields];
@@ -75,16 +82,20 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 - (BOOL) checkFieldsCompletion{
     BOOL returning = false;
     if (![self.doctorNameTextView.text isEqualToString:@""] && ![self.doctorCRMTextView.text isEqualToString:@""] && ![self.doctorConfirmPasswordTextView.text isEqualToString:@""] && ![self.doctorPasswordTextView.text isEqualToString:@""] && ![self.doctorTelephoneTextView.text isEqualToString:@""] && ![self.doctorUsernameTextView.text isEqualToString:@""]) {
-        if ([self.doctorPasswordTextView.text isEqualToString:self.doctorConfirmPasswordTextView.text]) {
-            returning = true;
-        }
+        returning = true;
+    }
+    return returning;
+}
+
+- (BOOL) confirmPassword{
+    BOOL returning = false;
+    if ([self.doctorConfirmPasswordTextView.text isEqualToString:self.doctorPasswordTextView.text]) {
+        returning = true;
     }
     return returning;
 }
 
 - (void) showAlertViewConfirmation{
-    
-    
     NSString* stringToShow = [[NSString alloc] initWithFormat:@"Favor confirmar os dados abaixo:\nNome: %@\nCRM: %@\nNome de usuário: %@\nTelefone: +55 81 %@", self.doctorNameTextView.text, self.doctorCRMTextView.text, self.doctorUsernameTextView.text, self.doctorTelephoneTextView.text];
     
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Os dados estão corretos?" message:stringToShow delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Confirmar", nil];
@@ -94,6 +105,12 @@ NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esse
 - (void) showAlertViewBecauseOfBlankFields{
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Ops! Esqueceu algo?" message:kTextToAlertViewAsBlankFields delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
+}
+
+- (void) showAlertViewBecauseOfWrongPassword{
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Ops! Tem certeza?" message:kTextToAlertViewAsWrongPassword delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+    
 }
 
 
