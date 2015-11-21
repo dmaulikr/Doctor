@@ -11,6 +11,8 @@
 #import "ForumTopicMessage.h"
 #import "Envio.h"
 #import "ForumMessageSendTableViewCell.h"
+#import <UIViewController+KBDropdownController/UIViewController+KBDropdownController.h>
+#import "ForumTopicDropdownViewController.h"
 
 @interface ForumSeeTopicTableViewController () <ForumMessageSendTableViewCellDelegate>{
     NSMutableArray* tableViewDataArray;
@@ -31,8 +33,11 @@
     [self setupLoadingAnimation];
     [self setupDataSource];
     self.tableView.tableFooterView = [UIView new];
-   
     [envio setTopicAsSaw:self.forumTopic.topicObjectId :self.doctor withCompletion:^void(BOOL* finished){}];
+    
+    
+    UITapGestureRecognizer* tapToSee = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedViewTopicDropdownButton)];
+    [self.dropdowButtonView addGestureRecognizer:tapToSee];
 }
 
 #pragma mark - Setups
@@ -155,6 +160,13 @@
     
     NSString* hourCompleted = [NSString stringWithFormat:@"%@:%@ %@", hourInString, minuteInString, amPm];
     return hourCompleted;
+}
+
+
+- (void) didTappedViewTopicDropdownButton{
+    ForumTopicDropdownViewController* forumD = [[ForumTopicDropdownViewController alloc] init];
+    [self presentDropdownController:forumD dropdownHeight:300 foldButton:nil springAnimation:YES];
+    //       [self dismissDropdownController:self.forumD dropdownHeight:300 foldButton:button];
 }
 
 @end

@@ -9,6 +9,7 @@ pod 'Parse'
 pod 'AFDropdownNotification', '~> 1.0'
 pod 'MFSideMenu'
 pod 'SWTableViewCell', '~> 0.3.7'
+pod 'UIViewController+KBDropdownController'
 
 end
 

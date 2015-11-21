@@ -14,5 +14,6 @@
 
 @property (nonatomic, strong) ForumTopic* forumTopic;
 @property (nonatomic, strong) Doctor* doctor;
+@property (nonatomic, strong) IBOutlet UIView* dropdowButtonView;
 
 @end

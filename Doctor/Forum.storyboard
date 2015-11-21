@@ -253,9 +253,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="8jh-Hs-ibQ">
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <color key="backgroundColor" red="0.11570845239999999" green="1" blue="0.071200499400000006" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ForumMessageCellID" rowHeight="100" id="kbt-Er-6mt" customClass="ForumMessageTableViewCell">
-                                <rect key="frame" x="0.0" y="92" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="136" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kbt-Er-6mt" id="gx4-3f-EGv">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -293,7 +299,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ForumSendCellID" rowHeight="53" id="A2q-i4-Pc1" customClass="ForumMessageSendTableViewCell">
-                                <rect key="frame" x="0.0" y="192" width="375" height="53"/>
+                                <rect key="frame" x="0.0" y="236" width="375" height="53"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A2q-i4-Pc1" id="LvJ-dC-JHs">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
@@ -330,6 +336,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tópico" id="mkY-ao-nK8"/>
+                    <connections>
+                        <outlet property="dropdowButtonView" destination="8jh-Hs-ibQ" id="zWq-mn-dYM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k50-j0-Suc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		020AAE381BDFA68F004766D5 /* ForumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AAE371BDFA68F004766D5 /* ForumTableViewCell.m */; };
 		020AAE3B1BDFA6CD004766D5 /* ForumMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AAE3A1BDFA6CD004766D5 /* ForumMessageTableViewCell.m */; };
+		020B6C881C0107EB00BD8664 /* ForumTopicDropdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B6C871C0107EB00BD8664 /* ForumTopicDropdownViewController.m */; };
 		0215BFB51BF58368001FF080 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0215BFB41BF58368001FF080 /* HomeViewController.m */; };
 		0226B1571BF2C92E00009147 /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0226B1561BF2C92E00009147 /* FeedTableViewCell.m */; };
 		022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DB1BCFC9CC00B7C1E0 /* MainViewController.m */; };
@@ -141,6 +142,8 @@
 		020AAE371BDFA68F004766D5 /* ForumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTableViewCell.m; sourceTree = "<group>"; };
 		020AAE391BDFA6CD004766D5 /* ForumMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumMessageTableViewCell.h; sourceTree = "<group>"; };
 		020AAE3A1BDFA6CD004766D5 /* ForumMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumMessageTableViewCell.m; sourceTree = "<group>"; };
+		020B6C861C0107EB00BD8664 /* ForumTopicDropdownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumTopicDropdownViewController.h; sourceTree = "<group>"; };
+		020B6C871C0107EB00BD8664 /* ForumTopicDropdownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTopicDropdownViewController.m; sourceTree = "<group>"; };
 		0215BFB31BF58368001FF080 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		0215BFB41BF58368001FF080 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		0226B1551BF2C92E00009147 /* FeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewCell.h; sourceTree = "<group>"; };
@@ -749,6 +752,8 @@
 				020AAE3A1BDFA6CD004766D5 /* ForumMessageTableViewCell.m */,
 				024FD6A91BECF2D9001B5057 /* ForumMessageSendTableViewCell.h */,
 				024FD6AA1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m */,
+				020B6C861C0107EB00BD8664 /* ForumTopicDropdownViewController.h */,
+				020B6C871C0107EB00BD8664 /* ForumTopicDropdownViewController.m */,
 			);
 			name = ForumSeeTopic;
 			sourceTree = "<group>";
@@ -1223,6 +1228,7 @@
 				0226B1571BF2C92E00009147 /* FeedTableViewCell.m in Sources */,
 				0297C9751BE6F82F0068757C /* ForumTopicMessage.m in Sources */,
 				022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */,
+				020B6C881C0107EB00BD8664 /* ForumTopicDropdownViewController.m in Sources */,
 				02424B781BF9FC3C0001B77B /* SettingsHealthCareTableViewController.m in Sources */,
 				02EB33CC1BF38E2B006D6529 /* MedicationsLabsTableViewController.m in Sources */,
 				0297C9791BE6F8940068757C /* Message.m in Sources */,
