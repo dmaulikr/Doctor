@@ -6,6 +6,7 @@
 //  Copyright © 2015 Doctr. All rights reserved.
 //
 
+#import "Storyboards.h"
 #import "ForumSeeTopicTableViewController.h"
 #import "ForumMessageTableViewCell.h"
 #import "ForumTopicMessage.h"
@@ -164,8 +165,7 @@
 
 
 - (void) didTappedViewTopicDropdownButton{
-    ForumTopicDropdownViewController* forumD = [[ForumTopicDropdownViewController alloc] init];
-    [self presentDropdownController:forumD dropdownHeight:300 foldButton:nil springAnimation:YES];
+    [self presentDropdownController:[[UIStoryboard storyboardWithName:kForumStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kForumSeeTopicNavID] dropdownHeight:290 foldButton:nil springAnimation:NO];
     //       [self dismissDropdownController:self.forumD dropdownHeight:300 foldButton:button];
 }
 
