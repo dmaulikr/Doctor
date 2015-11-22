@@ -6,7 +6,9 @@
 //  Copyright © 2015 Doctr. All rights reserved.
 //
 
+#import "Doctor.h"
 #import "OutsideRecoverNewPasswordViewController.h"
+
 
 @interface OutsideRecoverNewPasswordViewController () <UITextViewDelegate>
 
@@ -25,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupDelegates];
+    self.itsFineTextView.text = [NSString stringWithFormat:@"Olá, %@. Sua senha foi resetada com sucesso e você agora pode criar uma nova", self.doctor.doctorNameString];
     self.passwordConfirmTextView.secureTextEntry = YES;
     self.passwordTextView.secureTextEntry = YES;
 }

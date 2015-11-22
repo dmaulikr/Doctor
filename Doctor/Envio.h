@@ -151,5 +151,8 @@
 
 - (void) updateFirstTime:(NSString *)doctorObjectId;
 
+#pragma mark - Recover Password
+- (void) askedForRecoveringPassword:(NSString *)username withCompletion:(void (^)(Doctor* doctor)) completion;
+
 @end
 

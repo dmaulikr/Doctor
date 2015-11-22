@@ -7,8 +7,14 @@
 //
 
 #import "OutsideRecoverPasswordViewController.h"
+#import "OutsideRecoverNewPasswordViewController.h"
+#import "Envio.h"
+#import "Doctor.h"
 
-@interface OutsideRecoverPasswordViewController () <UITextViewDelegate>
+@interface OutsideRecoverPasswordViewController () <UITextViewDelegate>{
+    UIActivityIndicatorView* spinner;
+    Doctor* doctorBeingRecovered;
+}
 
 @property (weak, nonatomic) IBOutlet UITextView* loginToRecoverTextView;
 @property (weak, nonatomic) IBOutlet UIButton *confirmLoginButton;
@@ -29,6 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupLoadingAnimation];
     self.navigationController.navigationBarHidden = NO;
     self.confirmTokenButton.layer.cornerRadius = 3;
     [self textViewSetups];
@@ -44,7 +51,6 @@
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     self.navigationController.navigationBar.backItem.title = @"";
 }
-
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
@@ -75,8 +81,6 @@
                 else{
                     self.confirmTokenButton.backgroundColor = [UIColor grayColor];
                 }
-                
-            
             }
             break;
         case 2:
@@ -237,16 +241,50 @@
 
 - (IBAction)confirmLoginButtonTapped:(id)sender{
     if (self.confirmLoginButton.titleLabel.textColor != [UIColor grayColor]) {
-        [self.view endEditing:YES];
-        [UIView animateWithDuration:.5f animations:^{
-            [self liberateAlphas];
-        } completion:^(BOOL finished) {}];
+        [spinner startAnimating];
+        [self checkLoginInsert];
     }
 }
 
 - (IBAction)confirmTokenButtonTapped:(id)sender{
     if (self.confirmTokenButton.backgroundColor != [UIColor grayColor]) {
         [self performSegueWithIdentifier:@"tokenConfirmedSegue" sender:self];
+    }
+}
+
+#pragma mark - Private Methods
+- (void) checkLoginInsert{
+    [self.view endEditing:YES];
+    Envio* envio = [[Envio alloc] init];
+    [envio askedForRecoveringPassword:self.loginToRecoverTextView.text withCompletion: ^void(Doctor* doctor){
+        [spinner stopAnimating];
+        if (doctor) {
+            [UIView animateWithDuration:.5f animations:^{
+                [self liberateAlphas];
+            } completion:^(BOOL finished) {
+                doctorBeingRecovered = doctor;
+            }];
+        }
+        else{
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção"
+        message:@"Não encontramos ninguém na nossa base de dados com esse nome de usuário, que tal tentarmos de novo?"
+        delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }];
+}
+
+- (void) setupLoadingAnimation{
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = self.view.center;
+    spinner.tag = 12;
+    [self.view addSubview:spinner];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"tokenConfirmedSegue"]) {
+        OutsideRecoverNewPasswordViewController* vc = segue.destinationViewController;
+        [vc setDoctor:doctorBeingRecovered];
     }
 }
 

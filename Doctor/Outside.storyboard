@@ -514,7 +514,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="51"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Nome de usuário" translatesAutoresizingMaskIntoConstraints="NO" id="Aup-0x-fp1">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" text="Nome de usuário" translatesAutoresizingMaskIntoConstraints="NO" id="Aup-0x-fp1">
                                 <rect key="frame" x="55" y="187" width="215" height="33"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -558,7 +558,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Olá Bruno Muniz. Sua senha foi resetada com sucesso e você agora pode criar uma nova" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oux-4O-k2L">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Olá, Bruno Muniz. Sua senha foi resetada com sucesso e você agora pode criar uma nova" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oux-4O-k2L">
                                 <rect key="frame" x="30" y="47" width="315" height="96"/>
                                 <animations/>
                                 <color key="textColor" red="0.46081912879999998" green="0.46081912879999998" blue="0.46081912879999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -620,7 +620,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tvu-6x-gi2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025.5" y="2059.5"/>
+            <point key="canvasLocation" x="1025.5" y="2067.5"/>
         </scene>
         <!--Registrar-->
         <scene sceneID="L8b-WN-khX">

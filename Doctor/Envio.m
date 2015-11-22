@@ -1823,4 +1823,25 @@
     [point setObject:@NO forKey:@"isFirstTime"];
     [point save];
 }
+
+- (void) askedForRecoveringPassword:(NSString *)username withCompletion:(void (^)(Doctor* doctor)) completion{
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:@"username" equalTo:username.lowercaseString];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * doctorPFO, NSError *error) {
+        if (!error) {
+            Doctor* doctor = [[Doctor alloc] init];
+            doctor.doctorNameString = doctorPFO[@"Nome"];
+            doctor.doctorEmailString = doctorPFO[@"Email"];
+            doctor.doctorContactString = doctorPFO[@"Contact"];
+            doctor.doctorCRMString = doctorPFO[@"CRM"];
+            doctor.doctorUsernameString = doctorPFO[@"username"];
+            doctor.doctorAddressString = doctorPFO[@"Address"];
+            doctor.doctorObjectId = doctorPFO.objectId;
+            completion(doctor);
+        } else {
+            completion(nil);
+        }
+    }];
+}
+
 @end
