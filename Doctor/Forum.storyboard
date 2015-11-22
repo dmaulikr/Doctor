@@ -31,9 +31,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="EJX-h7-39c">
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ForumTableViewCellID" rowHeight="130" id="pGV-Mt-PKW" customClass="ForumTableViewCell">
-                                <rect key="frame" x="0.0" y="92" width="375" height="130"/>
+                                <rect key="frame" x="0.0" y="136" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pGV-Mt-PKW" id="4Ci-kb-Xm8">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
@@ -254,14 +260,20 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="8jh-Hs-ibQ">
-                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="375" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta-down" translatesAutoresizingMaskIntoConstraints="NO" id="pP1-mT-ehd">
+                                    <rect key="frame" x="178" y="9" width="19" height="11"/>
+                                    <animations/>
+                                </imageView>
+                            </subviews>
                             <animations/>
-                            <color key="backgroundColor" red="0.96078431369999995" green="0.57254901960000004" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ForumMessageCellID" rowHeight="100" id="kbt-Er-6mt" customClass="ForumMessageTableViewCell">
-                                <rect key="frame" x="0.0" y="136" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="122" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kbt-Er-6mt" id="gx4-3f-EGv">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -299,7 +311,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ForumSendCellID" rowHeight="53" id="A2q-i4-Pc1" customClass="ForumMessageSendTableViewCell">
-                                <rect key="frame" x="0.0" y="236" width="375" height="53"/>
+                                <rect key="frame" x="0.0" y="222" width="375" height="53"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A2q-i4-Pc1" id="LvJ-dC-JHs">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
@@ -356,40 +368,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caso de dengue hemorrágica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xj-4x-MvC">
-                                <rect key="frame" x="13" y="18" width="239" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="brunomuniz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xj-4x-MvC">
+                                <rect key="frame" x="13" y="19" width="256" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWU-wo-gnS">
-                                <rect key="frame" x="281" y="47" width="79" height="21"/>
+                                <rect key="frame" x="277" y="28" width="91" height="21"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.31050741792929293" green="0.31050741792929293" blue="0.31050741792929293" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bruno Muniz - 06894960445" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP4-oF-iVy">
-                                <rect key="frame" x="13" y="47" width="204" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suspeita de novo surto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP4-oF-iVy">
+                                <rect key="frame" x="13" y="42" width="256" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.25812815656565657" green="0.25812815656565657" blue="0.25812815656565657" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bPt-jW-TUe">
-                                <rect key="frame" x="6" y="72" width="362" height="207"/>
+                                <rect key="frame" x="11" y="59" width="350" height="217"/>
                                 <animations/>
                                 <string key="text">Paciente se sentindo mole, com dores no corpo e febre alta. Apesar da suspeita de dengue, há um agravante que deve ser levado em consideração que é justamente o que ocorre quando um indivíduo gera uma taxa relativamente mais alta de carbono através das vias aéreas. Dessa forma se mostra necessária a análise exacerbada e ativa das categorias citadas anteriormente por conta de motivos exteriores.</string>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.57684264520202033" green="0.57684264520202033" blue="0.57684264520202033" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeT-hC-RBy">
+                                <rect key="frame" x="175" y="284" width="22" height="14"/>
+                                <animations/>
+                                <state key="normal" image="seta-up"/>
+                                <connections>
+                                    <action selector="dismissDropdownTapped:" destination="twP-dp-Se9" eventType="touchUpInside" id="eu3-Ii-Xs0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.98766657971833871" green="1" blue="0.99343642462891213" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="dismissDropdownButton" destination="VeT-hC-RBy" id="ReN-ZK-gsS"/>
+                        <outlet property="topicHourLabel" destination="EWU-wo-gnS" id="P1f-NV-RhL"/>
+                        <outlet property="topicOwnerLabel" destination="4Xj-4x-MvC" id="pU9-hK-iI8"/>
+                        <outlet property="topicSubjectLabel" destination="fP4-oF-iVy" id="IRl-F9-drV"/>
+                        <outlet property="topicTextView" destination="bPt-jW-TUe" id="bdX-3M-5jC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNa-Hk-mQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -403,5 +430,7 @@
         <image name="icone-menu" width="21" height="16"/>
         <image name="mensagem-cinza" width="51" height="51"/>
         <image name="registrar-nome" width="25" height="57"/>
+        <image name="seta-down" width="37" height="23"/>
+        <image name="seta-up" width="37" height="23"/>
     </resources>
 </document>

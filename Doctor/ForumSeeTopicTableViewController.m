@@ -11,17 +11,19 @@
 #import "ForumMessageTableViewCell.h"
 #import "ForumTopicMessage.h"
 #import "Envio.h"
+#import "AppDelegate.h"
 #import "ForumMessageSendTableViewCell.h"
 #import <UIViewController+KBDropdownController/UIViewController+KBDropdownController.h>
 #import "ForumTopicDropdownViewController.h"
 
-@interface ForumSeeTopicTableViewController () <ForumMessageSendTableViewCellDelegate>{
+@interface ForumSeeTopicTableViewController () <ForumTopicDropdownViewControllerDelegate, ForumMessageSendTableViewCellDelegate>{
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
     Envio* envio;
 
 }
 @property (nonatomic, strong) NSMutableArray *messageArray;
+@property (nonatomic, strong) ForumTopicDropdownViewController* vc;
 
 @end
 
@@ -165,8 +167,17 @@
 
 
 - (void) didTappedViewTopicDropdownButton{
-    [self presentDropdownController:[[UIStoryboard storyboardWithName:kForumStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kForumSeeTopicNavID] dropdownHeight:290 foldButton:nil springAnimation:NO];
-    //       [self dismissDropdownController:self.forumD dropdownHeight:300 foldButton:button];
+    self.vc = [[UIStoryboard storyboardWithName:kForumStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kForumSeeTopicNavID];
+    
+    self.vc.delegate = self;
+    
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate.forumTopic = self.forumTopic;
+    
+    [self presentDropdownController:self.vc dropdownHeight:306 foldButton:nil springAnimation:NO];
+}
+- (void) didTappedDropdownCloseButton{
+    [self dismissDropdownController:self.vc dropdownHeight:300 foldButton:nil];
 }
 
 @end
