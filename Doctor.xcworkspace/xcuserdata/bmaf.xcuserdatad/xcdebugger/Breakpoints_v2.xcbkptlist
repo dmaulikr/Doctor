@@ -374,7 +374,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/OutsideRecoverPasswordViewController.m"
-            timestampString = "469919017.679688"
+            timestampString = "469924373.740776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "239"
@@ -758,11 +758,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "469923172.318437"
+            timestampString = "469923861.498171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1849"
-            endingLineNumber = "1849"
+            startingLineNumber = "1848"
+            endingLineNumber = "1848"
             landmarkName = "-askedForChangingPassword::withCompletion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -774,11 +774,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
-            timestampString = "469923423.250301"
+            timestampString = "469923861.498171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1851"
-            endingLineNumber = "1851"
+            startingLineNumber = "1850"
+            endingLineNumber = "1850"
             landmarkName = "-askedForChangingPassword::withCompletion:"
             landmarkType = "5">
          </BreakpointContent>

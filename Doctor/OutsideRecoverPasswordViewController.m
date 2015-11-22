@@ -39,7 +39,7 @@
     self.navigationController.navigationBarHidden = NO;
     self.confirmTokenButton.layer.cornerRadius = 3;
     [self textViewSetups];
-    [self.confirmLoginButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    self.confirmTokenButton.backgroundColor = [UIColor grayColor];
     [self setupAlphas];
 }
 
