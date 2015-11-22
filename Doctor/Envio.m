@@ -1844,4 +1844,24 @@
     }];
 }
 
+- (void) askedForChangingPassword:(NSString *)username :(NSString *)newPassword withCompletion:(void (^)(BOOL))completion{
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:username];
+    [query findObjectsInBackgroundWithBlock:^(NSArray* userArray, NSError *error){
+        for (PFUser* user in userArray){
+            [PFUser logInWithUsernameInBackground:user.username password:user.password block:^(PFUser * userNewPass, NSError *error){
+                userNewPass[@"password"] = newPassword;
+                [userNewPass saveInBackgroundWithBlock:^(BOOL succeed, NSError *error){
+                    if (succeed) {
+                        completion(true);
+                    }
+                    else{
+                        completion(false);
+                    }
+                }];
+            }];
+        }
+    }];
+}
+
 @end

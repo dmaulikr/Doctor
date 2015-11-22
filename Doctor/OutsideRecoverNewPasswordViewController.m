@@ -8,6 +8,7 @@
 
 #import "Doctor.h"
 #import "OutsideRecoverNewPasswordViewController.h"
+#import "Envio.h"
 
 
 @interface OutsideRecoverNewPasswordViewController () <UITextViewDelegate>
@@ -43,7 +44,13 @@
 }
 
 - (IBAction)didTappedNextButton:(id)sender{
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    if (![self.passwordTextView.text isEqualToString:@""] && ![self.passwordConfirmTextView.text isEqualToString:@""]) {
+        [self confirmPasswordChanging];
+    }
+    else{
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Há campos em branco, por favor preencha os dois campos com a mesma senha." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 
 - (void) textViewDidBeginEditing:(UITextView *)textView{
@@ -79,6 +86,28 @@
             break;
         default:
             break;
+    }
+}
+
+- (void) confirmPasswordChanging{
+    if ([self.passwordTextView.text isEqualToString:self.passwordConfirmTextView.text]) {
+        Envio* envio = [[Envio alloc] init];
+        [envio askedForChangingPassword:self.doctor.doctorUsernameString :self.passwordConfirmTextView.text withCompletion:^void(BOOL finished){
+            if (finished) {
+                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Sua senha foi alterada com sucesso!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            else{
+                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Algo aconteceu e sua nova senha não foi salva, tente novamente!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+        }];
+        
+    }
+    else{
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"As senhas inseridas não são iguais, por favor: tente novamente" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
     }
 }
 
