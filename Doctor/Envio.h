@@ -153,7 +153,7 @@
 
 #pragma mark - Recover Password
 - (void) askedForRecoveringPassword:(NSString *)username withCompletion:(void (^)(Doctor* doctor)) completion;
-- (void) askedForChangingPassword:(NSString *)username :(NSString *)newPassword withCompletion:(void (^)(BOOL finished)) completion;
+- (void) askedForChangingPassword:(Doctor *)doctor :(NSString *)newPassword withCompletion:(void (^)(BOOL finished)) completion;
 
 @end
 

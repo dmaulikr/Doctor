@@ -92,7 +92,7 @@
 - (void) confirmPasswordChanging{
     if ([self.passwordTextView.text isEqualToString:self.passwordConfirmTextView.text]) {
         Envio* envio = [[Envio alloc] init];
-        [envio askedForChangingPassword:self.doctor.doctorUsernameString :self.passwordConfirmTextView.text withCompletion:^void(BOOL finished){
+        [envio askedForChangingPassword:self.doctor :self.passwordConfirmTextView.text withCompletion:^void(BOOL finished){
             if (finished) {
                 UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Sua senha foi alterada com sucesso!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];

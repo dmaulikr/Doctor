@@ -31,6 +31,7 @@
     // Initialize Parse.
     [Parse setApplicationId:@"pTfc06ieWwraIZFN2TkBZRxk9YY6oRRFa4rQwwpk"
                   clientKey:@"cRHOnBbXAJwBSvSHHbfS8vhWRSnufF5nVpOhgfBl"];
+     [PFUser enableRevocableSessionInBackground];
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];

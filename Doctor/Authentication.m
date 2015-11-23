@@ -14,7 +14,7 @@
 @implementation Authentication
 
 - (void) verifyAuthenticity:(NSString *) user :(NSString *) password :(void (^)(BOOL finished))completion{
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"username" equalTo:user];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {

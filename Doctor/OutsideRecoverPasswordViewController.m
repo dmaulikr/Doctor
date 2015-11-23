@@ -10,7 +10,7 @@
 #import "OutsideRecoverNewPasswordViewController.h"
 #import "Envio.h"
 #import "Doctor.h"
-
+@import VerifyIosSdk;
 @interface OutsideRecoverPasswordViewController () <UITextViewDelegate>{
     UIActivityIndicatorView* spinner;
     Doctor* doctorBeingRecovered;
@@ -248,7 +248,9 @@
 
 - (IBAction)confirmTokenButtonTapped:(id)sender{
     if (self.confirmTokenButton.backgroundColor != [UIColor grayColor]) {
-        [self performSegueWithIdentifier:@"tokenConfirmedSegue" sender:self];
+        NSString* token = [NSString stringWithFormat:@"%@%@%@%@", self.firstTokenTextView.text, self.secondTokenTextView.text, self.thirdTokenTextView.text, self.fourTokenTextView.text];
+     //   [VerifyClient checkPinCode:token];
+        [self userVerifySuccess];
     }
 }
 
@@ -261,6 +263,7 @@
         if (doctor) {
             [UIView animateWithDuration:.5f animations:^{
                 [self liberateAlphas];
+               // [self sendVerifyingMessage];
             } completion:^(BOOL finished) {
                 doctorBeingRecovered = doctor;
             }];
@@ -286,6 +289,32 @@
         OutsideRecoverNewPasswordViewController* vc = segue.destinationViewController;
         [vc setDoctor:doctorBeingRecovered];
     }
+}
+
+- (void) sendVerifyingMessage{
+    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:doctorBeingRecovered.doctorContactString verifyInProgressBlock:^{
+    }
+                               userVerifiedBlock:^{
+                                   [self userVerifySuccess];
+                               }
+                                      errorBlock:^(VerifyError error) {
+                                          [self userVerifyFailed];
+                                      }];
+}
+
+- (void) userVerifySuccess{
+    [PFUser logInWithUsernameInBackground:doctorBeingRecovered.doctorUsernameString password:doctorBeingRecovered.doctorPasswordString
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user) {
+                                            [self performSegueWithIdentifier:@"tokenConfirmedSegue" sender:self];
+                                        } else {
+                                            NSLog(@"can't login!");
+                                        }
+                                    }];
+}
+
+- (void) userVerifyFailed{
+    
 }
 
 @end

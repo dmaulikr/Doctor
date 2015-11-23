@@ -66,7 +66,7 @@
             NSLog(@"Signed UP - OK!");
      //       [self generateDoctorCreationLog:doctor];
             
-            PFObject* userAttributed = [PFObject objectWithClassName:@"User"];
+            PFObject* userAttributed = [PFObject objectWithClassName:@"Users"];
             
             userAttributed[@"Nome"] = doctor.doctorNameString ? doctor.doctorNameString : @"";
             userAttributed[@"CRM"] = doctor.doctorCRMString ? doctor.doctorCRMString : @"";
@@ -476,7 +476,7 @@
 
 
 - (void) setTopicAsFavourite:(NSString *)topicId :(Doctor *)doctor withCompletion:(void (^)(BOOL *finished))completion{
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"CRM" equalTo:doctor.doctorCRMString];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -491,7 +491,7 @@
                 }
                 object[@"favForumTopics"] = favArray;
                
-                PFQuery *query2 = [PFQuery queryWithClassName:@"User"];
+                PFQuery *query2 = [PFQuery queryWithClassName:@"Users"];
                 [query2 getObjectInBackgroundWithId:object.objectId block:^(PFObject *query2, NSError *error) {
                     query2[@"favForumTopics"] = favArray;
                     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
@@ -512,12 +512,12 @@
 }
 
 - (void) setTopicAsSaw:(NSString *)topicId :(Doctor *)doctor withCompletion: (void (^)(BOOL* finished))completion{
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"CRM" equalTo:doctor.doctorCRMString];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                PFQuery *query2 = [PFQuery queryWithClassName:@"User"];
+                PFQuery *query2 = [PFQuery queryWithClassName:@"Users"];
                 [query2 getObjectInBackgroundWithId:object.objectId block:^(PFObject *query2, NSError *error) {
                     
                     if (![query2[@"sawForumTopics"] containsObject:topicId]) {
@@ -1797,35 +1797,67 @@
     if (patient.patientCPFString) [point setObject:patient.patientCPFString forKey:@"CPF"];
     if (patient.patientObservationsString) [point setObject:patient.patientObservationsString forKey:@"observations"];
     
-    [point save];
-    completion(true);
-}
-
-
-
-- (void) updateDoctor:(NSString *)objectIdFromDoctor withDoctor:(Doctor *)doctor withCompletion: (void (^)(BOOL finished))completion{
-    PFObject *point = [PFObject objectWithoutDataWithClassName:@"User" objectId:objectIdFromDoctor];
-    
-    if (doctor.doctorNameString) [point setObject:doctor.doctorNameString forKey:@"Nome"];
-    if (doctor.doctorCRMString) [point setObject:doctor.doctorCRMString forKey:@"CRM"];
-    if (doctor.doctorContactString) [point setObject:doctor.doctorContactString forKey:@"Contact"];
-    if (doctor.doctorEmailString) [point setObject:doctor.doctorEmailString forKey:@"Email"];
-    
-    [point saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
+    [point saveInBackgroundWithBlock:^(BOOL succeed, NSError *error){
+        if (succeed) {
             completion(true);
         }
     }];
 }
 
+
+
+- (void) updateDoctor:(NSString *)objectIdFromDoctor withDoctor:(Doctor *)doctor withCompletion: (void (^)(BOOL finished))completion{
+//    PFObject *point = [PFObject objectWithoutDataWithClassName:@"Users" objectId:objectIdFromDoctor];
+//    
+//    if (doctor.doctorNameString) [point setObject:doctor.doctorNameString forKey:@"Nome"];
+//    if (doctor.doctorCRMString) [point setObject:doctor.doctorCRMString forKey:@"CRM"];
+//    if (doctor.doctorContactString) [point setObject:doctor.doctorContactString forKey:@"Contact"];
+//    if (doctor.doctorEmailString) [point setObject:doctor.doctorEmailString forKey:@"Email"];
+//    if (doctor.doctorPasswordString) [point setObject:doctor.doctorPasswordString forKey:@"password"];
+//    
+//    [point saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            completion(true);
+//        }
+//        else{
+//            NSLog(@"Couldn't update doctor");
+//        }
+//    }];
+
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+    [query getObjectWithId:objectIdFromDoctor];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                if ([object[@"username"] isEqualToString:doctor.doctorUsernameString]) {
+                        if (doctor.doctorNameString) [object setObject:doctor.doctorNameString forKey:@"Nome"];
+                        if (doctor.doctorCRMString) [object setObject:doctor.doctorCRMString forKey:@"CRM"];
+                        if (doctor.doctorContactString) [object setObject:doctor.doctorContactString forKey:@"Contact"];
+                        if (doctor.doctorEmailString) [object setObject:doctor.doctorEmailString forKey:@"Email"];
+                        if (doctor.doctorPasswordString) [object setObject:doctor.doctorPasswordString forKey:@"password"];
+                    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                        if (succeeded) completion (true);
+                        else (NSLog(@"didnt updated doctor"));
+                    }];
+                }
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+        }
+    }];
+}
+
 - (void) updateFirstTime:(NSString *)doctorObjectId{
-    PFObject *point = [PFObject objectWithoutDataWithClassName:@"User" objectId:doctorObjectId];
+    PFObject *point = [PFObject objectWithoutDataWithClassName:@"Users" objectId:doctorObjectId];
     [point setObject:@NO forKey:@"isFirstTime"];
     [point save];
 }
 
 - (void) askedForRecoveringPassword:(NSString *)username withCompletion:(void (^)(Doctor* doctor)) completion{
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"username" equalTo:username.lowercaseString];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject * doctorPFO, NSError *error) {
         if (!error) {
@@ -1837,6 +1869,7 @@
             doctor.doctorUsernameString = doctorPFO[@"username"];
             doctor.doctorAddressString = doctorPFO[@"Address"];
             doctor.doctorObjectId = doctorPFO.objectId;
+            doctor.doctorPasswordString = doctorPFO[@"password"];
             completion(doctor);
         } else {
             completion(nil);
@@ -1844,24 +1877,81 @@
     }];
 }
 
-- (void) askedForChangingPassword:(NSString *)username :(NSString *)newPassword withCompletion:(void (^)(BOOL))completion{
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:username];
-    [query findObjectsInBackgroundWithBlock:^(NSArray* userArray, NSError *error){
-        for (PFUser* user in userArray){
-            [PFUser logInWithUsernameInBackground:user.username password:user.password block:^(PFUser * userNewPass, NSError *error){
-                userNewPass[@"password"] = newPassword;
-                [userNewPass saveInBackgroundWithBlock:^(BOOL succeed, NSError *error){
-                    if (succeed) {
-                        completion(true);
-                    }
-                    else{
-                        completion(false);
-                    }
-                }];
-            }];
-        }
-    }];
+- (void) askedForChangingPassword:(Doctor *)doctor :(NSString *)newPassword withCompletion:(void (^)(BOOL))completion{
+//    PFQuery *query = [PFUser query];
+//    [query whereKey:@"username" equalTo:username];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray* userArray, NSError *error){
+//        for (PFUser* user in userArray){
+//            [PFUser logInWithUsernameInBackground:user.username password:user.password block:^(PFUser * userNewPass, NSError *error){
+//                userNewPass[@"password"] = newPassword;
+//                [userNewPass saveInBackgroundWithBlock:^(BOOL succeed, NSError *error){
+//                    if (succeed) {
+//                        completion(true);
+//                    }
+//                    else{
+//                        completion(false);
+//                    }
+//                }];
+//            }];
+//        }
+//    }];
+//    PFQuery *query = [PFUser query];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray* users, NSError *error){
+//        for (PFUser* user in users){
+//            if ([user[@"username"] isEqualToString:doctor.doctorUsernameString]) {
+//                user.password = newPassword;
+//                [user saveInBackgroundWithBlock:^(BOOL succeed, NSError *error){
+//                    Doctor* doctorNewPass = [[Doctor alloc] init];
+//                    doctorNewPass.doctorUsernameString = doctor.doctorUsernameString;
+//                    doctorNewPass.doctorPasswordString = newPassword;
+//                    [self updateDoctor:doctor.doctorObjectId withDoctor:doctorNewPass withCompletion:^(BOOL finished){
+//                        if(finished) completion(true);
+//                        else (NSLog(@"did not finished updating"));
+//                    }];
+//                }];
+//            }
+//        }
+//    }];
+    
+    [PFUser logInWithUsernameInBackground:doctor.doctorUsernameString password:doctor.doctorPasswordString
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user) {
+                                            user.password = newPassword;
+                                            [user saveInBackgroundWithBlock:^(BOOL success, NSError* error){
+                                                if (success) {
+                                                    [PFUser logInWithUsernameInBackground:doctor.doctorUsernameString password:newPassword block:^(PFUser *user, NSError *error){
+                                                        [self completePasswordChanging:doctor :newPassword];
+                                                        completion (true);
+                                                    }];
+                                                    }
+                                                else{
+                                                    NSLog(@"Failed");
+                                                }
+                                            }];
+                                        } else {
+                                            // update UI to tell user that the old password is incorrect
+                                        }
+                                    }];
+
 }
 
+
+- (void) completePasswordChanging:(Doctor *)doctor :(NSString *)newPassword{
+    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+    [query whereKey:@"CRM" equalTo:doctor.doctorCRMString];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                object[@"password"] = newPassword;
+                [object saveInBackground];
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+
+}
 @end

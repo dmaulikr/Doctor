@@ -37,7 +37,7 @@
     self.passwordTextField.secureTextEntry = YES;
     
   //IN CASE OF NEED:
-//    PFObject *gameScore = [PFObject objectWithClassName:@"User"];
+//    PFObject *gameScore = [PFObject objectWithClassName:@"Users"];
 //    gameScore[@"username"] = @"bm";
 //    gameScore[@"password"] = @"bm";
 //    [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
