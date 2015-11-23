@@ -243,7 +243,7 @@
                                                     <rect key="frame" x="66" y="14" width="231" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="registrar-telefone" translatesAutoresizingMaskIntoConstraints="NO" id="iqH-9S-2TE">
@@ -307,11 +307,15 @@
                                 <action selector="didTappedMenuBarButton:" destination="Gag-g3-cuS" id="gG6-Jz-seM"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="Q6R-5F-hcm">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="settingsAddressLabel" destination="ufc-IM-6uZ" id="VQ4-nn-AKF"/>
                         <outlet property="settingsCRMLabel" destination="wwl-nT-4gv" id="cd7-SI-EiY"/>
+                        <outlet property="settingsCameraImageView" destination="FdA-X4-pid" id="H85-C7-7hu"/>
                         <outlet property="settingsCellphoneLabel" destination="awy-g5-0Qa" id="fUC-Ko-Nfm"/>
                         <outlet property="settingsContactLabel" destination="Lfw-Yf-BYx" id="vrl-OJ-rMG"/>
                         <outlet property="settingsEmailLabel" destination="4Df-Xx-8bg" id="N9M-rn-F6h"/>

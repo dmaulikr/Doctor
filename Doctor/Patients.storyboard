@@ -1504,16 +1504,16 @@
                                                     <rect key="frame" x="19" y="23" width="90" height="88"/>
                                                     <animations/>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Nome" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-ZY-2XD">
-                                                    <rect key="frame" x="127" y="23" width="112" height="33"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Nome" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-ZY-2XD">
+                                                    <rect key="frame" x="127" y="23" width="248" height="33"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" red="0.51483585860000003" green="0.51483585860000003" blue="0.51483585860000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sobrenome" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KYk-vj-SoR">
-                                                    <rect key="frame" x="127" y="50" width="112" height="37"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Sobrenome" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KYk-vj-SoR">
+                                                    <rect key="frame" x="127" y="50" width="248" height="37"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" red="0.51483585860000003" green="0.51483585860000003" blue="0.51483585860000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1864,7 +1864,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Liy-ZI-NXp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748.5" y="-520.5"/>
+            <point key="canvasLocation" x="748.5" y="-521"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KbC-E1-JQ6">

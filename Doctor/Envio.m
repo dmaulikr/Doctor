@@ -73,7 +73,7 @@
             userAttributed[@"Contact"] = doctor.doctorContactString ? doctor.doctorContactString : @"";
             userAttributed[@"Email"] = doctor.doctorEmailString ? doctor.doctorEmailString : @"";
             userAttributed[@"username"] = doctor.doctorUsernameString ? doctor.doctorUsernameString : @"";
-            userAttributed[@"Address"] = doctor.doctorAddressString ? doctor.doctorAddressString : @"";
+            userAttributed[@"Address"] = doctor.doctorAddressString ? doctor.doctorAddressString : @"Endereço";
             userAttributed[@"isFirstTime"] = @YES;
             
           //  PFFile* patientPhoto = [PFFile fileWithData:patient.patientPhotoData];

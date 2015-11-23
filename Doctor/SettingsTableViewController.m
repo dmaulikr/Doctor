@@ -10,7 +10,9 @@
 #import "MFSideMenu.h"
 #import "AppDelegate.h"
 
-@interface SettingsTableViewController ()
+@interface SettingsTableViewController () <UIImagePickerControllerDelegate, UIActionSheetDelegate>{
+    UIImagePickerController* imagePickerController;
+}
 
 @property (nonatomic, strong) Doctor* doctor;
 @property (nonatomic, weak) IBOutlet UILabel* settingsNameLabel;
@@ -24,6 +26,7 @@
 @property (nonatomic, weak) IBOutlet UILabel* settingsHealthCareLabel;
 @property (nonatomic, weak) IBOutlet UILabel* settingsAddressLabel;
 @property (nonatomic, weak) IBOutlet UILabel* settingsContactLabel;
+@property (nonatomic, weak) IBOutlet UIImageView* settingsCameraImageView;
 
 @end
 
@@ -32,6 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupDoctor];
+    [self setupCamera];
     self.tableView.tableFooterView = [UIView new];
 }
 
@@ -69,6 +73,58 @@
         default:
             break;
     }
+}
+
+- (void) setupCamera{
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedCamera)];
+    self.settingsCameraImageView.userInteractionEnabled = YES;
+    [self.settingsCameraImageView addGestureRecognizer:tap];
+    imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+}
+
+- (void) didTappedCamera{
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Rolo da câmera", @"Tirar uma foto", nil];
+    actionSheet.tag = 1;
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(actionSheet.tag == 1) {
+        switch (buttonIndex) {
+            case 0:
+                imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                [self presentModalViewController:imagePickerController animated:YES];
+                break;
+            case 1:
+                @try{
+                    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    [self presentModalViewController:imagePickerController animated:YES];
+                }
+                @catch (NSException *exception){
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sem câmera!" message:@"Algo ocorreu, e a câmera não está disponível." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    // UIImage* smallImage = [image scaleToSize:CGSizeMake(180,640)];
+    // NSData* photoData = UIImagePNGRepresentation(smallImage);
+    
+    self.settingsCameraImageView.layer.cornerRadius = self.settingsCameraImageView.frame.size.height/2;
+    self.settingsCameraImageView.layer.masksToBounds = YES;
+    
+    //  if (tookFromCamera) self.cameraImageView.transform = CGAffineTransformMakeRotation(M_PI_2);
+    //  [self.cameraImageView setImage:smallImage];
+    [self.settingsCameraImageView setImage:image];
+    [self.settingsCameraImageView setContentMode:UIViewContentModeScaleAspectFill];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
