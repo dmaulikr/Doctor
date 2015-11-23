@@ -15,6 +15,8 @@
 		022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DB1BCFC9CC00B7C1E0 /* MainViewController.m */; };
 		022928E01BCFCA5500B7C1E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */; };
 		022928E31BCFCCF200B7C1E0 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022928E21BCFCCF200B7C1E0 /* Feed.storyboard */; };
+		0230A4541C035B56004FA4FA /* SettingsHealthCareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0230A4531C035B56004FA4FA /* SettingsHealthCareTableViewCell.m */; };
+		0230A4571C035B66004FA4FA /* SettingsSpecialtiesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0230A4561C035B66004FA4FA /* SettingsSpecialtiesTableViewCell.m */; };
 		02424B751BF9F5770001B77B /* SettingsSAAPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02424B741BF9F5770001B77B /* SettingsSAAPTableViewController.m */; };
 		02424B781BF9FC3C0001B77B /* SettingsHealthCareTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02424B771BF9FC3C0001B77B /* SettingsHealthCareTableViewController.m */; };
 		02424B7B1BF9FC470001B77B /* SettingsChangePasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02424B7A1BF9FC470001B77B /* SettingsChangePasswordTableViewController.m */; };
@@ -154,6 +156,10 @@
 		022928DE1BCFCA5500B7C1E0 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		022928E21BCFCCF200B7C1E0 /* Feed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		0230A4521C035B56004FA4FA /* SettingsHealthCareTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsHealthCareTableViewCell.h; sourceTree = "<group>"; };
+		0230A4531C035B56004FA4FA /* SettingsHealthCareTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsHealthCareTableViewCell.m; sourceTree = "<group>"; };
+		0230A4551C035B66004FA4FA /* SettingsSpecialtiesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSpecialtiesTableViewCell.h; sourceTree = "<group>"; };
+		0230A4561C035B66004FA4FA /* SettingsSpecialtiesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSpecialtiesTableViewCell.m; sourceTree = "<group>"; };
 		02424B731BF9F5770001B77B /* SettingsSAAPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSAAPTableViewController.h; sourceTree = "<group>"; };
 		02424B741BF9F5770001B77B /* SettingsSAAPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSAAPTableViewController.m; sourceTree = "<group>"; };
 		02424B761BF9FC3C0001B77B /* SettingsHealthCareTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsHealthCareTableViewController.h; sourceTree = "<group>"; };
@@ -427,6 +433,46 @@
 				022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		0230A44E1C035B05004FA4FA /* SettingsHealthCare */ = {
+			isa = PBXGroup;
+			children = (
+				02424B761BF9FC3C0001B77B /* SettingsHealthCareTableViewController.h */,
+				02424B771BF9FC3C0001B77B /* SettingsHealthCareTableViewController.m */,
+				0230A4521C035B56004FA4FA /* SettingsHealthCareTableViewCell.h */,
+				0230A4531C035B56004FA4FA /* SettingsHealthCareTableViewCell.m */,
+			);
+			name = SettingsHealthCare;
+			sourceTree = "<group>";
+		};
+		0230A44F1C035B11004FA4FA /* SettingsChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				02424B791BF9FC470001B77B /* SettingsChangePasswordTableViewController.h */,
+				02424B7A1BF9FC470001B77B /* SettingsChangePasswordTableViewController.m */,
+			);
+			name = SettingsChangePassword;
+			sourceTree = "<group>";
+		};
+		0230A4501C035B19004FA4FA /* SettingsSpecialist */ = {
+			isa = PBXGroup;
+			children = (
+				02424B7C1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.h */,
+				02424B7D1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.m */,
+				0230A4551C035B66004FA4FA /* SettingsSpecialtiesTableViewCell.h */,
+				0230A4561C035B66004FA4FA /* SettingsSpecialtiesTableViewCell.m */,
+			);
+			name = SettingsSpecialist;
+			sourceTree = "<group>";
+		};
+		0230A4511C035B2F004FA4FA /* SettingsSeeAsAPatient */ = {
+			isa = PBXGroup;
+			children = (
+				02424B731BF9F5770001B77B /* SettingsSAAPTableViewController.h */,
+				02424B741BF9F5770001B77B /* SettingsSAAPTableViewController.m */,
+			);
+			name = SettingsSeeAsAPatient;
 			sourceTree = "<group>";
 		};
 		02755B5B1BE10814000A5183 /* ViewsInbox */ = {
@@ -708,14 +754,10 @@
 				02CD6C4E1BD2DE6300C38B6D /* SettingsTableViewController.m */,
 				02EB33C41BF3815F006D6529 /* SettingsTableViewCell.h */,
 				02EB33C51BF3815F006D6529 /* SettingsTableViewCell.m */,
-				02424B731BF9F5770001B77B /* SettingsSAAPTableViewController.h */,
-				02424B741BF9F5770001B77B /* SettingsSAAPTableViewController.m */,
-				02424B761BF9FC3C0001B77B /* SettingsHealthCareTableViewController.h */,
-				02424B771BF9FC3C0001B77B /* SettingsHealthCareTableViewController.m */,
-				02424B791BF9FC470001B77B /* SettingsChangePasswordTableViewController.h */,
-				02424B7A1BF9FC470001B77B /* SettingsChangePasswordTableViewController.m */,
-				02424B7C1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.h */,
-				02424B7D1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.m */,
+				0230A4511C035B2F004FA4FA /* SettingsSeeAsAPatient */,
+				0230A44E1C035B05004FA4FA /* SettingsHealthCare */,
+				0230A44F1C035B11004FA4FA /* SettingsChangePassword */,
+				0230A4501C035B19004FA4FA /* SettingsSpecialist */,
 			);
 			name = ViewsSettings;
 			sourceTree = "<group>";
@@ -1195,6 +1237,7 @@
 				02424B751BF9F5770001B77B /* SettingsSAAPTableViewController.m in Sources */,
 				027A8AAC1BF4EAA200967ADA /* OutsideRecoverNewPasswordViewController.m in Sources */,
 				02EB33C61BF3815F006D6529 /* SettingsTableViewCell.m in Sources */,
+				0230A4571C035B66004FA4FA /* SettingsSpecialtiesTableViewCell.m in Sources */,
 				02E7A9B41BDC5254008059BD /* PatientSelectedAppointmentSelectedTableViewController.m in Sources */,
 				02C11D5D1BF966E200BBE0D0 /* TutorialViewController.m in Sources */,
 				029385BF1BFAA9830071DD31 /* MedicationsLabsTableViewCell.m in Sources */,
@@ -1206,6 +1249,7 @@
 				02807F961BCE9DE10008D018 /* AppDelegate.m in Sources */,
 				02E7A99F1BDC50DE008059BD /* PatientSelectedEditTableViewController.m in Sources */,
 				7000F8971BE8E55A002A7B22 /* Log.m in Sources */,
+				0230A4541C035B56004FA4FA /* SettingsHealthCareTableViewCell.m in Sources */,
 				02CDD9BF1BD6DBB300443828 /* ForumNewTopicTableViewController.m in Sources */,
 				7020D1321BD53B560059A226 /* CaseHistory.m in Sources */,
 				02424B7B1BF9FC470001B77B /* SettingsChangePasswordTableViewController.m in Sources */,

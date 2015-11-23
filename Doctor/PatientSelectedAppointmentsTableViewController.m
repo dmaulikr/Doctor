@@ -31,6 +31,13 @@
     self.patientCameSinceLabel.numberOfLines = 0;
     self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
     self.tableView.tableFooterView = [UIView new];
+    
+    if (self.patient.patientPhotoData) {
+        self.patientImageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.patientImageView.layer.cornerRadius = self.patientImageView.frame.size.height/2;
+        self.patientImageView.layer.masksToBounds = YES;
+        self.patientImageView.image = [UIImage imageWithData:self.patient.patientPhotoData];
+    }
 }
 
 #pragma mark - UITableViewDelegate

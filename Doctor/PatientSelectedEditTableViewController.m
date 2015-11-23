@@ -45,6 +45,13 @@
     self.tableView.tableFooterView = [UIView new];
     imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.delegate = self;
+    
+    if (self.patient.patientPhotoData) {
+        self.patientImageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.patientImageView.layer.cornerRadius = self.patientImageView.frame.size.height/2;
+        self.patientImageView.layer.masksToBounds = YES;
+        self.patientImageView.image = [UIImage imageWithData:self.patient.patientPhotoData];
+    }
 }
 
 - (void) loadPatientData{
