@@ -29,6 +29,7 @@
                     doctor.isFirstTime = [object[@"isFirstTime"] boolValue];
                     doctor.doctorEmailString = object[@"Email"];
                     doctor.doctorAddressString = object[@"Address"];
+                    doctor.doctorPasswordString = object[@"password"];
                     doctor.doctorUsernameString = user;
                     doctor.doctorObjectId = object.objectId;
                     doctor.doctorContactString = object[@"Contact"];

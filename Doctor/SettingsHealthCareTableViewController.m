@@ -11,7 +11,6 @@
 
 @interface SettingsHealthCareTableViewController (){
     NSMutableArray* healthCareArray;
-    NSMutableArray* alreadyHealthCareArray;
 }
 
 @end
@@ -49,16 +48,16 @@
                         @"Santa Casa",
                         @"Santa Helena",
                         @"Seisa", nil];
-    alreadyHealthCareArray = [[NSMutableArray alloc] init];
+    
     self.tableView.tableFooterView = [UIView new];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([alreadyHealthCareArray containsObject:healthCareArray[indexPath.row]]) {
-        [alreadyHealthCareArray removeObject:healthCareArray[indexPath.row]];
+    if ([self.healthCareArray containsObject:healthCareArray[indexPath.row]]) {
+        [self.healthCareArray removeObject:healthCareArray[indexPath.row]];
     }
     else{
-        [alreadyHealthCareArray addObject:healthCareArray[indexPath.row]];
+        [self.healthCareArray addObject:healthCareArray[indexPath.row]];
     }
     [self.tableView reloadData];
 }
@@ -77,10 +76,14 @@
     }
     cell.healthCareLabel.text = healthCareArray[indexPath.row];
     
-    if ([alreadyHealthCareArray containsObject:cell.healthCareLabel.text]) {
+    if ([self.healthCareArray containsObject:cell.healthCareLabel.text]) {
         cell.radioButtonImageView.image = [UIImage imageNamed:@"check-ok"];
     }
     return cell;
+}
+
+-(IBAction)didTappedToSaveHealthCares:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

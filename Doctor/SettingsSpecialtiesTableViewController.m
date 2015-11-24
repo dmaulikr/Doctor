@@ -11,7 +11,6 @@
 
 @interface SettingsSpecialtiesTableViewController (){
     NSMutableArray* specialtiesArray;
-    NSMutableArray* alreadySpecialtiesArray;
 }
 
 @end
@@ -44,16 +43,15 @@
                         @"Oftalmologia",
                         @"Urologia", nil];
     
-    alreadySpecialtiesArray = [[NSMutableArray alloc] initWithObjects:@"Acupuntura", nil];
     self.tableView.tableFooterView = [UIView new];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([alreadySpecialtiesArray containsObject:specialtiesArray[indexPath.row]]) {
-        [alreadySpecialtiesArray removeObject:specialtiesArray[indexPath.row]];
+    if ([self.specialtiesArray containsObject:specialtiesArray[indexPath.row]]) {
+        [self.specialtiesArray removeObject:specialtiesArray[indexPath.row]];
     }
     else{
-        [alreadySpecialtiesArray addObject:specialtiesArray[indexPath.row]];
+        [self.specialtiesArray addObject:specialtiesArray[indexPath.row]];
     }
     [self.tableView reloadData];
 }
@@ -72,11 +70,15 @@
     }
     cell.specialityLabel.text = specialtiesArray[indexPath.row];
 
-    if ([alreadySpecialtiesArray containsObject:cell.specialityLabel.text]) {
+    if ([self.specialtiesArray containsObject:cell.specialityLabel.text]) {
         cell.radioButtonImageView.image = [UIImage imageNamed:@"check-ok"];
     }
 
     return cell;
+}
+
+- (IBAction)didTappedForSaveSpecialties:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

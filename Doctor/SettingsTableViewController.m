@@ -9,6 +9,9 @@
 #import "SettingsTableViewController.h"
 #import "MFSideMenu.h"
 #import "AppDelegate.h"
+#import "SettingsHealthCareTableViewController.h"
+#import "SettingsSpecialtiesTableViewController.h"
+#import "SettingsChangePasswordTableViewController.h"
 
 @interface SettingsTableViewController () <UIImagePickerControllerDelegate, UIActionSheetDelegate>{
     UIImagePickerController* imagePickerController;
@@ -127,5 +130,26 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"settingsChangePasswordSegue"]) {
+        SettingsChangePasswordTableViewController* vc = segue.destinationViewController;
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        [vc setDoctor:appDelegate.doctor];
+    }
+    else if ([segue.identifier isEqualToString:@"settingsSpecialtiesSegue"]){
+        SettingsSpecialtiesTableViewController *vc = segue.destinationViewController;
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        [vc setSpecialtiesArray:appDelegate.doctor.doctorSpecialtiesArray];
+    }
+    else if ([segue.identifier isEqualToString:@"settingsHealthCareSegue"]){
+        SettingsHealthCareTableViewController* vc = segue.destinationViewController;
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        [vc setHealthCareArray:appDelegate.doctor.doctorHealthCareArray];
+    }
+}
+
+- (IBAction)didTappedToSaveButton:(id)sender{
+    
+}
 
 @end
