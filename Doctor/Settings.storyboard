@@ -41,20 +41,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="155.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Higor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7j-A9-p8f">
-                                                    <rect key="frame" x="134" y="47" width="211" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oliveira" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozA-cr-nzL">
-                                                    <rect key="frame" x="134" y="73" width="203" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+55 81 9 9939 6494" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awy-g5-0Qa">
                                                     <rect key="frame" x="134" y="98" width="211" height="21"/>
                                                     <animations/>
@@ -66,6 +52,13 @@
                                                     <rect key="frame" x="23" y="33" width="89" height="89"/>
                                                     <animations/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Higor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7j-A9-p8f">
+                                                    <rect key="frame" x="134" y="42" width="233" height="50"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -326,7 +319,6 @@
                         <outlet property="settingsNameLabel" destination="t7j-A9-p8f" id="LMk-K5-2Xh"/>
                         <outlet property="settingsPasswordLabel" destination="IrK-rp-aib" id="Dc2-lU-0Oj"/>
                         <outlet property="settingsSpecialtiesLabel" destination="9gU-Fn-DsC" id="DZ4-Ff-XeW"/>
-                        <outlet property="settingsSurnameLabel" destination="ozA-cr-nzL" id="nUc-F6-oQX"/>
                         <outlet property="settingsUserLabel" destination="aSu-Kv-B9c" id="SVe-do-R1h"/>
                         <segue destination="Quc-mr-6dJ" kind="show" identifier="settingsChangePasswordSegue" id="2p2-kl-Ts1"/>
                         <segue destination="hLw-lO-RWz" kind="show" identifier="settingsSpecialtiesSegue" id="Zu9-px-gs7"/>

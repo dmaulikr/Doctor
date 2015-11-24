@@ -19,7 +19,6 @@
 
 @property (nonatomic, strong) Doctor* doctor;
 @property (nonatomic, weak) IBOutlet UILabel* settingsNameLabel;
-@property (nonatomic, weak) IBOutlet UILabel* settingsSurnameLabel;
 @property (nonatomic, weak) IBOutlet UILabel* settingsCellphoneLabel;
 @property (nonatomic, weak) IBOutlet UILabel* settingsCRMLabel;
 @property (nonatomic, weak) IBOutlet UILabel* settingsEmailLabel;
@@ -60,7 +59,6 @@
     self.settingsSpecialtiesLabel.text = @"Especialidades";
     self.settingsUserLabel.text = self.doctor.doctorUsernameString;
     self.settingsNameLabel.text = self.doctor.doctorNameString;
-    self.settingsSurnameLabel.text = self.doctor.doctorNameString;
     self.settingsCellphoneLabel.text = self.doctor.doctorContactString;
     if (self.doctor.doctorPhotoData) self.settingsCameraImageView.image = [UIImage imageWithData:self.doctor.doctorPhotoData];
 }

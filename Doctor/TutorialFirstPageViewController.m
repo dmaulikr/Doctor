@@ -40,6 +40,9 @@
 }
 - (IBAction)clickedIntoTutorial:(id)sender{
     [self performSegueWithIdentifier:@"goToTutorialSegue" sender:self];
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    Envio *envio = [[Envio alloc] init];
+    [envio updateFirstTime:appDelegate.doctor.doctorObjectId];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

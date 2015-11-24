@@ -42,6 +42,7 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
     i = 0;
     [self setupScheme];
     [self setupGestureRecognizer];
+    [self didTappedScreen];
 }
 
 - (void) setupScheme{
@@ -63,6 +64,15 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
 - (void) setupGestureRecognizer{
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedScreen)];
     [self.view addGestureRecognizer:tap];
+    
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeLeft];
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self  action:@selector(didSwipe:)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeRight];
+
 }
 
 - (void) didTappedScreen{
@@ -95,8 +105,43 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
     }
 }
 
+- (void)didSwipe:(UISwipeGestureRecognizer*)swipe{
+    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
+        switch (i) {
+            case 1:
+                break;
+            case 2:
+                i--;
+                [self performFirstAnimation];
+                self.pageControl.currentPage = 0;
+                break;
+            case 3:
+                i--;
+                [self performSecondAnimation];
+                self.pageControl.currentPage = 1;
+                break;
+            case 4:
+                i--;
+                [self performThirdAnimation];
+                self.pageControl.currentPage = 2;
+                break;
+            case 5:
+                i--;
+                [self performFourthAnimation];
+                self.pageControl.currentPage = 3;
+                break;
+            default:
+                break;
+        }
+
+    } else if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
+        [self didTappedScreen];
+    }
+}
+
 - (void) performFirstAnimation{
     [UIView animateWithDuration:0.7f animations:^{
+        self.patientsLabel.alpha = 1.0;
         self.medicationsLabel.alpha = 0.1;
         self.forumLabel.alpha = 0.1;
         self.settingsLabel.alpha = 0.1;
@@ -107,6 +152,8 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
         self.pageControl.alpha = 1.0;
         
         self.instructionsTextView.text = kFirstTextViewText;
+        
+        self.sectionImageView.image = [UIImage imageNamed:@"icone-tutorial-pacientes-1"];
         
     } completion:^(BOOL finished) {}];
 }

@@ -81,7 +81,7 @@ NSString *const kTextToAlertViewAsWrongPassword = @"Talvez a senha digitada não
 #pragma mark - Private Methods
 - (BOOL) checkFieldsCompletion{
     BOOL returning = false;
-    if (![self.doctorNameTextView.text isEqualToString:@""] && ![self.doctorCRMTextView.text isEqualToString:@""] && ![self.doctorConfirmPasswordTextView.text isEqualToString:@""] && ![self.doctorPasswordTextView.text isEqualToString:@""] && ![self.doctorTelephoneTextView.text isEqualToString:@""] && ![self.doctorUsernameTextView.text isEqualToString:@""]) {
+    if (![self.doctorNameTextView.text isEqualToString:@"Nome"] && ![self.doctorCRMTextView.text isEqualToString:@"CRM"] && ![self.doctorConfirmPasswordTextView.text isEqualToString:@"Confirme senha"] && ![self.doctorPasswordTextView.text isEqualToString:@"Senha"] && ![self.doctorTelephoneTextView.text isEqualToString:@"Telefone"] && ![self.doctorUsernameTextView.text isEqualToString:@"Nome de usuário"] && ![self.doctorEmailTextView.text isEqualToString:@"E-mail"] && ![self.doctorAreaCodeLabel.text isEqualToString:@"Código de área"]) {
         returning = true;
     }
     return returning;
@@ -202,10 +202,12 @@ NSString *const kTextToAlertViewAsWrongPassword = @"Talvez a senha digitada não
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
+            self.doctorAreaCodeLabel.textColor = [UIColor blackColor];
             self.doctorAreaCodeLabel.text = @"81";
             self.doctorAreaCodeImageView.image = [UIImage imageNamed:@"registrar-telefone-laranja"];
             break;
         case 1:
+            self.doctorAreaCodeLabel.textColor = [UIColor blackColor];
             self.doctorAreaCodeLabel.text = @"87";
             self.doctorAreaCodeImageView.image = [UIImage imageNamed:@"registrar-telefone-laranja"];
             break;
@@ -321,48 +323,48 @@ NSString *const kTextToAlertViewAsWrongPassword = @"Talvez a senha digitada não
     switch (textView.tag) {
         case 1:
             if ([textView.text isEqualToString:@""]) {
-                textView.textColor = [UIColor grayColor];
+                textView.textColor = [UIColor darkGrayColor];
                 textView.text = @"Nome";
                 self.doctorNameImageView.image = [UIImage imageNamed:@"registrar-nome"];
             }
             break;
         case 2:
             if ([textView.text isEqualToString:@""]) {
-                textView.textColor = [UIColor grayColor];
+                textView.textColor = [UIColor darkGrayColor];
                 textView.text = @"CRM";
                 self.doctorCRMImageView.image = [UIImage imageNamed:@"registrar-crm"];
             }
             break;
         case 3:
             if ([textView.text isEqualToString:@""]) {
-                textView.textColor = [UIColor grayColor];
+                textView.textColor = [UIColor darkGrayColor];
                 textView.text = @"Telefone";
                 self.doctorTelephoneImageView.image = [UIImage imageNamed:@"registrar-telefone"];
             }
             break;
         case 4:
             if ([textView.text isEqualToString:@""]) {
-                textView.textColor = [UIColor grayColor];
+                textView.textColor = [UIColor darkGrayColor];
                 textView.text = @"Senha";
                 self.doctorPasswordImageView.image = [UIImage imageNamed:@"home-lock"];
             }
             break;
         case 5:
             if ([textView.text isEqualToString:@""]) {
-                textView.textColor = [UIColor grayColor];
+                textView.textColor = [UIColor darkGrayColor];
                 textView.text = @"Confirme senha";
                 self.doctorConfirmPasswordImageView.image = [UIImage imageNamed:@"home-lock"];
             }
             break;
         case 6:
             if ([textView.text isEqualToString:@""]) {
-                textView.textColor = [UIColor grayColor];
+                textView.textColor = [UIColor darkGrayColor];
                 textView.text = @"Nome de usuário";
                 self.doctorUsernameImageView.image = [UIImage imageNamed:@"home-usuario"];
             }
         case 7:
             if ([textView.text isEqualToString:@""]) {
-                textView.textColor = [UIColor grayColor];
+                textView.textColor = [UIColor darkGrayColor];
                 textView.text = @"E-mail";
                 self.doctorEmailImageView.image = [UIImage imageNamed:@"icone-email"];
             }
