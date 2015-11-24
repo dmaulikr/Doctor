@@ -59,42 +59,48 @@
 
 #pragma mark - IBActions
 - (IBAction)didTappedLoginButton:(UIButton *)sender{
-    [self.view addSubview:spinner];
-    [self.loginButton setEnabled:NO];
-    [spinner startAnimating];
-    
-    Envio* envio = [[Envio alloc]init];
-    Authentication* auth = [Authentication alloc];
-    [envio logIn:self.loginTextField.text withPassword:self.passwordTextField.text :^void (BOOL finished){
-        if (finished) {
-            [auth verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
-                
-                
-                AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-                
-                
-                self.menuContainerViewController.centerViewController = [[UIStoryboard
-                                                                          storyboardWithName:kFeedStoryboard
-                                                                          bundle:nil]
-                                                                         instantiateViewControllerWithIdentifier:appDelegate.doctor.isFirstTime ? kFeedFTNavID: kFeedNavID];
-                
-                [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
-                
-                
-                
-                
-                
-                [spinner stopAnimating];
+    if ([self checkFieldCompletion]) {
+        [self.view addSubview:spinner];
+        [self.loginButton setEnabled:NO];
+        [spinner startAnimating];
+        
+        Envio* envio = [[Envio alloc]init];
+        Authentication* auth = [Authentication alloc];
+        [envio logIn:self.loginTextField.text withPassword:self.passwordTextField.text :^void (BOOL finished){
+            if (finished) {
+                [auth verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
+                    
+                    
+                    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                    
+                    
+                    self.menuContainerViewController.centerViewController = [[UIStoryboard
+                                                                              storyboardWithName:kFeedStoryboard
+                                                                              bundle:nil]
+                                                                             instantiateViewControllerWithIdentifier:appDelegate.doctor.isFirstTime ? kFeedFTNavID: kFeedNavID];
+                    
+                    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+                    
+                    
+                    
+                    
+                    
+                    [spinner stopAnimating];
+                    [self.loginButton setEnabled:YES];
+                }];
+            }
+            else{
+                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Não foi possível realizar o login, verifique seu usuário/senha e tente novamente." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                [alert show];
                 [self.loginButton setEnabled:YES];
-            }];
-        }
-        else{
-           UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Houve algo errado." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [alert show];
-            [self.loginButton setEnabled:YES];
-            [spinner stopAnimating];
-        }
-    }];
+                [spinner stopAnimating];
+            }
+        }];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Preencha os campos em branco e tente novamente." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 
 - (IBAction)didTappedSignInButton:(UIButton *)sender{
@@ -166,5 +172,13 @@
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     spinner.center = self.view.center;
     spinner.tag = 12;
+}
+
+- (BOOL) checkFieldCompletion{
+    BOOL returning = false;
+    if (![self.loginTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""]) {
+        returning = true;
+    }
+    return returning;
 }
 @end

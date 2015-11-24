@@ -36,6 +36,9 @@
     [self setupLoadingAnimation];
     [self setupDataSource];
     self.tableView.tableFooterView = [UIView new];
+    if (![self.doctor.sawTopicsArray containsObject:self.forumTopic.topicObjectId]) {
+        [self didTappedViewTopicDropdownButton];
+    }
     [envio setTopicAsSaw:self.forumTopic.topicObjectId :self.doctor withCompletion:^void(BOOL* finished){}];
     
     

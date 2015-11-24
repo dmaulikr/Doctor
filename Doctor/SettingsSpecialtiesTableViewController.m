@@ -26,7 +26,6 @@
                         @"Cardiologia",
                         @"Cirurgia",
                         @"Dermatologia",
-                        @"Oncologia",
                         @"Endocrinologia",
                         @"Fisiatria",
                         @"Fonoaudiologia",
@@ -36,11 +35,12 @@
                         @"Mastologia",
                         @"Neurologia",
                         @"Odontologia",
+                        @"Oftalmologia",
+                        @"Oncologia",
+                        @"Pneumologia",
                         @"Psicologia",
                         @"Psiquiatria",
-                        @"Pneumologia",
                         @"Radiologia",
-                        @"Oftalmologia",
                         @"Urologia", nil];
     
     self.tableView.tableFooterView = [UIView new];

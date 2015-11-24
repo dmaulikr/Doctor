@@ -39,7 +39,7 @@
     self.navigationController.navigationBarHidden = NO;
     self.confirmTokenButton.layer.cornerRadius = 3;
     [self textViewSetups];
-    self.confirmTokenButton.backgroundColor = [UIColor grayColor];
+    [self.confirmLoginButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self setupAlphas];
 }
 
@@ -240,18 +240,19 @@
 }
 
 - (IBAction)confirmLoginButtonTapped:(id)sender{
-    if (self.confirmLoginButton.titleLabel.textColor != [UIColor grayColor]) {
+    if (![[self.confirmLoginButton titleColorForState:UIControlStateNormal] isEqual:[UIColor grayColor]]) {
         [spinner startAnimating];
         [self checkLoginInsert];
     }
 }
+    
+    
 
 - (IBAction)confirmTokenButtonTapped:(id)sender{
     if (self.confirmTokenButton.backgroundColor != [UIColor grayColor]) {
         NSString* token = [NSString stringWithFormat:@"%@%@%@%@", self.firstTokenTextView.text, self.secondTokenTextView.text, self.thirdTokenTextView.text, self.fourTokenTextView.text];
         [VerifyClient checkPinCode:token];
-        [self userVerifySuccess];
-    }
+}
     else{
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"O código sms não foi inserido, complete o código e tente novamente." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -307,18 +308,18 @@
 }
 
 - (void) userVerifySuccess{
-    [PFUser logInWithUsernameInBackground:doctorBeingRecovered.doctorUsernameString password:doctorBeingRecovered.doctorPasswordString
+    [PFUser logInWithUsernameInBackground:doctorBeingRecovered.doctorUsernameString
+                                 password:doctorBeingRecovered.doctorPasswordString
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
                                             [self performSegueWithIdentifier:@"tokenConfirmedSegue" sender:self];
-                                        } else {
-                                            NSLog(@"can't login!");
                                         }
                                     }];
 }
 
 - (void) userVerifyFailed{
-    
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"O código inserido está errado! Tem certeza de que o nome de usuário inserido está correto?" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 @end
