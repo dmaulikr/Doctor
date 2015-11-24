@@ -37,6 +37,8 @@
     [self setupDoctor];
     [self setupCamera];
     self.tableView.tableFooterView = [UIView new];
+    self.settingsCameraImageView.layer.cornerRadius = self.settingsCameraImageView.frame.size.height/2;
+    self.settingsCameraImageView.layer.masksToBounds = YES;
 }
 
 -(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{
@@ -57,6 +59,7 @@
     self.settingsNameLabel.text = self.doctor.doctorNameString;
     self.settingsSurnameLabel.text = self.doctor.doctorNameString;
     self.settingsCellphoneLabel.text = self.doctor.doctorContactString;
+    if (self.doctor.doctorPhotoData) self.settingsCameraImageView.image = [UIImage imageWithData:self.doctor.doctorPhotoData];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -116,9 +119,6 @@
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     // UIImage* smallImage = [image scaleToSize:CGSizeMake(180,640)];
     // NSData* photoData = UIImagePNGRepresentation(smallImage);
-    
-    self.settingsCameraImageView.layer.cornerRadius = self.settingsCameraImageView.frame.size.height/2;
-    self.settingsCameraImageView.layer.masksToBounds = YES;
     
     //  if (tookFromCamera) self.cameraImageView.transform = CGAffineTransformMakeRotation(M_PI_2);
     //  [self.cameraImageView setImage:smallImage];

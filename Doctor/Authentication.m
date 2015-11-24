@@ -30,8 +30,10 @@
                     doctor.doctorEmailString = object[@"Email"];
                     doctor.doctorAddressString = object[@"Address"];
                     doctor.doctorUsernameString = user;
-                doctor.doctorObjectId = object.objectId;
+                    doctor.doctorObjectId = object.objectId;
                     doctor.doctorContactString = object[@"Contact"];
+                    PFFile* file = [object objectForKey:@"photo"];
+                    if (file) doctor.doctorPhotoData = file.getData;
                     appDelegate.doctor = doctor;
             }
             if (self.granted) {
