@@ -59,6 +59,11 @@
     self.heightTextView.text = self.patient.patientHeightString;
     self.emergencyContactTextView.text = self.patient.patientEmergencyContactString;
     self.addressTextView.text = self.patient.patientAdressString;
-    self.cpfTextView.text = self.patient.patientCPFString;
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setDecimalSeparator:@"."];
+    [formatter setGroupingSeparator:@"."];
+    self.cpfTextView.text = [formatter stringFromNumber:[NSNumber numberWithInteger:[self.patient.patientCPFString integerValue]]];
+    
 }
 @end

@@ -249,8 +249,12 @@
 - (IBAction)confirmTokenButtonTapped:(id)sender{
     if (self.confirmTokenButton.backgroundColor != [UIColor grayColor]) {
         NSString* token = [NSString stringWithFormat:@"%@%@%@%@", self.firstTokenTextView.text, self.secondTokenTextView.text, self.thirdTokenTextView.text, self.fourTokenTextView.text];
-     //   [VerifyClient checkPinCode:token];
+        [VerifyClient checkPinCode:token];
         [self userVerifySuccess];
+    }
+    else{
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"O código sms não foi inserido, complete o código e tente novamente." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
     }
 }
 
@@ -263,7 +267,7 @@
         if (doctor) {
             [UIView animateWithDuration:.5f animations:^{
                 [self liberateAlphas];
-               // [self sendVerifyingMessage];
+                [self sendVerifyingMessage];
             } completion:^(BOOL finished) {
                 doctorBeingRecovered = doctor;
             }];
