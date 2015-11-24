@@ -20,7 +20,10 @@
     UIActivityIndicatorView *spinner;
     ForumTopic* topicClicked;
 }
+
 @property (nonatomic, strong) NSMutableArray* forumTopicsArray;
+@property (strong, nonatomic) IBOutlet UISearchBar *forumSearchBar;
+@property (strong, nonatomic) NSMutableArray* filteredForumsArray;
 
 @end
 
@@ -32,6 +35,7 @@
     self.tableView.tableFooterView = [UIView new];
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     self.doctor = appDelegate.doctor;
+    [self setupSearch];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -148,6 +152,33 @@
     [self.view addSubview:spinner];
     [spinner startAnimating];
 }
+
+#pragma mark - UISearchBarDelegate Methods
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if ([searchText isEqualToString:@""]) {
+        tableViewDataArray = self.forumTopicsArray;
+        [self.tableView reloadData];
+    }
+    else{
+        [self.filteredForumsArray removeAllObjects];
+        for (int i = 0; i < self.forumTopicsArray.count; i++) {
+            ForumTopic* forumSearching = [[ForumTopic alloc] init];
+            forumSearching = self.forumTopicsArray[i];
+            NSString* toCheck = [forumSearching.topicForumSubject lowercaseString];
+            NSString* toCheck2 = [forumSearching.topicForumSinopse lowercaseString];
+            if ([toCheck containsString:[searchText lowercaseString]] || [toCheck2 containsString:[searchText lowercaseString]]) {
+                [self.filteredForumsArray addObject:forumSearching];
+            }
+        }
+        tableViewDataArray = self.filteredForumsArray;
+        [self.tableView reloadData];
+    }
+}
+
+- (void) setupSearch{
+    self.filteredForumsArray = [NSMutableArray arrayWithCapacity:self.forumTopicsArray.count];
+}
+
 
 
 @end

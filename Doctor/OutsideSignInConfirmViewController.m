@@ -205,7 +205,13 @@
 }
 
 - (void) userVerifyFailed{
-    
+    UIAlertView* alert = [[UIAlertView alloc]
+                          initWithTitle:@"Atenção"
+                          message:@"Não foi possível verificar o seu nome de usuário, tente novamente mais tarde."
+                          delegate:self
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 
