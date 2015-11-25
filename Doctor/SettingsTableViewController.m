@@ -12,6 +12,7 @@
 #import "SettingsHealthCareTableViewController.h"
 #import "SettingsSpecialtiesTableViewController.h"
 #import "SettingsChangePasswordTableViewController.h"
+#import "Envio.h"
 
 @interface SettingsTableViewController () <UIImagePickerControllerDelegate, UIActionSheetDelegate>{
     UIImagePickerController* imagePickerController;
@@ -147,7 +148,23 @@
 }
 
 - (IBAction)didTappedToSaveButton:(id)sender{
-    NSLog(@"Clicked to save");
+    Envio* envio = [[Envio alloc] init];
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    Doctor* updatedDoc = [[Doctor alloc] init];
+    updatedDoc.doctorContactString = self.settingsContactTextView.text;
+    updatedDoc.doctorAddressString = self.settingsAddressTextView.text;
+    updatedDoc.doctorUsernameString = appDelegate.doctor.doctorUsernameString;
+    [envio updateDoctor:appDelegate.doctor.doctorObjectId withDoctor:updatedDoc withCompletion:^void(BOOL finished){
+        NSString* message;
+        if (finished) {
+            message = @"As atualizações foram salvas com sucesso!";
+            [self setupDoctor];
+        }else{
+            message = @"Algo deu errado, e suas atualizações não foram salvas";
+        }
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }];
 }
 
 - (IBAction)didTappedToSeeTutorialButton:(id)sender{

@@ -127,12 +127,9 @@
 #pragma mark - Other log queries
 - (void) generateLogInLog;
 
-
 - (void)fetchLastSeen:(Doctor *)doctor :(Patient *) patient :(void (^)(NSString * lastSeen))completion;
 
-
-#pragma mark forum
-
+#pragma mark - Forum
 - (void) newTopic: (ForumTopic*) topic;
 - (void) newTopicMessage: (ForumTopicMessage*) message;
 - (void) fetchAllTopicsAboutSubject: (ForumSubject*)subject
@@ -147,13 +144,15 @@
 - (void) setTopicAsSaw:(NSString *)topicId :(Doctor *)doctor withCompletion: (void (^)(BOOL* finished))completion;
 
 - (void) updatePatient:(NSString *)patientId withPatient:(Patient *)patient withCompletion: (void (^)(BOOL finished))completion;
-- (void) updateDoctor:(NSString *)objectIdFromDoctor withDoctor:(Doctor *)doctor withCompletion: (void (^)(BOOL finished))completion;
 
 - (void) updateFirstTime:(NSString *)doctorObjectId;
 
 #pragma mark - Recover Password
 - (void) askedForRecoveringPassword:(NSString *)username withCompletion:(void (^)(Doctor* doctor)) completion;
 - (void) askedForChangingPassword:(Doctor *)doctor :(NSString *)newPassword withCompletion:(void (^)(BOOL finished)) completion;
+
+#pragma mark - Settings
+- (void) updateDoctor:(NSString *)objectIdFromDoctor withDoctor:(Doctor *)doctor withCompletion: (void (^)(BOOL finished))completion;
 
 @end
 

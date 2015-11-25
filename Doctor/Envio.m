@@ -1812,38 +1812,29 @@
 
 
 - (void) updateDoctor:(NSString *)objectIdFromDoctor withDoctor:(Doctor *)doctor withCompletion: (void (^)(BOOL finished))completion{
-//    PFObject *point = [PFObject objectWithoutDataWithClassName:@"Users" objectId:objectIdFromDoctor];
-//    
-//    if (doctor.doctorNameString) [point setObject:doctor.doctorNameString forKey:@"Nome"];
-//    if (doctor.doctorCRMString) [point setObject:doctor.doctorCRMString forKey:@"CRM"];
-//    if (doctor.doctorContactString) [point setObject:doctor.doctorContactString forKey:@"Contact"];
-//    if (doctor.doctorEmailString) [point setObject:doctor.doctorEmailString forKey:@"Email"];
-//    if (doctor.doctorPasswordString) [point setObject:doctor.doctorPasswordString forKey:@"password"];
-//    
-//    [point saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            completion(true);
-//        }
-//        else{
-//            NSLog(@"Couldn't update doctor");
-//        }
-//    }];
-
-
     PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query getObjectWithId:objectIdFromDoctor];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
                 if ([object[@"username"] isEqualToString:doctor.doctorUsernameString]) {
-                        if (doctor.doctorNameString) [object setObject:doctor.doctorNameString forKey:@"Nome"];
-                        if (doctor.doctorCRMString) [object setObject:doctor.doctorCRMString forKey:@"CRM"];
-                        if (doctor.doctorContactString) [object setObject:doctor.doctorContactString forKey:@"Contact"];
-                        if (doctor.doctorEmailString) [object setObject:doctor.doctorEmailString forKey:@"Email"];
-                        if (doctor.doctorPasswordString) [object setObject:doctor.doctorPasswordString forKey:@"password"];
+                    if (doctor.doctorNameString) [object setObject:doctor.doctorNameString forKey:@"Nome"];
+                    if (doctor.doctorCRMString) [object setObject:doctor.doctorCRMString forKey:@"CRM"];
+                    if (doctor.doctorContactString) [object setObject:doctor.doctorContactString forKey:@"Contact"];
+                    if (doctor.doctorEmailString) [object setObject:doctor.doctorEmailString forKey:@"Email"];
+                    if (doctor.doctorPasswordString) [object setObject:doctor.doctorPasswordString forKey:@"password"];
+                    if (doctor.doctorAddressString) [object setObject:doctor.doctorAddressString forKey:@"Address"];
                     [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                        if (succeeded) completion (true);
-                        else (NSLog(@"didnt updated doctor"));
+                        if (succeeded){
+                            AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                            if (doctor.doctorNameString) appDelegate.doctor.doctorNameString = doctor.doctorNameString;
+                            if (doctor.doctorCRMString) appDelegate.doctor.doctorCRMString = doctor.doctorCRMString;
+                            if (doctor.doctorContactString) appDelegate.doctor.doctorContactString = doctor.doctorContactString;
+                            if (doctor.doctorEmailString) appDelegate.doctor.doctorEmailString = doctor.doctorEmailString;
+                            if (doctor.doctorPasswordString) appDelegate.doctor.doctorPasswordString = doctor.doctorPasswordString;
+                            if (doctor.doctorAddressString) appDelegate.doctor.doctorAddressString = doctor.doctorAddressString;
+                            completion (true);
+                        }else completion(false);
                     }];
                 }
             }
