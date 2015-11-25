@@ -75,6 +75,8 @@
 
     if ([self.specialtiesArray containsObject:cell.specialityLabel.text]) {
         cell.radioButtonImageView.image = [UIImage imageNamed:@"check-ok"];
+    }   else{
+        cell.radioButtonImageView.image = [UIImage imageNamed:@"check-naook"];
     }
 
     return cell;

@@ -82,6 +82,9 @@
     if ([self.healthCareArray containsObject:healthCareArray[indexPath.row]]) {
         cell.radioButtonImageView.image = [UIImage imageNamed:@"check-ok"];
     }
+    else{
+        cell.radioButtonImageView.image = [UIImage imageNamed:@"check-naook"];
+    }
     return cell;
 }
 
