@@ -43,21 +43,18 @@
     self.tableView.tableFooterView = [UIView new];
     imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.delegate = self;
-    
+}
+
+- (void) loadPatientData{
+
+    self.patientNameLabel.text = self.patient.patientNameString;
+    self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
     if (self.patient.patientPhotoData) {
         self.patientImageView.contentMode = UIViewContentModeScaleAspectFill;
         self.patientImageView.layer.cornerRadius = self.patientImageView.frame.size.height/2;
         self.patientImageView.layer.masksToBounds = YES;
         self.patientImageView.image = [UIImage imageWithData:self.patient.patientPhotoData];
     }
-}
-
-- (void) loadPatientData{
-    
-    self.patientNameLabel.text = self.patient.patientNameString;
-    self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
-    //self.patientImageView.image = self.patient.patientImage;
-    
     self.birthDateTextView.text = self.patient.patientBirthDateString;
     self.sexTextView.text = self.patient.patientGenderString;
     self.bloodTypeTextView.text = self.patient.patientBloodTypeString;
@@ -87,6 +84,7 @@
     patient.patientEmergencyContactString = self.emergencyContactTextView.text;
     patient.patientAdressString = self.addressTextView.text;
     patient.patientCPFString = self.cpfTextView.text;
+    patient.patientPhotoData = UIImageJPEGRepresentation(self.patientImageView.image, 0.8);
     
     Envio* envio = [[Envio alloc] init];
     [envio updatePatient:self.patient.patientObjectId withPatient:patient withCompletion:^void(BOOL finished){

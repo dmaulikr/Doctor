@@ -26,8 +26,8 @@
 @property (nonatomic, weak) IBOutlet UILabel* settingsPasswordLabel;
 @property (nonatomic, weak) IBOutlet UILabel* settingsSpecialtiesLabel;
 @property (nonatomic, weak) IBOutlet UILabel* settingsHealthCareLabel;
-@property (nonatomic, weak) IBOutlet UILabel* settingsAddressLabel;
-@property (nonatomic, weak) IBOutlet UILabel* settingsContactLabel;
+@property (nonatomic, weak) IBOutlet UITextView* settingsAddressTextView;
+@property (nonatomic, weak) IBOutlet UITextView* settingsContactTextView;
 @property (nonatomic, weak) IBOutlet UIImageView* settingsCameraImageView;
 
 @end
@@ -50,8 +50,8 @@
 - (void) setupDoctor{
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     self.doctor = appDelegate.doctor;
-    self.settingsAddressLabel.text = self.doctor.doctorAddressString;
-    self.settingsContactLabel.text = @"Contato";
+    self.settingsAddressTextView.text = self.doctor.doctorAddressString;
+    self.settingsContactTextView.text = self.doctor.doctorContactString;
     self.settingsCRMLabel.text = self.doctor.doctorCRMString;
     self.settingsEmailLabel.text = self.doctor.doctorEmailString;
     self.settingsHealthCareLabel.text = @"Plano de saúde";
@@ -147,7 +147,15 @@
 }
 
 - (IBAction)didTappedToSaveButton:(id)sender{
-    
+    NSLog(@"Clicked to save");
+}
+
+- (IBAction)didTappedToSeeTutorialButton:(id)sender{
+    NSLog(@"Clicked to see tutorial");
+}
+
+- (IBAction)didTappedToSAAPButton:(id)sender{
+    [self performSegueWithIdentifier:@"seeAsAPatientSegue" sender:self];
 }
 
 @end

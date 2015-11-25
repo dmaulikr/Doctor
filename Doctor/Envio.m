@@ -1797,6 +1797,10 @@
     if (patient.patientRGString) [point setObject:patient.patientRGString forKey:@"rg"];
     if (patient.patientCPFString) [point setObject:patient.patientCPFString forKey:@"CPF"];
     if (patient.patientObservationsString) [point setObject:patient.patientObservationsString forKey:@"observations"];
+    if (patient.patientPhotoData) {
+        PFFile* patientPhoto = [PFFile fileWithData:patient.patientPhotoData];
+        [point setObject:patientPhoto forKey:@"photo"];
+    }
     
     [point saveInBackgroundWithBlock:^(BOOL succeed, NSError *error){
         if (succeed) {
