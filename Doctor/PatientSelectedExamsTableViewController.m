@@ -8,6 +8,7 @@
 
 #import "PatientSelectedExamsTableViewController.h"
 #import "PatientSelectedExamTableViewCell.h"
+#import "PatientSelectedExamSelectedTableViewController.h"
 #import "Envio.h"
 
 @interface PatientSelectedExamsTableViewController (){
@@ -87,6 +88,13 @@
     spinner.tag = 12;
     [self.view addSubview:spinner];
     [spinner startAnimating];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"examSelectedSegueId"]) {
+        PatientSelectedExamSelectedTableViewController* vc = segue.destinationViewController;
+        [vc setPatient:self.patient];
+    }
 }
 
 @end

@@ -44,6 +44,9 @@
                         @"Urologia", nil];
     
     self.tableView.tableFooterView = [UIView new];
+    if(!self.specialtiesArray){
+        self.specialtiesArray = [[NSMutableArray alloc] init];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

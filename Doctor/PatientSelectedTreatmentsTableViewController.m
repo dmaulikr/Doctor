@@ -7,6 +7,7 @@
 //
 
 #import "PatientSelectedTreatmentsTableViewController.h"
+#import "PatientSelectedTreatmentSelectedTableViewController.h"
 #import "Envio.h"
 #import "PatientSelectedTreatmentTableViewCell.h"
 
@@ -90,5 +91,14 @@
     [self.view addSubview:spinner];
     [spinner startAnimating];
 }
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"treatmentSelectedSegueId"]) {
+        PatientSelectedTreatmentSelectedTableViewController* vc = segue.destinationViewController;
+        [vc setPatient:self.patient];
+    }
+}
+
 
 @end

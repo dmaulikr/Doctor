@@ -50,6 +50,9 @@
                         @"Viva", nil];
     
     self.tableView.tableFooterView = [UIView new];
+    if(!self.healthCareArray){
+        self.healthCareArray = [[NSMutableArray alloc] init];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -59,7 +62,7 @@
     else{
         [self.healthCareArray addObject:healthCareArray[indexPath.row]];
     }
-    [self.tableView reloadData];
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{ return 53; }
@@ -76,7 +79,7 @@
     }
     cell.healthCareLabel.text = healthCareArray[indexPath.row];
     
-    if ([self.healthCareArray containsObject:cell.healthCareLabel.text]) {
+    if ([self.healthCareArray containsObject:healthCareArray[indexPath.row]]) {
         cell.radioButtonImageView.image = [UIImage imageNamed:@"check-ok"];
     }
     return cell;

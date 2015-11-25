@@ -7,6 +7,7 @@
 //
 
 #import "PatientSelectedAppointmentsTableViewController.h"
+#import "PatientSelectedAppointmentSelectedTableViewController.h"
 #import "Envio.h"
 #import "Appointment.h"
 #import "Patient.h"
@@ -95,6 +96,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 50;
+}
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"appointmentSelectedSegueId"]) {
+        PatientSelectedAppointmentSelectedTableViewController* vc = segue.destinationViewController;
+        [vc setPatient:self.patient];
+    }
 }
 
 
