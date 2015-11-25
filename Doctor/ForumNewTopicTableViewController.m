@@ -17,6 +17,7 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
 @interface ForumNewTopicTableViewController () <UITextViewDelegate> {
     UIActivityIndicatorView *spinner;
     int subjectLimit;
+    int contextLimit;
 }
 
 @property (nonatomic, weak) IBOutlet UIBarButtonItem* createButton;
@@ -27,8 +28,10 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    subjectLimit = 24;
+    subjectLimit = 65;
+    contextLimit = 900;
     self.letterCounter.text = [NSString stringWithFormat:@"%i", subjectLimit];
+    self.letterContextCounter.text = [NSString stringWithFormat:@"%i", contextLimit];
     self.subjectTextView.delegate = self;
     self.contentTextView.delegate = self;
     self.subjectTextView.tag = 1;
@@ -78,12 +81,17 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
         self.subjectImageView.image = [UIImage imageNamed:@"assunto-laranja"];
         
         if (self.subjectTextView.text.length <= subjectLimit) {
-            self.letterCounter.text = [NSString stringWithFormat:@"%i", 24-self.subjectTextView.text.length];
+            self.letterCounter.text = [NSString stringWithFormat:@"%i", 65-self.subjectTextView.text.length];
         }
         NSLog([NSString stringWithFormat:@"texto:%@", textView.text]);
     }
     if (textView.tag == 2) {
         self.contentImageView.image = [UIImage imageNamed:@"mensagem-laranja"];
+        if (self.contentTextView.text.length <= contextLimit) {
+            self.letterContextCounter.text = [NSString stringWithFormat:@"%i", 900-self.contentTextView.text.length];
+        }
+        NSLog([NSString stringWithFormat:@"texto:%@", textView.text]);
+        
     }
 }
 
@@ -97,7 +105,7 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
                 return NO;
             }
             
-            aproval = newLength <= 24;
+            aproval = newLength <= 65;
             break;
             case 2:
             if(range.length + range.location > textView.text.length)

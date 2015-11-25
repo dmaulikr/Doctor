@@ -41,47 +41,47 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ForumTableViewCellID" rowHeight="130" id="pGV-Mt-PKW" customClass="ForumTableViewCell">
-                                <rect key="frame" x="0.0" y="136" width="375" height="130"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ForumTableViewCellID" rowHeight="135" id="pGV-Mt-PKW" customClass="ForumTableViewCell">
+                                <rect key="frame" x="0.0" y="136" width="375" height="135"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pGV-Mt-PKW" id="4Ci-kb-Xm8">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Sem assunto)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePe-Ve-Vwf">
-                                            <rect key="frame" x="26" y="10" width="234" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Sem assunto)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePe-Ve-Vwf">
+                                            <rect key="frame" x="26" y="3" width="341" height="36"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QA5-PG-TQL">
-                                            <rect key="frame" x="286" y="10" width="79" height="21"/>
+                                            <rect key="frame" x="286" y="40" width="79" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Paciente se sentindo mole, com dores no corpo e febre alta. Apesar da suspeita de dengue, há um agravante que deve ser le..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fxb-WZ-Ydr">
-                                            <rect key="frame" x="23" y="50" width="348" height="79.5"/>
+                                            <rect key="frame" x="23" y="55" width="348" height="80"/>
                                             <animations/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bruno Muniz - 06894960445" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVU-K2-XRG">
-                                            <rect key="frame" x="26" y="35" width="204" height="21"/>
+                                            <rect key="frame" x="26" y="40" width="204" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bolinha-naolido" translatesAutoresizingMaskIntoConstraints="NO" id="mWj-dS-nhp">
-                                            <rect key="frame" x="8" y="15" width="11" height="11"/>
+                                            <rect key="frame" x="8" y="18" width="11" height="11"/>
                                             <animations/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="estrelinha-topicofavorito" translatesAutoresizingMaskIntoConstraints="NO" id="adg-jo-efJ">
-                                            <rect key="frame" x="8" y="40" width="11" height="11"/>
+                                            <rect key="frame" x="8" y="45" width="11" height="11"/>
                                             <animations/>
                                         </imageView>
                                     </subviews>
@@ -141,7 +141,7 @@
                                         <rect key="frame" x="0.0" y="64" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kge-zY-izQ" id="ASY-4t-CHk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="brunomuniz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65e-K8-TLj">
@@ -152,7 +152,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="registrar-nome" translatesAutoresizingMaskIntoConstraints="NO" id="Pa8-Gf-uN3">
-                                                    <rect key="frame" x="26" y="17" width="15" height="28.5"/>
+                                                    <rect key="frame" x="26" y="17" width="15" height="29"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -160,27 +160,27 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="57" id="CqN-8M-JR0">
-                                        <rect key="frame" x="0.0" y="124" width="375" height="57"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="74" id="CqN-8M-JR0">
+                                        <rect key="frame" x="0.0" y="124" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CqN-8M-JR0" id="Azs-Wm-v9I">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="assunto-cinza" translatesAutoresizingMaskIntoConstraints="NO" id="6jG-vo-pMN">
-                                                    <rect key="frame" x="21" y="17" width="22" height="22.5"/>
+                                                    <rect key="frame" x="21" y="26" width="22" height="23"/>
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Ex: Suspeita de um novo surto" translatesAutoresizingMaskIntoConstraints="NO" id="xN8-9h-ffS">
-                                                    <rect key="frame" x="61" y="11" width="310" height="40.5"/>
+                                                    <rect key="frame" x="61" y="20" width="310" height="41"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmX-MA-hv9">
-                                                    <rect key="frame" x="351" y="38" width="24" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="65" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmX-MA-hv9">
+                                                    <rect key="frame" x="351" y="56" width="24" height="18"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -191,15 +191,15 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="482" id="jhg-8a-7Ix">
-                                        <rect key="frame" x="0.0" y="181" width="375" height="482"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="468" id="jhg-8a-7Ix">
+                                        <rect key="frame" x="0.0" y="198" width="375" height="468"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jhg-8a-7Ix" id="50k-xi-zbU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="481.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="468"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-n1-otQ">
-                                                    <rect key="frame" x="59" y="6" width="308" height="458.5"/>
+                                                    <rect key="frame" x="59" y="6" width="308" height="438"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Ex: Caso suspeito de dengue com sinais de alarme.  A infecção por dengue pode ser assintomática ou causar doença cujo espectro inclui desde formas oligossintomáticas até quadros graves com choque com ou sem hemorragia, podendo evoluir para o óbito. Normalmente, a primeira manifestação da dengue é a febre alta (39° a 40°C) de início abrupto que geralmente dura de 2 a 7 dias, acompanhada de dor de cabeça, dores no corpo e articulações, prostração, fraqueza, dor atrás dos olhos, erupção e prurido cutâneo. Perda de peso, náuseas e vômitos são comuns. Nessa fase febril inicial da doença pode ser difícil diferenciá-la de outras doenças febris, por isso uma prova do laço positiva aumenta a probabilidade de dengue.</string>
@@ -208,11 +208,11 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mensagem-cinza" translatesAutoresizingMaskIntoConstraints="NO" id="0XL-1j-7CM">
-                                                    <rect key="frame" x="25" y="194" width="20" height="20.5"/>
+                                                    <rect key="frame" x="25" y="194" width="20" height="21"/>
                                                     <animations/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="900" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15k-R1-5j5">
-                                                    <rect key="frame" x="349" y="463" width="25" height="18"/>
+                                                    <rect key="frame" x="350" y="447" width="25" height="18"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -243,6 +243,7 @@
                         <outlet property="contentImageView" destination="0XL-1j-7CM" id="B4B-U6-t4h"/>
                         <outlet property="contentTextView" destination="Sac-n1-otQ" id="cxW-zG-VAe"/>
                         <outlet property="createButton" destination="kho-OM-Vgj" id="2aC-Xu-XT7"/>
+                        <outlet property="letterContextCounter" destination="15k-R1-5j5" id="rn5-MD-gIs"/>
                         <outlet property="letterCounter" destination="KmX-MA-hv9" id="F8u-pC-Me1"/>
                         <outlet property="ownerImageView" destination="Pa8-Gf-uN3" id="Gdt-kF-XWk"/>
                         <outlet property="ownerLabel" destination="65e-K8-TLj" id="EPf-l2-5VI"/>
@@ -252,7 +253,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpD-Cx-xfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-523.5" y="1476.5"/>
+            <point key="canvasLocation" x="-523.5" y="1476"/>
         </scene>
         <!--Tópico-->
         <scene sceneID="jAq-zd-I6h">
@@ -298,7 +299,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Paciente se sentindo mole, com dores no corpo e febre alta. Apesar da suspeita de dengue, há um agravante que deve ser le..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rDp-AV-6BS">
-                                            <rect key="frame" x="17" y="27" width="348" height="79.5"/>
+                                            <rect key="frame" x="17" y="27" width="348" height="80"/>
                                             <animations/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>

@@ -21,5 +21,6 @@
 @property (nonatomic, strong) IBOutlet UIImageView* contentImageView;
 
 @property (nonatomic, strong) IBOutlet UILabel* letterCounter;
+@property (nonatomic, strong) IBOutlet UILabel* letterContextCounter;
 
 @end
