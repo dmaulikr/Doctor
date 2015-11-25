@@ -38,9 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadPatientData];
-    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedPatientImage)];
-    [self.patientImageView setUserInteractionEnabled:YES];
-    [self.patientImageView addGestureRecognizer:tap];
+    [self loadGestureRecognizers];
     self.patientCameSinceLabel.numberOfLines = 0;
     self.tableView.tableFooterView = [UIView new];
     imagePickerController = [[UIImagePickerController alloc] init];
@@ -98,34 +96,6 @@
     }];
 }
 
-- (void) didTappedPatientImage{
-    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar do rolo da câmera", @"Tirar uma foto", nil];
-    actionSheet.tag = 1;
-    [actionSheet showInView:self.view];
-}
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (actionSheet.tag == 1) {
-        switch (buttonIndex) {
-            case 0:
-                imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                [self presentModalViewController:imagePickerController animated:YES];
-                break;
-            case 1:
-                @try{
-                    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-                    [self presentModalViewController:imagePickerController animated:YES];
-                }
-                @catch (NSException *exception){
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sem câmera!" message:@"Algo ocorreu, e a câmera não está disponível." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alert show];
-                }
-                break;
-            default:
-                break;
-        }
-    }
-}
-
 - (void) setupLoadingAnimation{
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     spinner.center = self.view.center;
@@ -148,4 +118,107 @@
     [self.patientImageView setContentMode:UIViewContentModeScaleAspectFill];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void) loadGestureRecognizers{
+    UITapGestureRecognizer* tapCamera = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedPatientImage)];
+    [self.patientImageView setUserInteractionEnabled:YES];
+    [self.patientImageView addGestureRecognizer:tapCamera];
+    
+    UITapGestureRecognizer* tapBlood = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedBloodType)];
+    [self.bloodTypeTextView addGestureRecognizer:tapBlood];
+    
+    UITapGestureRecognizer *tapSex = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedSex)];
+    [self.sexTextView addGestureRecognizer:tapSex];
+}
+
+- (void) didTappedPatientImage{
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar do rolo da câmera", @"Tirar uma foto", nil];
+    actionSheet.tag = 1;
+    [self.view endEditing:YES];
+    [actionSheet showInView:self.view];
+}
+
+- (void) didTappedBloodType{
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"A+",@"A-",@"B+",@"B-",@"O+",@"O-",@"AB+",@"AB-", nil];
+    actionSheet.tag = 2;
+    [self.view endEditing:YES];
+    [actionSheet showInView:self.view];
+}
+- (void) didTappedSex{
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Masculino", @"Feminino", nil];
+    actionSheet.tag = 3;
+    [self.view endEditing:YES];
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (actionSheet.tag) {
+        case 1:
+            switch (buttonIndex) {
+            case 0:
+                imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                [self presentModalViewController:imagePickerController animated:YES];
+                break;
+            case 1:
+                @try{
+                    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    [self presentModalViewController:imagePickerController animated:YES];
+                }
+                @catch (NSException *exception){
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sem câmera!" message:@"Algo ocorreu, e a câmera não está disponível." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                }
+                break;
+            default:
+                break;
+        }
+            break;
+        case 2:
+            switch (buttonIndex) {
+                case 0:
+                    self.bloodTypeTextView.text = @"A+";
+                    break;
+                case 1:
+                    self.bloodTypeTextView.text = @"A-";
+                    break;
+                case 2:
+                    self.bloodTypeTextView.text = @"B+";
+                    break;
+                case 3:
+                    self.bloodTypeTextView.text = @"B-";
+                    break;
+                case 4:
+                    self.bloodTypeTextView.text = @"O+";
+                    break;
+                case 5:
+                    self.bloodTypeTextView.text = @"O-";
+                    break;
+                case 6:
+                    self.bloodTypeTextView.text = @"AB+";
+                    break;
+                case 7:
+                    self.bloodTypeTextView.text = @"AB-";
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 3:
+            switch (buttonIndex) {
+            case 0:
+                self.sexTextView.text = @"Masculino";
+                break;
+            case 1:
+                self.sexTextView.text = @"Feminino";
+                break;
+            default:
+                break;
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 @end
+

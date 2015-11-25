@@ -1200,7 +1200,7 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Masculino" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e05-WO-pZC">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Masculino" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e05-WO-pZC">
                                                     <rect key="frame" x="66" y="14" width="98" height="28"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1208,7 +1208,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="O+" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5vc-JZ-CtI">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="O+" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5vc-JZ-CtI">
                                                     <rect key="frame" x="231" y="11" width="136" height="28"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
