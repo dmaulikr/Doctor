@@ -47,9 +47,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MedicationsTableViewCellID];
     }
     
-    Medication* medication = [[Medication alloc] init];
-    medication = tableViewDataArray[indexPath.row];
-    cell.textLabel.text = medication.medicationCategoryString;
+    cell.textLabel.text = tableViewDataArray[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -61,7 +59,7 @@
 #pragma mark - Setups
 - (void)setupDataSource{
     Envio* newEnvio = [[Envio alloc]init];
-    [newEnvio fetchAllMedications: ^void (NSMutableArray* medicationArray){
+    [newEnvio fetchAllComercialNames: ^void (NSMutableArray* medicationArray){
         if (medicationArray){
             self.medicationsArray = medicationArray;
             tableViewDataArray = self.medicationsArray;
@@ -98,9 +96,8 @@
         isSearching = true;
         [self.filteredMedicationsArray removeAllObjects];
         for (int i = 0; i < self.medicationsArray.count; i++) {
-            Medication* medicationsSearching  = [[Medication alloc] init];
-            medicationsSearching = self.medicationsArray[i];
-            NSString* toCheck = [medicationsSearching.medicationCategoryString lowercaseString];
+            NSString* medicationsSearching = self.medicationsArray[i];
+            NSString* toCheck = [medicationsSearching lowercaseString];
             if ([toCheck containsString:[searchText lowercaseString]]) {
                 [self.filteredMedicationsArray addObject:medicationsSearching];
             }

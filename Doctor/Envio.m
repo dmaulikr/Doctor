@@ -424,6 +424,34 @@
         }
     }];
 }
+
+- (void)fetchAllComercialNames:(void (^)(NSMutableArray *))completion{
+    NSMutableArray* medications = [[NSMutableArray alloc]init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"AllMeds"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSString* name = object[@"nomeComercial"];
+                if (name) {
+                    [medications addObject:name];
+                }
+            }
+            if (medications) {
+                completion(medications);
+            }else{
+                completion(nil);
+                NSLog(@"404 - Envio.m - fetchAllMedications");
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [self  showAlertViewError:error];
+            
+        }
+    }];
+}
+
 - (void)fetchAllLabs:(void (^)(NSMutableArray *))completion{
     NSMutableArray* labsArray = [[NSMutableArray alloc]init];
     

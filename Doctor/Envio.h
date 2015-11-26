@@ -154,5 +154,9 @@
 #pragma mark - Settings
 - (void) updateDoctor:(NSString *)objectIdFromDoctor withDoctor:(Doctor *)doctor withCompletion: (void (^)(BOOL finished))completion;
 
+
+
+- (void)fetchAllComercialNames:(void (^)(NSMutableArray *))completion;
+
 @end
 
