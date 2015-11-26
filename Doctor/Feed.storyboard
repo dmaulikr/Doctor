@@ -113,7 +113,7 @@
         <!--Tutorial View Controller-->
         <scene sceneID="FIN-mg-qNt">
             <objects>
-                <viewController id="CwZ-My-doY" customClass="TutorialViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedTutorialVCID" id="CwZ-My-doY" customClass="TutorialViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dP8-0j-XJl"/>
                         <viewControllerLayoutGuide type="bottom" id="VhX-z7-OUD"/>
@@ -560,6 +560,6 @@
         <image name="logo-login" width="454" height="156"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3xa-8q-Ldl"/>
+        <segue reference="8Zb-hu-U2u"/>
     </inferredMetricsTieBreakers>
 </document>

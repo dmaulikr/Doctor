@@ -22,6 +22,7 @@
 		02424B7B1BF9FC470001B77B /* SettingsChangePasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02424B7A1BF9FC470001B77B /* SettingsChangePasswordTableViewController.m */; };
 		02424B7E1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02424B7D1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.m */; };
 		024FD6AB1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 024FD6AA1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m */; };
+		027499A51C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027499A41C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.m */; };
 		02755B581BE10669000A5183 /* Inbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02755B571BE10669000A5183 /* Inbox.storyboard */; };
 		02755B5A1BE10679000A5183 /* Appointments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02755B591BE10679000A5183 /* Appointments.storyboard */; };
 		02755B5F1BE1084B000A5183 /* AppointmentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02755B5E1BE1084B000A5183 /* AppointmentsTableViewController.m */; };
@@ -170,6 +171,8 @@
 		02424B7D1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSpecialtiesTableViewController.m; sourceTree = "<group>"; };
 		024FD6A91BECF2D9001B5057 /* ForumMessageSendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumMessageSendTableViewCell.h; sourceTree = "<group>"; };
 		024FD6AA1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumMessageSendTableViewCell.m; sourceTree = "<group>"; };
+		027499A31C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientSelectedNewAppointmentTableViewController.h; sourceTree = "<group>"; };
+		027499A41C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientSelectedNewAppointmentTableViewController.m; sourceTree = "<group>"; };
 		02755B571BE10669000A5183 /* Inbox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Inbox.storyboard; sourceTree = "<group>"; };
 		02755B591BE10679000A5183 /* Appointments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Appointments.storyboard; sourceTree = "<group>"; };
 		02755B5D1BE1084B000A5183 /* AppointmentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentsTableViewController.h; sourceTree = "<group>"; };
@@ -473,6 +476,15 @@
 				02424B741BF9F5770001B77B /* SettingsSAAPTableViewController.m */,
 			);
 			name = SettingsSeeAsAPatient;
+			sourceTree = "<group>";
+		};
+		027499A61C073D86004402ED /* PatientSelectedNewAppointment */ = {
+			isa = PBXGroup;
+			children = (
+				027499A31C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.h */,
+				027499A41C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.m */,
+			);
+			name = PatientSelectedNewAppointment;
 			sourceTree = "<group>";
 		};
 		02755B5B1BE10814000A5183 /* ViewsInbox */ = {
@@ -815,6 +827,7 @@
 				02E7A99A1BDC50D5008059BD /* PatientSelectedAppointmentsTableViewController.h */,
 				02E7A99B1BDC50D5008059BD /* PatientSelectedAppointmentsTableViewController.m */,
 				02E7A9B11BDC523D008059BD /* PatientSelectedAppointmentSelected */,
+				027499A61C073D86004402ED /* PatientSelectedNewAppointment */,
 			);
 			name = PatientSelectedAppointments;
 			sourceTree = "<group>";
@@ -1242,6 +1255,7 @@
 				02C11D5D1BF966E200BBE0D0 /* TutorialViewController.m in Sources */,
 				029385BF1BFAA9830071DD31 /* MedicationsLabsTableViewCell.m in Sources */,
 				02F15C651BD6D5490078279D /* ForumTableViewController.m in Sources */,
+				027499A51C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.m in Sources */,
 				02E7A9B81BDC5809008059BD /* MedicationSelectedTableViewController.m in Sources */,
 				703E632E1BCFDA4100205A82 /* PatientsTableViewController.m in Sources */,
 				02EB33CF1BF38E36006D6529 /* MedicationsPrinciplesTableViewController.m in Sources */,

@@ -80,11 +80,7 @@
             [self performSegueWithIdentifier:@"clickedInExamsSegueId" sender:self];
             break;
         case 3:
-                [self performSegueWithIdentifier:@"clickedInTreatmentsSegueId" sender:self];
-            break;
-        case 4:
-                [self performSegueWithIdentifier:@"clickedInEditSegueId" sender:self];
-            break;
+            [self performSegueWithIdentifier:@"clickedInEditSegueId" sender:self]; break;
         default:
             break;
     }

@@ -13,6 +13,7 @@
 #import "SettingsSpecialtiesTableViewController.h"
 #import "SettingsChangePasswordTableViewController.h"
 #import "Envio.h"
+#import "Storyboards.h"
 
 @interface SettingsTableViewController () <UIImagePickerControllerDelegate, UIActionSheetDelegate>{
     UIImagePickerController* imagePickerController;
@@ -168,7 +169,7 @@
 }
 
 - (IBAction)didTappedToSeeTutorialButton:(id)sender{
-    NSLog(@"Clicked to see tutorial");
+    self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kFeedStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kFeedFTNavID];
 }
 
 - (IBAction)didTappedToSAAPButton:(id)sender{
