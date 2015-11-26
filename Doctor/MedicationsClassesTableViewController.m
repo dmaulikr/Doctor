@@ -64,6 +64,10 @@
     [newEnvio fetchAllMedications: ^void (NSMutableArray* medicationArray){
         if (medicationArray){
             self.medicationsArray = medicationArray;
+            NSSortDescriptor *firstDescriptor = [[NSSortDescriptor alloc] initWithKey:@"medicationCategoryString" ascending:YES];
+            NSArray *sortDescriptors = [NSArray arrayWithObjects:firstDescriptor, nil];
+            NSArray *sortedArray = [self.medicationsArray sortedArrayUsingDescriptors:sortDescriptors];
+            self.medicationsArray = sortedArray;
             tableViewDataArray = self.medicationsArray;
             [self.tableView reloadData];
             [spinner stopAnimating];

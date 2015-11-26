@@ -408,12 +408,13 @@
                 medication.medicationCategoryString = [object objectForKey:@"category"];
                 medication.medicationActivePrincipleString = [object objectForKey:@"activeprinciples"];
                 [medications addObject:medication];
-                if (medications) {
-                    completion(medications);
-                }else{
-                    completion(nil);
-                    NSLog(@"404 - Envio.m - fetchAllMedications");
-                }
+                
+            }
+            if (medications) {
+                completion(medications);
+            }else{
+                completion(nil);
+                NSLog(@"404 - Envio.m - fetchAllMedications");
             }
         } else {
             // Log details of the failure
