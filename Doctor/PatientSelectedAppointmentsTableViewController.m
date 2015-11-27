@@ -56,7 +56,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return tableViewDataArray.count;
+    return tableViewDataArray.count+1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -67,8 +67,6 @@
     NSString* AppointmentCellID = @"AppointmentsTableViewCellID";
     NSString* AppointmentAreaCellID = @"AppointmentsAreaTableViewCellID";
     NSString* cellIdentifier = indexPath.row == 0 ? AppointmentAreaCellID : AppointmentCellID;
-    Appointment* appointment = [[Appointment alloc] init];
-    appointment = tableViewDataArray[indexPath.row];
     
     if ([cellIdentifier isEqualToString:AppointmentAreaCellID]) {
         AppointmentSpecialtyGroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -84,6 +82,8 @@
         if (cell==nil) {
             cell = [[AppointmentTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
+        Appointment* appointment = [[Appointment alloc] init];
+        appointment = tableViewDataArray[indexPath.row-1];
         cell.appointmentPreDescriptionLabel.text = appointment.appointmentDoctorEnvolvedName;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
