@@ -234,20 +234,17 @@
 
 - (void) newAppointment: (Appointment*)appointment withCompletion:(void (^)(BOOL *))completion{
     PFObject* newAppointment = [PFObject objectWithClassName:@"Appointment"];
-    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
-    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
-    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
-    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
-    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
-    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
-    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
-    
+    if (appointment.appointmentDoctor){
+        newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
+        newAppointment[@"DoctorEnvolvedName"] = appointment.appointmentDoctor.doctorNameString;
+    }
+    if (appointment.appointmentPatient.patientCPFString) newAppointment[@"PatientEnvolved"] = appointment.appointmentPatient.patientCPFString;
+    if (appointment.appointmentDate) newAppointment[@"Date"] = appointment.appointmentDate;
+    if (appointment.appointmentTreatment) newAppointment[@"Treatment"] = appointment.appointmentTreatment;
+    if (appointment.appointmentDiagnosis) newAppointment[@"Diagnosis"] = appointment.appointmentDiagnosis;
+    if (appointment.appointmentArea) newAppointment[@"Area"] = appointment.appointmentArea;
     [newAppointment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            completion(true);
-        } else {
-            completion(false);
-        }
+        completion(succeeded);
     }];
     
 }
@@ -696,14 +693,15 @@
 }
 - (void)fetchAppointmentPassingPatient: (Patient*)patient withCompletion:(void (^)(NSMutableArray * appointmentArray))completion;{
     NSMutableArray* appointmentArray = [[NSMutableArray alloc] init];
-    Appointment* appointment = [[Appointment alloc] init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Appointment"];
     [query whereKey:@"PatientEnvolved" equalTo:patient.patientCPFString];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                appointment.appointmentDoctor = [object objectForKey:@"DoctorEnvolved"];
+                Appointment* appointment = [[Appointment alloc] init];
+                appointment.appointmentDoctorEnvolvedName = [object objectForKey:@"DoctorEnvolvedName"];
+                appointment.appointmentDoctorEnvolvedCRM = [object objectForKey:@"DoctorEnvolved"];
                 appointment.appointmentCreatedAt = [object objectForKey:@"createdAt"];
                 appointment.appointmentDiagnosis = [object objectForKey:@"Diagnosis"];
                 appointment.appointmentPatient = [object objectForKey:@"PatientEnvolved"];
@@ -711,6 +709,7 @@
                 appointment.appointmentCaseHistory = [object objectForKey:@"caseHistory"];
                 appointment.appointmentObjectId = [object objectForKey:@"objectId"];
                 appointment.appointmentExams = [object objectForKey:@"Exams"];
+                appointment.appointmentArea = [object objectForKey:@"Area"];
                 [appointmentArray addObject:appointment];
             }
             if (appointmentArray) {

@@ -45,7 +45,11 @@
     Appointment* newAppointment = [[Appointment alloc] init];
     newAppointment.appointmentDoctor = doctor;
     newAppointment.appointmentPatient = self.patient;
-    newAppointment.appointment
+    newAppointment.appointmentProtocol = self.appointmentProtocol.text;
+    newAppointment.appointmentDate = [self getCurrentTimeAndDate];
+    newAppointment.appointmentDiagnosis = self.appointmentDiagnosis.text;
+    newAppointment.appointmentTreatment = self.appointmentMedications.text;
+    newAppointment.appointmentArea = self.appointmentDoctorSpecialty.text;
     [envio newAppointment:newAppointment withCompletion:^void(BOOL* finished){
         if (finished) {
             [self.navigationController popViewControllerAnimated:YES];

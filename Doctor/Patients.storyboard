@@ -985,7 +985,7 @@
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AppointmentsAreaTableViewCellID" rowHeight="50" id="i1w-sH-XbD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AppointmentsAreaTableViewCellID" rowHeight="50" id="i1w-sH-XbD" customClass="AppointmentSpecialtyGroupTableViewCell">
                                 <rect key="frame" x="0.0" y="248" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i1w-sH-XbD" id="DPh-xt-9IJ">
@@ -993,7 +993,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ginecologista" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2M-9c-aal">
-                                            <rect key="frame" x="30" y="14" width="122" height="21"/>
+                                            <rect key="frame" x="30" y="14" width="345" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1004,8 +1004,11 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <color key="backgroundColor" red="0.45242637774806893" green="0.45242637774806893" blue="0.45242637774806893" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="appointmentSpecialtyLabel" destination="h2M-9c-aal" id="pAL-Uh-6ca"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AppointmentsTableViewCellID" rowHeight="50" id="oUL-sM-4R8">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AppointmentsTableViewCellID" rowHeight="50" id="oUL-sM-4R8" customClass="AppointmentTableViewCell">
                                 <rect key="frame" x="0.0" y="298" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oUL-sM-4R8" id="nP8-W7-B3n">
@@ -1013,7 +1016,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01/06/2015 - José Cordeiro da Silva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWS-7r-wAN">
-                                            <rect key="frame" x="50" y="14" width="275" height="21"/>
+                                            <rect key="frame" x="9" y="14" width="334" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.45242637769999999" green="0.45242637769999999" blue="0.45242637769999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1023,6 +1026,9 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <outlet property="appointmentPreDescriptionLabel" destination="fWS-7r-wAN" id="0xC-us-gSn"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>

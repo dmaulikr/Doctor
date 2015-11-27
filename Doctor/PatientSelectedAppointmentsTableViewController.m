@@ -9,6 +9,8 @@
 #import "PatientSelectedAppointmentsTableViewController.h"
 #import "PatientSelectedAppointmentSelectedTableViewController.h"
 #import "PatientSelectedNewAppointmentTableViewController.h"
+#import "AppointmentSpecialtyGroupTableViewCell.h"
+#import "AppointmentTableViewCell.h"
 #import "Envio.h"
 #import "Appointment.h"
 #import "Patient.h"
@@ -16,6 +18,8 @@
 @interface PatientSelectedAppointmentsTableViewController (){
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
+    int numberOfSections;
+    NSMutableArray* arrayOfSections;
 }
 
 @property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
@@ -28,8 +32,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupLoadingAnimation];
-    [self setupAppointmentsDataSource];
+    numberOfSections = 0;
+    arrayOfSections = [[NSMutableArray alloc] init];
     self.patientCameSinceLabel.numberOfLines = 0;
     self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
     self.tableView.tableFooterView = [UIView new];
@@ -41,6 +45,10 @@
         self.patientImageView.image = [UIImage imageWithData:self.patient.patientPhotoData];
     }
 }
+-(void) viewWillAppear:(BOOL)animated{
+    [self setupAppointmentsDataSource];
+    [self setupLoadingAnimation];
+}
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -50,21 +58,36 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return tableViewDataArray.count;
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return numberOfSections;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString* AppointmentCellID = @"AppointmentsTableViewCellID";
     NSString* AppointmentAreaCellID = @"AppointmentsAreaTableViewCellID";
-    
-    NSString* cellIdentifier = indexPath.row %2 == 0 ? AppointmentAreaCellID : AppointmentCellID;
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    if (cell==nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
+    NSString* cellIdentifier = indexPath.row == 0 ? AppointmentAreaCellID : AppointmentCellID;
     Appointment* appointment = [[Appointment alloc] init];
     appointment = tableViewDataArray[indexPath.row];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    
+    if ([cellIdentifier isEqualToString:AppointmentAreaCellID]) {
+        AppointmentSpecialtyGroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell == nil) {
+            cell = [[AppointmentSpecialtyGroupTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        cell.appointmentSpecialtyLabel.text = arrayOfSections[indexPath.section];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    else{
+        AppointmentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell==nil) {
+            cell = [[AppointmentTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        cell.appointmentPreDescriptionLabel.text = appointment.appointmentDoctorEnvolvedName;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
 }
 
 #pragma mark - Setups
@@ -77,6 +100,17 @@
     Envio* newEnvio = [[Envio alloc]init];
     [newEnvio fetchAppointmentPassingPatient:self.patient withCompletion: ^void (NSMutableArray* appointmentArray){
         if (appointmentArray){
+            int sectionCounter = 0;
+            arrayOfSections = [[NSMutableArray alloc] init];
+            for (int i = appointmentArray.count; i > 0; i--) {
+                Appointment* seeingAppointment = [[Appointment alloc] init];
+                seeingAppointment = appointmentArray[i-1];
+                if (![arrayOfSections containsObject:seeingAppointment.appointmentArea]) {
+                    [arrayOfSections addObject:seeingAppointment.appointmentArea];
+                    sectionCounter++;
+                }
+            }
+            numberOfSections = sectionCounter;
             tableViewDataArray = appointmentArray;
             [self.tableView reloadData];
             [spinner stopAnimating];
