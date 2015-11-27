@@ -84,7 +84,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
@@ -774,11 +774,11 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "470188348.238268"
+                  timestampString = "470241713.208975"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1818"
-                  endingLineNumber = "1818"
+                  startingLineNumber = "1846"
+                  endingLineNumber = "1846"
                   offsetFromSymbolStart = "212">
                </Location>
                <Location
@@ -789,11 +789,11 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "470188348.238467"
+                  timestampString = "470241713.209236"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1818"
-                  endingLineNumber = "1818"
+                  startingLineNumber = "1846"
+                  endingLineNumber = "1846"
                   offsetFromSymbolStart = "108">
                </Location>
             </Locations>
@@ -828,6 +828,22 @@
             startingLineNumber = "65"
             endingLineNumber = "65"
             landmarkName = "-setupDataSource"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Doctor/PatientSelectedNewAppointmentTableViewController.m"
+            timestampString = "470241309.513448"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "-didTappedSpecialtiesLabel"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

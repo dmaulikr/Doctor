@@ -7,8 +7,24 @@
 //
 
 #import "PatientSelectedNewAppointmentTableViewController.h"
+#import "Envio.h"
+#import "Doctor.h"
+#import "AppDelegate.h"
 
-@interface PatientSelectedNewAppointmentTableViewController ()
+@interface PatientSelectedNewAppointmentTableViewController () <UIActionSheetDelegate> {
+    Doctor* doctor;
+}
+
+@property (nonatomic, weak) IBOutlet UILabel* appointmentData;
+@property (nonatomic, weak) IBOutlet UILabel* appointmentProtocol;
+@property (nonatomic, weak) IBOutlet UILabel* appointmentDoctor;
+@property (nonatomic, weak) IBOutlet UILabel* appointmentDoctorSpecialty;
+@property (nonatomic, weak) IBOutlet UILabel* appointmentHealthCare;
+@property (nonatomic, weak) IBOutlet UITextView* appointmentDiagnosis;
+@property (nonatomic, weak) IBOutlet UITextView* appointmentMedications;
+
+@property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel* patientCameSinceLabel;
 
 @end
 
@@ -16,83 +32,84 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    doctor = appDelegate.doctor;
+    self.patientNameLabel.text = self.patient.patientNameString;
+    self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
+    [self displayStaticInfo];
+    [self createTapRecognizers];
+}
+
+- (IBAction)didTappedToSaveNewAppointment:(id)sender{
+    Envio* envio = [[Envio alloc] init];
+    Appointment* newAppointment = [[Appointment alloc] init];
+    newAppointment.appointmentDoctor = doctor;
+    newAppointment.appointmentPatient = self.patient;
+    newAppointment.appointment
+    [envio newAppointment:newAppointment withCompletion:^void(BOOL* finished){
+        if (finished) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+}
+
+- (void) displayStaticInfo{
+    self.appointmentData.text = [self getCurrentTimeAndDate];
+    self.appointmentProtocol.text = @"000000000000";
+    self.appointmentDoctor.text = doctor.doctorNameString;
+}
+
+- (NSString *) getCurrentTimeAndDate{
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy hh:mm"];
+    return [dateFormatter stringFromDate:[NSDate date]];
+}
+
+- (void) createTapRecognizers{
+    UITapGestureRecognizer* tapSpecialty = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedSpecialtiesLabel)];
+    self.appointmentDoctorSpecialty.userInteractionEnabled = YES;
+    [self.appointmentDoctorSpecialty addGestureRecognizer:tapSpecialty];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UITapGestureRecognizer* tapHealthCare = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedHealthCareLabel)];
+    self.appointmentHealthCare.userInteractionEnabled = YES;
+    [self.appointmentHealthCare addGestureRecognizer:tapHealthCare];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) didTappedSpecialtiesLabel{
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+    for (NSInteger i = doctor.doctorSpecialtiesArray.count; i > 0; i--) {
+        [actionSheet addButtonWithTitle:doctor.doctorSpecialtiesArray[i-1]];
+    }
+    actionSheet.tag = 1;
+    [self.view endEditing:YES];
+    [actionSheet showInView:self.view];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+- (void) didTappedHealthCareLabel{
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil,  nil];
+    for (NSInteger i = doctor.doctorHealthCareArray.count; i > 0; i--) {
+        [actionSheet addButtonWithTitle:doctor.doctorHealthCareArray[i-1]];
+    }
+    actionSheet.tag = 2;
+    [self.view endEditing:YES];
+    [actionSheet showInView:self.view];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (popup.tag) {
+        case 1:
+            if (![[popup buttonTitleAtIndex:buttonIndex] isEqualToString:@"Cancelar"]) {
+                self.appointmentDoctorSpecialty.text = [popup buttonTitleAtIndex:buttonIndex];
+            }
+            break;
+        case 2:
+            if (![[popup buttonTitleAtIndex:buttonIndex] isEqualToString:@"Cancelar"]) {
+                self.appointmentHealthCare.text = [popup buttonTitleAtIndex:buttonIndex];
+            }
+            break;
+        default:
+            break;
+    }
 }
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

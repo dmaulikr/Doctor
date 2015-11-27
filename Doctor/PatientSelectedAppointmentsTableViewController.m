@@ -8,6 +8,7 @@
 
 #import "PatientSelectedAppointmentsTableViewController.h"
 #import "PatientSelectedAppointmentSelectedTableViewController.h"
+#import "PatientSelectedNewAppointmentTableViewController.h"
 #import "Envio.h"
 #import "Appointment.h"
 #import "Patient.h"
@@ -104,7 +105,14 @@
         PatientSelectedAppointmentSelectedTableViewController* vc = segue.destinationViewController;
         [vc setPatient:self.patient];
     }
+    else if ([segue.identifier isEqualToString:@"newAppointmentSegue"]){
+        PatientSelectedNewAppointmentTableViewController* vc = segue.destinationViewController;
+        [vc setPatient:self.patient];
+    }
 }
 
+- (IBAction)didTappedForNewAppointment:(id)sender{
+    [self performSegueWithIdentifier:@"newAppointmentSegue" sender:self];
+}
 
 @end

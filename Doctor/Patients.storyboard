@@ -1035,7 +1035,7 @@
                         <barButtonItem key="rightBarButtonItem" image="icone-adicionar" id="BxW-NI-3c8">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="QAE-kD-8be" kind="show" id="i0h-vQ-Nug"/>
+                                <action selector="didTappedForNewAppointment:" destination="fKV-VM-bsB" id="Vfn-lZ-VBR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1045,6 +1045,7 @@
                         <outlet property="patientImageView" destination="s3S-1A-mj7" id="pBg-MZ-RPT"/>
                         <outlet property="patientNameLabel" destination="4LQ-ca-gbP" id="hjH-7b-90L"/>
                         <segue destination="9Gj-jC-k3R" kind="show" identifier="appointmentSelectedSegueId" id="0OV-zN-8Y0"/>
+                        <segue destination="QAE-kD-8be" kind="show" identifier="newAppointmentSegue" id="Kgh-f4-Ioe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncR-xN-SZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1056,7 +1057,7 @@
             <objects>
                 <tableViewController id="QAE-kD-8be" customClass="PatientSelectedNewAppointmentTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="uhL-xL-Aqu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="702"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1101,7 +1102,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsV-gC-IQX">
-                                                    <rect key="frame" x="70" y="14" width="36" height="21"/>
+                                                    <rect key="frame" x="70" y="14" width="305" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1128,7 +1129,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Protocolo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yg3-Lv-lee">
-                                                    <rect key="frame" x="70" y="14" width="74" height="21"/>
+                                                    <rect key="frame" x="70" y="14" width="305" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1147,7 +1148,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Doutor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2m-to-KIb">
-                                                    <rect key="frame" x="70" y="14" width="53" height="21"/>
+                                                    <rect key="frame" x="70" y="14" width="305" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1174,7 +1175,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Especialidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNy-sf-lQA">
-                                                    <rect key="frame" x="70" y="14" width="106" height="21"/>
+                                                    <rect key="frame" x="70" y="14" width="305" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1193,14 +1194,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plano de saúde" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlT-Bw-e4u">
-                                                    <rect key="frame" x="70" y="14" width="118" height="21"/>
+                                                    <rect key="frame" x="70" y="14" width="305" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="planos-de-saude" translatesAutoresizingMaskIntoConstraints="NO" id="hJt-3v-KhQ">
-                                                    <rect key="frame" x="30" y="14" width="20" height="20"/>
+                                                    <rect key="frame" x="27" y="14" width="23" height="20"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -1208,42 +1209,43 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="Iif-eP-wv3">
-                                        <rect key="frame" x="0.0" y="470" width="375" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="Iif-eP-wv3">
+                                        <rect key="frame" x="0.0" y="470" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iif-eP-wv3" id="ujC-EZ-Kbi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Diagnóstico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNg-5j-Lh9">
-                                                    <rect key="frame" x="70" y="14" width="91" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="observacoes-cinza" translatesAutoresizingMaskIntoConstraints="NO" id="LhR-VA-jPu">
-                                                    <rect key="frame" x="30" y="15" width="20" height="20"/>
+                                                    <rect key="frame" x="30" y="32" width="20" height="20"/>
                                                     <animations/>
                                                 </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Diagnóstico" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ujo-ex-yng">
+                                                    <rect key="frame" x="67" y="13" width="300" height="57"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="120" id="SOp-uY-2f4">
-                                        <rect key="frame" x="0.0" y="520" width="375" height="120"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="95" id="SOp-uY-2f4">
+                                        <rect key="frame" x="0.0" y="550" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SOp-uY-2f4" id="n26-Q3-XBi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="medicamentos-cinza" translatesAutoresizingMaskIntoConstraints="NO" id="baY-3W-8zV">
-                                                    <rect key="frame" x="30" y="42" width="20" height="20"/>
+                                                    <rect key="frame" x="30" y="38" width="20" height="20"/>
                                                     <animations/>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Tratamento" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EpT-si-A7Q">
-                                                    <rect key="frame" x="66" y="25" width="300" height="69"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Tratamento" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="T3w-Fp-ue1">
+                                                    <rect key="frame" x="67" y="21" width="300" height="54"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1266,13 +1268,28 @@
                     <navigationItem key="navigationItem" title="Nova consulta" id="Zdo-PZ-8UG">
                         <barButtonItem key="rightBarButtonItem" title="Criar" id="qul-be-YhT">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="didTappedToSaveNewAppointment:" destination="QAE-kD-8be" id="245-fL-HwQ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="702"/>
+                    <connections>
+                        <outlet property="appointmentData" destination="dsV-gC-IQX" id="KYt-q7-Wzr"/>
+                        <outlet property="appointmentDiagnosis" destination="ujo-ex-yng" id="7bV-fi-jNU"/>
+                        <outlet property="appointmentDoctor" destination="r2m-to-KIb" id="bJ4-8t-ZWU"/>
+                        <outlet property="appointmentDoctorSpecialty" destination="PNy-sf-lQA" id="NRt-Uv-ULB"/>
+                        <outlet property="appointmentHealthCare" destination="qlT-Bw-e4u" id="eJ5-sk-wYy"/>
+                        <outlet property="appointmentMedications" destination="T3w-Fp-ue1" id="Gsp-3P-M2Z"/>
+                        <outlet property="appointmentProtocol" destination="yg3-Lv-lee" id="kp5-lP-Xkk"/>
+                        <outlet property="patientCameSinceLabel" destination="S4C-JC-fUZ" id="BWC-q0-n61"/>
+                        <outlet property="patientNameLabel" destination="YdT-D9-lgs" id="H2v-8D-rhv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abQ-2W-lwc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1367.5" y="1092.5"/>
+            <point key="canvasLocation" x="1367.5" y="1092"/>
         </scene>
         <!--Consulta-->
         <scene sceneID="n8u-cH-dOg">
@@ -1431,48 +1448,49 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="u9N-cT-oic">
-                                        <rect key="frame" x="0.0" y="470" width="375" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="73" id="u9N-cT-oic">
+                                        <rect key="frame" x="0.0" y="470" width="375" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u9N-cT-oic" id="WwK-ks-QPY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Angina" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Jd-0z-NIX">
-                                                    <rect key="frame" x="70" y="14" width="53" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="observacoes-cinza" translatesAutoresizingMaskIntoConstraints="NO" id="Imz-6W-7Kl">
-                                                    <rect key="frame" x="30" y="15" width="20" height="20"/>
+                                                    <rect key="frame" x="30" y="25" width="20" height="20"/>
                                                     <animations/>
                                                 </imageView>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="120" id="GAq-9Z-Fjz">
-                                        <rect key="frame" x="0.0" y="520" width="375" height="120"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GAq-9Z-Fjz" id="uwj-d0-weM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="medicamentos-cinza" translatesAutoresizingMaskIntoConstraints="NO" id="hqm-pc-L2T">
-                                                    <rect key="frame" x="30" y="42" width="20" height="20"/>
-                                                    <animations/>
-                                                </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="5 dias, ibuprogeno caps, 200mg 3x ao dia" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iev-oa-pI4">
-                                                    <rect key="frame" x="66" y="25" width="300" height="69"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Ta lascado, AIDS, Hemorróidas e Cancêr" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qDO-UK-Moi">
+                                                    <rect key="frame" x="67" y="8" width="300" height="57"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="72" id="GAq-9Z-Fjz">
+                                        <rect key="frame" x="0.0" y="543" width="375" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GAq-9Z-Fjz" id="uwj-d0-weM">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="5 dias, ibuprogeno caps, 200mg 3x ao dia" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iev-oa-pI4">
+                                                    <rect key="frame" x="65" y="8" width="300" height="54"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="medicamentos-cinza" translatesAutoresizingMaskIntoConstraints="NO" id="hqm-pc-L2T">
+                                                    <rect key="frame" x="30" y="25" width="20" height="20"/>
+                                                    <animations/>
+                                                </imageView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>

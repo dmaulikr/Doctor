@@ -31,7 +31,7 @@
 #pragma mark - Creational Queries
 - (void) newDoctor: (Doctor*)doctor withCompletion:(void (^)(BOOL *))completion;
 - (void) newPatient: (Patient*)patient;
-- (void) newAppointment: (Appointment*)appointment;
+- (void) newAppointment: (Appointment*)appointment withCompletion:(void (^)(BOOL *))completion;
 - (void) newDiagnosis: (Diagnosis*)diagnosis;
 - (void) newTreatment: (Treatment*)treatment;
 - (void) newExam: (Exam*)tipo;

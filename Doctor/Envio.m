@@ -232,18 +232,21 @@
 
 #pragma mark newAppointment
 
-- (void) newAppointment: (Doctor*)doctor;
-{
-    PFObject* newAppointment = [PFObject objectWithClassName:@"Patient"];
-    newAppointment[@"doctor"] = doctor;
+- (void) newAppointment: (Appointment*)appointment withCompletion:(void (^)(BOOL *))completion{
+    PFObject* newAppointment = [PFObject objectWithClassName:@"Appointment"];
+    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
+    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
+    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
+    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
+    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
+    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
+    if (appointment.appointmentDoctor.doctorCRMString) newAppointment[@"DoctorEnvolved"] = appointment.appointmentDoctor.doctorCRMString;
     
     [newAppointment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [self generateAppointmentCreationLog];
+            completion(true);
         } else {
-            // There was a problem, check error.description
-            [self  showAlertViewError:error];
-
+            completion(false);
         }
     }];
     
