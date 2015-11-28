@@ -35,6 +35,7 @@
 // [self setupTextFieldDelegates];
     authentication = [[Authentication alloc] init];
     self.passwordTextField.secureTextEntry = YES;
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
   //IN CASE OF NEED:
 //    PFObject *gameScore = [PFObject objectWithClassName:@"Users"];

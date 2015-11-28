@@ -10,7 +10,7 @@
 #import "ExamChooseInsuranceTableViewController.h"
 #import "AppDelegate.h"
 
-@interface PatientNewExamTableViewController () <ExamChooseInsuranceTableViewControllerDelegate> {
+@interface PatientNewExamTableViewController () <ExamChooseInsuranceTableViewControllerDelegate, UIActionSheetDelegate> {
     BOOL hasFirstExam;
     BOOL hasSecondExam;
     BOOL hasThirdExam;
@@ -109,6 +109,7 @@
             break;
     }
 }
+
 - (void) loadTapRecognizers{
     self.firstExamCameraChangeImageView.userInteractionEnabled = YES;
     self.firstExamEmptyCameraImageView.userInteractionEnabled = YES;
@@ -151,31 +152,51 @@
 }
 
 - (void) didTappedFirstCameraChange{
-    NSLog(@"first change");
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+    actionSheet.tag = 11;
+    [actionSheet addButtonWithTitle:@""];
+    [actionSheet addButtonWithTitle:@""];
+    [actionSheet showInView:self.view];
 }
 - (void) didTappedFirstEmptyCamera{
-    NSLog(@"first empty");
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+    actionSheet.tag = 12;
+    [actionSheet showInView:self.view];
 }
 - (void) didTappedFirstExam{
-    NSLog(@"first EXAM");
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+    actionSheet.tag = 13;
+    [actionSheet showInView:self.view];
 }
 - (void) didTappedSecondCameraChange{
-    NSLog(@"second change");
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+    actionSheet.tag =21;
+    [actionSheet showInView:self.view];
 }
 - (void) didTappedSecondEmptyCamera{
-    NSLog(@"SECOND EMPTY");
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+    actionSheet.tag = 22;
+    [actionSheet showInView:self.view];
 }
 - (void) didTappedSecondExam{
-    NSLog(@"SECOND EXAM");
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+    actionSheet.tag = 23;
+    [actionSheet showInView:self.view];
 }
 - (void) didTappedThirdCameraChange{
-    NSLog(@"THIRD change");
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+    actionSheet.tag = 31;
+    [actionSheet showInView:self.view];
 }
 - (void) didTappedThirdEmptyCamera{
-    NSLog(@"THIRD EMPTY");
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+    actionSheet.tag = 32;
+    [actionSheet showInView:self.view];
 }
 - (void) didTappedThirdExam{
-    NSLog(@"THIRD EXAM");
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+    actionSheet.tag = 33;
+    [actionSheet showInView:self.view];
 }
 
 - (NSString *) getCurrentTimeAndDate{
@@ -208,6 +229,5 @@
 
 - (void)didMakeSelection:(NSString *)insuranceSelected{
     self.examInsuranceLabel.text = insuranceSelected;
-    NSLog(insuranceSelected);
 }
 @end

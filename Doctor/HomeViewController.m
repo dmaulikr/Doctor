@@ -19,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
-    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
 
 - (IBAction)didTappedPatientButton:(id)sender{
