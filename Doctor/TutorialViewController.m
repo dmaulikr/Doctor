@@ -106,7 +106,7 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
 }
 
 - (void)didSwipe:(UISwipeGestureRecognizer*)swipe{
-    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
+    if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
         switch (i) {
             case 1:
                 break;
@@ -134,7 +134,7 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
                 break;
         }
 
-    } else if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
+    } else if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
         [self didTappedScreen];
     }
 }

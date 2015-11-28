@@ -20,6 +20,7 @@
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
     Envio* envio;
+    BOOL isPresentingDropdown;
 
 }
 @property (nonatomic, strong) NSMutableArray *messageArray;
@@ -35,12 +36,22 @@
     tableViewDataArray = [[NSMutableArray alloc] init];
     [self setupLoadingAnimation];
     [self setupDataSource];
+    [self loadGestureRecognizers];
     self.tableView.tableFooterView = [UIView new];
     if (![self.doctor.sawTopicsArray containsObject:self.forumTopic.topicObjectId]) {
         [self didTappedViewTopicDropdownButton];
     }
     [envio setTopicAsSaw:self.forumTopic.topicObjectId :self.doctor withCompletion:^void(BOOL* finished){}];
+}
+
+- (void) loadGestureRecognizers{
+    UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
+    swipeDown.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.view addGestureRecognizer:swipeDown];
     
+    UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self  action:@selector(didSwipe:)];
+    swipeUp.direction = UISwipeGestureRecognizerDirectionUp;
+    [self.view addGestureRecognizer:swipeUp];
     
     UITapGestureRecognizer* tapToSee = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedViewTopicDropdownButton)];
     [self.dropdowButtonView addGestureRecognizer:tapToSee];
@@ -94,8 +105,7 @@
     return tableViewDataArray.count+1;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == tableViewDataArray.count) {
         return 53;
     }
@@ -111,6 +121,7 @@
     [self.view addSubview:spinner];
     [spinner startAnimating];
 }
+
 - (void) didTappedSendButtom:(NSString *)text{
     ForumTopicMessage* topicMessage = [[ForumTopicMessage alloc] init];
     topicMessage.messageForumContent = text;
@@ -129,8 +140,7 @@
     }];
 }
 
-- (NSString *)currentHour
-{
+- (NSString *) currentHour{
     NSDate *date = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
@@ -168,7 +178,6 @@
     return hourCompleted;
 }
 
-
 - (void) didTappedViewTopicDropdownButton{
     self.vc = [[UIStoryboard storyboardWithName:kForumStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kForumSeeTopicNavID];
     
@@ -178,9 +187,24 @@
     appDelegate.forumTopic = self.forumTopic;
     
     [self presentDropdownController:self.vc dropdownHeight:306 foldButton:nil springAnimation:NO];
+    isPresentingDropdown = YES;
 }
+
 - (void) didTappedDropdownCloseButton{
     [self dismissDropdownController:self.vc dropdownHeight:300 foldButton:nil];
+    isPresentingDropdown = NO;
+}
+
+- (void)didSwipe:(UISwipeGestureRecognizer*)swipe{
+    if (swipe.direction == UISwipeGestureRecognizerDirectionUp) {
+        if (isPresentingDropdown) {
+            [self didTappedDropdownCloseButton];
+        }
+    } else if (swipe.direction == UISwipeGestureRecognizerDirectionDown) {
+        if (!isPresentingDropdown) {
+            [self didTappedViewTopicDropdownButton];
+        }
+    }
 }
 
 @end

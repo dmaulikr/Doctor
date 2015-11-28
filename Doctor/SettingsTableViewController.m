@@ -160,6 +160,7 @@
         if (finished) {
             message = @"As atualizações foram salvas com sucesso!";
             [self setupDoctor];
+            [self.view endEditing:YES];
         }else{
             message = @"Algo deu errado, e suas atualizações não foram salvas";
         }

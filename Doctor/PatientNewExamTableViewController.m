@@ -154,13 +154,16 @@
 - (void) didTappedFirstCameraChange{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     actionSheet.tag = 11;
-    [actionSheet addButtonWithTitle:@""];
-    [actionSheet addButtonWithTitle:@""];
+    [actionSheet addButtonWithTitle:@"Apagar registro"];
+    [actionSheet addButtonWithTitle:@"Usar rolo da câmera"];
+    [actionSheet addButtonWithTitle:@"Tirar uma foto"];
     [actionSheet showInView:self.view];
 }
 - (void) didTappedFirstEmptyCamera{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     actionSheet.tag = 12;
+    [actionSheet addButtonWithTitle:@"Usar rolo da câmera"];
+    [actionSheet addButtonWithTitle:@"Tirar uma foto"];
     [actionSheet showInView:self.view];
 }
 - (void) didTappedFirstExam{
@@ -171,11 +174,16 @@
 - (void) didTappedSecondCameraChange{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     actionSheet.tag =21;
+    [actionSheet addButtonWithTitle:@"Apagar registro"];
+    [actionSheet addButtonWithTitle:@"Usar rolo da câmera"];
+    [actionSheet addButtonWithTitle:@"Tirar uma foto"];
     [actionSheet showInView:self.view];
 }
 - (void) didTappedSecondEmptyCamera{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     actionSheet.tag = 22;
+    [actionSheet addButtonWithTitle:@"Usar rolo da câmera"];
+    [actionSheet addButtonWithTitle:@"Tirar uma foto"];
     [actionSheet showInView:self.view];
 }
 - (void) didTappedSecondExam{
@@ -186,11 +194,16 @@
 - (void) didTappedThirdCameraChange{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     actionSheet.tag = 31;
+    [actionSheet addButtonWithTitle:@"Apagar registro"];
+    [actionSheet addButtonWithTitle:@"Usar rolo da câmera"];
+    [actionSheet addButtonWithTitle:@"Tirar uma foto"];
     [actionSheet showInView:self.view];
 }
 - (void) didTappedThirdEmptyCamera{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     actionSheet.tag = 32;
+    [actionSheet addButtonWithTitle:@"Usar rolo da câmera"];
+    [actionSheet addButtonWithTitle:@"Tirar uma foto"];
     [actionSheet showInView:self.view];
 }
 - (void) didTappedThirdExam{

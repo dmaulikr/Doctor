@@ -84,7 +84,10 @@
     patient.patientEmergencyContactString = self.emergencyContactTextView.text;
     patient.patientAdressString = self.addressTextView.text;
     patient.patientCPFString = self.cpfTextView.text;
-    patient.patientPhotoData = UIImageJPEGRepresentation(self.patientImageView.image, 0.8);
+    if (![self.patientImageView.image isEqual:[UIImage imageNamed:@"icone-foto"]]) {
+        UIImage* patientImage = self.patientImageView.image;
+        patient.patientPhotoData = UIImageJPEGRepresentation(patientImage, 0.8);
+    }
     
     Envio* envio = [[Envio alloc] init];
     [envio updatePatient:self.patient.patientObjectId withPatient:patient withCompletion:^void(BOOL finished){
