@@ -130,12 +130,6 @@
     [self.thirdExamImageView addGestureRecognizer:tapThirdExam];
 }
 
-- (NSString *) getCurrentTimeAndDate{
-    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd/MM/yyyy hh:mm"];
-    return [dateFormatter stringFromDate:[NSDate date]];
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
