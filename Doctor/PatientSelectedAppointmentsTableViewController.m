@@ -20,6 +20,15 @@
     UIActivityIndicatorView* spinner;
     int numberOfSections;
     NSMutableArray* arrayOfSections;
+    int firstSectionRowsAmount;
+    int secondSectionRowsAmount;
+    int thirdSectionRowsAmount;
+    int fourthSectionRowsAmount;
+    int fifthSectionRowsAmount;
+    int sixthSectionRowsAmount;
+    int seventhSectionRowsAmount;
+    int eigthSectionRowsAmount;
+    int ninethSectionRowsAmount;
 }
 
 @property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
@@ -34,6 +43,15 @@
     [super viewDidLoad];
     numberOfSections = 0;
     arrayOfSections = [[NSMutableArray alloc] init];
+    firstSectionRowsAmount = 1;
+    secondSectionRowsAmount = 1;
+    thirdSectionRowsAmount = 1;
+    fourthSectionRowsAmount = 1;
+    fifthSectionRowsAmount = 1;
+    sixthSectionRowsAmount = 1;
+    seventhSectionRowsAmount = 1;
+    eigthSectionRowsAmount = 1;
+    ninethSectionRowsAmount = 1;
     self.patientCameSinceLabel.numberOfLines = 0;
     self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
     self.tableView.tableFooterView = [UIView new];
