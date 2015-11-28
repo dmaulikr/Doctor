@@ -9,7 +9,7 @@
 #import "PatientSelectedEditTableViewController.h"
 #import "Envio.h"
 
-@interface PatientSelectedEditTableViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate> {
+@interface PatientSelectedEditTableViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UITextViewDelegate> {
     UIImagePickerController* imagePickerController;
     UIActivityIndicatorView* spinner;
 }
@@ -219,6 +219,22 @@
         default:
             break;
     }
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end

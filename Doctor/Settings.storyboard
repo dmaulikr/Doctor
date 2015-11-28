@@ -98,13 +98,17 @@
                                                     <rect key="frame" x="23" y="19" width="18" height="13"/>
                                                     <animations/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hbo@bepid.cin.ufpe.br" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Df-Xx-8bg">
-                                                    <rect key="frame" x="66" y="14" width="270" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="bf200@gmail.com" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-8w-pNw">
+                                                    <rect key="frame" x="60" y="7" width="307" height="36.5"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Gag-g3-cuS" id="Vhw-J5-Gfv"/>
+                                                    </connections>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -220,6 +224,9 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Gag-g3-cuS" id="qGN-5f-Bu1"/>
+                                                    </connections>
                                                 </textView>
                                             </subviews>
                                             <animations/>
@@ -266,6 +273,9 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Gag-g3-cuS" id="dlw-pY-lXB"/>
+                                                    </connections>
                                                 </textView>
                                             </subviews>
                                             <animations/>
@@ -273,6 +283,7 @@
                                         <animations/>
                                         <connections>
                                             <outlet property="seeAsAPatientButton" destination="AtB-Yr-AJp" id="Fzx-8l-Dc5"/>
+                                            <outlet property="seeTutoButton" destination="Qpf-le-Mmx" id="ewd-eE-Pja"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -300,12 +311,13 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
+                        <outlet property="saveBarButton" destination="Q6R-5F-hcm" id="lpq-rL-E02"/>
                         <outlet property="settingsAddressTextView" destination="oR0-yh-eUn" id="I7p-Ue-fuT"/>
                         <outlet property="settingsCRMLabel" destination="wwl-nT-4gv" id="cd7-SI-EiY"/>
                         <outlet property="settingsCameraImageView" destination="FdA-X4-pid" id="H85-C7-7hu"/>
                         <outlet property="settingsCellphoneLabel" destination="awy-g5-0Qa" id="fUC-Ko-Nfm"/>
                         <outlet property="settingsContactTextView" destination="CdA-EQ-bAc" id="IKZ-KO-BNx"/>
-                        <outlet property="settingsEmailLabel" destination="4Df-Xx-8bg" id="N9M-rn-F6h"/>
+                        <outlet property="settingsEmailTextView" destination="4gF-8w-pNw" id="oTt-89-iyQ"/>
                         <outlet property="settingsHealthCareLabel" destination="zUi-T7-EV1" id="qUu-B5-EY1"/>
                         <outlet property="settingsNameLabel" destination="t7j-A9-p8f" id="LMk-K5-2Xh"/>
                         <outlet property="settingsPasswordLabel" destination="IrK-rp-aib" id="Dc2-lU-0Oj"/>

@@ -14,7 +14,7 @@
 
 NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarme.  A infecção por dengue pode ser assintomática ou causar doença cujo espectro inclui desde formas oligossintomáticas até quadros graves com choque com ou sem hemorragia, podendo evoluir para o óbito. Normalmente, a primeira manifestação da dengue é a febre alta (39° a 40°C) de início abrupto que geralmente dura de 2 a 7 dias, acompanhada de dor de cabeça, dores no corpo e articulações, prostração, fraqueza, dor atrás dos olhos, erupção e prurido cutâneo. Perda de peso, náuseas e vômitos são comuns. Nessa fase febril inicial da doença pode ser difícil diferenciá-la de outras doenças febris, por isso uma prova do laço positiva aumenta a probabilidade de dengue.";
 
-@interface ForumNewTopicTableViewController () <UITextViewDelegate> {
+@interface ForumNewTopicTableViewController () <UITextViewDelegate, UITextFieldDelegate> {
     UIActivityIndicatorView *spinner;
     int subjectLimit;
     int contextLimit;
@@ -97,7 +97,7 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     NSUInteger newLength = [textView.text length] + [text length] - range.length;
-    BOOL aproval;
+    BOOL aproval = false;
     switch (textView.tag) {
         case 1:
             if(range.length + range.location > textView.text.length)
@@ -120,7 +120,13 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
         default:
             break;
     }
+    
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        aproval = NO;
+    }
     return aproval;
+
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView{
@@ -194,5 +200,13 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
     NSString* hourCompleted = [NSString stringWithFormat:@"%@:%@ %@", hourInString, minuteInString, amPm];
     return hourCompleted;
 }
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
 
 @end

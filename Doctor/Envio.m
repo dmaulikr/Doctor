@@ -1860,6 +1860,10 @@
                     if (doctor.doctorEmailString) [object setObject:doctor.doctorEmailString forKey:@"Email"];
                     if (doctor.doctorPasswordString) [object setObject:doctor.doctorPasswordString forKey:@"password"];
                     if (doctor.doctorAddressString) [object setObject:doctor.doctorAddressString forKey:@"Address"];
+                    if (doctor.doctorPhotoData) {
+                        PFFile* doctorPhoto = [PFFile fileWithData:doctor.doctorPhotoData];
+                        [object setObject:doctorPhoto forKey:@"photo"];
+                    }
                     [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                         if (succeeded){
                             AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
@@ -1869,6 +1873,7 @@
                             if (doctor.doctorEmailString) appDelegate.doctor.doctorEmailString = doctor.doctorEmailString;
                             if (doctor.doctorPasswordString) appDelegate.doctor.doctorPasswordString = doctor.doctorPasswordString;
                             if (doctor.doctorAddressString) appDelegate.doctor.doctorAddressString = doctor.doctorAddressString;
+                            if (doctor.doctorPhotoData) appDelegate.doctor.doctorPhotoData = doctor.doctorPhotoData;
                             completion (true);
                         }else completion(false);
                     }];

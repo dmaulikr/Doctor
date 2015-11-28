@@ -15,15 +15,17 @@
 #import "Envio.h"
 #import "Storyboards.h"
 
-@interface SettingsTableViewController () <UIImagePickerControllerDelegate, UIActionSheetDelegate>{
+@interface SettingsTableViewController () <UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, UITextViewDelegate>{
     UIImagePickerController* imagePickerController;
+    BOOL changedImage;
 }
 
 @property (nonatomic, strong) Doctor* doctor;
 @property (nonatomic, weak) IBOutlet UILabel* settingsNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel* settingsCellphoneLabel;
 @property (nonatomic, weak) IBOutlet UILabel* settingsCRMLabel;
-@property (nonatomic, weak) IBOutlet UILabel* settingsEmailLabel;
+@property (nonatomic, weak) IBOutlet UITextView* settingsEmailTextView;
+//@property (nonatomic, weak) IBOutlet UILabel* settingsEmailLabel;
 @property (nonatomic, weak) IBOutlet UILabel* settingsUserLabel;
 @property (nonatomic, weak) IBOutlet UILabel* settingsPasswordLabel;
 @property (nonatomic, weak) IBOutlet UILabel* settingsSpecialtiesLabel;
@@ -31,6 +33,8 @@
 @property (nonatomic, weak) IBOutlet UITextView* settingsAddressTextView;
 @property (nonatomic, weak) IBOutlet UITextView* settingsContactTextView;
 @property (nonatomic, weak) IBOutlet UIImageView* settingsCameraImageView;
+
+@property (nonatomic, weak) IBOutlet UIBarButtonItem* saveBarButton;
 
 @end
 
@@ -55,7 +59,7 @@
     self.settingsAddressTextView.text = self.doctor.doctorAddressString;
     self.settingsContactTextView.text = self.doctor.doctorContactString;
     self.settingsCRMLabel.text = self.doctor.doctorCRMString;
-    self.settingsEmailLabel.text = self.doctor.doctorEmailString;
+    self.settingsEmailTextView.text = self.doctor.doctorEmailString;
     self.settingsHealthCareLabel.text = @"Plano de saúde";
     self.settingsPasswordLabel.text = @"*********";
     self.settingsSpecialtiesLabel.text = @"Especialidades";
@@ -126,6 +130,7 @@
     //  if (tookFromCamera) self.cameraImageView.transform = CGAffineTransformMakeRotation(M_PI_2);
     //  [self.cameraImageView setImage:smallImage];
     [self.settingsCameraImageView setImage:image];
+    changedImage = true;
     [self.settingsCameraImageView setContentMode:UIViewContentModeScaleAspectFill];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -149,18 +154,26 @@
 }
 
 - (IBAction)didTappedToSaveButton:(id)sender{
+    [self.saveBarButton setEnabled:NO];
     Envio* envio = [[Envio alloc] init];
+    [self.view endEditing:YES];
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     Doctor* updatedDoc = [[Doctor alloc] init];
-    updatedDoc.doctorContactString = self.settingsContactTextView.text;
-    updatedDoc.doctorAddressString = self.settingsAddressTextView.text;
+    if (self.settingsContactTextView.text) updatedDoc.doctorContactString = self.settingsContactTextView.text;
+    if (self.settingsAddressTextView.text) updatedDoc.doctorAddressString = self.settingsAddressTextView.text;
     updatedDoc.doctorUsernameString = appDelegate.doctor.doctorUsernameString;
+    if (self.settingsEmailTextView.text) updatedDoc.doctorEmailString = self.settingsEmailTextView.text;
+    if (changedImage) {
+        UIImage* doctorImage = self.settingsCameraImageView.image;
+        updatedDoc.doctorPhotoData = UIImageJPEGRepresentation(doctorImage, 0.8);
+    }
+    
     [envio updateDoctor:appDelegate.doctor.doctorObjectId withDoctor:updatedDoc withCompletion:^void(BOOL finished){
+        [self.saveBarButton setEnabled:YES];
         NSString* message;
         if (finished) {
             message = @"As atualizações foram salvas com sucesso!";
             [self setupDoctor];
-            [self.view endEditing:YES];
         }else{
             message = @"Algo deu errado, e suas atualizações não foram salvas";
         }
@@ -175,6 +188,22 @@
 
 - (IBAction)didTappedToSAAPButton:(id)sender{
     [self performSegueWithIdentifier:@"seeAsAPatientSegue" sender:self];
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end

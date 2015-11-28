@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     self.seeAsAPatientButton.layer.cornerRadius = 3;
+    self.seeTutoButton.layer.cornerRadius = 3;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
