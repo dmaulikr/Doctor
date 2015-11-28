@@ -11,6 +11,7 @@
 		020AAE3B1BDFA6CD004766D5 /* ForumMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AAE3A1BDFA6CD004766D5 /* ForumMessageTableViewCell.m */; };
 		020B6C881C0107EB00BD8664 /* ForumTopicDropdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B6C871C0107EB00BD8664 /* ForumTopicDropdownViewController.m */; };
 		0215BFB51BF58368001FF080 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0215BFB41BF58368001FF080 /* HomeViewController.m */; };
+		021BAF4A1C09FE950031B914 /* PatientNewExamTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 021BAF491C09FE950031B914 /* PatientNewExamTableViewController.m */; };
 		0226B1571BF2C92E00009147 /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0226B1561BF2C92E00009147 /* FeedTableViewCell.m */; };
 		022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DB1BCFC9CC00B7C1E0 /* MainViewController.m */; };
 		022928E01BCFCA5500B7C1E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */; };
@@ -151,6 +152,8 @@
 		020B6C871C0107EB00BD8664 /* ForumTopicDropdownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTopicDropdownViewController.m; sourceTree = "<group>"; };
 		0215BFB31BF58368001FF080 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		0215BFB41BF58368001FF080 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		021BAF481C09FE950031B914 /* PatientNewExamTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientNewExamTableViewController.h; sourceTree = "<group>"; };
+		021BAF491C09FE950031B914 /* PatientNewExamTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientNewExamTableViewController.m; sourceTree = "<group>"; };
 		0226B1551BF2C92E00009147 /* FeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewCell.h; sourceTree = "<group>"; };
 		0226B1561BF2C92E00009147 /* FeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell.m; sourceTree = "<group>"; };
 		022928D91BCFC73200B7C1E0 /* Storyboards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storyboards.h; sourceTree = "<group>"; };
@@ -359,6 +362,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		021BAF4B1C09FE9A0031B914 /* PatientSelectedNewExam */ = {
+			isa = PBXGroup;
+			children = (
+				021BAF481C09FE950031B914 /* PatientNewExamTableViewController.h */,
+				021BAF491C09FE950031B914 /* PatientNewExamTableViewController.m */,
+			);
+			name = PatientSelectedNewExam;
+			sourceTree = "<group>";
+		};
 		022928D51BCFC63000B7C1E0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -850,6 +862,7 @@
 				02E7A9A31BDC50F3008059BD /* PatientSelectedExamsTableViewController.h */,
 				02E7A9A41BDC50F3008059BD /* PatientSelectedExamsTableViewController.m */,
 				02E7A9A91BDC51CD008059BD /* PatientSelectedExamSelected */,
+				021BAF4B1C09FE9A0031B914 /* PatientSelectedNewExam */,
 			);
 			name = PatientSelectedExams;
 			sourceTree = "<group>";
@@ -1299,6 +1312,7 @@
 				0297C9751BE6F82F0068757C /* ForumTopicMessage.m in Sources */,
 				022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */,
 				020B6C881C0107EB00BD8664 /* ForumTopicDropdownViewController.m in Sources */,
+				021BAF4A1C09FE950031B914 /* PatientNewExamTableViewController.m in Sources */,
 				02424B781BF9FC3C0001B77B /* SettingsHealthCareTableViewController.m in Sources */,
 				02EB33CC1BF38E2B006D6529 /* MedicationsLabsTableViewController.m in Sources */,
 				0297C9791BE6F8940068757C /* Message.m in Sources */,

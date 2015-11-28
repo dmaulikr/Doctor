@@ -9,6 +9,7 @@
 #import "PatientSelectedExamsTableViewController.h"
 #import "PatientSelectedExamTableViewCell.h"
 #import "PatientSelectedExamSelectedTableViewController.h"
+#import "PatientNewExamTableViewController.h"
 #import "Envio.h"
 
 @interface PatientSelectedExamsTableViewController (){
@@ -99,6 +100,13 @@
         [vc setPatient:self.patient];
         [vc setExam:examSelected];
     }
+    else if ([segue.identifier isEqualToString:@"newExamSegueId"]){
+        PatientNewExamTableViewController* vc = segue.destinationViewController;
+        [vc setPatient:self.patient];
+    }
+}
+- (IBAction)didTappedForCreateExam:(id)sender{
+    [self performSegueWithIdentifier:@"newExamSegueId" sender:self];
 }
 
 @end
