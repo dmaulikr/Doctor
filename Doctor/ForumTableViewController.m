@@ -185,5 +185,4 @@
     [searchBar resignFirstResponder];
 }
 
-- (void) Search
 @end
