@@ -643,6 +643,39 @@
             </objects>
             <point key="canvasLocation" x="150.5" y="1134"/>
         </scene>
+        <!--Plano de saúde-->
+        <scene sceneID="Ufv-WS-S6H">
+            <objects>
+                <tableViewController id="LXc-iN-rGf" customClass="ExamChooseInsuranceTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Acr-fr-eiJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="insuranceCellID" id="pTK-YE-0E8">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pTK-YE-0E8" id="jNr-oO-fex">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LXc-iN-rGf" id="6hi-4t-Qb8"/>
+                            <outlet property="delegate" destination="LXc-iN-rGf" id="pfi-EB-8ml"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Plano de saúde" id="Uio-lm-N6o"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zu9-wM-YKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1119.5" y="3889.5"/>
+        </scene>
         <!--Novo exame-->
         <scene sceneID="Yje-2O-G7o">
             <objects>
@@ -778,7 +811,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeV-yp-wXj">
-                                                    <rect key="frame" x="150" y="14" width="225" height="21"/>
+                                                    <rect key="frame" x="150" y="14" width="192" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -789,11 +822,11 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="PEj-4O-zxs">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="PEj-4O-zxs">
                                         <rect key="frame" x="0.0" y="420" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PEj-4O-zxs" id="fGy-Jo-DRI">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tipo de exame:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qf-m5-aeh">
@@ -815,11 +848,11 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="ZwL-D2-SPB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="ZwL-D2-SPB">
                                         <rect key="frame" x="0.0" y="470" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZwL-D2-SPB" id="lUq-Ct-Nly">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELt-Bq-xNW">
@@ -985,6 +1018,7 @@
                         <outlet property="thirdExamCameraChangeImageView" destination="Wf8-4A-hyW" id="vGT-Lv-HKH"/>
                         <outlet property="thirdExamEmptyCameraImageView" destination="9jM-Nx-NiF" id="32b-b4-xGf"/>
                         <outlet property="thirdExamImageView" destination="BeS-lm-47b" id="mSJ-L8-8qg"/>
+                        <segue destination="LXc-iN-rGf" kind="show" identifier="chooseInsuranceSegueId" id="IOc-yb-I9h"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UqD-EO-vZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

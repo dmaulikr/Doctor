@@ -12,6 +12,7 @@
 		020B6C881C0107EB00BD8664 /* ForumTopicDropdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020B6C871C0107EB00BD8664 /* ForumTopicDropdownViewController.m */; };
 		0215BFB51BF58368001FF080 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0215BFB41BF58368001FF080 /* HomeViewController.m */; };
 		021BAF4A1C09FE950031B914 /* PatientNewExamTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 021BAF491C09FE950031B914 /* PatientNewExamTableViewController.m */; };
+		021BAF4E1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 021BAF4D1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.m */; };
 		0226B1571BF2C92E00009147 /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0226B1561BF2C92E00009147 /* FeedTableViewCell.m */; };
 		022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DB1BCFC9CC00B7C1E0 /* MainViewController.m */; };
 		022928E01BCFCA5500B7C1E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */; };
@@ -154,6 +155,8 @@
 		0215BFB41BF58368001FF080 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		021BAF481C09FE950031B914 /* PatientNewExamTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientNewExamTableViewController.h; sourceTree = "<group>"; };
 		021BAF491C09FE950031B914 /* PatientNewExamTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientNewExamTableViewController.m; sourceTree = "<group>"; };
+		021BAF4C1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamChooseInsuranceTableViewController.h; sourceTree = "<group>"; };
+		021BAF4D1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamChooseInsuranceTableViewController.m; sourceTree = "<group>"; };
 		0226B1551BF2C92E00009147 /* FeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewCell.h; sourceTree = "<group>"; };
 		0226B1561BF2C92E00009147 /* FeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell.m; sourceTree = "<group>"; };
 		022928D91BCFC73200B7C1E0 /* Storyboards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storyboards.h; sourceTree = "<group>"; };
@@ -367,6 +370,8 @@
 			children = (
 				021BAF481C09FE950031B914 /* PatientNewExamTableViewController.h */,
 				021BAF491C09FE950031B914 /* PatientNewExamTableViewController.m */,
+				021BAF4C1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.h */,
+				021BAF4D1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.m */,
 			);
 			name = PatientSelectedNewExam;
 			sourceTree = "<group>";
@@ -1273,6 +1278,7 @@
 				02424B751BF9F5770001B77B /* SettingsSAAPTableViewController.m in Sources */,
 				027A8AAC1BF4EAA200967ADA /* OutsideRecoverNewPasswordViewController.m in Sources */,
 				02EB33C61BF3815F006D6529 /* SettingsTableViewCell.m in Sources */,
+				021BAF4E1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.m in Sources */,
 				0230A4571C035B66004FA4FA /* SettingsSpecialtiesTableViewCell.m in Sources */,
 				02E7A9B41BDC5254008059BD /* PatientSelectedAppointmentSelectedTableViewController.m in Sources */,
 				02C11D5D1BF966E200BBE0D0 /* TutorialViewController.m in Sources */,

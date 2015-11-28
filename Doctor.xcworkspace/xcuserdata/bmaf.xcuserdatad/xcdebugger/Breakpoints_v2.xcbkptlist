@@ -774,22 +774,22 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "470327496.078754"
+                  timestampString = "470421404.37509"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1869"
-                  endingLineNumber = "1869"
+                  startingLineNumber = "1874"
+                  endingLineNumber = "1874"
                   offsetFromSymbolStart = "1307">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_893"
+                  symbolName = "__copy_helper_block_917"
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "470327496.078977"
+                  timestampString = "470421404.375292"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -800,11 +800,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_894"
+                  symbolName = "__destroy_helper_block_918"
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "470327496.079176"
+                  timestampString = "470421404.375503"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -923,6 +923,38 @@
             startingLineNumber = "122"
             endingLineNumber = "122"
             landmarkName = "-setupAppointmentsDataSource"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Doctor/ExamChooseInsuranceTableViewController.m"
+            timestampString = "470421396.112704"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Doctor/ExamChooseInsuranceTableViewController.m"
+            timestampString = "470421463.055099"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

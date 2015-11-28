@@ -7,9 +7,10 @@
 //
 
 #import "PatientNewExamTableViewController.h"
+#import "ExamChooseInsuranceTableViewController.h"
 #import "AppDelegate.h"
 
-@interface PatientNewExamTableViewController (){
+@interface PatientNewExamTableViewController () <ExamChooseInsuranceTableViewControllerDelegate> {
     BOOL hasFirstExam;
     BOOL hasSecondExam;
     BOOL hasThirdExam;
@@ -184,6 +185,29 @@
 }
 
 - (IBAction)didTappedToSaveExam:(id)sender{
-    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 4:
+            [self performSegueWithIdentifier:@"chooseInsuranceSegueId" sender:self];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"chooseInsuranceSegueId"]) {
+        ExamChooseInsuranceTableViewController* vc = [[ExamChooseInsuranceTableViewController alloc] init];
+        vc = segue.destinationViewController;
+        vc.delegate = self;
+    }
+}
+
+- (void)didMakeSelection:(NSString *)insuranceSelected{
+    self.examInsuranceLabel.text = insuranceSelected;
+    NSLog(insuranceSelected);
 }
 @end
