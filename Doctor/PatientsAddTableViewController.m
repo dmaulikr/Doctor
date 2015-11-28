@@ -124,6 +124,7 @@
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"A+",@"A-",@"B+",@"B-",@"O+",@"O-",@"AB+",@"AB-", nil];
     actionSheet.tag = 3;
     [actionSheet becomeFirstResponder];
+    [self.view endEditing:YES];
     [actionSheet showInView:self.view];
 }
 
@@ -132,6 +133,7 @@
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Masculino",@"Feminino", nil];
     actionSheet.tag = 2;
     [actionSheet becomeFirstResponder];
+    [self.view endEditing:YES];
     [actionSheet showInView:self.view];
 }
 
@@ -531,6 +533,7 @@
     [self.view endEditing:YES];
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar do rolo da câmera", @"Tirar uma foto", nil];
     actionSheet.tag = 1;
+    [self.view endEditing:YES];
     [actionSheet showInView:self.view];
 }
 

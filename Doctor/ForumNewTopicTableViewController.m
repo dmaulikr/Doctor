@@ -28,7 +28,7 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    subjectLimit = 65;
+    subjectLimit = 50;
     contextLimit = 900;
     self.letterCounter.text = [NSString stringWithFormat:@"%i", subjectLimit];
     self.letterContextCounter.text = [NSString stringWithFormat:@"%i", contextLimit];
@@ -81,7 +81,7 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
         self.subjectImageView.image = [UIImage imageNamed:@"assunto-laranja"];
         
         if (self.subjectTextView.text.length <= subjectLimit) {
-            self.letterCounter.text = [NSString stringWithFormat:@"%i", 65-self.subjectTextView.text.length];
+            self.letterCounter.text = [NSString stringWithFormat:@"%i", 50-self.subjectTextView.text.length];
         }
         NSLog([NSString stringWithFormat:@"texto:%@", textView.text]);
     }
@@ -105,7 +105,7 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
                 return NO;
             }
             
-            aproval = newLength <= 65;
+            aproval = newLength <= 50;
             break;
             case 2:
             if(range.length + range.location > textView.text.length)

@@ -15,7 +15,7 @@
 #import "ForumSeeTopicTableViewController.h"
 #import "AppDelegate.h"
 
-@interface ForumTableViewController (){
+@interface ForumTableViewController () <UISearchBarDelegate> {
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView *spinner;
     ForumTopic* topicClicked;
@@ -157,6 +157,7 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([searchText isEqualToString:@""]) {
         tableViewDataArray = self.forumTopicsArray;
+        [searchBar resignFirstResponder];
         [self.tableView reloadData];
     }
     else{
@@ -179,6 +180,10 @@
     self.filteredForumsArray = [NSMutableArray arrayWithCapacity:self.forumTopicsArray.count];
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+}
 
-
+- (void) Search
 @end
