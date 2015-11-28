@@ -14,6 +14,7 @@
 @interface PatientSelectedExamsTableViewController (){
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
+    Exam* examSelected;
 }
 
 @property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
@@ -39,6 +40,8 @@
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    examSelected = [[Exam alloc] init];
+    examSelected = tableViewDataArray[indexPath.row];
     [self performSegueWithIdentifier:@"examSelectedSegueId" sender:self];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -53,8 +56,8 @@
         }
         Exam* exam = [[Exam alloc] init];
         exam = tableViewDataArray[indexPath.row];
-        cell.examTypeLabel.text = exam.examType;
-        cell.examDescriptionLabel.text = exam.examDescription;
+        cell.examTypeLabel.text = exam.examTypeString;
+        cell.examDescriptionLabel.text = exam.examDescriptionString;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
 }
@@ -94,6 +97,7 @@
     if ([segue.identifier isEqualToString:@"examSelectedSegueId"]) {
         PatientSelectedExamSelectedTableViewController* vc = segue.destinationViewController;
         [vc setPatient:self.patient];
+        [vc setExam:examSelected];
     }
 }
 

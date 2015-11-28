@@ -190,8 +190,8 @@
 - (void) newExam: (Exam*)exam
 {
     PFObject* newExam  = [PFObject objectWithClassName:@"Exam"];
-    newExam[@"type"] = exam.examType;
-    newExam[@"description"] = exam.examDescription;
+    newExam[@"type"] = exam.examTypeString;
+    newExam[@"description"] = exam.examDescriptionString;
     //Create a PFFile to store a photo
     newExam[@"photo"] = exam.examPhoto;
     
@@ -587,15 +587,20 @@
                 NSLog(@"%@", object.objectId);
                 Exam* exam = [[Exam alloc] init];
                 exam.examObjectId = object.objectId;
-                exam.examDescription = object[@"examDescription"];
-               // exam.examCreatedAt = object[@"createdAt"];
-                exam.examPatient = object[@"patientEnvolved"];
-               // exam.examPhoto = object[@"examPhoto"];
-                exam.examType = object[@"examType"];
-               // exam.examVersionHistory = object[@"versionHistory"];
-               // exam.examApplicant = object[@"examApplicant"];
-               // exam.examUpdatedAt = object[@"updatedAt"];
-                
+                exam.doctorEnvolvedString = object[@"DoctorEnvolved"];
+                exam.doctorEnvolvedNameString = object[@"DoctorEnvolvedName"];
+                exam.examDescriptionString = object[@"examDescription"];
+                exam.patientEnvoledString = object[@"PatientEnvolved"];
+                exam.examTypeString = object[@"examType"];
+                exam.examInsuranceString = object[@"Insurance"];
+                exam.examProtocolString = object[@"examProtocol"];
+                exam.examDateString = object[@"Date"];
+                PFFile* fileOne = [object objectForKey:@"photo1"];
+                if (fileOne) exam.photoOneData = fileOne.getData;
+                PFFile* fileTwo = [object objectForKey:@"photo2"];
+                if (fileTwo) exam.photoTwoData = fileTwo.getData;
+                PFFile* fileThree = [object objectForKey:@"photo3"];
+                if (fileThree) exam.photoThirdData = fileThree.getData;
                 [examsArray addObject:exam];
             }
             if (examsArray) {
@@ -1289,7 +1294,7 @@
     
     log.logRegisteredBy = [NSString stringWithFormat:@"%@", exam.examApplicant];
     log.logActivityType = @"Exam - created";
-    log.logActivityRegister = [NSString stringWithFormat:@"Exam %@ was created | Type:%@ | Description:%@", exam.examObjectId, exam.examType, exam.examDescription];
+    log.logActivityRegister = [NSString stringWithFormat:@"Exam %@ was created | Type:%@ | Description:%@", exam.examObjectId, exam.examTypeString, exam.examDescriptionString];
     log.logPatientsEnvolved = [NSArray arrayWithObjects:exam.examPatient, nil];
     log.logCreatedAt = [self getSystemDate];
     
@@ -1318,7 +1323,7 @@
     
     log.logRegisteredBy = [NSString stringWithFormat:@"%@", exam.examApplicant];
     log.logActivityType = @"Exam - Updated";
-    log.logActivityRegister = [NSString stringWithFormat:@"Exam %@ was updated | CreatedAt:%@ | Description:%@", exam.examObjectId, exam.examCreatedAt, exam.examDescription];
+    log.logActivityRegister = [NSString stringWithFormat:@"Exam %@ was updated | CreatedAt:%@ | Description:%@", exam.examObjectId, exam.examCreatedAt, exam.examDescriptionString];
     log.logPatientsEnvolved = [NSArray arrayWithObjects:exam.examPatient, nil];
     log.logCreatedAt = [self getSystemDate];
     
@@ -1347,7 +1352,7 @@
     
     log.logRegisteredBy = [NSString stringWithFormat:@"%@", exam.examApplicant];
     log.logActivityType = @"Exam - Deleted";
-    log.logActivityRegister = [NSString stringWithFormat:@"Exam %@ was updated | CreatedAt:%@ | Description:%@", exam.examObjectId, exam.examCreatedAt, exam.examDescription];
+    log.logActivityRegister = [NSString stringWithFormat:@"Exam %@ was updated | CreatedAt:%@ | Description:%@", exam.examObjectId, exam.examCreatedAt, exam.examDescriptionString];
     log.logPatientsEnvolved = [NSArray arrayWithObjects:exam.examPatient, nil];
     log.logCreatedAt = [self getSystemDate];
     
