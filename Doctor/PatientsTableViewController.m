@@ -155,7 +155,11 @@
     [newEnvio fetchAllPatients: ^void (NSMutableArray* patientArray){
         if (patientArray){
             self.patientsArray = patientArray;
-            tableViewDataArray = patientArray;
+            NSSortDescriptor *firstDescriptor = [[NSSortDescriptor alloc] initWithKey:@"patientCreatedAtString" ascending:NO];
+            NSArray *sortDescriptors = [NSArray arrayWithObjects:firstDescriptor, nil];
+            NSArray *sortedArray = [self.patientsArray sortedArrayUsingDescriptors:sortDescriptors];
+            self.patientsArray = sortedArray;
+            tableViewDataArray = self.patientsArray;
             [self.tableView reloadData];
             [spinner stopAnimating];
         }else{

@@ -352,6 +352,7 @@
                 patient.patientHeightString = [object objectForKey:@"height"];
                 patient.patientMedicationsString = [object objectForKey:@"medications"];
                 patient.patientObservationsString = [object objectForKey:@"observations"];
+                patient.patientCreatedAtString = [object createdAt];
                 PFFile* file = [object objectForKey:@"photo"];
                 if (file) patient.patientPhotoData = file.getData;
                 [patients addObject:patient];

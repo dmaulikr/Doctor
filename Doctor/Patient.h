@@ -30,6 +30,8 @@
 @property (strong, nonatomic) NSString* patientHeightString;
 @property (strong, nonatomic) NSString* patientEmergencyContactString;
 
+@property (strong, nonatomic) NSDate* patientCreatedAtString;
+
 @property (strong, nonatomic) NSData* patientPhotoData;
 
 @end
