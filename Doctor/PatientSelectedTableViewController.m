@@ -17,7 +17,7 @@
 #import "Envio.h"
 #import "AppDelegate.h"
 
-@interface PatientSelectedTableViewController ()
+@interface PatientSelectedTableViewController () <PatientSelectedEditTableViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel* patientCameSinceLabel;
@@ -31,13 +31,6 @@
     [super viewDidLoad];
     self.tableView.tableFooterView = [UIView new];
     self.patientCameSinceLabel.numberOfLines = 0;
-    
-    if (self.patient.patientPhotoData) {
-        self.patientImageView.contentMode = UIViewContentModeScaleAspectFill;
-        self.patientImageView.layer.cornerRadius = self.patientImageView.frame.size.height/2;
-        self.patientImageView.layer.masksToBounds = YES;
-        self.patientImageView.image = [UIImage imageWithData:self.patient.patientPhotoData];
-    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -47,6 +40,12 @@
 
 #pragma mark - Setup
 - (void) setupDataFromPatient{
+    if (self.patient.patientPhotoData) {
+        self.patientImageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.patientImageView.layer.cornerRadius = self.patientImageView.frame.size.height/2;
+        self.patientImageView.layer.masksToBounds = YES;
+        self.patientImageView.image = [UIImage imageWithData:self.patient.patientPhotoData];
+    }
     self.patientNameLabel.text = self.patient.patientNameString;
 
     Doctor* doctor = [[Doctor alloc] init];
@@ -105,9 +104,16 @@
         treatments.patient = self.patient;
     }
     else if ([segue.identifier isEqualToString:@"clickedInEditSegueId"]){
-        PatientSelectedEditTableViewController* edit = segue.destinationViewController;
+        PatientSelectedEditTableViewController* edit = [[PatientSelectedEditTableViewController alloc] init];
+        edit = segue.destinationViewController;
+        edit.delegate = self;
         edit.patient = self.patient;
     }
+}
+
+- (void) askedForRefresh:(Patient *)updatedPatient{
+    self.patient = updatedPatient;
+    [self setupDataFromPatient];
 }
 
 @end

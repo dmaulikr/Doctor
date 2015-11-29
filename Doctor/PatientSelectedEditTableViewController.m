@@ -94,6 +94,9 @@
     [envio updatePatient:self.patient.patientObjectId withPatient:patient withCompletion:^void(BOOL finished){
         if (finished) {
             [self.navigationController popViewControllerAnimated:YES];
+            if ([_delegate respondsToSelector:@selector(askedForRefresh:)]) {
+                [_delegate askedForRefresh:patient];
+            }
         }
     }];
 }
