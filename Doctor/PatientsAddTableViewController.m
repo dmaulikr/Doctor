@@ -11,17 +11,12 @@
 #import "Envio.h"
 #import "UIImageResizing.h"
 #import "BirthDateViewController.h"
+#import "HSDatePickerViewController.h"
 
-@interface PatientsAddTableViewController () <UITextViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate>{
+@interface PatientsAddTableViewController () <UITextViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, HSDatePickerViewControllerDelegate>{
     UIImagePickerController* imagePickerController;
     BOOL tookFromCamera;
 }
-
-- (void)didClickedIntoSexLabel;
-- (void)setupSexGestureRecognizer;
-- (void)setupBloodGestureRecognizer;
-- (void)didClickedIntoBirthDateLabel;
-- (void) setBirthDateLabel:(NSNotification *)notice;
 
 @property (weak, nonatomic) IBOutlet UIImageView* cameraImageView;
 
@@ -67,21 +62,6 @@
     [self setupBirthDateGestureRecognizer];
     imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.delegate = self;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(setBirthDateLabel:)
-                                                 name:@"datePicked!" object:nil];
-}
-
-
-- (void) setBirthDateLabel:(NSNotification *)notice{
-    NSDate* pickedDate = notice.object;
-    
-    NSDateFormatter* pickedDateFormatter = [[NSDateFormatter alloc]init];
-    [pickedDateFormatter setDateFormat:@"dd/MM/yyyy"];
-    
-    self.patientBirthdateTextView.text = [pickedDateFormatter stringFromDate:pickedDate];
-    
 }
 
 - (void)setupBirthDateGestureRecognizer{
@@ -97,9 +77,7 @@
     [self.patientBloodTypeTextView addGestureRecognizer:tapBloodTypeTextView];
 }
 
-
-- (void)setupSexGestureRecognizer
-{
+- (void)setupSexGestureRecognizer{
     //Sex action sheet, gesture recognizer
     UITapGestureRecognizer* tapSexTextView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickedIntoSexLabel)];
     [self.patientSexTextView setUserInteractionEnabled:YES];
@@ -107,17 +85,12 @@
 }
 
 - (void)didClickedIntoBirthDateLabel{
-    
-    NSLog(@"did entered in DIDCLICKEDINTOBIRTH");
-    BirthDateViewController* birthDatePickerController = [[BirthDateViewController alloc]init];
-    
-    [self presentViewController:birthDatePickerController animated:YES completion:nil];
-    
+    HSDatePickerViewController* hs = [HSDatePickerViewController new];
+    hs.delegate = self;
+    [self presentViewController:hs animated:YES completion:nil];
 }
 
-
-- (void) didClickedIntoBloodTypeLabel
-{
+- (void) didClickedIntoBloodTypeLabel{
     [self.patientBloodTypeTextView resignFirstResponder];
     [self.patientBloodTypeTextView endEditing:YES];
 
@@ -128,20 +101,13 @@
     [actionSheet showInView:self.view];
 }
 
-- (void) didClickedIntoSexLabel
-{
+- (void) didClickedIntoSexLabel{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Masculino",@"Feminino", nil];
     actionSheet.tag = 2;
     [actionSheet becomeFirstResponder];
     [self.view endEditing:YES];
     [actionSheet showInView:self.view];
 }
-
-
-//-(void) viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//}
 
 #pragma mark - UITextViewDelegate Methods
 - (void) textViewDidChange:(UITextView *)textView{
@@ -673,5 +639,13 @@
     return YES;
 }
 
+#pragma mark - HSDatePickerViewControllerDelegate
+- (void)hsDatePickerPickedDate:(NSDate *)date {
+    NSLog(@"Date picked %@", date);
+    NSDateFormatter *dateFormater = [NSDateFormatter new];
+    dateFormater.dateFormat = @"yyyy.MM.dd HH:mm:ss";
+//    self.dateLabel.text = [dateFormater stringFromDate:date];
+//    self.selectedDate = date;
+}
 
 @end

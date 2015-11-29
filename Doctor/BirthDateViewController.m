@@ -18,22 +18,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.birthDatePicker.datePickerMode = UIDatePickerModeDate;
+    
+   // self.view.layer.cornerRadius = 10.0;
+   // self.view.layer.borderColor = self.mainColor.CGColor;
+   // self.view.layer.borderWidth = 1.0;
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    }
+    return self;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)okButton:(UIButton *)sender {
     

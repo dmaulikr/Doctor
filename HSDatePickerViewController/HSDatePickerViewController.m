@@ -75,6 +75,8 @@ static NSInteger kBufforRows = 30; //Number of rows that are prevent by scroll p
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor grayColor];
+    
     //Set deafult values for pickers
     for (NSUInteger i = 0; i < 3; i++) {
         [self.pickerView selectRow:[self defaultRowValueForComponent:i] inComponent:i animated:NO];
@@ -203,14 +205,14 @@ static NSInteger kBufforRows = 30; //Number of rows that are prevent by scroll p
 
 - (NSString *)confirmButtonTitle {
     if (!_confirmButtonTitle) {
-        _confirmButtonTitle = NSLocalizedString(@"Set date", @"HSDatePicker confirm button title");
+        _confirmButtonTitle = NSLocalizedString(@"Escolher", @"HSDatePicker confirm button title");
     }
     return _confirmButtonTitle;
 }
 
 - (NSString *)backButtonTitle {
     if (!_backButtonTitle) {
-        _backButtonTitle = NSLocalizedString(@"Back", @"HSDatePicker back button");
+        _backButtonTitle = NSLocalizedString(@"Voltar", @"HSDatePicker back button");
     }
     return _backButtonTitle;
 }
