@@ -1993,13 +1993,6 @@
                                     <rect key="frame" x="25" y="33" width="90" height="90"/>
                                     <animations/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bruno Muniz Azevedo Filho" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uag-6x-UFc">
-                                    <rect key="frame" x="133" y="42" width="147" height="54"/>
-                                    <animations/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nunca antes atendido por você." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqz-yU-gBZ">
                                     <rect key="frame" x="133" y="88" width="217" height="38"/>
                                     <animations/>
@@ -2007,6 +2000,14 @@
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Bruno Muniz Azevedo Filho" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YbX-la-RAm">
+                                    <rect key="frame" x="129" y="33" width="191" height="63"/>
+                                    <animations/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
                             </subviews>
                             <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2361,7 +2362,7 @@
                         <outlet property="observationsTextView" destination="GSe-R0-rR4" id="9cQ-Pg-XPX"/>
                         <outlet property="patientCameSinceLabel" destination="mqz-yU-gBZ" id="Qeu-wu-dWZ"/>
                         <outlet property="patientImageView" destination="70V-wO-gMz" id="qxX-2W-RA8"/>
-                        <outlet property="patientNameLabel" destination="Uag-6x-UFc" id="jy7-zB-kws"/>
+                        <outlet property="patientNameTextView" destination="YbX-la-RAm" id="9t0-Ab-4lf"/>
                         <outlet property="sexTextView" destination="e05-WO-pZC" id="hSQ-96-FQp"/>
                         <outlet property="weightTextView" destination="W5R-uy-O3K" id="wnM-pf-QIs"/>
                     </connections>

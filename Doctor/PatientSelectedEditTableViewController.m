@@ -27,7 +27,7 @@
 @property (nonatomic, weak) IBOutlet UITextView* addressTextView;
 @property (nonatomic, weak) IBOutlet UITextView* cpfTextView;
 
-@property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
+@property (nonatomic, weak) IBOutlet UITextView* patientNameTextView;
 @property (nonatomic, weak) IBOutlet UILabel* patientCameSinceLabel;
 @property (nonatomic, weak) IBOutlet UIImageView* patientImageView;
 
@@ -47,7 +47,7 @@
 
 - (void) loadPatientData{
 
-    self.patientNameLabel.text = self.patient.patientNameString;
+    self.patientNameTextView.text = self.patient.patientNameString;
     self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
     if (self.patient.patientPhotoData) {
         self.patientImageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -84,6 +84,7 @@
     patient.patientEmergencyContactString = self.emergencyContactTextView.text;
     patient.patientAdressString = self.addressTextView.text;
     patient.patientCPFString = self.cpfTextView.text;
+    patient.patientNameString = self.patientNameTextView.text;
     if (![self.patientImageView.image isEqual:[UIImage imageNamed:@"icone-foto"]]) {
         UIImage* patientImage = self.patientImageView.image;
         patient.patientPhotoData = UIImageJPEGRepresentation(patientImage, 0.8);

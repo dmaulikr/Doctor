@@ -1819,7 +1819,7 @@
 
 - (void) updatePatient:(NSString *)patientId withPatient:(Patient *)patient withCompletion:(void (^)(BOOL finished))completion{
     PFObject *point = [PFObject objectWithoutDataWithClassName:@"Patient" objectId:patientId];
-    
+    if (patient.patientNameString) [point setObject:patient.patientNameString forKey:@"name"];
     if (patient.patientBloodTypeString) [point setObject:patient.patientBloodTypeString forKey:@"bloodtype"];
     if (patient.patientBirthDateString) [point setObject:patient.patientBirthDateString forKey:@"birthdate"];
     if (patient.patientClinicalConditionsString) [point setObject:patient.patientClinicalConditionsString forKey:@"clinicalConditions"];
