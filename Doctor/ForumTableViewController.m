@@ -142,7 +142,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 135;
+    
+    CGFloat fixedWidth = 200.f;
+    UITextView* teste = [[UITextView alloc] init];
+    ForumTopic *messageMeasure = [[ForumTopic alloc] init];
+    messageMeasure = tableViewDataArray[indexPath.row];
+    teste.text = messageMeasure.topicForumSinopse;
+    CGSize newSize = [teste sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+    newSize.height = newSize.height+80;
+    NSLog(@"%f", newSize.height);
+    return newSize.height;
 }
 
 - (void) setupLoadingAnimation{
