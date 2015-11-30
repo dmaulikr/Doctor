@@ -10,14 +10,13 @@
 #import "Patient.h"
 #import "PatientSelectedAppointmentsTableViewController.h"
 #import "PatientSelectedExamsTableViewController.h"
-#import "PatientSelectedEditTableViewController.h"
 #import "PatientSelectedDataTableViewController.h"
 #import "PatientSelectedTreatmentsTableViewController.h"
 #import "Doctor.h"
 #import "Envio.h"
 #import "AppDelegate.h"
 
-@interface PatientSelectedTableViewController () <PatientSelectedEditTableViewControllerDelegate>
+@interface PatientSelectedTableViewController ()
 
 @property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel* patientCameSinceLabel;
@@ -78,8 +77,6 @@
         case 2:
             [self performSegueWithIdentifier:@"clickedInExamsSegueId" sender:self];
             break;
-        case 3:
-            [self performSegueWithIdentifier:@"clickedInEditSegueId" sender:self]; break;
         default:
             break;
     }
@@ -103,17 +100,6 @@
         PatientSelectedTreatmentsTableViewController* treatments = segue.destinationViewController;
         treatments.patient = self.patient;
     }
-    else if ([segue.identifier isEqualToString:@"clickedInEditSegueId"]){
-        PatientSelectedEditTableViewController* edit = [[PatientSelectedEditTableViewController alloc] init];
-        edit = segue.destinationViewController;
-        edit.delegate = self;
-        edit.patient = self.patient;
-    }
-}
-
-- (void) askedForRefresh:(Patient *)updatedPatient{
-    self.patient = updatedPatient;
-    [self setupDataFromPatient];
 }
 
 @end

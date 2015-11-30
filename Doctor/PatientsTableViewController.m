@@ -101,22 +101,21 @@
             break;
         case 1:
         {
-            NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-            
-            [_patientsArray removeObjectAtIndex:cellIndexPath.row];
-            [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath]
-                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-            
-            //delete patient id from the doctor's patient's array
-            Envio* envio = [[Envio alloc]init];
-            Patient* patient = [[Patient alloc]init];
-            Doctor* doctor = [PFUser currentUser];
-            patient = _patientsArray[cellIndexPath.row];
-            
-            [envio deletePatient:patient fromDoctor:doctor]; //This doctor must be the current user
-            
-            break;
+//            NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+//            
+//            [_patientsArray removeObjectAtIndex:cellIndexPath.row];
+//            [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath]
+//                                  withRowAnimation:UITableViewRowAnimationAutomatic];
+//            
+//            //delete patient id from the doctor's patient's array
+//            Envio* envio = [[Envio alloc]init];
+//            Patient* patient = [[Patient alloc]init];
+//            Doctor* doctor = [PFUser currentUser];
+//            patient = _patientsArray[cellIndexPath.row];
+//            
+//            [envio deletePatient:patient fromDoctor:doctor]; //This doctor must be the current user
         }
+            break;
         default:
             break;
     }

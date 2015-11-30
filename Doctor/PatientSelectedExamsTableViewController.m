@@ -84,6 +84,10 @@
         }else{
             NSLog(@"Erro - setupExamsDataSource block");
         }
+        if (tableViewDataArray.count == 0) {
+            UIAlertView* empty = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Ainda não há exames para este paciente." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [empty show];
+        }
     }];
 }
 - (void) setupLoadingAnimation{

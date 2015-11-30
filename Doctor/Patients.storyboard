@@ -214,8 +214,8 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone-consultas" translatesAutoresizingMaskIntoConstraints="NO" id="nZA-71-H1L">
-                                                    <rect key="frame" x="20" y="9" width="29" height="31"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="consultas-azulantigo" translatesAutoresizingMaskIntoConstraints="NO" id="nZA-71-H1L">
+                                                    <rect key="frame" x="22" y="9" width="32" height="33"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -238,30 +238,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone-exames" translatesAutoresizingMaskIntoConstraints="NO" id="1Db-zj-Ykn">
-                                                    <rect key="frame" x="20" y="9" width="29" height="31"/>
-                                                    <animations/>
-                                                </imageView>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="McG-O9-U3R">
-                                        <rect key="frame" x="0.0" y="370" width="375" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="McG-O9-U3R" id="t1z-92-yka">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Editar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbx-ic-wkj">
-                                                    <rect key="frame" x="75" y="14" width="45" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icone-editar" translatesAutoresizingMaskIntoConstraints="NO" id="Tej-3P-8DB">
-                                                    <rect key="frame" x="20" y="10" width="29" height="31"/>
+                                                    <rect key="frame" x="22" y="9" width="29" height="31"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -285,7 +262,6 @@
                         <segue destination="c12-ju-Uf7" kind="show" identifier="clickedInDataSegueId" id="KF8-n4-GyG"/>
                         <segue destination="fKV-VM-bsB" kind="show" identifier="clickedInAppointmentsSegueId" id="cdF-bL-v7J"/>
                         <segue destination="uqT-NM-1qi" kind="show" identifier="clickedInExamsSegueId" id="tCf-Q7-n5v"/>
-                        <segue destination="9tq-jf-VNi" kind="show" identifier="clickedInEditSegueId" id="Ilc-AL-fjv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h51-Lv-FOo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -618,7 +594,14 @@
                             <outlet property="delegate" destination="c12-ju-Uf7" id="eQ4-SV-Iln"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Dados" id="iAk-sC-gAu"/>
+                    <navigationItem key="navigationItem" title="Dados" id="iAk-sC-gAu">
+                        <barButtonItem key="rightBarButtonItem" title="Editar" id="7WN-W4-KBT">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="didTappedEdit:" destination="c12-ju-Uf7" id="bZ2-Vk-bUk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="750"/>
                     <connections>
@@ -637,11 +620,12 @@
                         <outlet property="patientNameLabel" destination="D06-zz-uvP" id="85q-ao-dnE"/>
                         <outlet property="sexTextView" destination="lBp-L5-bnu" id="TcD-41-t1C"/>
                         <outlet property="weightTextView" destination="Ghr-mC-kzF" id="bSb-zY-JDX"/>
+                        <segue destination="9tq-jf-VNi" kind="show" identifier="clickedInEditSegueId" id="alL-Yb-CR5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2e-QP-Fag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150.5" y="1134"/>
+            <point key="canvasLocation" x="146.5" y="1134"/>
         </scene>
         <!--Plano de saúde-->
         <scene sceneID="Ufv-WS-S6H">
@@ -2807,15 +2791,14 @@
         <image name="alergias-cinza" width="40" height="45"/>
         <image name="altura-cinza" width="21" height="48"/>
         <image name="condicoesclinicas-cinza" width="45" height="40"/>
+        <image name="consultas-azulantigo" width="71" height="65"/>
         <image name="contatodeemergencia-cinza" width="54" height="49"/>
         <image name="datadenascimento-cinza" width="43" height="42"/>
         <image name="endereco-cinza" width="47" height="47"/>
         <image name="especialidades" width="43" height="43"/>
         <image name="icone-adicionar" width="21" height="21"/>
-        <image name="icone-consultas" width="59" height="63"/>
         <image name="icone-consultas-grande" width="141" height="152"/>
         <image name="icone-dados" width="77" height="69"/>
-        <image name="icone-editar" width="68" height="68"/>
         <image name="icone-exames" width="66" height="77"/>
         <image name="icone-exames-grande" width="150" height="175"/>
         <image name="icone-foto" width="172" height="172"/>

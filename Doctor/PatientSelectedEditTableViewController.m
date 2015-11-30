@@ -96,6 +96,7 @@
         if (finished) {
             [self.navigationController popViewControllerAnimated:YES];
             if ([_delegate respondsToSelector:@selector(askedForRefresh:)]) {
+                patient.patientCameSinceString = self.patientCameSinceLabel.text;
                 [_delegate askedForRefresh:patient];
             }
         }

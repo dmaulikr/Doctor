@@ -9,11 +9,11 @@
 #import "TutorialViewController.h"
 
 
-NSString *const kFirstTextViewText = @"Aqui você tem acesso aos prontuários de seus pacientes. \n\nAcesse histórico de condições clínicas, tratamentos, consultas e exames de maneira prática e rápida.";
+NSString *const kFirstTextViewText = @"Aqui você tem acesso aos prontuários de seus pacientes. \nAcesse histórico de condições clínicas, tratamentos, consultas e exames de maneira prática e rápida.";
 
 NSString *const kSecondTextViewText = @"Tenha acesso a uma ampla biblioteca de medicamentos e princípios ativos na palma da sua mão.";
 
-NSString *const kThirdTextViewText = @"Precisa de ajuda em algum caso? \n\nPoste sua dúvida e obtenha feedback de colegas das mais diversas áreas de sáude.";
+NSString *const kThirdTextViewText = @"Precisa de ajuda em algum caso? \nPoste sua dúvida e obtenha feedback de colegas das mais diversas áreas de sáude.";
 
 NSString *const kFourthTextViewText = @"Complete seu perfil e seja encontrado por pacientes cadastrados no aplicativo.";
 

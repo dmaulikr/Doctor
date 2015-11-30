@@ -7,8 +7,9 @@
 //
 
 #import "PatientSelectedDataTableViewController.h"
+#import "PatientSelectedEditTableViewController.h"
 
-@interface PatientSelectedDataTableViewController ()
+@interface PatientSelectedDataTableViewController () <PatientSelectedEditTableViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextView* birthDateTextView;
 @property (nonatomic, weak) IBOutlet UITextView* sexTextView;
@@ -36,15 +37,17 @@
     [self loadPatientData];
     self.patientCameSinceLabel.numberOfLines = 0;
     self.tableView.tableFooterView = [UIView new];
+}
+
+- (void) loadPatientData{
+    
     if (self.patient.patientPhotoData) {
         self.patientImageView.contentMode = UIViewContentModeScaleAspectFill;
         self.patientImageView.layer.cornerRadius = self.patientImageView.frame.size.height/2;
         self.patientImageView.layer.masksToBounds = YES;
         self.patientImageView.image = [UIImage imageWithData:self.patient.patientPhotoData];
     }
-}
-
-- (void) loadPatientData{
+    
     self.patientNameLabel.text = self.patient.patientNameString;
     self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
     //self.patientImageView.image = self.patient.patientImage;
@@ -66,4 +69,23 @@
     self.cpfTextView.text = [formatter stringFromNumber:[NSNumber numberWithInteger:[self.patient.patientCPFString integerValue]]];
     
 }
+
+- (IBAction)didTappedEdit:(id)sender{
+    [self performSegueWithIdentifier:@"clickedInEditSegueId" sender:self];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"clickedInEditSegueId"]) {
+        PatientSelectedEditTableViewController* edit = [[PatientSelectedEditTableViewController alloc] init];
+        edit = segue.destinationViewController;
+        edit.delegate = self;
+        edit.patient = self.patient;
+    }
+}
+
+- (void) askedForRefresh:(Patient *)updatedPatient{
+    self.patient = updatedPatient;
+    [self loadPatientData];
+}
+
 @end

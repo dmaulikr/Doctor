@@ -642,7 +642,7 @@
 - (void)hsDatePickerPickedDate:(NSDate *)date {
     NSLog(@"Date picked %@", date);
     NSDateFormatter *dateFormater = [NSDateFormatter new];
-    dateFormater.dateFormat = @"yyyy.MM.dd HH:mm:ss";
+    dateFormater.dateFormat = @"dd.MM.yyyy";
 //    self.dateLabel.text = [dateFormater stringFromDate:date];
 //    self.selectedDate = date;
 }
