@@ -504,26 +504,25 @@
 
 - (IBAction)didTappedForSaveNewPatient:(id)sender{
     Patient* patient = [[Patient alloc] init];
-    patient.patientNameString =  self.patientNameTextView.text;
-    patient.patientGenderString = self.patientSexTextView.text;
+    if (![self.patientNameTextView.text isEqualToString:@"Nome"])  patient.patientNameString =  self.patientNameTextView.text;
+    if (![self.patientSexTextView.text isEqualToString:@"Sexo"]) patient.patientGenderString = self.patientSexTextView.text;
    // patient.patientRGString = self.patientRGTextView.text;
-    patient.patientCPFString = self.patientCPFTextView.text;
+   if (![self.patientCPFTextView.text isEqualToString:@"CPF"])  patient.patientCPFString = self.patientCPFTextView.text;
    // patient.patientAgeString = self.patientAgeTextView.text;
     if (![self.cameraImageView.image isEqual:[UIImage imageNamed:@"icone-foto"]]) {
         UIImage* patientImage = self.cameraImageView.image;
         patient.patientPhotoData = UIImageJPEGRepresentation(patientImage, 0.8);
     }
-    patient.patientBirthDateString = self.patientBirthdateTextView.text;
-    patient.patientAdressString = self.patientAdressTextView.text;
-    patient.patientWeightString = self.patientWeightTextView.text;
-    patient.patientHeightString = self.patientHeightTextView.text;
-    patient.patientBloodTypeString = self.patientBloodTypeTextView.text;
-    patient.patientEmergencyContactString = self.patientEmergencyContactTextView.text;
-    patient.patientMedicationsString = self.patientMedicationsTextView.text;
-    patient.patientObservationsString = self.patientObservationsTextView.text;
-    patient.patientAlergiesString = self.patientAlergiesTextView.text;
-    patient.patientClinicalConditionsString = self.patientClinicalConditionsTextView.text;
-    
+    if (![self.patientBirthdateTextView.text isEqualToString:@"Nome"]) patient.patientBirthDateString = self.patientBirthdateTextView.text;
+    if (![self.patientAdressTextView.text isEqualToString:@"Endereço"]) patient.patientAdressString = self.patientAdressTextView.text;
+    if (![self.patientWeightTextView.text isEqualToString:@"Peso (kg)"]) patient.patientWeightString = self.patientWeightTextView.text;
+    if (![self.patientHeightTextView.text isEqualToString:@"Altura (cm)"]) patient.patientHeightString = self.patientHeightTextView.text;
+    if (![self.patientBloodTypeTextView.text isEqualToString:@"Tipo sanguíneo"]) patient.patientBloodTypeString = self.patientBloodTypeTextView.text;
+    if (![self.patientEmergencyContactTextView.text isEqualToString:@"Contato de emergência"]) patient.patientEmergencyContactString = self.patientEmergencyContactTextView.text;
+    if (![self.patientMedicationsTextView.text isEqualToString:@"Medicamentos"]) patient.patientMedicationsString = self.patientMedicationsTextView.text;
+    if (![self.patientObservationsTextView.text isEqualToString:@"Observações"]) patient.patientObservationsString = self.patientObservationsTextView.text;
+    if (![self.patientAlergiesTextView.text isEqualToString:@"Alergias"]) patient.patientAlergiesString = self.patientAlergiesTextView.text;
+    if (![self.patientClinicalConditionsTextView.text isEqualToString:@"Condições clínicas"]) patient.patientClinicalConditionsString = self.patientClinicalConditionsTextView.text;
     
     Envio* envio = [[Envio alloc] init];
     [envio newPatient:patient];

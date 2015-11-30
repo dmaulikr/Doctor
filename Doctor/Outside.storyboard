@@ -38,14 +38,15 @@
                                 <rect key="frame" x="50" y="282" width="276" height="92"/>
                                 <animations/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pcz-Zr-3qB">
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pcz-Zr-3qB">
                                 <rect key="frame" x="93" y="337" width="229" height="30"/>
                                 <animations/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="textFieldReturn:" destination="zi9-6q-adT" eventType="editingDidEndOnExit" id="cwH-CL-X5P"/>
+                                    <outlet property="delegate" destination="zi9-6q-adT" id="omy-Wh-ooh"/>
                                 </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-lock" translatesAutoresizingMaskIntoConstraints="NO" id="g7j-rf-vJ3">
@@ -100,14 +101,15 @@
                                 <rect key="frame" x="73" y="177" width="228" height="71"/>
                                 <animations/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bzP-3O-FjJ">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bzP-3O-FjJ">
                                 <rect key="frame" x="93" y="291" width="229" height="30"/>
                                 <animations/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="textFieldReturn:" destination="zi9-6q-adT" eventType="editingDidEndOnExit" id="NnH-7I-10K"/>
+                                    <outlet property="delegate" destination="zi9-6q-adT" id="SKz-c9-Rx9"/>
                                 </connections>
                             </textField>
                         </subviews>

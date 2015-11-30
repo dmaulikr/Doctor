@@ -60,49 +60,7 @@
 
 #pragma mark - IBActions
 - (IBAction)didTappedLoginButton:(UIButton *)sender{
-    [self.view endEditing:YES];
-    if ([self checkFieldCompletion]) {
-        [self.view addSubview:spinner];
-        [self.loginButton setEnabled:NO];
-        [spinner startAnimating];
-        
-        Envio* envio = [[Envio alloc]init];
-        Authentication* auth = [Authentication alloc];
-        [envio logIn:self.loginTextField.text withPassword:self.passwordTextField.text :^void (BOOL finished){
-            if (finished) {
-                [auth verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
-                    
-                    
-                    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-                    
-                    
-                    self.menuContainerViewController.centerViewController = [[UIStoryboard
-                                                                              storyboardWithName:kFeedStoryboard
-                                                                              bundle:nil]
-                                                                             instantiateViewControllerWithIdentifier:appDelegate.doctor.isFirstTime ? kFeedFTNavID: kFeedNavID];
-                    
-                    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
-                    
-                    
-                    
-                    
-                    
-                    [spinner stopAnimating];
-                    [self.loginButton setEnabled:YES];
-                }];
-            }
-            else{
-                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Não foi possível realizar o login, verifique seu usuário/senha e tente novamente." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                [alert show];
-                [self.loginButton setEnabled:YES];
-                [spinner stopAnimating];
-            }
-        }];
-    }
-    else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Preencha os campos em branco e tente novamente." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
+    [self tryToLogin];
 }
 
 - (IBAction)didTappedSignInButton:(UIButton *)sender{
@@ -127,6 +85,8 @@
 
 #pragma mark - Setups
 - (void)setupTextFieldDelegates{
+    self.loginTextField.delegate = self;
+    self.passwordTextField.delegate = self;
     [self.loginTextField addTarget:self action:@selector(textFieldDidBeginEditing:)forControlEvents:UIControlEventEditingDidBegin];
     [self.passwordTextField addTarget:self action:@selector(textFieldDidBeginEditing:)forControlEvents:UIControlEventEditingDidBegin];
     [self.loginTextField addTarget:self action:@selector(textFieldDidEndEditing:)forControlEvents:UIControlEventEditingDidEnd];
@@ -158,10 +118,22 @@
 //    }
 //}
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
+    switch (textField.tag) {
+        case 1:
+        //    [self.passwordTextField becomeFirstResponder];
+            break;
+        case 2:
+            [textField resignFirstResponder];
+            [self tryToLogin];
+            break;
+        default:
+            break;
+    }
     return YES;
 }
+
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch* touch = [[event allTouches] anyObject];
@@ -182,5 +154,53 @@
         returning = true;
     }
     return returning;
+}
+
+
+- (void) tryToLogin{
+    
+        [self.view endEditing:YES];
+        if ([self checkFieldCompletion]) {
+            [self.view addSubview:spinner];
+            [self.loginButton setEnabled:NO];
+            [spinner startAnimating];
+    
+            Envio* envio = [[Envio alloc]init];
+            Authentication* auth = [Authentication alloc];
+            [envio logIn:self.loginTextField.text withPassword:self.passwordTextField.text :^void (BOOL finished){
+                if (finished) {
+                    [auth verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
+    
+    
+                        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    
+    
+                        self.menuContainerViewController.centerViewController = [[UIStoryboard
+                                                                                  storyboardWithName:kFeedStoryboard
+                                                                                  bundle:nil]
+                                                                                 instantiateViewControllerWithIdentifier:appDelegate.doctor.isFirstTime ? kFeedFTNavID: kFeedNavID];
+    
+                        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+    
+    
+    
+    
+    
+                        [spinner stopAnimating];
+                        [self.loginButton setEnabled:YES];
+                    }];
+                }
+                else{
+                    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Não foi possível realizar o login, verifique seu usuário/senha e tente novamente." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    [alert show];
+                    [self.loginButton setEnabled:YES];
+                    [spinner stopAnimating];
+                }
+            }];
+        }
+        else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Preencha os campos em branco e tente novamente." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
 }
 @end

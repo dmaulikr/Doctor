@@ -2379,15 +2379,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Nome" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-ZY-2XD">
-                                                    <rect key="frame" x="127" y="23" width="248" height="33"/>
-                                                    <animations/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="textColor" red="0.51483585860000003" green="0.51483585860000003" blue="0.51483585860000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Sobrenome" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KYk-vj-SoR">
-                                                    <rect key="frame" x="127" y="50" width="248" height="37"/>
+                                                    <rect key="frame" x="127" y="37" width="248" height="57"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" red="0.51483585860000003" green="0.51483585860000003" blue="0.51483585860000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -2757,7 +2749,6 @@
                         <outlet property="patientObservationsTextView" destination="O7T-AZ-hui" id="VOw-VX-OFa"/>
                         <outlet property="patientSexImageView" destination="W72-xt-hKj" id="lTl-zz-qQf"/>
                         <outlet property="patientSexTextView" destination="msd-PJ-4Yx" id="dCk-0e-G6t"/>
-                        <outlet property="patientSurnameTextView" destination="KYk-vj-SoR" id="xSO-zi-fiX"/>
                         <outlet property="patientTelephoneTextView" destination="Ygg-wg-ouR" id="Xib-XD-ifO"/>
                         <outlet property="patientWeightImageView" destination="HCl-80-oPr" id="t6B-eN-rfD"/>
                         <outlet property="patientWeightTextView" destination="Ong-xb-ERj" id="Ltl-zz-CNO"/>
@@ -2765,7 +2756,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Liy-ZI-NXp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748.5" y="-521"/>
+            <point key="canvasLocation" x="750.5" y="-520"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KbC-E1-JQ6">
