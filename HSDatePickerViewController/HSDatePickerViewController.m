@@ -75,7 +75,8 @@ static NSInteger kBufforRows = 30; //Number of rows that are prevent by scroll p
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor grayColor];
+    [self.pickerBackgroundView setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.6]];
+    
     
     //Set deafult values for pickers
     for (NSUInteger i = 0; i < 3; i++) {

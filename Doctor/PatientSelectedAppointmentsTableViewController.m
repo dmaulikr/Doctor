@@ -132,6 +132,10 @@
             tableViewDataArray = appointmentArray;
             [self.tableView reloadData];
             [spinner stopAnimating];
+            if (numberOfSections == 0) {
+                UIAlertView* empty = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Ainda não há consultas para este paciente." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [empty show];
+            }
         }else{
             NSLog(@"Erro - setupAppointmentsDataSource block");
         }

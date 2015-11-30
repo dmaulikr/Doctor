@@ -60,6 +60,7 @@
 
 #pragma mark - IBActions
 - (IBAction)didTappedLoginButton:(UIButton *)sender{
+    [self.view endEditing:YES];
     if ([self checkFieldCompletion]) {
         [self.view addSubview:spinner];
         [self.loginButton setEnabled:NO];

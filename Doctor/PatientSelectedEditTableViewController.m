@@ -7,9 +7,10 @@
 //
 
 #import "PatientSelectedEditTableViewController.h"
+#import "HSDatePickerViewController.h"
 #import "Envio.h"
 
-@interface PatientSelectedEditTableViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UITextViewDelegate> {
+@interface PatientSelectedEditTableViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UITextViewDelegate, HSDatePickerViewControllerDelegate> {
     UIImagePickerController* imagePickerController;
     UIActivityIndicatorView* spinner;
 }
@@ -134,6 +135,9 @@
     
     UITapGestureRecognizer *tapSex = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedSex)];
     [self.sexTextView addGestureRecognizer:tapSex];
+    
+    UITapGestureRecognizer *tapBirthday = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedBirthdate)];
+    [self.birthDateTextView addGestureRecognizer:tapBirthday];
 }
 
 - (void) didTappedPatientImage{
@@ -154,6 +158,12 @@
     actionSheet.tag = 3;
     [self.view endEditing:YES];
     [actionSheet showInView:self.view];
+}
+
+- (void) didTappedBirthdate{
+    HSDatePickerViewController* hs = [HSDatePickerViewController new];
+    hs.delegate = self;
+    [self presentViewController:hs animated:YES completion:nil];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -239,6 +249,16 @@
     }
     
     return YES;
+}
+
+
+#pragma mark - HSDatePickerViewControllerDelegate
+- (void)hsDatePickerPickedDate:(NSDate *)date {
+    NSLog(@"Date picked %@", date);
+    NSDateFormatter *dateFormater = [NSDateFormatter new];
+    dateFormater.dateFormat = @"yyyy.MM.dd HH:mm:ss";
+    //    self.dateLabel.text = [dateFormater stringFromDate:date];
+    //    self.selectedDate = date;
 }
 
 @end

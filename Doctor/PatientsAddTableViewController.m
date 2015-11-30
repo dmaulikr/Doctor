@@ -10,7 +10,6 @@
 #import "Patient.h"
 #import "Envio.h"
 #import "UIImageResizing.h"
-#import "BirthDateViewController.h"
 #import "HSDatePickerViewController.h"
 
 @interface PatientsAddTableViewController () <UITextViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, HSDatePickerViewControllerDelegate>{
