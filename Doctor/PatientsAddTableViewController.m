@@ -627,15 +627,30 @@
     return YES;
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
-    if([text isEqualToString:@"\n"]) {
-        [textView resignFirstResponder];
-        return NO;
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    NSUInteger newLength = [textView.text length] + [text length] - range.length;
+    BOOL aproval = false;
+    switch (textView.tag) {
+        case 15:1
+            if(range.length + range.location > textView.text.length)
+            {
+                return NO;
+            }
+            
+            aproval = newLength <= 11;
+            break;
+        default:
+            break;
     }
     
-    return YES;
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        aproval = NO;
+    }
+    return aproval;
+    
 }
+
 
 #pragma mark - HSDatePickerViewControllerDelegate
 - (void)hsDatePickerPickedDate:(NSDate *)date {
