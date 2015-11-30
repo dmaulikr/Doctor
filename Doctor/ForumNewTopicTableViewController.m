@@ -51,15 +51,25 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
 
 #pragma mark - IBActions
 -(IBAction)tappedCreateButton:(UIBarButtonItem *)createButton{
-    [self setupLoadingAnimation];
     [self textViewDidEndEditing:self.contentTextView];
     [self textViewDidEndEditing:self.subjectTextView];
-    [self.createButton setEnabled:NO];
-    [self createNewTopic];
+    [self checkFieldsCompletion];
 }
 
 #pragma mark - Private Methods
+- (void) checkFieldsCompletion{
+    if ([self.contentTextView.text isEqualToString:kHugeMessage] || [self.subjectTextView.text isEqualToString:@"Ex: Suspeita de um novo surto"]) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"É necessário preencher os campos de assunto e descrição. \nPreencha-os e tente novamente." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
+        [self createNewTopic];
+    }
+}
+
 - (void) createNewTopic{
+    [self setupLoadingAnimation];
+    [self.createButton setEnabled:NO];
     Envio* envio = [[Envio alloc] init];
     ForumTopic* topic = [[ForumTopic alloc] init];
     topic.topicForumOwner = self.doctor.doctorNameString;
