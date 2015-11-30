@@ -180,6 +180,7 @@
 
 #pragma mark - IBActions
 -(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{
+    [self.view endEditing:YES];
    	[self.menuContainerViewController toggleLeftSideMenuCompletion:^{}];
 }
 
@@ -188,6 +189,7 @@
 //    [self.menuContainerViewController.centerViewController presentViewController:vc animated:YES completion:^{
 //        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
 //    }];
+    [self.view endEditing:YES];
     [self performSegueWithIdentifier:@"addSegueId" sender:self];
 }
 

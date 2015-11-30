@@ -631,7 +631,7 @@
     NSUInteger newLength = [textView.text length] + [text length] - range.length;
     BOOL aproval = false;
     switch (textView.tag) {
-        case 15:1
+        case 15:
             if(range.length + range.location > textView.text.length)
             {
                 return NO;

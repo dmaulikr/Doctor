@@ -191,6 +191,7 @@
                     }];
                 }
                 else{
+                    [self.view endEditing:YES];
                     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Não foi possível realizar o login, verifique seu usuário/senha e tente novamente." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                     [alert show];
                     [self.loginButton setEnabled:YES];
@@ -199,8 +200,10 @@
             }];
         }
         else{
+            [self.view endEditing:YES];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Preencha os campos em branco e tente novamente." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+    [self.view endEditing:YES];
 }
 @end
