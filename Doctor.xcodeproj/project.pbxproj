@@ -502,13 +502,13 @@
 			name = SettingsSeeAsAPatient;
 			sourceTree = "<group>";
 		};
-		027499A61C073D86004402ED /* PatientSelectedNewAppointment */ = {
+		027499A61C073D86004402ED /* NewAppointment */ = {
 			isa = PBXGroup;
 			children = (
 				027499A31C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.h */,
 				027499A41C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.m */,
 			);
-			name = PatientSelectedNewAppointment;
+			name = NewAppointment;
 			sourceTree = "<group>";
 		};
 		02755B5B1BE10814000A5183 /* ViewsInbox */ = {
@@ -598,12 +598,9 @@
 		02921D5B1BD116CA001B6F5E /* ViewsPatients */ = {
 			isa = PBXGroup;
 			children = (
-				703E632C1BCFDA4100205A82 /* PatientsTableViewController.h */,
-				703E632D1BCFDA4100205A82 /* PatientsTableViewController.m */,
-				703E632F1BCFDA6A00205A82 /* PatientsTableViewCell.h */,
-				703E63301BCFDA6A00205A82 /* PatientsTableViewCell.m */,
-				02921D781BD14643001B6F5E /* PatientsAdd */,
-				02F15C661BD6D7E60078279D /* PatientSelected */,
+				02A974FB1C0DEDA2003E3176 /* PatientsTableViewController */,
+				02921D781BD14643001B6F5E /* PatientsAddTableViewController */,
+				02F15C661BD6D7E60078279D /* PatientSelectedTableViewController */,
 			);
 			name = ViewsPatients;
 			sourceTree = "<group>";
@@ -622,13 +619,13 @@
 			name = ViewsFeed;
 			sourceTree = "<group>";
 		};
-		02921D781BD14643001B6F5E /* PatientsAdd */ = {
+		02921D781BD14643001B6F5E /* PatientsAddTableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				02D9874D1BE25C290010E74A /* PatientsAddTableViewController.h */,
 				02D9874E1BE25C290010E74A /* PatientsAddTableViewController.m */,
 			);
-			name = PatientsAdd;
+			name = PatientsAddTableViewController;
 			sourceTree = "<group>";
 		};
 		02921D7E1BD14E62001B6F5E /* ViewsOutside */ = {
@@ -687,6 +684,17 @@
 				0297C9781BE6F8940068757C /* Message.m */,
 			);
 			name = ModelInbox;
+			sourceTree = "<group>";
+		};
+		02A974FB1C0DEDA2003E3176 /* PatientsTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				703E632C1BCFDA4100205A82 /* PatientsTableViewController.h */,
+				703E632D1BCFDA4100205A82 /* PatientsTableViewController.m */,
+				703E632F1BCFDA6A00205A82 /* PatientsTableViewCell.h */,
+				703E63301BCFDA6A00205A82 /* PatientsTableViewCell.m */,
+			);
+			name = PatientsTableViewController;
 			sourceTree = "<group>";
 		};
 		02C11D4E1BF95A6100BBE0D0 /* ViewsTutorial */ = {
@@ -853,8 +861,8 @@
 				02E8EA461C088F480038D93F /* AppointmentSpecialtyGroupTableViewCell.m */,
 				02E8EA491C088F630038D93F /* AppointmentTableViewCell.m */,
 				02E8EA481C088F630038D93F /* AppointmentTableViewCell.h */,
-				02E7A9B11BDC523D008059BD /* PatientSelectedAppointmentSelected */,
-				027499A61C073D86004402ED /* PatientSelectedNewAppointment */,
+				02E7A9B11BDC523D008059BD /* SeeAppointment */,
+				027499A61C073D86004402ED /* NewAppointment */,
 			);
 			name = PatientSelectedAppointments;
 			sourceTree = "<group>";
@@ -911,13 +919,13 @@
 			name = PatientSelectedTreatmentSelected;
 			sourceTree = "<group>";
 		};
-		02E7A9B11BDC523D008059BD /* PatientSelectedAppointmentSelected */ = {
+		02E7A9B11BDC523D008059BD /* SeeAppointment */ = {
 			isa = PBXGroup;
 			children = (
 				02E7A9B21BDC5254008059BD /* PatientSelectedAppointmentSelectedTableViewController.h */,
 				02E7A9B31BDC5254008059BD /* PatientSelectedAppointmentSelectedTableViewController.m */,
 			);
-			name = PatientSelectedAppointmentSelected;
+			name = SeeAppointment;
 			sourceTree = "<group>";
 		};
 		02E7A9B51BDC57F7008059BD /* MedicationSelected */ = {
@@ -938,7 +946,7 @@
 			name = ModelOutside;
 			sourceTree = "<group>";
 		};
-		02F15C661BD6D7E60078279D /* PatientSelected */ = {
+		02F15C661BD6D7E60078279D /* PatientSelectedTableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				02F15C671BD6D8080078279D /* PatientSelectedTableViewController.h */,
@@ -949,7 +957,7 @@
 				02E7A9971BDC5085008059BD /* PatientSelectedExams */,
 				02E7A9951BDC5063008059BD /* PatientSelectedData */,
 			);
-			name = PatientSelected;
+			name = PatientSelectedTableViewController;
 			sourceTree = "<group>";
 		};
 		1BD2E2951BD1215D004413F9 /* ViewsForum */ = {

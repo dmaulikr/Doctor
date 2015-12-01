@@ -21,13 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadPatientHeaderData];
-    
     self.tableView.tableFooterView = [UIView new];
 }
 
-
 - (void) loadPatientHeaderData{
-    
     self.patientNameLabel.text = self.patient.patientNameString;
     self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
 }
