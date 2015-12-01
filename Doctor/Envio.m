@@ -240,6 +240,7 @@
     }
     if (appointment.appointmentPatient.patientCPFString) newAppointment[@"PatientEnvolved"] = appointment.appointmentPatient.patientCPFString;
     if (appointment.appointmentDate) newAppointment[@"Date"] = appointment.appointmentDate;
+    if (appointment.appointmentInsurance) newAppointment[@"insurance"] = appointment.appointmentInsurance;
     if (appointment.appointmentTreatment) newAppointment[@"Treatment"] = appointment.appointmentTreatment;
     if (appointment.appointmentDiagnosis) newAppointment[@"Diagnosis"] = appointment.appointmentDiagnosis;
     if (appointment.appointmentArea) newAppointment[@"Area"] = appointment.appointmentArea;

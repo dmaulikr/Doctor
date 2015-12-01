@@ -56,6 +56,7 @@
 		029863281BFDFAF40099C997 /* DeviceProperties.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029863261BFDFAF40099C997 /* DeviceProperties.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0298632A1BFDFAFB0099C997 /* RequestSigning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029863291BFDFAFB0099C997 /* RequestSigning.framework */; };
 		0298632B1BFDFAFB0099C997 /* RequestSigning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029863291BFDFAFB0099C997 /* RequestSigning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02A974FA1C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A974F91C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.m */; };
 		02C11D511BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C11D501BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m */; };
 		02C11D5D1BF966E200BBE0D0 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C11D5C1BF966E200BBE0D0 /* TutorialViewController.m */; };
 		02CD6C2E1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C2D1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m */; };
@@ -229,6 +230,8 @@
 		029863231BFDFAEE0099C997 /* VerifyIosSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = VerifyIosSdk.framework; path = "/Users/bmaf/Library/Developer/Xcode/DerivedData/Doctor-gthelsetkfmbitfergkudiknnsyv/Build/Products/Debug-iphoneos/VerifyIosSdk.framework"; sourceTree = "<absolute>"; };
 		029863261BFDFAF40099C997 /* DeviceProperties.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = DeviceProperties.framework; path = "/Users/bmaf/Library/Developer/Xcode/DerivedData/Doctor-gthelsetkfmbitfergkudiknnsyv/Build/Products/Debug-iphoneos/DeviceProperties.framework"; sourceTree = "<absolute>"; };
 		029863291BFDFAFB0099C997 /* RequestSigning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = RequestSigning.framework; path = "/Users/bmaf/Library/Developer/Xcode/DerivedData/Doctor-gthelsetkfmbitfergkudiknnsyv/Build/Products/Debug-iphoneos/RequestSigning.framework"; sourceTree = "<absolute>"; };
+		02A974F81C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamChooseSpecialtyTableViewController.h; sourceTree = "<group>"; };
+		02A974F91C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamChooseSpecialtyTableViewController.m; sourceTree = "<group>"; };
 		02C11D4F1BF95AAE00BBE0D0 /* TutorialFirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialFirstPageViewController.h; sourceTree = "<group>"; };
 		02C11D501BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialFirstPageViewController.m; sourceTree = "<group>"; };
 		02C11D5B1BF966E200BBE0D0 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
@@ -367,6 +370,8 @@
 				021BAF491C09FE950031B914 /* PatientNewExamTableViewController.m */,
 				021BAF4C1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.h */,
 				021BAF4D1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.m */,
+				02A974F81C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.h */,
+				02A974F91C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.m */,
 			);
 			name = PatientSelectedNewExam;
 			sourceTree = "<group>";
@@ -1300,6 +1305,7 @@
 				0226B1571BF2C92E00009147 /* FeedTableViewCell.m in Sources */,
 				0297C9751BE6F82F0068757C /* ForumTopicMessage.m in Sources */,
 				022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */,
+				02A974FA1C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.m in Sources */,
 				020B6C881C0107EB00BD8664 /* ForumTopicDropdownViewController.m in Sources */,
 				021BAF4A1C09FE950031B914 /* PatientNewExamTableViewController.m in Sources */,
 				02424B781BF9FC3C0001B77B /* SettingsHealthCareTableViewController.m in Sources */,

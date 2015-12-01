@@ -10,8 +10,10 @@
 #import "Envio.h"
 #import "Doctor.h"
 #import "AppDelegate.h"
+#import "ExamChooseInsuranceTableViewController.h"
+#import "ExamChooseSpecialtyTableViewController.h"
 
-@interface PatientSelectedNewAppointmentTableViewController () <UIActionSheetDelegate> {
+@interface PatientSelectedNewAppointmentTableViewController () <UIActionSheetDelegate, ExamChooseInsuranceTableViewControllerDelegate, ExamChooseSpecialtyTableViewControllerDelegate> {
     Doctor* doctor;
 }
 
@@ -37,7 +39,6 @@
     self.patientNameLabel.text = self.patient.patientNameString;
     self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
     [self displayStaticInfo];
-    [self createTapRecognizers];
 }
 
 - (IBAction)didTappedToSaveNewAppointment:(id)sender{
@@ -50,6 +51,7 @@
     newAppointment.appointmentDiagnosis = self.appointmentDiagnosis.text;
     newAppointment.appointmentTreatment = self.appointmentMedications.text;
     newAppointment.appointmentArea = self.appointmentDoctorSpecialty.text;
+    newAppointment.appointmentInsurance = self.appointmentHealthCare.text;
     [envio newAppointment:newAppointment withCompletion:^void(BOOL* finished){
         if (finished) {
             [self.navigationController popViewControllerAnimated:YES];
@@ -69,36 +71,6 @@
     return [dateFormatter stringFromDate:[NSDate date]];
 }
 
-- (void) createTapRecognizers{
-    UITapGestureRecognizer* tapSpecialty = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedSpecialtiesLabel)];
-    self.appointmentDoctorSpecialty.userInteractionEnabled = YES;
-    [self.appointmentDoctorSpecialty addGestureRecognizer:tapSpecialty];
-    
-    UITapGestureRecognizer* tapHealthCare = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedHealthCareLabel)];
-    self.appointmentHealthCare.userInteractionEnabled = YES;
-    [self.appointmentHealthCare addGestureRecognizer:tapHealthCare];
-}
-
-- (void) didTappedSpecialtiesLabel{
-    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
-    for (NSInteger i = doctor.doctorSpecialtiesArray.count; i > 0; i--) {
-        [actionSheet addButtonWithTitle:doctor.doctorSpecialtiesArray[i-1]];
-    }
-    actionSheet.tag = 1;
-    [self.view endEditing:YES];
-    [actionSheet showInView:self.view];
-}
-
-- (void) didTappedHealthCareLabel{
-    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil,  nil];
-    for (NSInteger i = doctor.doctorHealthCareArray.count; i > 0; i--) {
-        [actionSheet addButtonWithTitle:doctor.doctorHealthCareArray[i-1]];
-    }
-    actionSheet.tag = 2;
-    [self.view endEditing:YES];
-    [actionSheet showInView:self.view];
-}
-
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (popup.tag) {
         case 1:
@@ -114,6 +86,41 @@
         default:
             break;
     }
+}
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 4:
+            [self performSegueWithIdentifier:@"appointmentSpecialtySegueId" sender:self];
+            break;
+        case 5:
+            [self performSegueWithIdentifier:@"appointmentInsuranceSegueId" sender:self];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"appointmentSpecialtySegueId"]) {
+        ExamChooseSpecialtyTableViewController* specialtyVc = [[ExamChooseSpecialtyTableViewController alloc] init];
+        specialtyVc = segue.destinationViewController;
+        specialtyVc.delegate = self;
+    }
+    else if ([segue.identifier isEqualToString:@"appointmentInsuranceSegueId"]){
+        ExamChooseInsuranceTableViewController* insuranceVc = [[ExamChooseInsuranceTableViewController alloc] init];
+        insuranceVc = segue.destinationViewController;
+        insuranceVc.delegate = self;
+    }
+}
+
+-(void) didMakeSelection:(NSString *)insuranceSelected{
+    self.appointmentHealthCare.text = insuranceSelected;
+}
+
+- (void) didMakeSelectionSpecialty:(NSString *)specialtySelected{
+    self.appointmentDoctorSpecialty.text = specialtySelected;
 }
 
 @end

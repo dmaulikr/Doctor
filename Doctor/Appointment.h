@@ -33,6 +33,6 @@
 @property (strong, nonatomic) NSString* appointmentArea;
 @property (strong, nonatomic) NSString* appointmentDoctorEnvolvedCRM;
 @property (strong, nonatomic) NSString* appointmentDoctorEnvolvedName;
-
+@property (strong, nonatomic) NSString* appointmentInsurance;
 
 @end
