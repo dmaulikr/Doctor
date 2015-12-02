@@ -1013,11 +1013,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/PatientNewExamTableViewController.m"
-            timestampString = "470761580.33887"
+            timestampString = "470763338.689948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "-didTappedToSaveExam:"
             landmarkType = "5">
             <Locations>

@@ -15,6 +15,10 @@
     BOOL hasFirstExam;
     BOOL hasSecondExam;
     BOOL hasThirdExam;
+    
+    BOOL requiringFirstExamImage;
+    BOOL requiringSecondExamImage;
+    BOOL requiringThirdExamImage;
     UIImagePickerController* imagePickerController;
 }
 
@@ -290,6 +294,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         case 11:
             switch (buttonIndex) {
                 case 1:
+                    self.firstExamImageView.image = nil;
+                    hasFirstExam = false;
+                    [self.tableView reloadData];
                     break;
                 case 2:
                     [self openCameraBasedOnExamNumber:1];
@@ -329,7 +336,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         case 21:
             switch (buttonIndex) {
                 case 1:
-                    
+                    self.secondExamImageView.image = nil;
+                    hasSecondExam = false;
+                    [self.tableView reloadData];
                     break;
                 case 2:
                     
@@ -373,7 +382,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         case 31:
             switch (buttonIndex) {
                 case 1:
-                    
+                    self.thirdExamImageView.image = nil;
+                    hasThirdExam = false;
+                    [self.tableView reloadData];
                     break;
                 case 2:
                     [self openCameraBasedOnExamNumber:3];
@@ -420,12 +431,39 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 }
 
 - (void) openCameraBasedOnExamNumber:(NSInteger *)examNumber{
+    int i = examNumber;
+    switch (i) {
+        case 1:
+            requiringFirstExamImage = true;
+            break;
+        case 2:
+            requiringSecondExamImage = true;
+            break;
+        case 3:
+            requiringThirdExamImage = true;
+            break;
+        default:
+            break;
+    }
     imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentModalViewController:imagePickerController animated:YES];
-    
 }
 
 - (void) openPhotosBasedOnExamNumber:(NSInteger *)examNumber{
+    int i = examNumber;
+    switch (i) {
+        case 1:
+            requiringFirstExamImage = true;
+            break;
+        case 2:
+            requiringSecondExamImage = true;
+            break;
+        case 3:
+            requiringThirdExamImage = true;
+            break;
+        default:
+            break;
+    }
     @try{
         imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentModalViewController:imagePickerController animated:YES];
@@ -438,19 +476,27 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    // UIImage* smallImage = [image scaleToSize:CGSizeMake(180,640)];
-    // NSData* photoData = UIImagePNGRepresentation(smallImage);
-    
-    //self.cameraImageView.layer.cornerRadius = self.cameraImageView.frame.size.height/2;
-   // self.cameraImageView.layer.masksToBounds = YES;
-    
-    //  if (tookFromCamera) self.cameraImageView.transform = CGAffineTransformMakeRotation(M_PI_2);
-    //  [self.cameraImageView setImage:smallImage];
-   // [self.cameraImageView setImage:image];
-   // [self.cameraImageView setContentMode:UIViewContentModeScaleAspectFill];
+    if (requiringFirstExamImage) {
+        requiringFirstExamImage = false;
+        [self.firstExamImageView setImage:image];
+        hasFirstExam = true;
+        [self.firstExamImageView setContentMode:UIViewContentModeScaleAspectFill];
+    }
+    if (requiringSecondExamImage) {
+        requiringSecondExamImage = false;
+        [self.secondExamImageView setImage:image];
+        hasSecondExam = true;
+        [self.secondExamImageView setContentMode:UIViewContentModeScaleAspectFill];
+    }
+    if (requiringThirdExamImage) {
+        requiringThirdExamImage = false;
+        [self.thirdExamImageView setImage:image];
+        hasThirdExam = true;
+        [self.thirdExamImageView setContentMode:UIViewContentModeScaleAspectFill];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self.tableView reloadData];
 }
-
 
 
 @end
