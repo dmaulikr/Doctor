@@ -171,6 +171,7 @@
     [actionSheet addButtonWithTitle:@"Apagar registro"];
     [actionSheet addButtonWithTitle:@"Usar rolo da câmera"];
     [actionSheet addButtonWithTitle:@"Tirar uma foto"];
+    [self.view endEditing:YES];
     [actionSheet showInView:self.view];
 }
 
@@ -179,6 +180,7 @@
     actionSheet.tag = 12;
     [actionSheet addButtonWithTitle:@"Usar rolo da câmera"];
     [actionSheet addButtonWithTitle:@"Tirar uma foto"];
+    [self.view endEditing:YES];
     [actionSheet showInView:self.view];
 }
 
@@ -194,6 +196,7 @@
     [actionSheet addButtonWithTitle:@"Apagar registro"];
     [actionSheet addButtonWithTitle:@"Usar rolo da câmera"];
     [actionSheet addButtonWithTitle:@"Tirar uma foto"];
+    [self.view endEditing:YES];
     [actionSheet showInView:self.view];
 }
 
@@ -202,6 +205,7 @@
     actionSheet.tag = 22;
     [actionSheet addButtonWithTitle:@"Usar rolo da câmera"];
     [actionSheet addButtonWithTitle:@"Tirar uma foto"];
+    [self.view endEditing:YES];
     [actionSheet showInView:self.view];
 }
 
@@ -217,6 +221,7 @@
     [actionSheet addButtonWithTitle:@"Apagar registro"];
     [actionSheet addButtonWithTitle:@"Usar rolo da câmera"];
     [actionSheet addButtonWithTitle:@"Tirar uma foto"];
+    [self.view endEditing:YES];
     [actionSheet showInView:self.view];
 }
 
@@ -225,6 +230,7 @@
     actionSheet.tag = 32;
     [actionSheet addButtonWithTitle:@"Usar rolo da câmera"];
     [actionSheet addButtonWithTitle:@"Tirar uma foto"];
+    [self.view endEditing:YES];
     [actionSheet showInView:self.view];
 }
 
