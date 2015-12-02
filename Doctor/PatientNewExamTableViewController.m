@@ -385,7 +385,6 @@
         case 23:
             switch (buttonIndex) {
                 case 1:
-                    
                     break;
                 case 2:
                     break;
