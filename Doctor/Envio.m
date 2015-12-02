@@ -187,25 +187,21 @@
 }
 
 #pragma mark newExam
-- (void) newExam: (Exam*)exam
-{
+- (void) newExam: (Exam*)exam withCompletion:(void (^)(BOOL *))completion{
     PFObject* newExam  = [PFObject objectWithClassName:@"Exam"];
-    newExam[@"type"] = exam.examTypeString;
-    newExam[@"description"] = exam.examDescriptionString;
+    if (exam.examTypeString) newExam[@"examType"] = exam.examTypeString;
+    if (exam.examDescriptionString) newExam[@"examDescription"] = exam.examDescriptionString;
+    if (exam.examPatient.patientCPFString) newExam[@"PatientEnvolved"] = exam.examPatient.patientCPFString;
+    if (exam.examApplicant.doctorCRMString) newExam[@"DoctorEnvolved"] = exam.examApplicant.doctorCRMString;
+    if (exam.examApplicant.doctorNameString) newExam[@"DoctorEnvolvedName"] = exam.examApplicant.doctorNameString;
+    if (exam.examProtocolString) newExam[@"examProtocol"] = exam.examProtocolString;
+    if (exam.examInsuranceString) newExam[@"Insurance"] = exam.examInsuranceString;
+    if (exam.examDateString) newExam[@"Date"] = exam.examDateString;
     //Create a PFFile to store a photo
-    newExam[@"photo"] = exam.examPhoto;
-    
-    
+    //newExam[@"photo"] = exam.examPhoto;
     [newExam saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            [self generateExamCreationLog];
-        } else {
-            // There was a problem, check error.description
-            [self  showAlertViewError:error];
-
-        }
+        completion(succeeded);
     }];
-
 }
 
 #pragma mark newCaseHistory

@@ -44,6 +44,7 @@
                        @"Saúde Medicol",
                        @"Só Saúde",
                        @"Seisa",
+                       @"Sulamerica",
                        @"Unimed",
                        @"Universal",
                        @"Viva", nil];

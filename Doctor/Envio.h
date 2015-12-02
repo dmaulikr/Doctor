@@ -34,7 +34,7 @@
 - (void) newAppointment: (Appointment*)appointment withCompletion:(void (^)(BOOL *))completion;
 - (void) newDiagnosis: (Diagnosis*)diagnosis;
 - (void) newTreatment: (Treatment*)treatment;
-- (void) newExam: (Exam*)tipo;
+- (void) newExam: (Exam*)tipo withCompletion:(void (^)(BOOL *))completion;
 - (void) newCaseHistory: (CaseHistory*)caseHistory;
 - (void) newForumTopic:(ForumTopic *)forumTopic withCompletion:(void (^)(BOOL finished))completion;
 - (void) newMessage:(ForumTopicMessage *)message whenComplete:(void (^)(BOOL finished))completion;

@@ -986,9 +986,11 @@
                     <size key="freeformSize" width="375" height="1800"/>
                     <connections>
                         <outlet property="examDateLabel" destination="iNr-a7-ICQ" id="rQZ-Xm-Lb6"/>
+                        <outlet property="examDescription" destination="UNi-4s-OjV" id="wWJ-r1-g8V"/>
                         <outlet property="examDoctorAskedLabel" destination="puP-pg-pYA" id="Xwa-do-TLM"/>
                         <outlet property="examInsuranceLabel" destination="TeV-yp-wXj" id="Mka-ER-W6T"/>
                         <outlet property="examProtocolLabel" destination="DSw-wi-Ye6" id="gzd-M5-buh"/>
+                        <outlet property="examType" destination="znB-Wl-WJN" id="LWn-gb-4X7"/>
                         <outlet property="firstExamCameraChangeImageView" destination="KFt-14-4ho" id="uIK-fW-kUJ"/>
                         <outlet property="firstExamEmptyCameraImageView" destination="bT1-vF-Tdh" id="uTd-N5-NCm"/>
                         <outlet property="firstExamImageView" destination="itm-Wy-I40" id="n0j-R4-AGV"/>

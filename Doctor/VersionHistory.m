@@ -93,7 +93,7 @@ It takes the document version that the user was reading (oldVersion), and the ed
         //Delete old version from table, and save new version if succeded
         [envio deleteExam:oldExam withCompletion:^(BOOL succeded){
             if(succeded){
-                [envio newExam:newExam];
+             //   [envio newExam:newExam];
                 NSLog(@"Old treatment deleted with success!");
             } else {
                 NSLog(@"Error, old treatment not deleted");

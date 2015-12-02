@@ -171,31 +171,37 @@
 }
 
 - (void) didTappedFirstCameraChange{
-    NSLog(@"first change");
+    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", @"Salvar", nil];
+    [action showInView:self.view];
 }
 - (void) didTappedFirstEmptyCamera{
-    NSLog(@"first empty");
+    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", nil];
+    [action showInView:self.view];
 }
 - (void) didTappedFirstExam{
-    NSLog(@"first EXAM");
+
 }
 - (void) didTappedSecondCameraChange{
-    NSLog(@"second change");
+    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", @"Salvar", nil];
+    [action showInView:self.view];
 }
 - (void) didTappedSecondEmptyCamera{
-    NSLog(@"SECOND EMPTY");
+    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", nil];
+    [action showInView:self.view];
 }
 - (void) didTappedSecondExam{
-    NSLog(@"SECOND EXAM");
+
 }
 - (void) didTappedThirdCameraChange{
-    NSLog(@"THIRD change");
+    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", @"Salvar", nil];
+    [action showInView:self.view];
 }
 - (void) didTappedThirdEmptyCamera{
-    NSLog(@"THIRD EMPTY");
+    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", nil];
+    [action showInView:self.view];
 }
 - (void) didTappedThirdExam{
-    NSLog(@"THIRD EXAM");
+    
 }
 
 

@@ -9,6 +9,7 @@
 #import "PatientNewExamTableViewController.h"
 #import "ExamChooseInsuranceTableViewController.h"
 #import "AppDelegate.h"
+#import "Envio.h"
 
 @interface PatientNewExamTableViewController () <ExamChooseInsuranceTableViewControllerDelegate, UIActionSheetDelegate> {
     BOOL hasFirstExam;
@@ -24,6 +25,9 @@
 @property (nonatomic, weak) IBOutlet UILabel* examProtocolLabel;
 @property (nonatomic, weak) IBOutlet UILabel* examDoctorAskedLabel;
 @property (nonatomic, weak) IBOutlet UILabel* examInsuranceLabel;
+
+@property (nonatomic, weak) IBOutlet UITextField* examType;
+@property (nonatomic, weak) IBOutlet UITextField* examDescription;
 
 //First Exam
 @property (nonatomic, weak) IBOutlet UIImageView* firstExamEmptyCameraImageView;
@@ -219,7 +223,40 @@
 }
 
 - (IBAction)didTappedToSaveExam:(id)sender{
-    [self.navigationController popViewControllerAnimated:YES];
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    Envio* envio = [[Envio alloc] init];
+    Exam* exam = [[Exam alloc] init];
+    exam.examApplicant = appDelegate.doctor;
+    exam.examProtocolString = self.examProtocolLabel.text;
+    exam.examPatient = self.patient;
+    exam.examTypeString = self.examType.text;
+    exam.examDescriptionString = self.examDescription.text;
+    exam.examInsuranceString = self.examInsuranceLabel.text;
+    exam.examDateString = self.examDateLabel.text;
+    if (hasFirstExam) {
+        NSData* photoData = UIImagePNGRepresentation(self.firstExamImageView.image);
+        exam.photoOneData = photoData;
+    }
+    if (hasSecondExam) {
+        NSData* photoData = UIImagePNGRepresentation(self.secondExamImageView.image);
+        exam.photoTwoData = photoData;
+    }
+    if (hasThirdExam) {
+        NSData* photoData = UIImagePNGRepresentation(self.thirdExamImageView.image);
+        exam.photoThirdData = photoData;
+    }
+    
+    [envio newExam:exam withCompletion:^void(BOOL * succeeded){
+        if (succeeded) {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"O exame foi salvo com sucesso" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else{
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Ocorreu algum problema e o exame não foi salvo" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
