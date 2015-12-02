@@ -11,10 +11,11 @@
 #import "AppDelegate.h"
 #import "Envio.h"
 
-@interface PatientNewExamTableViewController () <ExamChooseInsuranceTableViewControllerDelegate, UIActionSheetDelegate> {
+@interface PatientNewExamTableViewController () <ExamChooseInsuranceTableViewControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate> {
     BOOL hasFirstExam;
     BOOL hasSecondExam;
     BOOL hasThirdExam;
+    UIImagePickerController* imagePickerController;
 }
 
 @property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
@@ -54,6 +55,8 @@
     [self loadPatientHeaderData];
     [self loadTapRecognizers];
     [self loadExamAutoData];
+    imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
 }
 
 - (void) loadPatientHeaderData{
@@ -171,9 +174,9 @@
     [actionSheet showInView:self.view];
 }
 - (void) didTappedFirstExam{
-    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
-    actionSheet.tag = 13;
-    [actionSheet showInView:self.view];
+//    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+//    actionSheet.tag = 13;
+//    [actionSheet showInView:self.view];
 }
 - (void) didTappedSecondCameraChange{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
@@ -191,9 +194,9 @@
     [actionSheet showInView:self.view];
 }
 - (void) didTappedSecondExam{
-    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
-    actionSheet.tag = 23;
-    [actionSheet showInView:self.view];
+//    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+//    actionSheet.tag = 23;
+//    [actionSheet showInView:self.view];
 }
 - (void) didTappedThirdCameraChange{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
@@ -211,9 +214,9 @@
     [actionSheet showInView:self.view];
 }
 - (void) didTappedThirdExam{
-    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
-    actionSheet.tag = 33;
-    [actionSheet showInView:self.view];
+//    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+//    actionSheet.tag = 33;
+//    [actionSheet showInView:self.view];
 }
 
 - (NSString *) getCurrentTimeAndDate{
@@ -280,4 +283,174 @@
 - (void)didMakeSelection:(NSString *)insuranceSelected{
     self.examInsuranceLabel.text = insuranceSelected;
 }
+
+- (void)actionSheet:(UIActionSheet *)actionSheet
+clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (actionSheet.tag) {
+        case 11:
+            switch (buttonIndex) {
+                case 1:
+                    break;
+                case 2:
+                    [self openCameraBasedOnExamNumber:1];
+                    break;
+                case 3:
+                    [self openPhotosBasedOnExamNumber:1];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 12:
+            switch (buttonIndex) {
+                case 1:
+                    [self openCameraBasedOnExamNumber:1];
+                    break;
+                case 2:
+                    [self openPhotosBasedOnExamNumber:1];
+                    break;
+                default:
+                    break;
+            }
+            
+            break;
+        case 13:
+            switch (buttonIndex) {
+                case 1:
+                    
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
+            }
+            
+            break;
+        case 21:
+            switch (buttonIndex) {
+                case 1:
+                    
+                    break;
+                case 2:
+                    
+                    [self openCameraBasedOnExamNumber:2];
+                    break;
+                case 3:
+                    [self openPhotosBasedOnExamNumber:2];
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            break;
+        case 22:
+            switch (buttonIndex) {
+                case 1:
+                    
+                    [self openCameraBasedOnExamNumber:2];
+                    break;
+                case 2:
+                    [self openPhotosBasedOnExamNumber:2];
+                    break;
+                default:
+                    break;
+            }
+            
+            break;
+        case 23:
+            switch (buttonIndex) {
+                case 1:
+                    
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
+            }
+            
+            break;
+        case 31:
+            switch (buttonIndex) {
+                case 1:
+                    
+                    break;
+                case 2:
+                    [self openCameraBasedOnExamNumber:3];
+                    break;
+                case 3:
+                    [self openPhotosBasedOnExamNumber:3];
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            break;
+        case 32:
+            switch (buttonIndex) {
+                case 1:
+                    
+                    [self openCameraBasedOnExamNumber:3];
+                    break;
+                case 2:
+                    [self openPhotosBasedOnExamNumber:3];
+                    break;
+                default:
+                    break;
+            }
+            
+            break;
+        case 33:
+            switch (buttonIndex) {
+                case 1:
+                    
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
+            }
+            
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void) openCameraBasedOnExamNumber:(NSInteger *)examNumber{
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentModalViewController:imagePickerController animated:YES];
+    
+}
+
+- (void) openPhotosBasedOnExamNumber:(NSInteger *)examNumber{
+    @try{
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentModalViewController:imagePickerController animated:YES];
+    }
+    @catch (NSException *exception){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sem câmera!" message:@"Algo ocorreu, e a câmera não está disponível." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    // UIImage* smallImage = [image scaleToSize:CGSizeMake(180,640)];
+    // NSData* photoData = UIImagePNGRepresentation(smallImage);
+    
+    //self.cameraImageView.layer.cornerRadius = self.cameraImageView.frame.size.height/2;
+   // self.cameraImageView.layer.masksToBounds = YES;
+    
+    //  if (tookFromCamera) self.cameraImageView.transform = CGAffineTransformMakeRotation(M_PI_2);
+    //  [self.cameraImageView setImage:smallImage];
+   // [self.cameraImageView setImage:image];
+   // [self.cameraImageView setContentMode:UIViewContentModeScaleAspectFill];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
 @end
