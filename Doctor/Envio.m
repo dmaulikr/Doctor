@@ -197,8 +197,18 @@
     if (exam.examProtocolString) newExam[@"examProtocol"] = exam.examProtocolString;
     if (exam.examInsuranceString) newExam[@"Insurance"] = exam.examInsuranceString;
     if (exam.examDateString) newExam[@"Date"] = exam.examDateString;
-    //Create a PFFile to store a photo
-    //newExam[@"photo"] = exam.examPhoto;
+    if (exam.photoOneData) {
+        PFFile* photo = [PFFile fileWithData:exam.photoOneData];
+        [newExam setObject:photo forKey:@"photo1"];
+    }
+    if (exam.photoTwoData) {
+        PFFile* photo = [PFFile fileWithData:exam.photoTwoData];
+        [newExam setObject:photo forKey:@"photo2"];
+    }
+    if (exam.photoThirdData) {
+        PFFile* photo = [PFFile fileWithData:exam.photoThirdData];
+        [newExam setObject:photo forKey:@"photo3"];
+    }
     [newExam saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         completion(succeeded);
     }];

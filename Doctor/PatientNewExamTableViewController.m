@@ -16,6 +16,8 @@
     BOOL hasSecondExam;
     BOOL hasThirdExam;
     
+    UIActivityIndicatorView* spinner;
+    
     BOOL requiringFirstExamImage;
     BOOL requiringSecondExamImage;
     BOOL requiringThirdExamImage;
@@ -59,6 +61,7 @@
     [self loadPatientHeaderData];
     [self loadTapRecognizers];
     [self loadExamAutoData];
+    [self setupLoadingAnimation];
     imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.delegate = self;
 }
@@ -170,6 +173,7 @@
     [actionSheet addButtonWithTitle:@"Tirar uma foto"];
     [actionSheet showInView:self.view];
 }
+
 - (void) didTappedFirstEmptyCamera{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     actionSheet.tag = 12;
@@ -177,11 +181,13 @@
     [actionSheet addButtonWithTitle:@"Tirar uma foto"];
     [actionSheet showInView:self.view];
 }
+
 - (void) didTappedFirstExam{
 //    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
 //    actionSheet.tag = 13;
 //    [actionSheet showInView:self.view];
 }
+
 - (void) didTappedSecondCameraChange{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     actionSheet.tag =21;
@@ -190,6 +196,7 @@
     [actionSheet addButtonWithTitle:@"Tirar uma foto"];
     [actionSheet showInView:self.view];
 }
+
 - (void) didTappedSecondEmptyCamera{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     actionSheet.tag = 22;
@@ -197,11 +204,13 @@
     [actionSheet addButtonWithTitle:@"Tirar uma foto"];
     [actionSheet showInView:self.view];
 }
+
 - (void) didTappedSecondExam{
 //    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
 //    actionSheet.tag = 23;
 //    [actionSheet showInView:self.view];
 }
+
 - (void) didTappedThirdCameraChange{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     actionSheet.tag = 31;
@@ -210,6 +219,7 @@
     [actionSheet addButtonWithTitle:@"Tirar uma foto"];
     [actionSheet showInView:self.view];
 }
+
 - (void) didTappedThirdEmptyCamera{
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     actionSheet.tag = 32;
@@ -217,6 +227,7 @@
     [actionSheet addButtonWithTitle:@"Tirar uma foto"];
     [actionSheet showInView:self.view];
 }
+
 - (void) didTappedThirdExam{
 //    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
 //    actionSheet.tag = 33;
@@ -230,6 +241,8 @@
 }
 
 - (IBAction)didTappedToSaveExam:(id)sender{
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     Envio* envio = [[Envio alloc] init];
     Exam* exam = [[Exam alloc] init];
@@ -241,15 +254,15 @@
     exam.examInsuranceString = self.examInsuranceLabel.text;
     exam.examDateString = self.examDateLabel.text;
     if (hasFirstExam) {
-        NSData* photoData = UIImagePNGRepresentation(self.firstExamImageView.image);
+        NSData* photoData = UIImageJPEGRepresentation(self.firstExamImageView.image, 0.8);
         exam.photoOneData = photoData;
     }
     if (hasSecondExam) {
-        NSData* photoData = UIImagePNGRepresentation(self.secondExamImageView.image);
+        NSData* photoData = UIImageJPEGRepresentation(self.secondExamImageView.image, 0.8);
         exam.photoTwoData = photoData;
     }
     if (hasThirdExam) {
-        NSData* photoData = UIImagePNGRepresentation(self.thirdExamImageView.image);
+        NSData* photoData = UIImageJPEGRepresentation(self.thirdExamImageView.image, 0.8);
         exam.photoThirdData = photoData;
     }
     
@@ -262,6 +275,7 @@
         else{
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Ocorreu algum problema e o exame não foi salvo" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            [spinner stopAnimating];
         }
     }];
 }
@@ -288,14 +302,14 @@
     self.examInsuranceLabel.text = insuranceSelected;
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet
-clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (actionSheet.tag) {
         case 11:
             switch (buttonIndex) {
                 case 1:
                     self.firstExamImageView.image = nil;
                     hasFirstExam = false;
+                    self.firstExamEmptyCameraImageView.hidden = NO;
                     [self.tableView reloadData];
                     break;
                 case 2:
@@ -337,6 +351,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
             switch (buttonIndex) {
                 case 1:
                     self.secondExamImageView.image = nil;
+                    self.secondExamEmptyCameraImageView.hidden = NO;
                     hasSecondExam = false;
                     [self.tableView reloadData];
                     break;
@@ -384,6 +399,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
                 case 1:
                     self.thirdExamImageView.image = nil;
                     hasThirdExam = false;
+                    self.thirdExamEmptyCameraImageView.hidden = NO;
                     [self.tableView reloadData];
                     break;
                 case 2:
@@ -480,23 +496,33 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         requiringFirstExamImage = false;
         [self.firstExamImageView setImage:image];
         hasFirstExam = true;
+        self.firstExamEmptyCameraImageView.hidden = YES;
         [self.firstExamImageView setContentMode:UIViewContentModeScaleAspectFill];
     }
     if (requiringSecondExamImage) {
         requiringSecondExamImage = false;
         [self.secondExamImageView setImage:image];
         hasSecondExam = true;
+        self.secondExamEmptyCameraImageView.hidden = YES;
         [self.secondExamImageView setContentMode:UIViewContentModeScaleAspectFill];
     }
     if (requiringThirdExamImage) {
         requiringThirdExamImage = false;
         [self.thirdExamImageView setImage:image];
         hasThirdExam = true;
+        self.thirdExamEmptyCameraImageView.hidden = YES;
         [self.thirdExamImageView setContentMode:UIViewContentModeScaleAspectFill];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.tableView reloadData];
 }
+
+- (void) setupLoadingAnimation{
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = self.view.center;
+    spinner.tag = 12;
+}
+
 
 
 @end
