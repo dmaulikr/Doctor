@@ -382,7 +382,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="06894960445" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="M1a-sC-bJV">
-                                                    <rect key="frame" x="69" y="15" width="301" height="30"/>
+                                                    <rect key="frame" x="69" y="15" width="301" height="40.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -406,7 +406,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Pressão baixa, apnéia do sono" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j5b-SH-L7Y">
-                                                    <rect key="frame" x="66" y="14" width="309" height="26"/>
+                                                    <rect key="frame" x="66" y="14" width="309" height="35.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -430,7 +430,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Fludrocortisona" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KM6-8Z-esm">
-                                                    <rect key="frame" x="66" y="13" width="301" height="25"/>
+                                                    <rect key="frame" x="66" y="13" width="301" height="36.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -454,7 +454,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Não consta" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="la6-Nh-La4">
-                                                    <rect key="frame" x="66" y="14" width="301" height="28"/>
+                                                    <rect key="frame" x="66" y="14" width="309" height="35.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -478,7 +478,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Não consta" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qWL-dX-3Ps">
-                                                    <rect key="frame" x="66" y="12" width="85" height="28"/>
+                                                    <rect key="frame" x="66" y="12" width="309" height="37.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -546,7 +546,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Bruno Azevedo (Pai) 1410914014-1" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BUo-zm-rKd">
-                                                    <rect key="frame" x="66" y="12" width="301" height="31"/>
+                                                    <rect key="frame" x="66" y="12" width="309" height="37.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -570,7 +570,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Av. Boa Viagem, 2145 apt 510" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wqw-kh-7BU">
-                                                    <rect key="frame" x="69" y="15" width="301" height="23"/>
+                                                    <rect key="frame" x="69" y="15" width="306" height="40.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2167,7 +2167,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Pressão baixa, Apnéia do sono" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jPT-sF-q9Q">
-                                                    <rect key="frame" x="66" y="14" width="301" height="28"/>
+                                                    <rect key="frame" x="66" y="14" width="301" height="35.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2194,7 +2194,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Fludrocortisona" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sva-eY-hm4">
-                                                    <rect key="frame" x="66" y="14" width="301" height="28"/>
+                                                    <rect key="frame" x="66" y="14" width="301" height="35.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2221,7 +2221,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Não consta" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gp5-cF-6kL">
-                                                    <rect key="frame" x="66" y="14" width="301" height="28"/>
+                                                    <rect key="frame" x="66" y="14" width="301" height="35.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2248,7 +2248,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Não consta" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GSe-R0-rR4">
-                                                    <rect key="frame" x="66" y="14" width="301" height="28"/>
+                                                    <rect key="frame" x="66" y="14" width="301" height="35.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2325,7 +2325,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Bruno Azevedo (Pai)  +558199396494" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aDq-rM-Lhg">
-                                                    <rect key="frame" x="66" y="14" width="309" height="28"/>
+                                                    <rect key="frame" x="66" y="14" width="309" height="35.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2352,7 +2352,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Av. Boa Viagem, 2712 Edf ABC2, apt 201" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VkV-nu-vxo">
-                                                    <rect key="frame" x="66" y="14" width="309" height="27"/>
+                                                    <rect key="frame" x="66" y="14" width="309" height="41.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2443,7 +2443,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Telefone" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ygg-wg-ouR">
-                                                    <rect key="frame" x="127" y="85" width="112" height="28"/>
+                                                    <rect key="frame" x="127" y="85" width="240" height="28"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2535,7 +2535,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="CPF" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Af2-cJ-doN">
-                                                    <rect key="frame" x="76" y="12" width="266" height="34"/>
+                                                    <rect key="frame" x="76" y="12" width="299" height="41.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -2562,7 +2562,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Condições clínicas" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2J8-40-4Br">
-                                                    <rect key="frame" x="76" y="12" width="274" height="34"/>
+                                                    <rect key="frame" x="76" y="12" width="299" height="41.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -2585,7 +2585,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Medicamentos" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eoa-wP-DGs">
-                                                    <rect key="frame" x="76" y="12" width="266" height="34"/>
+                                                    <rect key="frame" x="76" y="12" width="299" height="41.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -2616,7 +2616,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Alergias" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4wh-dc-zJd">
-                                                    <rect key="frame" x="76" y="12" width="266" height="34"/>
+                                                    <rect key="frame" x="76" y="12" width="299" height="41.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -2643,7 +2643,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Observações" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O7T-AZ-hui">
-                                                    <rect key="frame" x="76" y="12" width="266" height="34"/>
+                                                    <rect key="frame" x="76" y="12" width="299" height="41.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -2720,7 +2720,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Contato de emergência" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wd9-Qd-hSK">
-                                                    <rect key="frame" x="76" y="12" width="266" height="34"/>
+                                                    <rect key="frame" x="76" y="16" width="299" height="37.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -2747,7 +2747,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Endereço" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ayt-Tl-6Yz">
-                                                    <rect key="frame" x="76" y="12" width="266" height="34"/>
+                                                    <rect key="frame" x="76" y="12" width="299" height="41.5"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>

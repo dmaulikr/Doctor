@@ -26,7 +26,7 @@
         <scene sceneID="UH2-80-h3S">
             <objects>
                 <tableViewController id="OuO-qk-n3F" customClass="ForumTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="530" sectionHeaderHeight="28" sectionFooterHeight="28" id="LeH-8j-SrN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="530" sectionHeaderHeight="28" sectionFooterHeight="28" id="LeH-8j-SrN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
