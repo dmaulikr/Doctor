@@ -60,7 +60,7 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    appointmentBeingPassed = tableViewDataArray[indexPath.row];
+    appointmentBeingPassed = arrayOfArraysForEachSection[indexPath.section][indexPath.row];
     [self performSegueWithIdentifier:@"appointmentSelectedSegueId" sender:self];
 }
 
@@ -80,14 +80,16 @@
         cell = [[AppointmentTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     Appointment* appointment = [[Appointment alloc] init];
-    appointment = tableViewDataArray[indexPath.row];
-   // cell.appointmentPreDescriptionLabel.text = appointment.appointmentDoctorEnvolvedName;
+    appointment = arrayOfArraysForEachSection[indexPath.section][indexPath.row];
+    cell.appointmentPreDescriptionLabel.text = appointment.appointmentDoctorEnvolvedName;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 #pragma mark - Setups
 - (void) setupAppointmentsDataSource {
+    [arrayOfArraysForEachSection removeAllObjects];
+    [arrayOfSections removeAllObjects];
     self.patientNameLabel.text = self.patient.patientNameString;
     self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
     //self.patientImageView.image = self.patient.patientImage;
