@@ -640,12 +640,13 @@
             aproval = newLength <= 11;
             break;
         default:
+            return YES;
             break;
     }
     
     if ([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
-        aproval = NO;
+        return NO;
     }
     return aproval;
     
