@@ -17,6 +17,7 @@
 
 @interface PatientSelectedAppointmentsTableViewController (){
     NSMutableArray* tableViewDataArray;
+    Appointment* appointmentBeingPassed;
     UIActivityIndicatorView* spinner;
     int numberOfSections;
     NSMutableArray* arrayOfSections;
@@ -42,6 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     numberOfSections = 0;
+    appointmentBeingPassed = [[Appointment alloc] init];
     arrayOfSections = [[NSMutableArray alloc] init];
     firstSectionRowsAmount = 1;
     secondSectionRowsAmount = 1;
@@ -63,13 +65,15 @@
         self.patientImageView.image = [UIImage imageWithData:self.patient.patientPhotoData];
     }
 }
--(void) viewWillAppear:(BOOL)animated{
+
+- (void) viewWillAppear:(BOOL)animated{
     [self setupAppointmentsDataSource];
     [self setupLoadingAnimation];
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    appointmentBeingPassed = tableViewDataArray[indexPath.row];
     [self performSegueWithIdentifier:@"appointmentSelectedSegueId" sender:self];
 }
 
@@ -82,30 +86,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString* AppointmentCellID = @"AppointmentsTableViewCellID";
-    NSString* AppointmentAreaCellID = @"AppointmentsAreaTableViewCellID";
-    NSString* cellIdentifier = AppointmentCellID;
-    
-//    if ([cellIdentifier isEqualToString:AppointmentAreaCellID]) {
-//        AppointmentSpecialtyGroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//        if (cell == nil) {
-//            cell = [[AppointmentSpecialtyGroupTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//        }
-//        cell.appointmentSpecialtyLabel.text = arrayOfSections[indexPath.section];
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        return cell;
-//    }
-//    else{
-        AppointmentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell==nil) {
-            cell = [[AppointmentTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-        Appointment* appointment = [[Appointment alloc] init];
-        appointment = tableViewDataArray[indexPath.row];
-        cell.appointmentPreDescriptionLabel.text = appointment.appointmentDoctorEnvolvedName;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
-  //  }
+    NSString* cellIdentifier = @"AppointmentsTableViewCellID";
+    AppointmentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell==nil) {
+        cell = [[AppointmentTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    Appointment* appointment = [[Appointment alloc] init];
+    appointment = tableViewDataArray[indexPath.row];
+    cell.appointmentPreDescriptionLabel.text = appointment.appointmentDoctorEnvolvedName;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
 
 #pragma mark - Setups
@@ -150,21 +140,19 @@
     [spinner startAnimating];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [arrayOfSections objectAtIndex:section];
 }
-
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"appointmentSelectedSegueId"]) {
         PatientSelectedAppointmentSelectedTableViewController* vc = segue.destinationViewController;
         [vc setPatient:self.patient];
+        [vc setAppointment:appointmentBeingPassed];
     }
     else if ([segue.identifier isEqualToString:@"newAppointmentSegue"]){
         PatientSelectedNewAppointmentTableViewController* vc = segue.destinationViewController;

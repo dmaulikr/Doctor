@@ -723,6 +723,7 @@
                 appointment.appointmentObjectId = [object objectForKey:@"objectId"];
                 appointment.appointmentExams = [object objectForKey:@"Exams"];
                 appointment.appointmentArea = [object objectForKey:@"Area"];
+                appointment.appointmentInsurance = [object objectForKey:@"insurance"];
                 [appointmentArray addObject:appointment];
             }
             if (appointmentArray) {

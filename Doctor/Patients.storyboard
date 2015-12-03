@@ -1837,7 +1837,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="23/10/2103 - 19:49" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFS-bt-ULt">
-                                                    <rect key="frame" x="70" y="14" width="148" height="21"/>
+                                                    <rect key="frame" x="70" y="14" width="305" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1864,7 +1864,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1215159696196193" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zj7-ej-sbQ">
-                                                    <rect key="frame" x="70" y="14" width="152" height="21"/>
+                                                    <rect key="frame" x="70" y="14" width="305" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1883,7 +1883,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Breno Rios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fd3-4z-lFf">
-                                                    <rect key="frame" x="70" y="14" width="83" height="21"/>
+                                                    <rect key="frame" x="70" y="14" width="305" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1910,7 +1910,7 @@
                                                     <animations/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cardiologia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Reh-5f-Pfe">
-                                                    <rect key="frame" x="70" y="14" width="87" height="21"/>
+                                                    <rect key="frame" x="70" y="14" width="305" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1929,7 +1929,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unimed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUK-DU-JFI">
-                                                    <rect key="frame" x="70" y="14" width="60" height="21"/>
+                                                    <rect key="frame" x="70" y="14" width="305" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2003,6 +2003,10 @@
                     <navigationItem key="navigationItem" title="Consulta" id="76K-E3-1tH"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="appointmentDiagnosisTextView" destination="qDO-UK-Moi" id="YNa-dc-A6D"/>
+                        <outlet property="appointmentInsuranceLabel" destination="OUK-DU-JFI" id="Dgz-8O-KLh"/>
+                        <outlet property="appointmentSpecialtyLabel" destination="Reh-5f-Pfe" id="aab-UP-c5n"/>
+                        <outlet property="appointmentTreatmentTextView" destination="iev-oa-pI4" id="013-Ik-SDy"/>
                         <outlet property="patientCameSinceLabel" destination="iMD-GT-b0H" id="iB2-cs-niO"/>
                         <outlet property="patientNameLabel" destination="aeB-Lx-fXl" id="xPC-WB-4as"/>
                     </connections>
