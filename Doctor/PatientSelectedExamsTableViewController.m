@@ -12,7 +12,7 @@
 #import "PatientNewExamTableViewController.h"
 #import "Envio.h"
 
-@interface PatientSelectedExamsTableViewController (){
+@interface PatientSelectedExamsTableViewController () <PatientNewExamTableViewControllerDelegate>{
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
     Exam* examSelected;
@@ -28,9 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (void) viewWillAppear:(BOOL)animated{
     [self setupLoadingAnimation];
     self.patientCameSinceLabel.numberOfLines = 0;
     [self setupExamsDataSource];
@@ -42,6 +39,7 @@
         self.patientImageView.image = [UIImage imageWithData:self.patient.patientPhotoData];
     }
 }
+
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -109,12 +107,27 @@
         [vc setExam:examSelected];
     }
     else if ([segue.identifier isEqualToString:@"newExamSegueId"]){
-        PatientNewExamTableViewController* vc = segue.destinationViewController;
+        PatientNewExamTableViewController* vc = [[PatientNewExamTableViewController alloc] init];
+        vc = segue.destinationViewController;
+        vc.delegate = self;
         [vc setPatient:self.patient];
     }
 }
 - (IBAction)didTappedForCreateExam:(id)sender{
     [self performSegueWithIdentifier:@"newExamSegueId" sender:self];
+}
+
+- (void)newExamWasCreated{
+    [self setupLoadingAnimation];
+    self.patientCameSinceLabel.numberOfLines = 0;
+    [self setupExamsDataSource];
+    self.tableView.tableFooterView = [UIView new];
+    if (self.patient.patientPhotoData) {
+        self.patientImageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.patientImageView.layer.cornerRadius = self.patientImageView.frame.size.height/2;
+        self.patientImageView.layer.masksToBounds = YES;
+        self.patientImageView.image = [UIImage imageWithData:self.patient.patientPhotoData];
+    }
 }
 
 @end

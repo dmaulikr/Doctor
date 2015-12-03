@@ -25,6 +25,9 @@
     UIImagePickerController* imagePickerController;
 }
 
+
+@property (nonatomic, weak) IBOutlet UIButton* moreTypes;
+
 @property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel* patientCameSinceLabel;
 @property (nonatomic, weak) IBOutlet UIImageView* patientImageView;
@@ -58,6 +61,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.moreTypes.layer.cornerRadius = self.moreTypes.frame.size.height/4;
+    self.moreTypes.layer.masksToBounds = YES;
+    self.moreTypes.layer.borderWidth = 1;
+    
     self.tableView.tableFooterView = [UIView new];
     [self loadPatientHeaderData];
     [self loadTapRecognizers];
@@ -277,6 +285,11 @@
         if (succeeded) {
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"O exame foi salvo com sucesso" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+           
+            if ([_delegate respondsToSelector:@selector(newExamWasCreated)]) {
+                [_delegate newExamWasCreated];
+            }
+            
             [self.navigationController popViewControllerAnimated:YES];
         }
         else{

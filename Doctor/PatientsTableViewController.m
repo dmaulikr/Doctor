@@ -15,12 +15,15 @@
 #import "PatientSelectedTableViewController.h"
 #import "VersionHistory.h"
 #import "AppDelegate.h"
+#import "AFDropdownNotification.h"
 
-@interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate>{
+@interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, AFDropdownNotificationDelegate>{
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
     BOOL isSearching;
     Patient* patientClicked;
+    AFDropdownNotification* notification;
+    
 }
 
 @property (strong, nonatomic) IBOutlet UISearchBar *patientSearchBar;
@@ -96,29 +99,8 @@
 
 #pragma mark - SWTableViewCell Delegate
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
-    switch (index) {
-        case 0:
-            break;
-        case 1:
-        {
-//            NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-//            
-//            [_patientsArray removeObjectAtIndex:cellIndexPath.row];
-//            [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath]
-//                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-//            
-//            //delete patient id from the doctor's patient's array
-//            Envio* envio = [[Envio alloc]init];
-//            Patient* patient = [[Patient alloc]init];
-//            Doctor* doctor = [PFUser currentUser];
-//            patient = _patientsArray[cellIndexPath.row];
-//            
-//            [envio deletePatient:patient fromDoctor:doctor]; //This doctor must be the current user
-        }
-            break;
-        default:
-            break;
-    }
+    [cell hideUtilityButtonsAnimated:YES];
+    [self setupNotification];
 }
 
 #pragma mark - UISearchBarDelegate Methods
@@ -203,7 +185,7 @@
 - (NSArray *)rightButtons {
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0] icon:[UIImage imageNamed:@"icone-favoritarpaciente"]];
-    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0f] icon:[UIImage imageNamed:@"icone-excluirpaciente"]];
+//    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0f] icon:[UIImage imageNamed:@"icone-excluirpaciente"]];
     return rightUtilityButtons;
 }
 
@@ -239,4 +221,15 @@
     if ([_patientSearchBar isFirstResponder] && [touch view] != _patientSearchBar) [_patientSearchBar resignFirstResponder];
 }
 
+#pragma mark - Private Methods
+-(void) setupNotification{
+    notification = [[AFDropdownNotification alloc] init];
+    notification.notificationDelegate = self;
+    notification.titleText = @"Olá, ";
+    notification.subtitleText = @"Seu paciente Breno inseriu uma radiografia recentemente.";
+    notification.dismissOnTap = YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [notification presentInView:self.view withGravityAnimation:NO];
+    });
+}
 @end

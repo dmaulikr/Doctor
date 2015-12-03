@@ -66,7 +66,10 @@
     self.settingsUserLabel.text = self.doctor.doctorUsernameString;
     self.settingsNameLabel.text = self.doctor.doctorNameString;
     self.settingsCellphoneLabel.text = self.doctor.doctorContactString;
-    if (self.doctor.doctorPhotoData) self.settingsCameraImageView.image = [UIImage imageWithData:self.doctor.doctorPhotoData];
+    if (self.doctor.doctorPhotoData){
+        self.settingsCameraImageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.settingsCameraImageView.image = [UIImage imageWithData:self.doctor.doctorPhotoData];
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

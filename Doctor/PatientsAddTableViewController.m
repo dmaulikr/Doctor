@@ -636,20 +636,17 @@
             {
                 return NO;
             }
-            
             aproval = newLength <= 11;
             break;
         default:
             return YES;
             break;
     }
-    
     if ([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
         return NO;
     }
     return aproval;
-    
 }
 
 

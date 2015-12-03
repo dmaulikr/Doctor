@@ -1040,6 +1040,7 @@
                         <outlet property="firstExamCameraChangeImageView" destination="KFt-14-4ho" id="uIK-fW-kUJ"/>
                         <outlet property="firstExamEmptyCameraImageView" destination="bT1-vF-Tdh" id="uTd-N5-NCm"/>
                         <outlet property="firstExamImageView" destination="itm-Wy-I40" id="n0j-R4-AGV"/>
+                        <outlet property="moreTypes" destination="c05-pA-wvu" id="hyS-2v-Mqf"/>
                         <outlet property="patientCameSinceLabel" destination="oMu-mL-xdL" id="2Hf-vw-KPy"/>
                         <outlet property="patientNameLabel" destination="2J5-NA-SJh" id="2Ay-tf-mH8"/>
                         <outlet property="secondExamCameraChangeImageView" destination="NOF-6L-3y0" id="NPV-gV-2ng"/>
