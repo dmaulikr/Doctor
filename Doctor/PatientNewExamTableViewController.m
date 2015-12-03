@@ -8,10 +8,11 @@
 
 #import "PatientNewExamTableViewController.h"
 #import "ExamChooseInsuranceTableViewController.h"
+#import "ExamChooseTypeTableViewController.h"
 #import "AppDelegate.h"
 #import "Envio.h"
 
-@interface PatientNewExamTableViewController () <ExamChooseInsuranceTableViewControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate> {
+@interface PatientNewExamTableViewController () <ExamChooseInsuranceTableViewControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, ExamChooseTypeTableViewControllerDelegate> {
     BOOL hasFirstExam;
     BOOL hasSecondExam;
     BOOL hasThirdExam;
@@ -302,6 +303,11 @@
         vc = segue.destinationViewController;
         vc.delegate = self;
     }
+    else if ([segue.identifier isEqualToString:@"chooseTypeSegueId"]){
+        ExamChooseTypeTableViewController* vc = [[ExamChooseTypeTableViewController alloc] init];
+        vc = segue.destinationViewController;
+        vc.delegate = self;
+    }
 }
 
 - (void)didMakeSelection:(NSString *)insuranceSelected{
@@ -526,6 +532,14 @@
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     spinner.center = self.view.center;
     spinner.tag = 12;
+}
+
+- (IBAction)didTappedToSeeTypes:(id)sender{
+    [self performSegueWithIdentifier:@"chooseTypeSegueId" sender:self];
+}
+
+- (void) didMakeSelectionExamType:(NSString *)typeSelected{
+    self.examType.text = typeSelected;
 }
 
 

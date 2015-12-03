@@ -24,6 +24,7 @@
 		02424B7B1BF9FC470001B77B /* SettingsChangePasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02424B7A1BF9FC470001B77B /* SettingsChangePasswordTableViewController.m */; };
 		02424B7E1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02424B7D1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.m */; };
 		024FD6AB1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 024FD6AA1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m */; };
+		0273FC091C0FEF1D00FB80D1 /* ExamChooseTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273FC081C0FEF1D00FB80D1 /* ExamChooseTypeTableViewController.m */; };
 		027499A51C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027499A41C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.m */; };
 		02755B581BE10669000A5183 /* Inbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02755B571BE10669000A5183 /* Inbox.storyboard */; };
 		02755B5A1BE10679000A5183 /* Appointments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02755B591BE10679000A5183 /* Appointments.storyboard */; };
@@ -178,6 +179,8 @@
 		02424B7D1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSpecialtiesTableViewController.m; sourceTree = "<group>"; };
 		024FD6A91BECF2D9001B5057 /* ForumMessageSendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumMessageSendTableViewCell.h; sourceTree = "<group>"; };
 		024FD6AA1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumMessageSendTableViewCell.m; sourceTree = "<group>"; };
+		0273FC071C0FEF1D00FB80D1 /* ExamChooseTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamChooseTypeTableViewController.h; sourceTree = "<group>"; };
+		0273FC081C0FEF1D00FB80D1 /* ExamChooseTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamChooseTypeTableViewController.m; sourceTree = "<group>"; };
 		027499A31C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientSelectedNewAppointmentTableViewController.h; sourceTree = "<group>"; };
 		027499A41C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientSelectedNewAppointmentTableViewController.m; sourceTree = "<group>"; };
 		02755B571BE10669000A5183 /* Inbox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Inbox.storyboard; sourceTree = "<group>"; };
@@ -372,6 +375,8 @@
 				021BAF4D1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.m */,
 				02A974F81C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.h */,
 				02A974F91C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.m */,
+				0273FC071C0FEF1D00FB80D1 /* ExamChooseTypeTableViewController.h */,
+				0273FC081C0FEF1D00FB80D1 /* ExamChooseTypeTableViewController.m */,
 			);
 			name = PatientSelectedNewExam;
 			sourceTree = "<group>";
@@ -1308,6 +1313,7 @@
 				02CD6C521BD2E14500C38B6D /* MedicationsTableViewController.m in Sources */,
 				02ECD6311BDEC34900A82D0E /* Authentication.m in Sources */,
 				02E7A9A81BDC50FB008059BD /* PatientSelectedDataTableViewController.m in Sources */,
+				0273FC091C0FEF1D00FB80D1 /* ExamChooseTypeTableViewController.m in Sources */,
 				7020D11E1BD52DBD0059A226 /* Envio.m in Sources */,
 				7000F8A01BEA21A9002A7B22 /* ForumSubject.m in Sources */,
 				0226B1571BF2C92E00009147 /* FeedTableViewCell.m in Sources */,
