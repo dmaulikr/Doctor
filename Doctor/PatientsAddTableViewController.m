@@ -638,6 +638,24 @@
             }
             aproval = newLength <= 11;
             break;
+        //Peso
+        case 11:
+            if(range.length + range.location > textView.text.length)
+            {
+                return NO;
+            }
+            aproval = newLength <=3;
+            
+            break;
+        //Altura
+        case 12:
+            if(range.length + range.location > textView.text.length)
+            {
+                return NO;
+            }
+            aproval = newLength <= 3;
+            
+            break;
         default:
             return YES;
             break;

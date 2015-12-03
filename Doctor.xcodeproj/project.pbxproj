@@ -853,6 +853,7 @@
 			children = (
 				02E7A9A61BDC50FB008059BD /* PatientSelectedDataTableViewController.h */,
 				02E7A9A71BDC50FB008059BD /* PatientSelectedDataTableViewController.m */,
+				02E7A9991BDC509E008059BD /* PatientSelectedEdit */,
 			);
 			name = PatientSelectedData;
 			sourceTree = "<group>";
@@ -956,11 +957,10 @@
 			children = (
 				02F15C671BD6D8080078279D /* PatientSelectedTableViewController.h */,
 				02F15C681BD6D8080078279D /* PatientSelectedTableViewController.m */,
+				02E7A9951BDC5063008059BD /* PatientSelectedData */,
 				02E7A9961BDC507A008059BD /* PatientSelectedAppointments */,
-				02E7A9991BDC509E008059BD /* PatientSelectedEdit */,
 				02E7A9981BDC5093008059BD /* PatientSelectedTreatments */,
 				02E7A9971BDC5085008059BD /* PatientSelectedExams */,
-				02E7A9951BDC5063008059BD /* PatientSelectedData */,
 			);
 			name = PatientSelectedTableViewController;
 			sourceTree = "<group>";

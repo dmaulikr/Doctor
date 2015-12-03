@@ -86,6 +86,9 @@
 - (void) askedForRefresh:(Patient *)updatedPatient{
     self.patient = updatedPatient;
     [self loadPatientData];
+    if ([_delegate respondsToSelector:@selector(askedForRefresh:)]) {
+        [_delegate askedForRefresh:updatedPatient];
+    }
 }
 
 @end

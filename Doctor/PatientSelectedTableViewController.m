@@ -16,7 +16,7 @@
 #import "Envio.h"
 #import "AppDelegate.h"
 
-@interface PatientSelectedTableViewController ()
+@interface PatientSelectedTableViewController () <PatientSelectedDataTableViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel* patientCameSinceLabel;
@@ -30,11 +30,11 @@
     [super viewDidLoad];
     self.tableView.tableFooterView = [UIView new];
     self.patientCameSinceLabel.numberOfLines = 0;
+    [self setupDataFromPatient];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.topItem.title = @"Detalhes";
-    [self setupDataFromPatient];
 }
 
 #pragma mark - Setup
@@ -85,7 +85,9 @@
 #pragma mark - Storyboard
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"clickedInDataSegueId"]) {
-        PatientSelectedDataTableViewController *data = segue.destinationViewController;
+        PatientSelectedDataTableViewController *data = [[PatientSelectedDataTableViewController alloc] init];
+        data = segue.destinationViewController;
+        data.delegate = self;
         data.patient = self.patient;
     }
     else if ([segue.identifier isEqualToString:@"clickedInAppointmentsSegueId"]){
@@ -99,6 +101,15 @@
     else if ([segue.identifier isEqualToString:@"clickedInTreatmentsSegueId"]){
         PatientSelectedTreatmentsTableViewController* treatments = segue.destinationViewController;
         treatments.patient = self.patient;
+    }
+}
+
+
+- (void) askedForRefresh:(Patient *)patientUpdated{
+    self.patient = patientUpdated;
+    [self setupDataFromPatient];
+    if ([_delegate respondsToSelector:@selector(askedForRefresh)]) {
+        [_delegate askedForRefresh];
     }
 }
 

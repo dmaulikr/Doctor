@@ -17,7 +17,7 @@
 #import "AppDelegate.h"
 #import "AFDropdownNotification.h"
 
-@interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, AFDropdownNotificationDelegate>{
+@interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, AFDropdownNotificationDelegate, PatientSelectedTableViewControllerDelegate>{
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
     BOOL isSearching;
@@ -36,9 +36,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (void) viewWillAppear:(BOOL)animated{
     self.navigationItem.title = @"Pacientes";
     [self setupLoadingAnimation];
     [self setupPatientsDataSource];
@@ -49,6 +46,7 @@
     //Test version History
     //[self testVersion];
 }
+
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -177,8 +175,10 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"clickedPatientSegueId"]) {
-        PatientSelectedTableViewController* patientSelectedTableViewController = segue.destinationViewController;
-        [patientSelectedTableViewController setPatient:patientClicked];
+        PatientSelectedTableViewController* vc = [[PatientSelectedTableViewController alloc] init];
+        vc = segue.destinationViewController;
+        vc.delegate = self;
+        [vc setPatient:patientClicked];
     }
 }
 
@@ -231,5 +231,13 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [notification presentInView:self.view withGravityAnimation:NO];
     });
+}
+
+
+- (void) askedForRefresh{
+    [self setupLoadingAnimation];
+    [self setupPatientsDataSource];
+    [self setupSearch];
+    isSearching = false;
 }
 @end
