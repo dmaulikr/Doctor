@@ -28,6 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void) viewWillAppear:(BOOL)animated{
     [self setupLoadingAnimation];
     self.patientCameSinceLabel.numberOfLines = 0;
     [self setupExamsDataSource];
@@ -39,6 +42,7 @@
         self.patientImageView.image = [UIImage imageWithData:self.patient.patientPhotoData];
     }
 }
+
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     examSelected = [[Exam alloc] init];
