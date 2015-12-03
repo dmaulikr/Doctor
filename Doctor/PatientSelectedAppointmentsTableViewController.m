@@ -19,17 +19,10 @@
     NSMutableArray* tableViewDataArray;
     Appointment* appointmentBeingPassed;
     UIActivityIndicatorView* spinner;
-    int numberOfSections;
+
     NSMutableArray* arrayOfSections;
-    int firstSectionRowsAmount;
-    int secondSectionRowsAmount;
-    int thirdSectionRowsAmount;
-    int fourthSectionRowsAmount;
-    int fifthSectionRowsAmount;
-    int sixthSectionRowsAmount;
-    int seventhSectionRowsAmount;
-    int eigthSectionRowsAmount;
-    int ninethSectionRowsAmount;
+    NSMutableArray* arrayOfArraysForEachSection;
+
 }
 
 @property (nonatomic, weak) IBOutlet UILabel* patientNameLabel;
@@ -42,18 +35,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    numberOfSections = 0;
-    appointmentBeingPassed = [[Appointment alloc] init];
+    
     arrayOfSections = [[NSMutableArray alloc] init];
-    firstSectionRowsAmount = 1;
-    secondSectionRowsAmount = 1;
-    thirdSectionRowsAmount = 1;
-    fourthSectionRowsAmount = 1;
-    fifthSectionRowsAmount = 1;
-    sixthSectionRowsAmount = 1;
-    seventhSectionRowsAmount = 1;
-    eigthSectionRowsAmount = 1;
-    ninethSectionRowsAmount = 1;
+    arrayOfArraysForEachSection = [[NSMutableArray alloc] init];
+    
+    appointmentBeingPassed = [[Appointment alloc] init];
+    
     self.patientCameSinceLabel.numberOfLines = 0;
     self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
     self.tableView.tableFooterView = [UIView new];
@@ -78,11 +65,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return tableViewDataArray.count;
+    NSMutableArray* teste = [[NSMutableArray alloc] initWithArray:arrayOfArraysForEachSection[section]];
+    return teste.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return numberOfSections;
+    return arrayOfSections.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -93,7 +81,7 @@
     }
     Appointment* appointment = [[Appointment alloc] init];
     appointment = tableViewDataArray[indexPath.row];
-    cell.appointmentPreDescriptionLabel.text = appointment.appointmentDoctorEnvolvedName;
+   // cell.appointmentPreDescriptionLabel.text = appointment.appointmentDoctorEnvolvedName;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -108,24 +96,31 @@
     Envio* newEnvio = [[Envio alloc]init];
     [newEnvio fetchAppointmentPassingPatient:self.patient withCompletion: ^void (NSMutableArray* appointmentArray){
         if (appointmentArray){
-            int sectionCounter = 0;
-            arrayOfSections = [[NSMutableArray alloc] init];
-            for (int i = appointmentArray.count; i > 0; i--) {
-                Appointment* seeingAppointment = [[Appointment alloc] init];
-                seeingAppointment = appointmentArray[i-1];
-                if (![arrayOfSections containsObject:seeingAppointment.appointmentArea]) {
-                    [arrayOfSections addObject:seeingAppointment.appointmentArea];
-                    sectionCounter++;
+            NSSortDescriptor *firstDescriptor = [[NSSortDescriptor alloc] initWithKey:@"appointmentArea" ascending:YES];
+            NSArray *sortDescriptors = [NSArray arrayWithObjects:firstDescriptor, nil];
+            NSArray *sortedArray = [appointmentArray sortedArrayUsingDescriptors:sortDescriptors];
+            for (NSInteger i = sortedArray.count; i > 0; i--) {
+                Appointment* appointment = [[Appointment alloc] init];
+                appointment = sortedArray[i-1];
+                if (![arrayOfSections containsObject:appointment.appointmentArea]) {
+                    [arrayOfSections addObject:appointment.appointmentArea];
+                    NSMutableArray* array = [[NSMutableArray alloc] init];
+                    [arrayOfArraysForEachSection addObject:array];
                 }
             }
-            numberOfSections = sectionCounter;
-            tableViewDataArray = appointmentArray;
+            for (NSInteger i = arrayOfSections.count; i > 0; i--) {
+                NSString* specialty = arrayOfSections[i-1];
+                for (NSInteger j = sortedArray.count; j > 0; j--) {
+                    Appointment* appointment = [[Appointment alloc] init];
+                    appointment = sortedArray[j-1];
+                    if ([appointment.appointmentArea isEqualToString:specialty]) {
+                        [arrayOfArraysForEachSection[i-1] addObject:appointment];
+                    }
+                }
+            }
+            tableViewDataArray = arrayOfSections;
             [self.tableView reloadData];
             [spinner stopAnimating];
-            if (numberOfSections == 0) {
-                UIAlertView* empty = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Ainda não há consultas para este paciente." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [empty show];
-            }
         }else{
             NSLog(@"Erro - setupAppointmentsDataSource block");
         }
