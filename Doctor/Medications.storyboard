@@ -240,6 +240,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="medicationsSearchBar" destination="SYt-4Y-Hit" id="9iH-Vt-MtQ"/>
+                        <segue destination="eiZ-Ml-Ghq" kind="show" identifier="medChoosedSegueId" id="j4s-mo-wU0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0v-N4-gDA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -305,11 +306,45 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="medicationsSearchBar" destination="96J-rK-MsS" id="GOJ-Ez-WVC"/>
+                        <segue destination="eiZ-Ml-Ghq" kind="show" identifier="medChoosedSegueId" id="qIV-Qz-Uhj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oRV-No-X6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-245.5" y="1882.5"/>
+        </scene>
+        <!--Medication Selected View Controller-->
+        <scene sceneID="2nN-Oq-4Uv">
+            <objects>
+                <viewController id="eiZ-Ml-Ghq" customClass="MedicationSelectedViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HLL-Pp-ZUu"/>
+                        <viewControllerLayoutGuide type="bottom" id="DLq-no-QTY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pbr-MK-3Ac">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z5u-gr-iBy">
+                                <rect key="frame" x="67" y="181" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eiZ-Ml-Ghq" id="qo6-QL-2WE"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="webView" destination="Z5u-gr-iBy" id="cd4-PS-UJC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o31-3Y-1Ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-19.5" y="2805.5"/>
         </scene>
         <!--Princípios ativos-->
         <scene sceneID="3Bf-mF-opX">
@@ -350,6 +385,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="medicationsSearchBar" destination="bKh-0x-yyK" id="MbB-Zr-Jpy"/>
+                        <segue destination="eiZ-Ml-Ghq" kind="show" identifier="medChoosedSegueId" id="SGh-41-rdb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZ7-3E-bdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -395,6 +431,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="medicationsSearchBar" destination="NgX-ov-Q7v" id="OnY-Ow-INS"/>
+                        <segue destination="eiZ-Ml-Ghq" kind="show" identifier="medChoosedSegueId" id="DtT-1q-giL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6iI-mL-DYk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -441,4 +478,7 @@
         <image name="icone-menu" width="21" height="16"/>
         <image name="nomes-comerciais" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="j4s-mo-wU0"/>
+    </inferredMetricsTieBreakers>
 </document>

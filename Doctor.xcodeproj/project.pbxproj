@@ -60,6 +60,8 @@
 		02A974FA1C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A974F91C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.m */; };
 		02C11D511BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C11D501BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m */; };
 		02C11D5D1BF966E200BBE0D0 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C11D5C1BF966E200BBE0D0 /* TutorialViewController.m */; };
+		02CCEBDE1C110573000C15B2 /* MedicationSelectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CCEBDD1C110573000C15B2 /* MedicationSelectedViewController.m */; };
+		02CCEBE01C110B2E000C15B2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CCEBDF1C110B2E000C15B2 /* WebKit.framework */; };
 		02CD6C2E1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C2D1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m */; };
 		02CD6C311BD2C11700C38B6D /* OutsideSignInTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C301BD2C11700C38B6D /* OutsideSignInTableViewController.m */; };
 		02CD6C341BD2C9D700C38B6D /* OutsideSignInConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C331BD2C9D700C38B6D /* OutsideSignInConfirmViewController.m */; };
@@ -239,6 +241,9 @@
 		02C11D501BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialFirstPageViewController.m; sourceTree = "<group>"; };
 		02C11D5B1BF966E200BBE0D0 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		02C11D5C1BF966E200BBE0D0 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
+		02CCEBDC1C110573000C15B2 /* MedicationSelectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicationSelectedViewController.h; sourceTree = "<group>"; };
+		02CCEBDD1C110573000C15B2 /* MedicationSelectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationSelectedViewController.m; sourceTree = "<group>"; };
+		02CCEBDF1C110B2E000C15B2 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		02CD6C2C1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideRecoverPasswordViewController.h; sourceTree = "<group>"; };
 		02CD6C2D1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutsideRecoverPasswordViewController.m; sourceTree = "<group>"; };
 		02CD6C2F1BD2C11700C38B6D /* OutsideSignInTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutsideSignInTableViewController.h; sourceTree = "<group>"; };
@@ -342,6 +347,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02CCEBE01C110B2E000C15B2 /* WebKit.framework in Frameworks */,
 				0298632A1BFDFAFB0099C997 /* RequestSigning.framework in Frameworks */,
 				029863241BFDFAEE0099C997 /* VerifyIosSdk.framework in Frameworks */,
 				9F559E2DC906E29334401480 /* libPods-Doctor.a in Frameworks */,
@@ -939,6 +945,8 @@
 			children = (
 				02E7A9B61BDC5809008059BD /* MedicationSelectedTableViewController.h */,
 				02E7A9B71BDC5809008059BD /* MedicationSelectedTableViewController.m */,
+				02CCEBDC1C110573000C15B2 /* MedicationSelectedViewController.h */,
+				02CCEBDD1C110573000C15B2 /* MedicationSelectedViewController.m */,
 			);
 			name = MedicationSelected;
 			sourceTree = "<group>";
@@ -1074,6 +1082,7 @@
 		C37E74F5BD3D707C399A0E57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02CCEBDF1C110B2E000C15B2 /* WebKit.framework */,
 				029863291BFDFAFB0099C997 /* RequestSigning.framework */,
 				029863261BFDFAF40099C997 /* DeviceProperties.framework */,
 				029863231BFDFAEE0099C997 /* VerifyIosSdk.framework */,
@@ -1340,6 +1349,7 @@
 				7020D1261BD53A840059A226 /* Treatment.m in Sources */,
 				02E7A9B01BDC521F008059BD /* PatientSelectedTreatmentSelectedTableViewController.m in Sources */,
 				02921D811BD14E9A001B6F5E /* OutsideStartViewController.m in Sources */,
+				02CCEBDE1C110573000C15B2 /* MedicationSelectedViewController.m in Sources */,
 				028472631BFAB1C50071C6C1 /* UIImageResizing.m in Sources */,
 				02F15C691BD6D8080078279D /* PatientSelectedTableViewController.m in Sources */,
 				024FD6AB1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m in Sources */,

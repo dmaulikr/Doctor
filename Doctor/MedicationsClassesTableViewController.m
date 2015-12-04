@@ -9,11 +9,13 @@
 #import "MedicationsClassesTableViewController.h"
 #import "Medication.h"
 #import "Envio.h"
+#import "MedicationSelectedViewController.h"
 
 @interface MedicationsClassesTableViewController () <UISearchBarDelegate> {
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
     BOOL isSearching;
+    NSString* toLook;
 }
 
 @property (strong, nonatomic) IBOutlet UISearchBar *medicationsSearchBar;
@@ -54,9 +56,13 @@
     return cell;
 }
 
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [self performSegueWithIdentifier:@"clickedAtMedicationCategorySegueID" sender:self];
-//}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Medication* med = [[Medication alloc] init];
+    med = tableViewDataArray[indexPath.row];
+    toLook = med.medicationCategoryString;
+    [self performSegueWithIdentifier:@"medChoosedSegueId" sender:self];
+    
+}
 
 #pragma mark - Setups
 - (void)setupDataSource{
@@ -77,12 +83,12 @@
     }];
 }
 
-//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//    if ([segue.identifier isEqualToString:@"clickedAtMedicationCategorySegueID"]) {
-//        MedicationSelectedTableViewController* medicationSelected = segue.destinationViewController;
-//        [medicationSelected setMedication:medicationClicked];
-//    }
-//}
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"medChoosedSegueId"]) {
+        MedicationSelectedViewController * medicationSelected = segue.destinationViewController;
+        [medicationSelected setWordToSearchString:toLook];
+    }
+}
 
 - (void) setupLoadingAnimation{
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
