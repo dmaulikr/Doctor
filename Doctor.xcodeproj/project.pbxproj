@@ -23,6 +23,17 @@
 		02424B781BF9FC3C0001B77B /* SettingsHealthCareTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02424B771BF9FC3C0001B77B /* SettingsHealthCareTableViewController.m */; };
 		02424B7B1BF9FC470001B77B /* SettingsChangePasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02424B7A1BF9FC470001B77B /* SettingsChangePasswordTableViewController.m */; };
 		02424B7E1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02424B7D1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.m */; };
+		0249997D1C1CA5D5000E373D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0249997C1C1CA5D5000E373D /* AudioToolbox.framework */; };
+		0249997F1C1CA5DC000E373D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0249997E1C1CA5DC000E373D /* CFNetwork.framework */; };
+		024999811C1CA5E2000E373D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024999801C1CA5E2000E373D /* CoreGraphics.framework */; };
+		024999831C1CA5E8000E373D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024999821C1CA5E8000E373D /* CoreLocation.framework */; };
+		024999851C1CA5F3000E373D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024999841C1CA5F3000E373D /* QuartzCore.framework */; };
+		024999871C1CA5FA000E373D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024999861C1CA5FA000E373D /* Security.framework */; };
+		0249998B1C1CA608000E373D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0249998A1C1CA608000E373D /* SystemConfiguration.framework */; };
+		0249998D1C1CA60F000E373D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0249998C1C1CA60F000E373D /* libz.tbd */; };
+		0249998F1C1CA618000E373D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0249998E1C1CA618000E373D /* libsqlite3.tbd */; };
+		024999911C1CA621000E373D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024999901C1CA621000E373D /* Accounts.framework */; };
+		024999931C1CA628000E373D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024999921C1CA628000E373D /* Social.framework */; };
 		024FD6AB1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 024FD6AA1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m */; };
 		0273FC091C0FEF1D00FB80D1 /* ExamChooseTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273FC081C0FEF1D00FB80D1 /* ExamChooseTypeTableViewController.m */; };
 		027499A51C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027499A41C073D81004402ED /* PatientSelectedNewAppointmentTableViewController.m */; };
@@ -179,6 +190,17 @@
 		02424B7A1BF9FC470001B77B /* SettingsChangePasswordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsChangePasswordTableViewController.m; sourceTree = "<group>"; };
 		02424B7C1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSpecialtiesTableViewController.h; sourceTree = "<group>"; };
 		02424B7D1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSpecialtiesTableViewController.m; sourceTree = "<group>"; };
+		0249997C1C1CA5D5000E373D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0249997E1C1CA5DC000E373D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		024999801C1CA5E2000E373D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		024999821C1CA5E8000E373D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		024999841C1CA5F3000E373D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		024999861C1CA5FA000E373D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0249998A1C1CA608000E373D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0249998C1C1CA60F000E373D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		0249998E1C1CA618000E373D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		024999901C1CA621000E373D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		024999921C1CA628000E373D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		024FD6A91BECF2D9001B5057 /* ForumMessageSendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumMessageSendTableViewCell.h; sourceTree = "<group>"; };
 		024FD6AA1BECF2D9001B5057 /* ForumMessageSendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumMessageSendTableViewCell.m; sourceTree = "<group>"; };
 		0273FC071C0FEF1D00FB80D1 /* ExamChooseTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamChooseTypeTableViewController.h; sourceTree = "<group>"; };
@@ -347,6 +369,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				024999931C1CA628000E373D /* Social.framework in Frameworks */,
+				024999911C1CA621000E373D /* Accounts.framework in Frameworks */,
+				0249998F1C1CA618000E373D /* libsqlite3.tbd in Frameworks */,
+				0249998D1C1CA60F000E373D /* libz.tbd in Frameworks */,
+				0249998B1C1CA608000E373D /* SystemConfiguration.framework in Frameworks */,
+				024999871C1CA5FA000E373D /* Security.framework in Frameworks */,
+				024999851C1CA5F3000E373D /* QuartzCore.framework in Frameworks */,
+				024999831C1CA5E8000E373D /* CoreLocation.framework in Frameworks */,
+				024999811C1CA5E2000E373D /* CoreGraphics.framework in Frameworks */,
+				0249997F1C1CA5DC000E373D /* CFNetwork.framework in Frameworks */,
+				0249997D1C1CA5D5000E373D /* AudioToolbox.framework in Frameworks */,
 				02CCEBE01C110B2E000C15B2 /* WebKit.framework in Frameworks */,
 				0298632A1BFDFAFB0099C997 /* RequestSigning.framework in Frameworks */,
 				029863241BFDFAEE0099C997 /* VerifyIosSdk.framework in Frameworks */,
@@ -1082,6 +1115,17 @@
 		C37E74F5BD3D707C399A0E57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				024999921C1CA628000E373D /* Social.framework */,
+				024999901C1CA621000E373D /* Accounts.framework */,
+				0249998E1C1CA618000E373D /* libsqlite3.tbd */,
+				0249998C1C1CA60F000E373D /* libz.tbd */,
+				0249998A1C1CA608000E373D /* SystemConfiguration.framework */,
+				024999861C1CA5FA000E373D /* Security.framework */,
+				024999841C1CA5F3000E373D /* QuartzCore.framework */,
+				024999821C1CA5E8000E373D /* CoreLocation.framework */,
+				024999801C1CA5E2000E373D /* CoreGraphics.framework */,
+				0249997E1C1CA5DC000E373D /* CFNetwork.framework */,
+				0249997C1C1CA5D5000E373D /* AudioToolbox.framework */,
 				02CCEBDF1C110B2E000C15B2 /* WebKit.framework */,
 				029863291BFDFAFB0099C997 /* RequestSigning.framework */,
 				029863261BFDFAF40099C997 /* DeviceProperties.framework */,
@@ -1170,6 +1214,15 @@
 				TargetAttributes = {
 					02807F8D1BCE9DE10008D018 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = YZUJB2SK5Y;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					02807FA61BCE9DE10008D018 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -1499,11 +1552,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets-2";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Doctor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Doctr.Doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1513,11 +1569,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets-2";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Doctor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Doctr.Doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
