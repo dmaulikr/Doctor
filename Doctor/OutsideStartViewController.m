@@ -23,6 +23,17 @@
 @property (weak, nonatomic) IBOutlet UITextField* passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton* loginButton;
 
+//Only fade elements
+@property (weak, nonatomic) IBOutlet UIImageView* logoImageView;
+@property (weak, nonatomic) IBOutlet UIImageView* fieldsBgImageView;
+@property (weak, nonatomic) IBOutlet UIButton* recoverPasswordButton;
+@property (weak, nonatomic) IBOutlet UIButton* signInButton;
+@property (weak, nonatomic) IBOutlet UILabel* separatorLabel;
+@property (weak, nonatomic) IBOutlet UIImageView* lockImageView;
+@property (weak, nonatomic) IBOutlet UIImageView* userImageView;
+
+
+
 @end
 
 @implementation OutsideStartViewController
@@ -170,22 +181,7 @@
             [envio logIn:self.loginTextField.text withPassword:self.passwordTextField.text :^void (BOOL finished){
                 if (finished) {
                     [auth verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
-    
-    
-                        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    
-    
-                        self.menuContainerViewController.centerViewController = [[UIStoryboard
-                                                                                  storyboardWithName:kFeedStoryboard
-                                                                                  bundle:nil]
-                                                                                 instantiateViewControllerWithIdentifier:appDelegate.doctor.isFirstTime ? kFeedFTNavID: kFeedNavID];
-    
-                        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
-    
-    
-    
-    
-    
+                        [self fadeOutGUI];
                         [spinner stopAnimating];
                         [self.loginButton setEnabled:YES];
                     }];
@@ -205,5 +201,28 @@
             [alert show];
         }
     [self.view endEditing:YES];
+}
+
+- (void) fadeOutGUI{
+    [UIView animateWithDuration:.3f animations:^{
+        self.loginTextField.alpha = 0;
+        self.passwordTextField.alpha = 0;
+        self.loginButton.alpha = 0;
+        self.signInButton.alpha = 0;
+        self.recoverPasswordButton.alpha = 0;
+        self.fieldsBgImageView.alpha = 0;
+        self.separatorLabel.alpha = 0;
+        self.lockImageView.alpha = 0;
+        self.userImageView.alpha = 0;
+        
+        } completion:^(BOOL finished){
+            AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+            self.menuContainerViewController.centerViewController = [[UIStoryboard
+                                                                      storyboardWithName:kFeedStoryboard
+                                                                      bundle:nil]
+                                                                     instantiateViewControllerWithIdentifier:appDelegate.doctor.isFirstTime ? kFeedFTNavID: kFeedNavID];
+            
+            [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+    }];
 }
 @end
