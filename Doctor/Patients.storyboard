@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--PatientCPF Insert View Controller-->
         <scene sceneID="odt-KN-43y">
             <objects>
-                <viewController id="ZBQ-lz-FkW" sceneMemberID="viewController">
+                <viewController id="ZBQ-lz-FkW" customClass="PatientCPFInsertViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zOt-q3-jhM"/>
                         <viewControllerLayoutGuide type="bottom" id="lip-RO-brz"/>
@@ -2474,7 +2474,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wO8-JK-Xu6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-128.5" y="-520.5"/>
+            <point key="canvasLocation" x="-336.5" y="-1014.5"/>
         </scene>
         <!--Epecialidades-->
         <scene sceneID="Ebf-1i-Ihf">
