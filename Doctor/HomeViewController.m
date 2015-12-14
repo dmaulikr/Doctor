@@ -12,7 +12,6 @@
 
 @interface HomeViewController ()
 
-
 //Only fade purposes
 @property (weak, nonatomic) IBOutlet UILabel* separator1Label;
 @property (weak, nonatomic) IBOutlet UILabel* separator2Label;
@@ -50,18 +49,22 @@
 - (IBAction)didTappedPatientButton:(id)sender{
     self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kPatientsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kPatientsNavID];
 }
+
 - (IBAction)didTappedForumButton:(id)sender{
     self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kForumStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kForumNavID];
     
 }
+
 - (IBAction)didTappedMedicationsButton:(id)sender{
     self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kMedicationsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kMedicationsNavID];
     
 }
+
 - (IBAction)didTappedSettingsButton:(id)sender{
     self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kSettingsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kSettingsNavID];
     
 }
+
 - (IBAction)didTappedLogoutButton:(id)sender{
     self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kOutsideStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kOutsideNavID];
     
