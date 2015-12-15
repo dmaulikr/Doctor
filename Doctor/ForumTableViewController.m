@@ -14,6 +14,7 @@
 #import "ForumNewTopicTableViewController.h"
 #import "ForumSeeTopicTableViewController.h"
 #import "AppDelegate.h"
+#import "SVProgressHUD.h"
 
 @interface ForumTableViewController () <UISearchBarDelegate> {
     NSMutableArray* tableViewDataArray;
@@ -80,7 +81,8 @@
         if (forumTopicsArray){
             self.forumTopicsArray = forumTopicsArray;
             tableViewDataArray = self.forumTopicsArray;
-            [spinner stopAnimating];
+            
+            [SVProgressHUD dismiss];
             [self.tableView reloadData];
         }else{
             NSLog(@"Erro - setupForumTopics block");
@@ -155,11 +157,12 @@
 }
 
 - (void) setupLoadingAnimation{
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.center = self.view.center;
-    spinner.tag = 12;
-    [self.view addSubview:spinner];
-    [spinner startAnimating];
+//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    spinner.center = self.view.center;
+//    spinner.tag = 12;
+//    [self.view addSubview:spinner];
+//    [spinner startAnimating];
+       [SVProgressHUD show];
 }
 
 #pragma mark - UISearchBarDelegate Methods

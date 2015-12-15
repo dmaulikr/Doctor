@@ -16,6 +16,7 @@
 #import "VersionHistory.h"
 #import "AppDelegate.h"
 #import "AFDropdownNotification.h"
+#import "SVProgressHUD.h"
 
 @interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, AFDropdownNotificationDelegate, PatientSelectedTableViewControllerDelegate>{
     NSMutableArray* tableViewDataArray;
@@ -139,7 +140,7 @@
             self.patientsArray = sortedArray;
             tableViewDataArray = self.patientsArray;
             [self.tableView reloadData];
-            [spinner stopAnimating];
+            [SVProgressHUD dismiss];
         }else{
             NSLog(@"Erro - setupPatientsDataSource block");
         }
@@ -147,11 +148,12 @@
 }
 
 - (void) setupLoadingAnimation{
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.center = self.view.center;
-    spinner.tag = 12;
-    [self.view addSubview:spinner];
-    [spinner startAnimating];
+//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    spinner.center = self.view.center;
+//    spinner.tag = 12;
+//    [self.view addSubview:spinner];
+//    [spinner startAnimating];
+   [SVProgressHUD show];
 }
 
 - (void) setupSearch{

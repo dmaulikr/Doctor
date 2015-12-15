@@ -11,6 +11,7 @@
 #import "MedicationSelectedViewController.h"
 #import "Lab.h"
 #import "Envio.h"
+#import "SVProgressHUD.h"
 
 @interface MedicationsLabsTableViewController () <UISearchBarDelegate> {
 NSMutableArray* tableViewDataArray;
@@ -69,7 +70,8 @@ BOOL isSearching;
             self.labsArray = labsArray;
             tableViewDataArray = self.labsArray;
             [self.tableView reloadData];
-            [spinner stopAnimating];
+            
+            [SVProgressHUD dismiss];
         }else{
             NSLog(@"Erro - setupMedicationsDatasource block");
         }
@@ -85,11 +87,12 @@ BOOL isSearching;
 }
 
 - (void) setupLoadingAnimation{
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.center = self.view.center;
-    spinner.tag = 12;
-    [self.view addSubview:spinner];
-    [spinner startAnimating];
+//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    spinner.center = self.view.center;
+//    spinner.tag = 12;
+//    [self.view addSubview:spinner];
+//    [spinner startAnimating];
+       [SVProgressHUD show];
 }
 
 #pragma mark - UISearchBarDelegate Methods

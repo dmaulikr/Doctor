@@ -15,6 +15,7 @@
 #import "ForumMessageSendTableViewCell.h"
 #import <UIViewController+KBDropdownController/UIViewController+KBDropdownController.h>
 #import "ForumTopicDropdownViewController.h"
+#import "SVProgressHUD.h"
 
 @interface ForumSeeTopicTableViewController () <ForumTopicDropdownViewControllerDelegate, ForumMessageSendTableViewCellDelegate>{
     NSMutableArray* tableViewDataArray;
@@ -64,7 +65,8 @@
         self.messageArray = messagesArray;
         tableViewDataArray = self.messageArray;
         [self.tableView reloadData];
-        [spinner stopAnimating];
+        
+        [SVProgressHUD dismiss];
     }];
 }
 
@@ -115,11 +117,12 @@
 }
 
 - (void) setupLoadingAnimation{
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.center = self.view.center;
-    spinner.tag = 12;
-    [self.view addSubview:spinner];
-    [spinner startAnimating];
+//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    spinner.center = self.view.center;
+//    spinner.tag = 12;
+//    [self.view addSubview:spinner];
+//    [spinner startAnimating];
+       [SVProgressHUD show];
 }
 
 - (void) didTappedSendButtom:(NSString *)text{

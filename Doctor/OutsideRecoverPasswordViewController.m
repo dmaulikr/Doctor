@@ -10,6 +10,8 @@
 #import "OutsideRecoverNewPasswordViewController.h"
 #import "Envio.h"
 #import "Doctor.h"
+#import "SVProgressHUD.h"
+
 @import VerifyIosSdk;
 @interface OutsideRecoverPasswordViewController () <UITextViewDelegate>{
     UIActivityIndicatorView* spinner;
@@ -241,7 +243,8 @@
 
 - (IBAction)confirmLoginButtonTapped:(id)sender{
     if (![[self.confirmLoginButton titleColorForState:UIControlStateNormal] isEqual:[UIColor grayColor]]) {
-        [spinner startAnimating];
+      //  [spinner startAnimating];
+          [SVProgressHUD show];
         [self checkLoginInsert];
     }
 }
@@ -264,7 +267,8 @@
     [self.view endEditing:YES];
     Envio* envio = [[Envio alloc] init];
     [envio askedForRecoveringPassword:self.loginToRecoverTextView.text withCompletion: ^void(Doctor* doctor){
-        [spinner stopAnimating];
+        
+        [SVProgressHUD dismiss];
         if (doctor) {
             [UIView animateWithDuration:.5f animations:^{
                 [self liberateAlphas];

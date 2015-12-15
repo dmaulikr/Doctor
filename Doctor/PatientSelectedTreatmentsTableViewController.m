@@ -10,6 +10,7 @@
 #import "PatientSelectedTreatmentSelectedTableViewController.h"
 #import "Envio.h"
 #import "PatientSelectedTreatmentTableViewCell.h"
+#import "SVProgressHUD.h"
 
 @interface PatientSelectedTreatmentsTableViewController (){
     NSMutableArray* tableViewDataArray;
@@ -73,7 +74,7 @@
         if (treatmentArray){
             tableViewDataArray = treatmentArray;
             [self.tableView reloadData];
-            [spinner stopAnimating];
+            [SVProgressHUD dismiss];
         }else{
             NSLog(@"Erro - setupTreatmentsDataSource block");
         }
@@ -85,11 +86,12 @@
 }
 
 - (void) setupLoadingAnimation{
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.center = self.view.center;
-    spinner.tag = 12;
-    [self.view addSubview:spinner];
-    [spinner startAnimating];
+//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    spinner.center = self.view.center;
+//    spinner.tag = 12;
+//    [self.view addSubview:spinner];
+//    [spinner startAnimating];
+   [SVProgressHUD show];
 }
 
 

@@ -9,6 +9,7 @@
 #import "PatientSelectedEditTableViewController.h"
 #import "HSDatePickerViewController.h"
 #import "Envio.h"
+#import "SVProgressHUD.h"
 
 @interface PatientSelectedEditTableViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UITextViewDelegate, HSDatePickerViewControllerDelegate> {
     UIImagePickerController* imagePickerController;
@@ -104,11 +105,12 @@
 }
 
 - (void) setupLoadingAnimation{
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.center = self.view.center;
-    spinner.tag = 12;
-    [self.view addSubview:spinner];
-    [spinner startAnimating];
+//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    spinner.center = self.view.center;
+//    spinner.tag = 12;
+//    [self.view addSubview:spinner];
+//    [spinner startAnimating];
+   [SVProgressHUD show];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{

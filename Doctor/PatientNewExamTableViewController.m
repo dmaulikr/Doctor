@@ -11,6 +11,7 @@
 #import "ExamChooseTypeTableViewController.h"
 #import "AppDelegate.h"
 #import "Envio.h"
+#import "SVProgressHUD.h"
 
 @interface PatientNewExamTableViewController () <ExamChooseInsuranceTableViewControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, ExamChooseTypeTableViewControllerDelegate> {
     BOOL hasFirstExam;
@@ -257,7 +258,8 @@
 
 - (IBAction)didTappedToSaveExam:(id)sender{
     [self.view addSubview:spinner];
-    [spinner startAnimating];
+    //[spinner startAnimating];
+       [SVProgressHUD show];
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     Envio* envio = [[Envio alloc] init];
     Exam* exam = [[Exam alloc] init];
@@ -295,7 +297,8 @@
         else{
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Ocorreu algum problema e o exame não foi salvo" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-            [spinner stopAnimating];
+            
+            [SVProgressHUD dismiss];
         }
     }];
 }

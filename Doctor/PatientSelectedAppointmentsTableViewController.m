@@ -14,6 +14,7 @@
 #import "Envio.h"
 #import "Appointment.h"
 #import "Patient.h"
+#import "SVProgressHUD.h"
 
 @interface PatientSelectedAppointmentsTableViewController (){
     NSMutableArray* tableViewDataArray;
@@ -122,7 +123,7 @@
             }
             tableViewDataArray = arrayOfSections;
             [self.tableView reloadData];
-            [spinner stopAnimating];
+            [SVProgressHUD dismiss];
         }else{
             NSLog(@"Erro - setupAppointmentsDataSource block");
         }
@@ -130,11 +131,12 @@
 }
 
 - (void) setupLoadingAnimation{
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.center = self.view.center;
-    spinner.tag = 12;
-    [self.view addSubview:spinner];
-    [spinner startAnimating];
+//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    spinner.center = self.view.center;
+//    spinner.tag = 12;
+//    [self.view addSubview:spinner];
+//    [spinner startAnimating];
+    [SVProgressHUD show];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -14,6 +14,7 @@
 #import "SettingsChangePasswordTableViewController.h"
 #import "Envio.h"
 #import "Storyboards.h"
+#import "SVProgressHUD.h"
 
 @interface SettingsTableViewController () <UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, UITextViewDelegate>{
     UIImagePickerController* imagePickerController;
@@ -157,6 +158,7 @@
 }
 
 - (IBAction)didTappedToSaveButton:(id)sender{
+    [SVProgressHUD show];
     [self.saveBarButton setEnabled:NO];
     Envio* envio = [[Envio alloc] init];
     [self.view endEditing:YES];
@@ -175,9 +177,11 @@
         [self.saveBarButton setEnabled:YES];
         NSString* message;
         if (finished) {
+            [SVProgressHUD dismiss];
             message = @"As atualizações foram salvas com sucesso!";
             [self setupDoctor];
         }else{
+            [SVProgressHUD dismiss];
             message = @"Algo deu errado, e suas atualizações não foram salvas";
         }
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];

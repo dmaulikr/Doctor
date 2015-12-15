@@ -11,6 +11,7 @@
 #import "PatientSelectedExamSelectedTableViewController.h"
 #import "PatientNewExamTableViewController.h"
 #import "Envio.h"
+#import "SVProgressHUD.h"
 
 @interface PatientSelectedExamsTableViewController () <PatientNewExamTableViewControllerDelegate>{
     NSMutableArray* tableViewDataArray;
@@ -82,7 +83,7 @@
         if (examsArray){
             tableViewDataArray = examsArray;
             [self.tableView reloadData];
-            [spinner stopAnimating];
+            [SVProgressHUD dismiss];
         }else{
             NSLog(@"Erro - setupExamsDataSource block");
         }
@@ -93,11 +94,12 @@
     }];
 }
 - (void) setupLoadingAnimation{
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.center = self.view.center;
-    spinner.tag = 12;
-    [self.view addSubview:spinner];
-    [spinner startAnimating];
+//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    spinner.center = self.view.center;
+//    spinner.tag = 12;
+//    [self.view addSubview:spinner];
+//    [spinner startAnimating];
+   [SVProgressHUD show];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

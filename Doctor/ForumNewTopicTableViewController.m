@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Doctor.h"
 #import "Envio.h"
+#import "SVProgressHUD.h"
 
 
 NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarme.  A infecção por dengue pode ser assintomática ou causar doença cujo espectro inclui desde formas oligossintomáticas até quadros graves com choque com ou sem hemorragia, podendo evoluir para o óbito. Normalmente, a primeira manifestação da dengue é a febre alta (39° a 40°C) de início abrupto que geralmente dura de 2 a 7 dias, acompanhada de dor de cabeça, dores no corpo e articulações, prostração, fraqueza, dor atrás dos olhos, erupção e prurido cutâneo. Perda de peso, náuseas e vômitos são comuns. Nessa fase febril inicial da doença pode ser difícil diferenciá-la de outras doenças febris, por isso uma prova do laço positiva aumenta a probabilidade de dengue.";
@@ -79,7 +80,7 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
     topic.topicForumUpdatedAt = [self currentHour];
     [envio newForumTopic:topic withCompletion:^void(BOOL FINISHED){
         if (FINISHED) {
-            [spinner stopAnimating];
+            [SVProgressHUD dismiss];
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];
@@ -165,11 +166,11 @@ NSString *const kHugeMessage = @"Ex: Caso suspeito de dengue com sinais de alarm
 }
 
 - (void) setupLoadingAnimation{
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.center = self.view.center;
-    spinner.tag = 12;
-    [self.view addSubview:spinner];
-    [spinner startAnimating];
+//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    spinner.center = self.view.center;
+//    spinner.tag = 12;
+//    [self.view addSubview:spinner];
+    [SVProgressHUD show];
 }
 
 - (NSString *)currentHour
