@@ -23,7 +23,7 @@
 
 - (void)setupMenu{
     self.leftMenuViewController = [[UIStoryboard storyboardWithName:kMainStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kMainMenuID];
-    self.leftMenuWidth = 280;
+    self.leftMenuWidth = 250;
 }
 
 @end

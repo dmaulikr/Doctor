@@ -72,6 +72,7 @@
 		02A974FA1C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A974F91C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.m */; };
 		02C11D511BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C11D501BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m */; };
 		02C11D5D1BF966E200BBE0D0 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C11D5C1BF966E200BBE0D0 /* TutorialViewController.m */; };
+		02C216FF1C1FAC650031062A /* heartbeat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 02C216FE1C1FAC650031062A /* heartbeat.wav */; };
 		02CCEBDE1C110573000C15B2 /* MedicationSelectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CCEBDD1C110573000C15B2 /* MedicationSelectedViewController.m */; };
 		02CCEBE01C110B2E000C15B2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CCEBDF1C110B2E000C15B2 /* WebKit.framework */; };
 		02CD6C2E1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD6C2D1BD1BE4D00C38B6D /* OutsideRecoverPasswordViewController.m */; };
@@ -266,6 +267,7 @@
 		02C11D501BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialFirstPageViewController.m; sourceTree = "<group>"; };
 		02C11D5B1BF966E200BBE0D0 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		02C11D5C1BF966E200BBE0D0 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
+		02C216FE1C1FAC650031062A /* heartbeat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = heartbeat.wav; sourceTree = "<group>"; };
 		02CCEBDC1C110573000C15B2 /* MedicationSelectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicationSelectedViewController.h; sourceTree = "<group>"; };
 		02CCEBDD1C110573000C15B2 /* MedicationSelectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationSelectedViewController.m; sourceTree = "<group>"; };
 		02CCEBDF1C110B2E000C15B2 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -614,6 +616,7 @@
 		02807F911BCE9DE10008D018 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				02C216FE1C1FAC650031062A /* heartbeat.wav */,
 				02807F971BCE9DE10008D018 /* ViewController.h */,
 				02807F981BCE9DE10008D018 /* ViewController.m */,
 				02807FA21BCE9DE10008D018 /* Info.plist */,
@@ -1275,6 +1278,7 @@
 				02CD6C3A1BD2D61200C38B6D /* Medications.storyboard in Resources */,
 				7000E42C1BFCAFA400A4CA20 /* HSDatePickerViewController.xib in Resources */,
 				02921D7D1BD14DE7001B6F5E /* Outside.storyboard in Resources */,
+				02C216FF1C1FAC650031062A /* heartbeat.wav in Resources */,
 				02755B581BE10669000A5183 /* Inbox.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

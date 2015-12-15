@@ -81,7 +81,7 @@ typedef enum {
     self.menuState = MFSideMenuStateClosed;
     self.menuWidth = 270.0f;
     self.menuSlideAnimationFactor = 3.0f;
-    self.menuAnimationDefaultDuration = 0.2f;
+    self.menuAnimationDefaultDuration = 0.3f;
     self.menuAnimationMaxDuration = 0.4f;
     self.panMode = MFSideMenuPanModeDefault;
     self.viewHasAppeared = NO;

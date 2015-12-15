@@ -52,7 +52,8 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
-    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     return YES;
 }
 
