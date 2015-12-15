@@ -7,6 +7,7 @@ PODS:
   - MFSideMenu (0.5.5)
   - Parse (1.9.0):
     - Bolts/Tasks (>= 1.3.0)
+  - SVProgressHUD (HEAD based on 2.0-beta)
   - SWTableViewCell (0.3.7)
   - UIViewController+KBDropdownController (1.0)
 
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - JCDialPad
   - MFSideMenu
   - Parse
+  - SVProgressHUD (HEAD)
   - SWTableViewCell (~> 0.3.7)
   - UIViewController+KBDropdownController
 
@@ -25,6 +27,7 @@ SPEC CHECKSUMS:
   libPhoneNumber-iOS: 7bfd00f843fdcd82b5182b463e8eb3b27579f41d
   MFSideMenu: 268122e6894f2747fc3a2b48578100b232506c60
   Parse: 712efbc476d4f47b0f96b70db7e53101575753aa
+  SVProgressHUD: c83337f10ed32d701c423d519059a249973c8662
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
   UIViewController+KBDropdownController: 847a0c2c13be0abb2097abc9f1c0d311d429fee2
 

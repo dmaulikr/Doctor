@@ -11,6 +11,7 @@ pod 'MFSideMenu'
 pod 'SWTableViewCell', '~> 0.3.7'
 pod 'UIViewController+KBDropdownController'
 pod ‘JCDialPad’
+pod 'SVProgressHUD', :head
 
 
 end

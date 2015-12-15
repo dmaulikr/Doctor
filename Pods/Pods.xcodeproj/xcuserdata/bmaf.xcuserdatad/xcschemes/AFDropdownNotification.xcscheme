@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C318975A2B249495E8EFD57A"
+               BlueprintIdentifier = "4D53C66E0D57E00C731959ED"
                BuildableName = "libAFDropdownNotification.a"
                BlueprintName = "AFDropdownNotification"
                ReferencedContainer = "container:Pods.xcodeproj">

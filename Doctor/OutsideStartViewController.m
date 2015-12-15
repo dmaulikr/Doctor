@@ -13,6 +13,7 @@
 #import "Parse.h"
 #import "AppDelegate.h"
 #import "Envio.h"
+#import "SVProgressHUD.h"
 
 @interface OutsideStartViewController () <UITextFieldDelegate>{
     Authentication* authentication;
@@ -172,9 +173,10 @@
     
         [self.view endEditing:YES];
         if ([self checkFieldCompletion]) {
-            [self.view addSubview:spinner];
+            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
+            [SVProgressHUD setForegroundColor:[UIColor orangeColor]];
+            [SVProgressHUD show];
             [self.loginButton setEnabled:NO];
-            [spinner startAnimating];
     
             Envio* envio = [[Envio alloc]init];
             Authentication* auth = [Authentication alloc];
@@ -182,7 +184,7 @@
                 if (finished) {
                     [auth verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
                         [self fadeOutGUI];
-                        [spinner stopAnimating];
+                        [SVProgressHUD dismiss];
                         [self.loginButton setEnabled:YES];
                     }];
                 }
@@ -191,7 +193,8 @@
                     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Não foi possível realizar o login, verifique seu usuário/senha e tente novamente." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                     [alert show];
                     [self.loginButton setEnabled:YES];
-                    [spinner stopAnimating];
+                    
+                    [SVProgressHUD dismiss];
                 }
             }];
         }
