@@ -46,28 +46,24 @@
     [self fadeInGUI];
 }
 
-- (IBAction)didTappedPatientButton:(id)sender{
-    self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kPatientsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kPatientsNavID];
+- (IBAction)didTappedPatientButton:(UIButton *)sender{
+    [self fadeOutGUIPassingButtonChoosed:sender];
 }
 
-- (IBAction)didTappedForumButton:(id)sender{
-    self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kForumStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kForumNavID];
-    
+- (IBAction)didTappedForumButton:(UIButton *)sender{
+    [self fadeOutGUIPassingButtonChoosed:sender];
 }
 
-- (IBAction)didTappedMedicationsButton:(id)sender{
-    self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kMedicationsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kMedicationsNavID];
-    
+- (IBAction)didTappedMedicationsButton:(UIButton *)sender{
+    [self fadeOutGUIPassingButtonChoosed:sender];
 }
 
-- (IBAction)didTappedSettingsButton:(id)sender{
-    self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kSettingsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kSettingsNavID];
-    
+- (IBAction)didTappedSettingsButton:(UIButton *)sender{
+    [self fadeOutGUIPassingButtonChoosed:sender];
 }
 
-- (IBAction)didTappedLogoutButton:(id)sender{
-    self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kOutsideStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kOutsideNavID];
-    
+- (IBAction)didTappedLogoutButton:(UIButton *)sender{
+    [self fadeOutGUIPassingButtonChoosed:sender];
 }
 
 - (void) fadeInGUI{
@@ -82,6 +78,88 @@
         self.logOutButton.alpha = 1;
         self.forumButton.alpha = 1;
     }];
+}
+
+- (void) fadeOutGUIPassingButtonChoosed:(UIButton *)button{
+    if ([button isEqual:self.patientsButton]) {
+        
+        [UIView animateWithDuration:.3f animations:^{
+            self.separator1Label.alpha = 0;
+            self.separator2Label.alpha = 0;
+            self.separator3Label.alpha = 0;
+            self.separator4Label.alpha = 0;
+          //  self.patientsButton.alpha = 0;
+            self.medicationsButton.alpha = 0;
+            self.settingsButton.alpha = 0;
+            self.logOutButton.alpha = 0;
+            self.forumButton.alpha = 0;
+        } completion:^(BOOL finished){
+            self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kPatientsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kPatientsNavID];
+        }];
+    }
+    else if ([button isEqual:self.medicationsButton]){
+        
+        [UIView animateWithDuration:.3f animations:^{
+            self.separator1Label.alpha = 0;
+            self.separator2Label.alpha = 0;
+            self.separator3Label.alpha = 0;
+            self.separator4Label.alpha = 0;
+            self.patientsButton.alpha = 0;
+         //   self.medicationsButton.alpha = 0;
+            self.settingsButton.alpha = 0;
+            self.logOutButton.alpha = 0;
+            self.forumButton.alpha = 0;
+        } completion:^(BOOL finished){
+            self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kMedicationsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kMedicationsNavID];
+        }];
+    }
+    else if ([button isEqual:self.forumButton]){
+        
+        [UIView animateWithDuration:.3f animations:^{
+            self.separator1Label.alpha = 0;
+            self.separator2Label.alpha = 0;
+            self.separator3Label.alpha = 0;
+            self.separator4Label.alpha = 0;
+            self.patientsButton.alpha = 0;
+            self.medicationsButton.alpha = 0;
+            self.settingsButton.alpha = 0;
+            self.logOutButton.alpha = 0;
+       //     self.forumButton.alpha = 0;
+        } completion:^(BOOL finished){
+            self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kForumStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kForumNavID];
+        }];
+    }
+    else if ([button isEqual:self.settingsButton]){
+        
+        [UIView animateWithDuration:.3f animations:^{
+            self.separator1Label.alpha = 0;
+            self.separator2Label.alpha = 0;
+            self.separator3Label.alpha = 0;
+            self.separator4Label.alpha = 0;
+            self.patientsButton.alpha = 0;
+            self.medicationsButton.alpha = 0;
+       //     self.settingsButton.alpha = 0;
+            self.logOutButton.alpha = 0;
+            self.forumButton.alpha = 0;
+        } completion:^(BOOL finished){
+            self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kSettingsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kSettingsNavID];
+        }];
+    }
+    else{
+        [UIView animateWithDuration:.3f animations:^{
+            self.separator1Label.alpha = 0;
+            self.separator2Label.alpha = 0;
+            self.separator3Label.alpha = 0;
+            self.separator4Label.alpha = 0;
+            self.patientsButton.alpha = 0;
+            self.medicationsButton.alpha = 0;
+            self.settingsButton.alpha = 0;
+      //      self.logOutButton.alpha = 0;
+            self.forumButton.alpha = 0;
+        } completion:^(BOOL finished){
+                self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:kOutsideStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kOutsideNavID];
+        }];
+    }
 }
 
 
