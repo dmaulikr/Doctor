@@ -8,6 +8,7 @@
 
 #import "MedicationSelectedViewController.h"
 #import <WebKit/WebKit.h>
+#import "SVProgressHUD.h"
 
 @interface MedicationSelectedViewController () <UIWebViewDelegate>
 
@@ -23,9 +24,20 @@
 }
 
 - (void) setupWebView{
-    NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://consultaremedios.com.br/busca?termo=%@", self.wordToSearchString]];
+    NSString* toSearch = [NSString stringWithFormat:@"https://consultaremedios.com.br/busca?termo=%@", self.wordToSearchString];
+    NSURL* url = [[NSURL alloc] initWithString:[toSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    [SVProgressHUD dismiss];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [SVProgressHUD dismiss];
+}
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    [SVProgressHUD show];
 }
 
 @end
