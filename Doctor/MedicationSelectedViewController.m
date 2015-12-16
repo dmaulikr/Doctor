@@ -23,7 +23,7 @@
 }
 
 - (void) setupWebView{
-    NSURL* url = [[NSURL alloc] initWithString:@"https://google.com"];
+    NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://consultaremedios.com.br/busca?termo=%@", self.wordToSearchString]];
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
 }

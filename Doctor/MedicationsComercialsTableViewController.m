@@ -15,6 +15,7 @@
 @interface MedicationsComercialsTableViewController () <UISearchBarDelegate> {
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
+    NSString* wordToSearch;
     BOOL isSearching;
 }
 
@@ -55,6 +56,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    wordToSearch = tableViewDataArray[indexPath.row];
     [self performSegueWithIdentifier:@"medChoosedSegueId" sender:self];
 }
 
@@ -77,7 +79,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"medChoosedSegueId"]) {
         MedicationSelectedViewController * medicationSelected = segue.destinationViewController;
-        [medicationSelected setWordToSearchString:@""];
+        [medicationSelected setWordToSearchString:wordToSearch];
     }
 }
 

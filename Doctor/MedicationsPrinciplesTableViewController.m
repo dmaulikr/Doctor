@@ -15,6 +15,7 @@
 @interface MedicationsPrinciplesTableViewController () <UISearchBarDelegate> {
 NSMutableArray* tableViewDataArray;
 UIActivityIndicatorView* spinner;
+    NSString* wordToSearch;
 BOOL isSearching;
 }
 
@@ -55,6 +56,9 @@ BOOL isSearching;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PA* pa = [[PA alloc] init];
+    pa = tableViewDataArray[indexPath.row];
+    wordToSearch = pa.paString;
     [self performSegueWithIdentifier:@"medChoosedSegueId" sender:self];
 }
 
@@ -77,7 +81,7 @@ BOOL isSearching;
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"medChoosedSegueId"]) {
         MedicationSelectedViewController * medicationSelected = segue.destinationViewController;
-        [medicationSelected setWordToSearchString:@""];
+        [medicationSelected setWordToSearchString:wordToSearch];
     }
 }
 
