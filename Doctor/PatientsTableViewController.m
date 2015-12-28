@@ -17,8 +17,9 @@
 #import "AppDelegate.h"
 #import "AFDropdownNotification.h"
 #import "SVProgressHUD.h"
+#import "JCDialPad.h"
 
-@interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, AFDropdownNotificationDelegate, PatientSelectedTableViewControllerDelegate>{
+@interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, AFDropdownNotificationDelegate, PatientSelectedTableViewControllerDelegate, JCDialPadDelegate>{
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
     BOOL isSearching;
@@ -48,13 +49,12 @@
     //[self testVersion];
 }
 
-
 #pragma mark - UITableViewDataSource and UITableViewDelegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return tableViewDataArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString* PatientsCellID = @"PatientsTableViewCellID";
     
     PatientsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PatientsCellID];
@@ -86,7 +86,7 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 110;
 }
 
@@ -97,13 +97,13 @@
 }
 
 #pragma mark - SWTableViewCell Delegate
-- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+-(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     [cell hideUtilityButtonsAnimated:YES];
     [self setupNotification];
 }
 
 #pragma mark - UISearchBarDelegate Methods
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([searchText isEqualToString:@""]) {
         tableViewDataArray = self.patientsArray;
         [self.tableView reloadData];
@@ -126,7 +126,7 @@
 }
 
 #pragma mark - Setups
-- (void) setupPatientsDataSource {
+-(void)setupPatientsDataSource {
     self.patientsArray = [[NSMutableArray alloc] init];
     tableViewDataArray = [[NSMutableArray alloc] init];
     Envio* newEnvio = [[Envio alloc]init];
@@ -147,7 +147,7 @@
     }];
 }
 
-- (void) setupLoadingAnimation{
+-(void)setupLoadingAnimation{
 //    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 //    spinner.center = self.view.center;
 //    spinner.tag = 12;
@@ -156,14 +156,34 @@
    [SVProgressHUD show];
 }
 
-- (void) setupSearch{
+-(void)setupSearch{
     self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:self.patientsArray.count];
 }
 
 #pragma mark - IBActions
 -(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{
-    [self.view endEditing:YES];
-   	[self.menuContainerViewController toggleLeftSideMenuCompletion:^{}];
+   // [self.view endEditing:YES];
+   //	[self.menuContainerViewController toggleLeftSideMenuCompletion:^{}];
+    
+    if (!UIAccessibilityIsReduceTransparencyEnabled()) {
+        self.view.backgroundColor = [UIColor clearColor];
+        
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        blurEffectView.frame = self.view.bounds;
+        blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        
+        [self.view addSubview:blurEffectView];
+    }
+    else {
+        self.view.backgroundColor = [UIColor blackColor];
+    }
+    
+    JCDialPad *pad = [[JCDialPad alloc] initWithFrame:self.view.bounds];
+    pad.buttons = [JCDialPad defaultButtons];
+    pad.delegate = self;
+    pad.backgroundColor = [UIColor colorWithRed:0/255 green:0/255 blue:0/255 alpha:.5f];
+    [self.view addSubview:pad];
 }
 
 -(IBAction)didTappedAddPatientBarButton:(id)sender{
@@ -175,7 +195,7 @@
     [self performSegueWithIdentifier:@"addSegueId" sender:self];
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"clickedPatientSegueId"]) {
         PatientSelectedTableViewController* vc = [[PatientSelectedTableViewController alloc] init];
         vc = segue.destinationViewController;
@@ -184,7 +204,7 @@
     }
 }
 
-- (NSArray *)rightButtons {
+-(NSArray *)rightButtons {
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0] icon:[UIImage imageNamed:@"icone-favoritarpaciente"]];
 //    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0f] icon:[UIImage imageNamed:@"icone-excluirpaciente"]];
@@ -192,8 +212,7 @@
 }
 
 #pragma mark test Version
-
-- (void) testVersion{
+-(void)testVersion{
     
     NSLog(@"versionUpdated test");
 
@@ -216,15 +235,14 @@
 
 }
 
-
 #pragma mark - UITouchDelegate Methods
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch* touch = [[event allTouches] anyObject];
     if ([_patientSearchBar isFirstResponder] && [touch view] != _patientSearchBar) [_patientSearchBar resignFirstResponder];
 }
 
 #pragma mark - Private Methods
--(void) setupNotification{
+-(void)setupNotification{
     notification = [[AFDropdownNotification alloc] init];
     notification.notificationDelegate = self;
     notification.titleText = @"Olá, ";
@@ -235,11 +253,11 @@
     });
 }
 
-
-- (void) askedForRefresh{
+-(void)askedForRefresh{
     [self setupLoadingAnimation];
     [self setupPatientsDataSource];
     [self setupSearch];
     isSearching = false;
 }
+
 @end

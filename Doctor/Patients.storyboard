@@ -4,25 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--PatientCPF Insert View Controller-->
-        <scene sceneID="odt-KN-43y">
-            <objects>
-                <viewController id="ZBQ-lz-FkW" customClass="PatientCPFInsertViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zOt-q3-jhM"/>
-                        <viewControllerLayoutGuide type="bottom" id="lip-RO-brz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fTT-8w-0Xr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZvQ-Wd-v2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="231.5" y="-1242.5"/>
-        </scene>
         <!--Pacientes-->
         <scene sceneID="NOD-WK-akR">
             <objects>
@@ -142,7 +123,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CeV-e0-EBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310.5" y="-520.5"/>
+            <point key="canvasLocation" x="330.5" y="-530.5"/>
         </scene>
         <!--Detalhes-->
         <scene sceneID="t5d-hO-cPX">
@@ -2469,7 +2450,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="93v-Xh-PIW" kind="relationship" relationship="rootViewController" id="4RD-pq-EAK"/>
+                        <segue destination="93v-Xh-PIW" kind="relationship" relationship="rootViewController" id="jgc-O1-1Zs"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wO8-JK-Xu6" userLabel="First Responder" sceneMemberID="firstResponder"/>
