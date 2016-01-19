@@ -448,7 +448,7 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		022928D61BCFC64500B7C1E0 /* Views */ = {
+		022928D61BCFC64500B7C1E0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				02755B5C1BE1081A000A5183 /* ViewsAppointments */,
@@ -461,15 +461,7 @@
 				02921D5B1BD116CA001B6F5E /* ViewsPatients */,
 				022928DD1BCFCA3700B7C1E0 /* ViewsMain */,
 			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		022928D71BCFC64D00B7C1E0 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				02CD6C3B1BD2D7B600C38B6D /* ControllersPatients */,
-			);
-			name = Controllers;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		022928D81BCFC65900B7C1E0 /* Storyboards */ = {
@@ -601,8 +593,7 @@
 			isa = PBXGroup;
 			children = (
 				022928D51BCFC63000B7C1E0 /* Models */,
-				022928D61BCFC64500B7C1E0 /* Views */,
-				022928D71BCFC64D00B7C1E0 /* Controllers */,
+				022928D61BCFC64500B7C1E0 /* ViewControllers */,
 				022928D81BCFC65900B7C1E0 /* Storyboards */,
 				02807F9D1BCE9DE10008D018 /* Assets.xcassets */,
 				02807F911BCE9DE10008D018 /* Supporting Files */,
@@ -775,13 +766,6 @@
 				02CD6C331BD2C9D700C38B6D /* OutsideSignInConfirmViewController.m */,
 			);
 			name = OutsideSignIn;
-			sourceTree = "<group>";
-		};
-		02CD6C3B1BD2D7B600C38B6D /* ControllersPatients */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = ControllersPatients;
 			sourceTree = "<group>";
 		};
 		02CD6C3D1BD2D7E300C38B6D /* ModelStoryboards */ = {

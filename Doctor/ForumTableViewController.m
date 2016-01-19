@@ -112,7 +112,23 @@
     cell.topicSinopse.text = forumTopic.topicForumSinopse;
     cell.topicObjectId = forumTopic.topicObjectId;
     
-    cell.favImageView.image = [self.doctor.favTopicsArray containsObject:forumTopic.topicObjectId] ? [UIImage imageNamed:@"estrelinha-topicofavorito"] : [UIImage imageNamed:@""];
+    if ([self.doctor.favTopicsArray containsObject:forumTopic.topicObjectId]) {
+        cell.favImageView.image = [UIImage imageNamed:@"estrelinha-topicofavorito"];
+        cell.backgroundColor = [UIColor colorWithRed:(77/255.f) green:(77/255.f) blue:(77/255.f) alpha:1];
+        cell.topicOwner.textColor = [UIColor whiteColor];
+        cell.topicSinopse.textColor = [UIColor whiteColor];
+        cell.topicSubject.textColor = [UIColor whiteColor];
+        cell.topicDate.textColor = [UIColor whiteColor];
+        
+    }
+    else{
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.topicOwner.textColor = [UIColor blackColor];
+        cell.topicSinopse.textColor = [UIColor lightGrayColor];
+        cell.topicSubject.textColor = [UIColor blackColor];
+        cell.topicDate.textColor = [UIColor blackColor];
+        cell.favImageView.image = [UIImage imageNamed:@""];
+    }
     
     cell.nonReadImageView.image = [self.doctor.sawTopicsArray containsObject:forumTopic.topicObjectId] ? [UIImage imageNamed:@""] : [UIImage imageNamed:@"bolinha-naolido"];
     

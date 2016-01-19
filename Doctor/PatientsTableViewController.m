@@ -47,6 +47,8 @@
     
     //Test version History
     //[self testVersion];
+    
+    [self showPadAnimation];
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
@@ -162,28 +164,8 @@
 
 #pragma mark - IBActions
 -(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{
-   // [self.view endEditing:YES];
-   //	[self.menuContainerViewController toggleLeftSideMenuCompletion:^{}];
-    
-    if (!UIAccessibilityIsReduceTransparencyEnabled()) {
-        self.view.backgroundColor = [UIColor clearColor];
-        
-        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-        UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-        blurEffectView.frame = self.view.bounds;
-        blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        
-        [self.view addSubview:blurEffectView];
-    }
-    else {
-        self.view.backgroundColor = [UIColor blackColor];
-    }
-    
-    JCDialPad *pad = [[JCDialPad alloc] initWithFrame:self.view.bounds];
-    pad.buttons = [JCDialPad defaultButtons];
-    pad.delegate = self;
-    pad.backgroundColor = [UIColor colorWithRed:0/255 green:0/255 blue:0/255 alpha:.5f];
-    [self.view addSubview:pad];
+    [self.view endEditing:YES];
+   	[self.menuContainerViewController toggleLeftSideMenuCompletion:^{}];
 }
 
 -(IBAction)didTappedAddPatientBarButton:(id)sender{
@@ -258,6 +240,36 @@
     [self setupPatientsDataSource];
     [self setupSearch];
     isSearching = false;
+}
+
+- (void)showPadAnimation{
+    
+    if (!UIAccessibilityIsReduceTransparencyEnabled()) {
+        self.view.backgroundColor = [UIColor clearColor];
+        
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        blurEffectView.frame = self.view.bounds;
+        blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        
+        [self.view addSubview:blurEffectView];
+    }
+    else {
+        // self.view.backgroundColor = [UIColor lightGrayColor];
+    }
+    
+    JCDialPad *pad = [[JCDialPad alloc] initWithFrame:self.view.bounds];
+    pad.buttons = [JCDialPad defaultButtons];
+    pad.delegate = self;
+    pad.backgroundColor = [UIColor colorWithRed:0/255 green:0/255 blue:0/255 alpha:0.0f];
+    [self.view addSubview:pad];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+    
+        [UIView animateWithDuration:5 delay:0 options:UIViewAnimationOptionCurveLinear  animations:^{
+            pad.backgroundView.alpha = 1.0f;
+        } completion:^(BOOL finished) {}];
+    });
 }
 
 @end
