@@ -1547,7 +1547,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Doctr.Doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6f70ddfb-e04b-462b-9e9c-e4bc12e0af93";
 			};
 			name = Debug;
 		};
@@ -1564,7 +1564,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Doctr.Doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6f70ddfb-e04b-462b-9e9c-e4bc12e0af93";
 			};
 			name = Release;
 		};
