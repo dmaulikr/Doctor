@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "40FCC394ABA807FD369FF46DC833A73473FBFB51",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "40FCC394ABA807FD369FF46DC833A73473FBFB51" : 0,
+    "96B115E402283097642DB5AA82BD8460A91FDB5F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "AAD2859C-7A3F-4B9B-8362-50221DEB92FB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "40FCC394ABA807FD369FF46DC833A73473FBFB51" : "doctor",
+    "96B115E402283097642DB5AA82BD8460A91FDB5F" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Doctor",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Doctor.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/bmaf\/doctor.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "40FCC394ABA807FD369FF46DC833A73473FBFB51"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/bmaf\/protomed.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "96B115E402283097642DB5AA82BD8460A91FDB5F"
+    }
+  ]
+}
