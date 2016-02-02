@@ -48,7 +48,7 @@
     //Test version History
     //[self testVersion];
     
-    [self showPadAnimation];
+   // [self showPadAnimation];
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
