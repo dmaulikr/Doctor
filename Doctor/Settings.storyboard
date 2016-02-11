@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -315,7 +316,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpf-le-Mmx">
-                                                    <rect key="frame" x="57" y="60" width="260" height="30"/>
+                                                    <rect key="frame" x="36" y="60" width="303" height="30"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.57254901960000004" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="Visualizar tutorial">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -325,7 +326,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AtB-Yr-AJp">
-                                                    <rect key="frame" x="57" y="105" width="260" height="30"/>
+                                                    <rect key="frame" x="36" y="105" width="303" height="30"/>
                                                     <color key="backgroundColor" red="0.066666666666666666" green="0.46666666666666667" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="Visualizar perfil como paciente">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -349,7 +350,7 @@
                                                 <constraint firstItem="Qpf-le-Mmx" firstAttribute="top" secondItem="CdA-EQ-bAc" secondAttribute="bottom" constant="18" id="D7M-YS-U6S"/>
                                                 <constraint firstItem="Qpf-le-Mmx" firstAttribute="centerY" secondItem="KOb-5q-vf2" secondAttribute="centerY" id="IE4-Ez-WUl"/>
                                                 <constraint firstItem="AtB-Yr-AJp" firstAttribute="centerX" secondItem="KOb-5q-vf2" secondAttribute="centerX" id="Ls8-4U-bJt"/>
-                                                <constraint firstItem="Qpf-le-Mmx" firstAttribute="leading" secondItem="KOb-5q-vf2" secondAttribute="leadingMargin" constant="49" id="Qwx-PE-goh"/>
+                                                <constraint firstItem="Qpf-le-Mmx" firstAttribute="leading" secondItem="KOb-5q-vf2" secondAttribute="leadingMargin" constant="28" id="Qwx-PE-goh"/>
                                                 <constraint firstItem="CdA-EQ-bAc" firstAttribute="centerY" secondItem="iqH-9S-2TE" secondAttribute="centerY" id="VjH-NL-GkO"/>
                                                 <constraint firstItem="CdA-EQ-bAc" firstAttribute="leading" secondItem="iqH-9S-2TE" secondAttribute="trailing" constant="22" id="aId-6r-yc5"/>
                                                 <constraint firstItem="AtB-Yr-AJp" firstAttribute="trailing" secondItem="Qpf-le-Mmx" secondAttribute="trailing" id="cdu-h2-JAV"/>
@@ -785,6 +786,7 @@
                                             <rect key="frame" x="16" y="16" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="JMY-bI-ap3"/>
+                                                <constraint firstAttribute="width" secondItem="SuV-Bi-6fW" secondAttribute="height" multiplier="1:1" id="xsF-J5-648"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -849,6 +851,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check-naook" translatesAutoresizingMaskIntoConstraints="NO" id="geK-mO-elV">
                                             <rect key="frame" x="16" y="16" width="20" height="20"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" secondItem="geK-mO-elV" secondAttribute="height" multiplier="1:1" id="gjW-yC-ZZt"/>
                                                 <constraint firstAttribute="width" constant="20" id="iWu-r0-rts"/>
                                             </constraints>
                                         </imageView>
