@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -255,25 +256,37 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="brunomuniz - 01241898910" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMQ-MI-C48">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="brunomuniz - 01241898910" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMQ-MI-C48">
                                             <rect key="frame" x="17" y="10" width="234" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I2-GD-bkY">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="07:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I2-GD-bkY">
                                             <rect key="frame" x="286" y="12" width="79" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Paciente se sentindo mole, com dores no corpo e febre alta. Apesar da suspeita de dengue, há um agravante que deve ser le..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rDp-AV-6BS">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Paciente se sentindo mole, com dores no corpo e febre alta. Apesar da suspeita de dengue, há um agravante que deve ser le..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rDp-AV-6BS">
                                             <rect key="frame" x="17" y="27" width="348" height="80"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rDp-AV-6BS" firstAttribute="top" secondItem="gx4-3f-EGv" secondAttribute="topMargin" constant="19" id="2ev-FQ-Pm2"/>
+                                        <constraint firstItem="hMQ-MI-C48" firstAttribute="top" secondItem="gx4-3f-EGv" secondAttribute="topMargin" constant="2" id="7IP-l1-gEg"/>
+                                        <constraint firstItem="hMQ-MI-C48" firstAttribute="leading" secondItem="gx4-3f-EGv" secondAttribute="leadingMargin" constant="9" id="7lv-YL-9Ng"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="rDp-AV-6BS" secondAttribute="bottom" constant="-15" id="9Lk-J7-6XZ"/>
+                                        <constraint firstItem="rDp-AV-6BS" firstAttribute="leading" secondItem="gx4-3f-EGv" secondAttribute="leadingMargin" constant="9" id="ACp-Kw-ofn"/>
+                                        <constraint firstItem="8I2-GD-bkY" firstAttribute="leading" secondItem="hMQ-MI-C48" secondAttribute="trailing" constant="35" id="FLt-WU-ZwS"/>
+                                        <constraint firstItem="8I2-GD-bkY" firstAttribute="leading" secondItem="hMQ-MI-C48" secondAttribute="trailing" constant="35" id="aYX-nf-WiM"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="8I2-GD-bkY" secondAttribute="trailing" constant="2" id="lVc-OB-mNn"/>
+                                        <constraint firstItem="8I2-GD-bkY" firstAttribute="top" secondItem="gx4-3f-EGv" secondAttribute="topMargin" constant="4" id="laJ-kV-d0z"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="rDp-AV-6BS" secondAttribute="trailing" constant="2" id="xHh-L8-a6h"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="messageContent" destination="rDp-AV-6BS" id="Jr4-MS-BD9"/>
