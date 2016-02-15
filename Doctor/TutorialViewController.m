@@ -58,7 +58,10 @@ NSString *const kFifthTextViewText = @"Para encerrar sua seção é só clicar a
     self.pageControl.numberOfPages = 5;
     
     self.instructionsTextView.textColor = [UIColor whiteColor];
+    self.instructionsTextView.editable = YES;
     self.instructionsTextView.font = [UIFont fontWithName:@"Helvetica" size:17];
+    self.instructionsTextView.editable = NO;
+    self.instructionsTextView.selectable = NO;
 }
 
 - (void) setupGestureRecognizer{

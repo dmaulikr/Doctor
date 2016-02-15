@@ -502,10 +502,10 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="ovQ-xl-z8R"/>
-                                <exclude reference="Gt3-sv-0AN"/>
-                                <exclude reference="SZA-yS-OI9"/>
                                 <exclude reference="8N2-4o-BBc"/>
                                 <exclude reference="pLQ-pS-3o1"/>
+                                <exclude reference="Gt3-sv-0AN"/>
+                                <exclude reference="SZA-yS-OI9"/>
                             </mask>
                         </variation>
                     </view>
