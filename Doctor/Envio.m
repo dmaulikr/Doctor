@@ -276,16 +276,22 @@
     PFUser* user = [[PFUser alloc] init];
     user.username = username;
     user.password = password;
-
-    [PFUser logInWithUsernameInBackground:user.username password:user.password block:^(PFUser* user, NSError* error){
-        if (!error){
-            completion(true);
-            //[self generateLogInLog];
-        }else{
-            completion(false);
-            //[self  showAlertViewError:error];
-        }
-    }];
+    
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [PFUser logInWithUsernameInBackground:user.username password:user.password block:^(PFUser* user, NSError* error){
+            if (!error){
+                completion(true);
+                //[self generateLogInLog];
+            }else{
+                completion(false);
+                //[self  showAlertViewError:error];
+            }
+        }];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            // any UI updates need to happen in here back on the main thread
+        });
+    });
 }
 
 #pragma mark fetchPatient

@@ -1,33 +1,27 @@
 PODS:
-  - AFDropdownNotification (1.1)
   - Bolts/Tasks (1.3.0)
-  - JCDialPad (0.1.1):
-    - libPhoneNumber-iOS
-  - libPhoneNumber-iOS (0.8.10)
   - MFSideMenu (0.5.5)
   - Parse (1.9.0):
     - Bolts/Tasks (>= 1.3.0)
-  - SVProgressHUD (HEAD based on 2.0-beta)
+  - SSFlatDatePicker (0.9.1)
+  - SVProgressHUD (HEAD based on 2.0-beta8)
   - SWTableViewCell (0.3.7)
   - UIViewController+KBDropdownController (1.0)
 
 DEPENDENCIES:
-  - AFDropdownNotification (~> 1.0)
-  - JCDialPad
   - MFSideMenu
   - Parse
+  - SSFlatDatePicker
   - SVProgressHUD (HEAD)
   - SWTableViewCell (~> 0.3.7)
   - UIViewController+KBDropdownController
 
 SPEC CHECKSUMS:
-  AFDropdownNotification: 4125b132cd03a8d6293e09ce000aeef55ced1364
   Bolts: 805a4a87413e49d4a0c2b7d469084cbc46b09342
-  JCDialPad: d977d1ff76eaaa1939c5f3b8882937094e093b3d
-  libPhoneNumber-iOS: 7bfd00f843fdcd82b5182b463e8eb3b27579f41d
   MFSideMenu: 268122e6894f2747fc3a2b48578100b232506c60
   Parse: 712efbc476d4f47b0f96b70db7e53101575753aa
-  SVProgressHUD: c83337f10ed32d701c423d519059a249973c8662
+  SSFlatDatePicker: b0ecc541d4deb4ac1ad80b120bcc325c910ad12e
+  SVProgressHUD: 6e48a1dda09ce3b58adc41d013baed3a8e8980ff
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
   UIViewController+KBDropdownController: 847a0c2c13be0abb2097abc9f1c0d311d429fee2
 

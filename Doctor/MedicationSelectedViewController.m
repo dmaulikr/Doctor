@@ -1,11 +1,3 @@
-//
-//  MedicationSelectedViewController.m
-//  Doctor
-//
-//  Created by Bruno Muniz Azevedo Filho on 12/3/15.
-//  Copyright © 2015 Doctr. All rights reserved.
-//
-
 #import "MedicationSelectedViewController.h"
 #import <WebKit/WebKit.h>
 #import "SVProgressHUD.h"

@@ -1,11 +1,3 @@
-//
-//  ExamChooseSpecialtyTableViewController.m
-//  Doctor
-//
-//  Created by Bruno Muniz Azevedo Filho on 12/1/15.
-//  Copyright © 2015 Doctr. All rights reserved.
-//
-
 #import "ExamChooseSpecialtyTableViewController.h"
 
 @interface ExamChooseSpecialtyTableViewController (){

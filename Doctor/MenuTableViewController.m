@@ -1,13 +1,4 @@
-//
-//  MenuTableViewController.m
-//  Doctor
-//
-//  Created by Bruno Muniz Azevedo Filho on 10/15/15.
-//  Copyright © 2015 Doctr. All rights reserved.
-//
-
 #import "MenuTableViewController.h"
-
 #import <MFSideMenu/MFSideMenu.h>
 #import "MenuTableViewController.h"
 #import "Storyboards.h"

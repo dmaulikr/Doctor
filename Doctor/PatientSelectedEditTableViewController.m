@@ -1,11 +1,3 @@
-//
-//  PatientSelectedEditTableViewController.m
-//  Doctor
-//
-//  Created by Bruno Muniz Azevedo Filho on 10/24/15.
-//  Copyright © 2015 Doctr. All rights reserved.
-//
-
 #import "PatientSelectedEditTableViewController.h"
 #import "HSDatePickerViewController.h"
 #import "Envio.h"

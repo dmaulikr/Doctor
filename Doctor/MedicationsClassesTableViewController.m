@@ -1,11 +1,3 @@
-//
-//  MedicationsClassesTableViewController.m
-//  Doctor
-//
-//  Created by Bruno Muniz Azevedo Filho on 11/11/15.
-//  Copyright © 2015 Doctr. All rights reserved.
-//
-
 #import "MedicationsClassesTableViewController.h"
 #import "Medication.h"
 #import "Envio.h"

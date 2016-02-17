@@ -1,11 +1,3 @@
-//
-//  PatientsTableViewController.m
-//  Doctor
-//
-//  Created by Breno Ramos on 10/15/15.
-//  Copyright © 2015 Doctr. All rights reserved.
-//
-
 #import "PatientsTableViewController.h"
 #import "PatientsTableViewCell.h"
 #import "MFSideMenu.h"
@@ -13,19 +5,14 @@
 #import "Envio.h"
 #import "Patient.h"
 #import "PatientSelectedTableViewController.h"
-#import "VersionHistory.h"
 #import "AppDelegate.h"
-#import "AFDropdownNotification.h"
 #import "SVProgressHUD.h"
-#import "JCDialPad.h"
 
-@interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, AFDropdownNotificationDelegate, PatientSelectedTableViewControllerDelegate, JCDialPadDelegate>{
+@interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, PatientSelectedTableViewControllerDelegate>{
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
     BOOL isSearching;
     Patient* patientClicked;
-    AFDropdownNotification* notification;
-    
 }
 
 @property (strong, nonatomic) IBOutlet UISearchBar *patientSearchBar;
@@ -38,17 +25,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [SVProgressHUD show];
     self.navigationItem.title = @"Pacientes";
-    [self setupLoadingAnimation];
     [self setupPatientsDataSource];
-    [self setupSearch];
+    self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:self.patientsArray.count];
     self.tableView.tableFooterView = [UIView new];
     isSearching = false;
-    
-    //Test version History
-    //[self testVersion];
-    
-   // [self showPadAnimation];
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
@@ -101,7 +83,12 @@
 #pragma mark - SWTableViewCell Delegate
 -(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     [cell hideUtilityButtonsAnimated:YES];
-    [self setupNotification];
+}
+
+-(NSArray *)rightButtons {
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0] icon:[UIImage imageNamed:@"icone-favoritarpaciente"]];
+    return rightUtilityButtons;
 }
 
 #pragma mark - UISearchBarDelegate Methods
@@ -124,10 +111,16 @@
         tableViewDataArray = self.filteredPatientsArray;
         [self.tableView reloadData];
     }
-
 }
 
-#pragma mark - Setups
+#pragma mark - Private Methods
+-(void)askedForRefresh{
+    [SVProgressHUD show];
+    [self setupPatientsDataSource];
+    self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:self.patientsArray.count];
+    isSearching = false;
+}
+
 -(void)setupPatientsDataSource {
     self.patientsArray = [[NSMutableArray alloc] init];
     tableViewDataArray = [[NSMutableArray alloc] init];
@@ -149,19 +142,6 @@
     }];
 }
 
--(void)setupLoadingAnimation{
-//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-//    spinner.center = self.view.center;
-//    spinner.tag = 12;
-//    [self.view addSubview:spinner];
-//    [spinner startAnimating];
-   [SVProgressHUD show];
-}
-
--(void)setupSearch{
-    self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:self.patientsArray.count];
-}
-
 #pragma mark - IBActions
 -(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{
     [self.view endEditing:YES];
@@ -169,10 +149,6 @@
 }
 
 -(IBAction)didTappedAddPatientBarButton:(id)sender{
-//    UIViewController *vc = [[UIStoryboard storyboardWithName:kPatientsStoryboard bundle:nil] instantiateViewControllerWithIdentifier:kPatientsAddModalID];
-//    [self.menuContainerViewController.centerViewController presentViewController:vc animated:YES completion:^{
-//        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
-//    }];
     [self.view endEditing:YES];
     [self performSegueWithIdentifier:@"addSegueId" sender:self];
 }
@@ -184,92 +160,6 @@
         vc.delegate = self;
         [vc setPatient:patientClicked];
     }
-}
-
--(NSArray *)rightButtons {
-    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0] icon:[UIImage imageNamed:@"icone-favoritarpaciente"]];
-//    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0f] icon:[UIImage imageNamed:@"icone-excluirpaciente"]];
-    return rightUtilityButtons;
-}
-
-#pragma mark test Version
--(void)testVersion{
-    
-    NSLog(@"versionUpdated test");
-
-    
-    Treatment* oldTreatment = [[Treatment alloc]init];
-    Treatment* newTreatment = [[Treatment alloc]init];
-    
-    oldTreatment.treatmentDuration = [NSNumber numberWithInt:150];
-    oldTreatment.treatmentDescription = @"Old";
-    oldTreatment.treatmentStatus = [NSNumber numberWithBool:FALSE];
-    
-    
-    newTreatment.treatmentDuration = [NSNumber numberWithInt:150];
-    newTreatment.treatmentDescription = @"New";
-    newTreatment.treatmentStatus = [NSNumber numberWithBool:FALSE];
-    
-    VersionHistory* versionUpdate = [[VersionHistory alloc]init];
-    
-    [versionUpdate updateVersion:oldTreatment withNewVersion:newTreatment];
-
-}
-
-#pragma mark - UITouchDelegate Methods
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    UITouch* touch = [[event allTouches] anyObject];
-    if ([_patientSearchBar isFirstResponder] && [touch view] != _patientSearchBar) [_patientSearchBar resignFirstResponder];
-}
-
-#pragma mark - Private Methods
--(void)setupNotification{
-    notification = [[AFDropdownNotification alloc] init];
-    notification.notificationDelegate = self;
-    notification.titleText = @"Olá, ";
-    notification.subtitleText = @"Seu paciente Breno inseriu uma radiografia recentemente.";
-    notification.dismissOnTap = YES;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [notification presentInView:self.view withGravityAnimation:NO];
-    });
-}
-
--(void)askedForRefresh{
-    [self setupLoadingAnimation];
-    [self setupPatientsDataSource];
-    [self setupSearch];
-    isSearching = false;
-}
-
-- (void)showPadAnimation{
-    
-    if (!UIAccessibilityIsReduceTransparencyEnabled()) {
-        self.view.backgroundColor = [UIColor clearColor];
-        
-        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-        UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-        blurEffectView.frame = self.view.bounds;
-        blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        
-        [self.view addSubview:blurEffectView];
-    }
-    else {
-        // self.view.backgroundColor = [UIColor lightGrayColor];
-    }
-    
-    JCDialPad *pad = [[JCDialPad alloc] initWithFrame:self.view.bounds];
-    pad.buttons = [JCDialPad defaultButtons];
-    pad.delegate = self;
-    pad.backgroundColor = [UIColor colorWithRed:0/255 green:0/255 blue:0/255 alpha:0.0f];
-    [self.view addSubview:pad];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-    
-        [UIView animateWithDuration:5 delay:0 options:UIViewAnimationOptionCurveLinear  animations:^{
-            pad.backgroundView.alpha = 1.0f;
-        } completion:^(BOOL finished) {}];
-    });
 }
 
 @end

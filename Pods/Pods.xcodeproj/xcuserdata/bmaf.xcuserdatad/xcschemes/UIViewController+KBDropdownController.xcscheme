@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C52C18539F23544FE03EA379"
+               BlueprintIdentifier = "1F856E8695BBC0690E630B24"
                BuildableName = "libUIViewController+KBDropdownController.a"
                BlueprintName = "UIViewController+KBDropdownController"
                ReferencedContainer = "container:Pods.xcodeproj">

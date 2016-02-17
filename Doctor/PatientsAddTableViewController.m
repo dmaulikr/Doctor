@@ -1,15 +1,8 @@
-//
-//  PatientsAddTableViewController.m
-//  Doctor
-//
-//  Created by Bruno Muniz Azevedo Filho on 10/29/15.
-//  Copyright © 2015 Doctr. All rights reserved.
-//
-
 #import "PatientsAddTableViewController.h"
 #import "Patient.h"
 #import "Envio.h"
 #import "UIImageResizing.h"
+#import <SSFlatDatePicker/SSFlatDatePicker.h>
 #import "HSDatePickerViewController.h"
 
 @interface PatientsAddTableViewController () <UITextViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, HSDatePickerViewControllerDelegate>{
@@ -52,6 +45,9 @@
 
 @implementation PatientsAddTableViewController
 
+- (void) viewWillAppear:(BOOL)animated{
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupCameraGestureRecognizer];
@@ -84,9 +80,11 @@
 }
 
 - (void)didClickedIntoBirthDateLabel{
-    HSDatePickerViewController* hs = [HSDatePickerViewController new];
-    hs.delegate = self;
-    [self presentViewController:hs animated:YES completion:nil];
+   // HSDatePickerViewController* hs = [HSDatePickerViewController new];
+   // hs.delegate = self;
+  //  [self presentViewController:hs animated:YES completion:nil];
+    SSFlatDatePicker *datePicker = [[SSFlatDatePicker alloc] initWithFrame:CGRectMake(10, 10, 400, 120)];
+    [self.view addSubview:datePicker];
 }
 
 - (void) didClickedIntoBloodTypeLabel{

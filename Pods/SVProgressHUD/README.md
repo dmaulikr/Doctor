@@ -9,7 +9,7 @@
 
 ![SVProgressHUD](http://f.cl.ly/items/2G1F1Z0M0k0h2U3V1p39/SVProgressHUD.gif)
 
-## Demo
+## Demo		
 
 Try `SVProgressHUD` on [Appetize.io](https://appetize.io/app/p8r2cvy8kq74x7q7tjqf5gyatr).
 
@@ -23,10 +23,10 @@ Try `SVProgressHUD` on [Appetize.io](https://appetize.io/app/p8r2cvy8kq74x7q7tjq
 pod 'SVProgressHUD'
 ```
 
-If you want to use the latest features of `SVProgressHUD` add `:head`:
+If you want to use the latest features of `SVProgressHUD` use normal external source dependencies.
 
 ```ruby
-pod 'SVProgressHUD', :head
+pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
 ```
 
 This pulls from the `master` branch directly. We are usually careful about what we push there and this is the version we use ourselves in all of our projects.
@@ -37,11 +37,25 @@ Second, install `SVProgressHUD` into your project:
 pod install
 ```
 
-### Carthage
+### Carthage 
 
-You can install `SVProgressHUD` with [Carthage](https://github.com/Carthage/Carthage).
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/TransitApp/SVProgressHUD)
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate `SVProgressHUD` into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "SVProgressHUD/SVProgressHUD"
+```
+
+Run `carthage update` to build the framework and drag the built `SVProgressHUD.framework` (in Carthage/Build/iOS folder) into your Xcode project (Linked Frameworks and Libraries in `Targets`).
+
 
 ### Manually
 
@@ -163,13 +177,17 @@ When using `SVProgressHUD` in an App Extension, `#define SV_APP_EXTENSIONS` to a
 
 ## Contributing to this project
 
-If you have feature requests or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/TransitApp/SVProgressHUD/issues/new). Please take a moment to
+If you have feature requests or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/SVProgressHUD/SVProgressHUD/issues/new). Please take a moment to
 review the guidelines written by [Nicolas Gallagher](https://github.com/necolas/):
 
 * [Bug reports](https://github.com/necolas/issue-guidelines/blob/master/CONTRIBUTING.md#bugs)
 * [Feature requests](https://github.com/necolas/issue-guidelines/blob/master/CONTRIBUTING.md#features)
 * [Pull requests](https://github.com/necolas/issue-guidelines/blob/master/CONTRIBUTING.md#pull-requests)
 
+## License
+
+`SVProgressHUD` is distributed under the terms and conditions of the [MIT license](https://github.com/SVProgressHUD/SVProgressHUD/blob/master/LICENSE.txt). The success, error and info icons are made by [Freepik](http://www.freepik.com) from [Flaticon](http://www.flaticon.com) and are licensed under [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/). 
+
 ## Credits
 
-`SVProgressHUD` is brought to you by [Sam Vermette](http://samvermette.com) and [contributors to the project](https://github.com/TransitApp/SVProgressHUD/contributors). If you're using `SVProgressHUD` in your project, attribution would be very appreciated. The success, error and info icons are made by [Freepik](http://www.freepik.com) from [Flaticon](http://www.flaticon.com) and are licensed under [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/). 
+`SVProgressHUD` is brought to you by [Sam Vermette](http://samvermette.com), [Tobias Tiemerding](http://tiemerding.com) and [contributors to the project](https://github.com/SVProgressHUD/SVProgressHUD/contributors). If you're using `SVProgressHUD` in your project, attribution would be very appreciated.
