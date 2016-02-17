@@ -5,14 +5,10 @@
 #import "AppDelegate.h"
 #import "Parse.h"
 
-
 @implementation MenuTableViewController
 
 typedef NS_ENUM(NSUInteger, MenuItem) {
     MenuItemNull=0,
-    //MenuItemFeed,
-    //MenuItemAppointments,
-    //MenuItemInbox,
     MenuItemPatients,
     MenuItemMedications,
     MenuItemForum,
@@ -36,18 +32,6 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
             [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
             return;
             break;
-//        case MenuItemFeed:
-//            sbName = kFeedStoryboard;
-//            sbiewControllerID = kFeedNavID;
-//            break;
-//        case MenuItemAppointments:
-//            sbName = kAppointmentsStoryboard;
-//            sbiewControllerID = kAppointmentsNavID;
-//            break;
-//        case MenuItemInbox:
-//            sbName = kInboxStoryboard;
-//            sbiewControllerID = kInboxNavID;
-//            break;
         case MenuItemPatients:
             sbName = kPatientsStoryboard;
             sbiewControllerID = kPatientsNavID;
@@ -73,7 +57,6 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
             sbiewControllerID = kOutsideNavID;
             break;
     }
-
     self.menuContainerViewController.centerViewController = [[UIStoryboard storyboardWithName:sbName bundle:nil] instantiateViewControllerWithIdentifier:sbiewControllerID];
     [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
 }
