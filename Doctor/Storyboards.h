@@ -1,4 +1,3 @@
-
 #define kFeedStoryboard @"Feed"
 #define kFeedNavID @"FeedNavigationControllerID"
 #define kFeedFTNavID @"FeedNavigationFTControllerID"
@@ -22,9 +21,3 @@
 
 #define kSettingsStoryboard @"Settings"
 #define kSettingsNavID @"SettingsNavigationControllerID"
-
-#define kAppointmentsStoryboard @"Appointments"
-#define kAppointmentsNavID @"AppointmentsNavigationControllerID"
-
-#define kInboxStoryboard @"Inbox"
-#define kInboxNavID @"InboxNavigationControllerID"

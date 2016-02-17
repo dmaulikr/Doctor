@@ -96,7 +96,6 @@
 		02EB33CC1BF38E2B006D6529 /* MedicationsLabsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EB33CB1BF38E2B006D6529 /* MedicationsLabsTableViewController.m */; };
 		02EB33CF1BF38E36006D6529 /* MedicationsPrinciplesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EB33CE1BF38E36006D6529 /* MedicationsPrinciplesTableViewController.m */; };
 		02EB33D21BF38E42006D6529 /* MedicationsComercialsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EB33D11BF38E42006D6529 /* MedicationsComercialsTableViewController.m */; };
-		02ECD6311BDEC34900A82D0E /* Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ECD6301BDEC34900A82D0E /* Authentication.m */; };
 		02F15C651BD6D5490078279D /* ForumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F15C641BD6D5490078279D /* ForumTableViewController.m */; };
 		02F15C691BD6D8080078279D /* PatientSelectedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F15C681BD6D8080078279D /* PatientSelectedTableViewController.m */; };
 		1BD2E29A1BD1240D004413F9 /* Forum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2E2991BD1240D004413F9 /* Forum.storyboard */; };
@@ -299,8 +298,6 @@
 		02EB33CE1BF38E36006D6529 /* MedicationsPrinciplesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationsPrinciplesTableViewController.m; sourceTree = "<group>"; };
 		02EB33D01BF38E42006D6529 /* MedicationsComercialsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicationsComercialsTableViewController.h; sourceTree = "<group>"; };
 		02EB33D11BF38E42006D6529 /* MedicationsComercialsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationsComercialsTableViewController.m; sourceTree = "<group>"; };
-		02ECD62F1BDEC34900A82D0E /* Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Authentication.h; sourceTree = "<group>"; };
-		02ECD6301BDEC34900A82D0E /* Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Authentication.m; sourceTree = "<group>"; };
 		02F15C631BD6D5490078279D /* ForumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumTableViewController.h; sourceTree = "<group>"; };
 		02F15C641BD6D5490078279D /* ForumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTableViewController.m; sourceTree = "<group>"; };
 		02F15C671BD6D8080078279D /* PatientSelectedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientSelectedTableViewController.h; sourceTree = "<group>"; };
@@ -389,7 +386,6 @@
 			isa = PBXGroup;
 			children = (
 				02B0E9071C7521CB00DF0444 /* AppDelegate */,
-				02ECD62E1BDEC30B00A82D0E /* Outside */,
 				7020D1331BD53B670059A226 /* Diagnosis */,
 				7020D12B1BD53AA70059A226 /* Appointment */,
 				7020D1271BD53A890059A226 /* Exam */,
@@ -901,15 +897,6 @@
 			name = MedicationSelected;
 			sourceTree = "<group>";
 		};
-		02ECD62E1BDEC30B00A82D0E /* Outside */ = {
-			isa = PBXGroup;
-			children = (
-				02ECD62F1BDEC34900A82D0E /* Authentication.h */,
-				02ECD6301BDEC34900A82D0E /* Authentication.m */,
-			);
-			name = Outside;
-			sourceTree = "<group>";
-		};
 		02F15C661BD6D7E60078279D /* PatientSelectedTableViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1233,7 +1220,6 @@
 				02C11D511BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m in Sources */,
 				029385B81BFAA4CD0071DD31 /* Lab.m in Sources */,
 				02CD6C521BD2E14500C38B6D /* MedicationsTableViewController.m in Sources */,
-				02ECD6311BDEC34900A82D0E /* Authentication.m in Sources */,
 				02E7A9A81BDC50FB008059BD /* PatientSelectedDataTableViewController.m in Sources */,
 				0273FC091C0FEF1D00FB80D1 /* ExamChooseTypeTableViewController.m in Sources */,
 				7020D11E1BD52DBD0059A226 /* Envio.m in Sources */,

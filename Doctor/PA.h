@@ -2,6 +2,6 @@
 
 @interface PA : NSObject
 
-@property (nonatomic, strong) NSString* paString;
+@property (nonatomic, strong) NSString *paString;
 
 @end

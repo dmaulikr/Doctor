@@ -4,7 +4,6 @@
 #import "AppDelegate.h"
 #import "Storyboards.h"
 #import "MFSideMenu.h"
-#import "Authentication.h"
 
 @import VerifyIosSdk;
 @interface OutsideSignInConfirmViewController () <UITextViewDelegate, UIAlertViewDelegate>{
@@ -181,8 +180,7 @@
     Envio* envio = [[Envio alloc]init];
     [envio newDoctor:self.doctorBeingCreated withCompletion:^void (BOOL* finished){
         if (finished) {
-            Authentication* auth = [[Authentication alloc] init];
-            [auth verifyAuthenticity:self.doctorBeingCreated.doctorUsernameString :self.doctorBeingCreated.doctorPasswordString :^void (BOOL finished){
+            [envio verifyAuthenticity:self.doctorBeingCreated.doctorUsernameString :self.doctorBeingCreated.doctorPasswordString :^void (BOOL finished){
                 
                 AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
                 self.menuContainerViewController.centerViewController = [[UIStoryboard

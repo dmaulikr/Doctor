@@ -6,50 +6,29 @@
 
 @end
 
-
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     [NexmoClient startWithApplicationId:@"53288670-f90b-4ddb-b046-60a76551920d" sharedSecretKey:@"6db087de035823a"];
-   
-    // Override point for customization after application launch.
-    
-    // [Optional] Power your app with Local Datastore. For more info, go to
-    // https://parse.com/docs/ios_guide#localdatastore/iOS
     [Parse enableLocalDatastore];
-    
-    // Initialize Parse.
-    [Parse setApplicationId:@"pTfc06ieWwraIZFN2TkBZRxk9YY6oRRFa4rQwwpk"
-                  clientKey:@"cRHOnBbXAJwBSvSHHbfS8vhWRSnufF5nVpOhgfBl"];
-     [PFUser enableRevocableSessionInBackground];
-    
-    // [Optional] Track statistics around application opens.
+    [Parse setApplicationId:@"pTfc06ieWwraIZFN2TkBZRxk9YY6oRRFa4rQwwpk" clientKey:@"cRHOnBbXAJwBSvSHHbfS8vhWRSnufF5nVpOhgfBl"];
+    [PFUser enableRevocableSessionInBackground];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:(5/255.0f) green:(65/255.0f) blue:(93/255.0f) alpha:1.0f]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [[UINavigationBar appearance].backItem setTitle:@""];
-    [UINavigationBar appearance].translucent = NO;
-
-    // Register for Push Notitications
-    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-                                                    UIUserNotificationTypeBadge |
-                                                    UIUserNotificationTypeSound);
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                             categories:nil];
-    [application registerUserNotificationSettings:settings];
-    [application registerForRemoteNotifications];
-    
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-    
-    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-    
+    [[UINavigationBar appearance] setTranslucent:NO];
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
+    [application cancelAllLocalNotifications];
+    [application setApplicationIconBadgeNumber:0];
+    [application setIdleTimerDisabled:YES];
 
     return YES;
 }

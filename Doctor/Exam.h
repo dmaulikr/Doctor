@@ -11,7 +11,6 @@
 @property (strong, nonatomic) NSString* examObjectId;
 @property (strong, nonatomic) Doctor* examApplicant;
 @property (strong, nonatomic) Patient* examPatient;
-
 @property (strong, nonatomic) NSString* examTypeString;
 @property (strong, nonatomic) NSString* examDescriptionString;
 @property (strong, nonatomic) NSData* photoOneData;

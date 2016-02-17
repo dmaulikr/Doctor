@@ -1,7 +1,6 @@
 #import "OutsideStartViewController.h"
 #import "MFSideMenu.h"
 #import "Storyboards.h"
-#import "Authentication.h"
 #import "Parse.h"
 #import "AppDelegate.h"
 #import "Envio.h"
@@ -14,7 +13,6 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 @interface OutsideStartViewController () <UITextFieldDelegate>{
-    Authentication* authentication;
     UIActivityIndicatorView* spinner;
     CGFloat animatedDistance;
 }
@@ -39,7 +37,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [super viewDidLoad];
     self.loginButton.layer.cornerRadius = 3;
     self.menuContainerViewController.panMode = NO;
-    authentication = [[Authentication alloc] init];
     self.passwordTextField.secureTextEntry = YES;
 }
 
@@ -64,10 +61,9 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
         [SVProgressHUD show];
         [self.loginButton setEnabled:NO];
         Envio* envio = [[Envio alloc]init];
-        Authentication* auth = [Authentication alloc];
         [envio logIn:self.loginTextField.text withPassword:self.passwordTextField.text :^void (BOOL finished){
             if (finished) {
-                [auth verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
+                [envio verifyAuthenticity:self.loginTextField.text :self.passwordTextField.text :^void (BOOL finished){
                     [self startFadeOutTransactionEffect];
                     [SVProgressHUD dismiss];
                     [self.loginButton setEnabled:YES];

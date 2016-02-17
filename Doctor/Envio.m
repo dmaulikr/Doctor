@@ -5,21 +5,48 @@
 
 @implementation Envio
 
-- (void) showAlertViewError: (NSError*)error{
-    UIAlertController* errorAlertView = [UIAlertController alertControllerWithTitle:@"Atenção!" message:[NSString stringWithFormat:@"Problema ao tentar conexão com servidor, tente outra vez. Erro: %@", error.description] preferredStyle:UIAlertControllerStyleAlert];
-    
-    [errorAlertView showDetailViewController:errorAlertView sender:nil];
+- (void) verifyAuthenticity:(NSString *) user :(NSString *) password :(void (^)(BOOL finished))completion{
+    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+    [query whereKey:@"username" equalTo:user];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                for (PFObject *object in objects) {
+                    self.granted = true;
+                    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                    Doctor* doctor = [[Doctor alloc] init];
+                    doctor.doctorCRMString = object[@"CRM"];
+                    doctor.doctorNameString = object[@"Nome"];
+                    doctor.favTopicsArray = object[@"favForumTopics"];
+                    doctor.sawTopicsArray = object[@"sawForumTopics"];
+                    doctor.isFirstTime = [object[@"isFirstTime"] boolValue];
+                    doctor.doctorEmailString = object[@"Email"];
+                    doctor.doctorAddressString = object[@"Address"];
+                    doctor.doctorPasswordString = object[@"password"];
+                    doctor.doctorUsernameString = user;
+                    doctor.doctorObjectId = object.objectId;
+                    doctor.doctorSpecialtiesArray = object[@"specialties"];
+                    doctor.doctorHealthCareArray = object[@"healthCares"];
+                    doctor.doctorContactString = object[@"Contact"];
+                    PFFile* file = [object objectForKey:@"photo"];
+                    if (file) doctor.doctorPhotoData = file.getData;
+                    appDelegate.doctor = doctor;
+                }
+                if (self.granted) {
+                    completion(true);
+                }else{
+                    completion(false);
+                    NSLog(@"404");
+                }
+            } else {
+                completion(false);
+            }
+        }];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            // any UI updates need to happen in here back on the main thread
+        });
+    });
 }
-
-- (void) showAlertViewConfirmation{
-
-    
-        UIAlertController* errorAlertView = [UIAlertController alertControllerWithTitle:@"Tudo certo!" message:[NSString stringWithFormat:@"Atividade feita com sucesso!"] preferredStyle:UIAlertControllerStyleAlert];
-        [errorAlertView showDetailViewController:errorAlertView sender:nil];
-
-
-}
-
 - (void) newForumTopic:(ForumTopic *)forumTopic withCompletion:(void (^)(BOOL))completion{
     
     PFObject* topic = [PFObject objectWithClassName:@"Forum"];
@@ -34,9 +61,7 @@
             //[self generateForumCreationLog];
             completion(true);
         } else {
-            // There was a problem, check error.description
-            [self  showAlertViewError:error];
-            
+            // There was a problem, check error.descriptio
         }
     }];
     
@@ -44,7 +69,6 @@
 }
 
 #pragma mark newDoctor
-
 - (void) newDoctor: (Doctor*)doctor withCompletion:(void (^)(BOOL *))completion{
     PFUser *user = [PFUser user];
     if (doctor.doctorUsernameString) user.username = doctor.doctorUsernameString;
@@ -78,14 +102,14 @@
                     completion(true);
                 } else {
                     // There was a problem, check error.description
-                    //   [self  showAlertViewError:error];
+                    //    
                 }
             }];
         } else {
             NSString *errorString = [error userInfo][@"error"];// Show the errorString somewhere and let the user try again.
             NSLog(@"%@", errorString);
             //Deal with it on a new method;
-            [self  showAlertViewError:error];
+             
         }
     }];
     
@@ -93,7 +117,6 @@
 }
 
 #pragma mark newPatient
-
 - (void) newPatient:(Patient*)patient {
     
     PFObject* newPatient = [PFObject objectWithClassName:@"Patient"];
@@ -124,7 +147,7 @@
           //  [self generatePatientCreationLog];
         } else {
             // There was a problem, check error.description
-         //   [self  showAlertViewError:error];
+         //    
 
         }
     }];
@@ -132,11 +155,8 @@
     
 }
 
-#pragma mark Registers
-
 #pragma mark newDiagnosis
-- (void) newDiagnosis: (Diagnosis*)diagnosis
-{
+- (void) newDiagnosis: (Diagnosis*)diagnosis{
     PFObject* newDiagnosis  = [PFObject objectWithClassName:@"Register"];
     newDiagnosis[@"confirmedAt"] = diagnosis.diagnosisConfirmedAt;
     newDiagnosis[@"status"] = diagnosis.diagnosisStatus;
@@ -146,10 +166,9 @@
     
     [newDiagnosis saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [self generateDiagnosisCreationLog];
         } else {
             // There was a problem, check error.description
-            [self  showAlertViewError:error];
+             
 
         }
     }];
@@ -157,8 +176,7 @@
 }
 
 #pragma mark newTreatment
-- (void) newTreatment: (Treatment*)treatment
-{
+- (void) newTreatment: (Treatment*)treatment{
     PFObject* newTreatment  = [PFObject objectWithClassName:@"Treatment"];
     newTreatment[@"description"] = treatment.treatmentDescription;
     newTreatment[@"duration"] = treatment.treatmentDuration;
@@ -168,10 +186,9 @@
     
     [newTreatment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [self generateTreatmentCreationLog];
         } else {
             // There was a problem, check error.description
-            [self  showAlertViewError:error];
+             
 
         }
     }];
@@ -206,9 +223,7 @@
     }];
 }
 
-
 #pragma mark newAppointment
-
 - (void) newAppointment: (Appointment*)appointment withCompletion:(void (^)(BOOL *))completion{
     PFObject* newAppointment = [PFObject objectWithClassName:@"Appointment"];
     if (appointment.appointmentDoctor){
@@ -227,7 +242,6 @@
     
 }
 
-#pragma mark Queries
 #pragma mark Sign In
 - (void)signIn: (NSString*)username withPassword: (NSString*)password :(void (^)(BOOL finished))completion{
     PFUser *user = [PFUser user];
@@ -256,7 +270,7 @@
                 //[self generateLogInLog];
             }else{
                 completion(false);
-                //[self  showAlertViewError:error];
+                // 
             }
         }];
         dispatch_async(dispatch_get_main_queue(), ^(void){
@@ -266,8 +280,7 @@
 }
 
 #pragma mark fetchPatient
-- (void)fetchPatientPassingCPF:(NSString*)CPF
-      withCompletion:(void (^)(Patient* patient))completion;{
+- (void)fetchPatientPassingCPF:(NSString*)CPF withCompletion:(void (^)(Patient* patient))completion;{
     
         PFQuery *query = [PFQuery queryWithClassName:@"Patient"];
         [query whereKey:@"CPF" equalTo:CPF];
@@ -305,14 +318,12 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
+             
 
         }
     }];
 }
-
-- (void)fetchAllPatients: (void (^)(NSMutableArray * patientArray))completion
-{
+- (void)fetchAllPatients: (void (^)(NSMutableArray * patientArray))completion{
     NSMutableArray* patients = [[NSMutableArray alloc]init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Patient"];
@@ -349,13 +360,11 @@
             }
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
+             
         }
     }];
 }
-
-- (void)fetchLastSeen:(Doctor *)doctor :(Patient *) patient :(void (^)(NSString * lastSeen))completion
-{
+- (void)fetchLastSeen:(Doctor *)doctor :(Patient *) patient :(void (^)(NSString * lastSeen))completion{
     PFQuery *query = [PFQuery queryWithClassName:@"Appointment"];
     [query whereKey:@"PatientEnvolved" equalTo:patient.patientCPFString];
     [query whereKey:@"DoctorEnvolved" equalTo:doctor.doctorCRMString];
@@ -377,11 +386,10 @@
             completion(nil);
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
+             
         }
     }];
 }
-
 - (void)fetchAllMedications:(void (^)(NSMutableArray * medicationArray))completion{
     NSMutableArray* medications = [[NSMutableArray alloc]init];
     
@@ -404,12 +412,11 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
+             
             
         }
     }];
 }
-
 - (void)fetchAllComercialNames:(void (^)(NSMutableArray *))completion{
     NSMutableArray* medications = [[NSMutableArray alloc]init];
     
@@ -431,12 +438,10 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
             
         }
     }];
 }
-
 - (void)fetchAllLabs:(void (^)(NSMutableArray *))completion{
     NSMutableArray* labsArray = [[NSMutableArray alloc]init];
     
@@ -458,7 +463,6 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
             
         }
     }];
@@ -483,13 +487,10 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
             
         }
     }];
 }
-
-
 - (void) setTopicAsFavourite:(NSString *)topicId :(Doctor *)doctor withCompletion:(void (^)(BOOL *finished))completion{
     PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"CRM" equalTo:doctor.doctorCRMString];
@@ -519,13 +520,11 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
             
         }
     }];
 
 }
-
 - (void) setTopicAsSaw:(NSString *)topicId :(Doctor *)doctor withCompletion: (void (^)(BOOL* finished))completion{
     PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"CRM" equalTo:doctor.doctorCRMString];
@@ -552,16 +551,12 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
             
         }
     }];
    
 }
-
-
-- (void)fetchExamsPassingPatient:(Patient*)patient
-               withCompletion:(void (^)(NSMutableArray* examsArray))completion{
+- (void)fetchExamsPassingPatient:(Patient*)patient withCompletion:(void (^)(NSMutableArray* examsArray))completion{
   
     NSMutableArray* examsArray = [[NSMutableArray alloc] init];
     PFQuery *query = [PFQuery queryWithClassName:@"Exam"];
@@ -597,7 +592,6 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
             
         }
     }];
@@ -606,9 +600,7 @@
 }
 
 #pragma mark fetchDoctor
-
-- (void)fetchDoctorPassingCRM:(NSString*)CRM
-      withCompletion:(void (^)(Doctor* doctor))completion{
+- (void)fetchDoctorPassingCRM:(NSString*)CRM withCompletion:(void (^)(Doctor* doctor))completion{
     
     PFQuery *query = [PFQuery queryWithClassName:@"Doctor"];
     [query whereKey:@"CRM" equalTo:CRM];
@@ -639,13 +631,10 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
 
         }
     }];
 }
-
-
 
 #pragma mark fetchAppointment
 - (void)fetchAppointmentPassingDoctor: (Doctor*)doctor withCompletion:(void (^)(NSMutableArray * appointmentArray))completion;{
@@ -675,7 +664,6 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
 
         }
     }];
@@ -709,14 +697,11 @@
             }
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
             
         }
     }];
 }
-
-- (void)fetchAllAppointments: (void (^)(Appointment* appointment))completion
-{
+- (void)fetchAllAppointments: (void (^)(Appointment* appointment))completion{
     Appointment* appointment;
     
     PFQuery *query = [PFQuery queryWithClassName:@"Appointment"];
@@ -741,7 +726,6 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
 
         }
     }];
@@ -749,8 +733,7 @@
 }
 
 #pragma mark fetchTreatment
-- (void)fetchTreatmentPassingPatient:(Patient *)patient
-        withCompletion:(void (^)(NSMutableArray * treatmentArray))completion{
+- (void)fetchTreatmentPassingPatient:(Patient *)patient withCompletion:(void (^)(NSMutableArray * treatmentArray))completion{
     Treatment* treatment = [[Treatment alloc] init];
     NSMutableArray* treatmentArray = [[NSMutableArray alloc] init];
     PFQuery *query = [PFQuery queryWithClassName:@"Treatment"];
@@ -777,11 +760,9 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
         }
     }];
 }
-
 - (void)fetchAllTreatments:(void (^)(NSMutableArray* treatmentArray))completion{
     Treatment* treatment;
     NSMutableArray* treatmentArray = [[NSMutableArray alloc] init];
@@ -809,15 +790,13 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
 
         }
     }];
 }
 
 #pragma mark fetchDiagnosis
-- (void)fetchDiagnosis: (NSDate*)createdAt
-        withCompletion:(void (^)(Diagnosis* diagnosis))completion{
+- (void)fetchDiagnosis: (NSDate*)createdAt withCompletion:(void (^)(Diagnosis* diagnosis))completion{
     
     Diagnosis* diagnosis;
     
@@ -846,13 +825,11 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
 
             
         }
     }];
 }
-
 - (void)fetchAllDiagnosis:(void (^)(Diagnosis* diagnosis))completion{
     Diagnosis* diagnosis;
     
@@ -876,18 +853,12 @@
             }
         } else {
             // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
-            
         }
     }];
 }
 
-
 #pragma mark delete method
-
-- (void) deleteTreatment: (Treatment*)treatment
-          withCompletion: (void (^)(BOOL succeded))completion{
+- (void) deleteTreatment: (Treatment*)treatment withCompletion: (void (^)(BOOL succeded))completion{
    
     Envio* envio = [[Envio alloc]init];
     
@@ -897,20 +868,15 @@
         if (succeeded) {
             NSLog(@"Treatment succesfully deleted");
             completion(succeeded);
-            [self generateTreatmentDeleteLog];
         }
         else
         {
-            NSLog(@"Error: %@", error.description);
             completion(succeeded);
-            [self  showAlertViewError:error];
 
         }
     }];
 }
-
-- (void) deletePatient: (Patient*)patient
-            fromDoctor: (Doctor*)doctor{
+- (void) deletePatient: (Patient*)patient fromDoctor: (Doctor*)doctor{
 
     
     //Fetch doctor
@@ -925,7 +891,6 @@
         }else{
             
             NSLog(@"deletePatient:fromDoctor: failed retrieving the doctor - Envio.m");
-            [self  showAlertViewError:nil];
         }
     }];
     
@@ -941,37 +906,31 @@
         } else {
             // Did not find any doctors
             NSLog(@"Error: %@", error);
-            [self  showAlertViewError:error];
+             
 
         }
     }];
     
 }
-
-- (void) deleteDiagnosis: (Diagnosis*)diagnosis
-          withCompletion: (void (^)(BOOL succeded))completion{
+- (void) deleteDiagnosis: (Diagnosis*)diagnosis withCompletion: (void (^)(BOOL succeded))completion{
     
     PFObject* object = [PFObject objectWithoutDataWithClassName:@"Diagnosis" objectId:diagnosis.diagnosisObjectId];
     
     [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError* error){
         if (succeeded) {
             completion(succeeded);
-            [self generateDiagnosisDeleteLog];
         }
         else
         {
             NSLog(@"Error: %@", error.description);
             completion(succeeded);
-            [self  showAlertViewError:error];
+             
 
         }
     }];
 }
-//TO DO
 - (void) deleteExam: (Exam*)exam withCompletion: (void (^)(BOOL succeded))completion{
-    [self generateExamDeleteLog];
 }
-
 - (void)fetchAllForumTopics :(void (^)(NSMutableArray* forumTopicsArray))completion{
     NSMutableArray* forumTopicsArray = [[NSMutableArray alloc] init];
     
@@ -998,13 +957,12 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
+             
             
         }
     }];
 
 }
-
 - (void)fetchMessagesFromTopic: (NSString *)relatedIdForum withCompletion:(void (^)(NSMutableArray* messageArray))completion{
     NSMutableArray* messagesFromForum = [[NSMutableArray alloc] init];
     
@@ -1030,13 +988,11 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
+             
             
         }
     }];
 }
-
-
 - (void) newMessage:(ForumTopicMessage *)message whenComplete:(void (^)(BOOL finished))completion{
     PFObject* messageParse = [PFObject objectWithClassName:@"ForumMessages"];
     messageParse[@"messageOwner"] = message.messageForumOwner;
@@ -1050,7 +1006,7 @@
             completion(true);
         } else {
             // There was a problem, check error.description
-         //   [self  showAlertViewError:error];
+         //    
             completion(false);
         }
     }];
@@ -1066,149 +1022,6 @@
 - (NSString *)getSystemDate{
     return @"";
 }
-
-#pragma mark - Forum Fetchs and Entries
-
-#pragma mark - Entries
-//- (void) newTopic: (ForumTopic*) topic{
-//    
-//    PFObject* newTopic = [PFObject objectWithClassName:@"Topics"];
-//    newTopic[@"title"] = topic.topicForumTitle;
-//    newTopic[@"createdBy"] = topic.topicForumCreatedBy;
-//    newTopic[@"subject"] = topic.topicSubject;
-//    
-//    [newTopic saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            NSLog(@"New topic created! - '%@' ", topic.topicForumTitle);
-//        } else {
-//            // There was a problem, check error.description
-//            [self  showAlertViewError:error];
-//            
-//        }
-//    }];
-//}
-//
-//- (void) newTopicMessage: (ForumTopicMessage*) message{
-//    
-//    PFObject* newTopicMessage = [PFObject objectWithClassName:@"ForumMessages"];
-//    newTopicMessage[@"text"] = message.messageForumText;
-//    newTopicMessage[@"createdBy"] = message.messageForumCreatedBy;
-//    newTopicMessage[@"topic"] = message.messageForumTopic;
-//    
-//    [newTopicMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            NSLog(@"New topic message created!");
-//        } else {
-//            // There was a problem, check error.description
-//            [self  showAlertViewError:error];
-//        }
-//    }];
-//}
-
-
-#pragma mark - Forum Fetchs
-//- (void) fetchAllTopicsAboutSubject: (ForumSubject*)subject
-//              withCompletion:(void (^)(ForumTopic* topic))completion{
-//    
-//    ForumTopic* topic;
-//    
-//    PFQuery *query = [PFQuery queryWithClassName:@"Topics"];
-//    [query whereKey:@"subject" equalTo:subject];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            for (PFObject *object in objects) {
-//                NSLog(@"%@", object.objectId);
-//                topic.topicForumObjectId = [object objectForKey:@"objectId"];
-//                topic.topicForumCreatedBy = [object objectForKey:@"createdBy"];
-//                topic.topicForumCreatedAt = [object objectForKey:@"createdAt"];
-//                topic.topicForumUpdatedAt = [object objectForKey:@"updatedAt"];
-//                topic.topicSubject = [object objectForKey:@"subject"];
-//                topic.topicForumTitle = [object objectForKey:@"title"];
-//            }
-//            if (topic) {
-//                completion(topic);
-//            }else{
-//                completion(nil);
-//                NSLog(@"404 - Envio.m - fetchTopic");
-//            }
-//        } else {
-//            // Log details of the failure
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//            [self  showAlertViewError:error];
-//            
-//        }
-//    }];
-//}
-
-//- (void) fetchTopicsThatIncludes: (NSString*) search
-//                  withCompletion: (void (^)(ForumTopic* topic))completion{
-//    
-//    ForumTopic* topic;
-//    
-//    PFQuery *query = [PFQuery queryWithClassName:@"Topics"];
-//    [query whereKey:@"title" containsString:search];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            for (PFObject *object in objects) {
-//                NSLog(@"%@", object.objectId);
-//                topic.topicForumObjectId = [object objectForKey:@"objectId"];
-//                topic.topicForumCreatedBy = [object objectForKey:@"createdBy"];
-//                topic.topicForumCreatedAt = [object objectForKey:@"createdAt"];
-//                topic.topicForumUpdatedAt = [object objectForKey:@"updatedAt"];
-//                topic.topicSubject = [object objectForKey:@"subject"];
-//                topic.topicForumTitle = [object objectForKey:@"title"];
-//                
-//            }
-//            if (topic) {
-//                completion(topic);
-//            }else{
-//                completion(nil);
-//                NSLog(@"404 - Envio.m - fetchTopicThatIncludes");
-//            }
-//        } else {
-//            // Log details of the failure
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//            [self  showAlertViewError:error];
-//            
-//        }
-//    }];
-//}
-
-//- (void) fetchAllTopicMessagesOfTopic: (ForumTopic*)topic
-//                       withCompletion: (void (^)(ForumTopicMessage* message))completion{
-//    
-//    ForumTopicMessage* message;
-//    
-//    PFQuery *query = [PFQuery queryWithClassName:@"Topics"];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            for (PFObject *object in objects) {
-//                NSLog(@"%@", object.objectId);
-//                message.messageForumObjectId = [object objectForKey:@"objectId"];
-//                message.messageForumCreatedBy = [object objectForKey:@"createdBy"];
-//                message.messageForumCreatedAt = [object objectForKey:@"createdAt"];
-//                message.messageForumText = [object objectForKey:@"text"];
-//                message.messageForumTopic = [object objectForKey:@"topic"];
-//                
-//            }
-//            if (message) {
-//                completion(message);
-//            }else{
-//                completion(nil);
-//                NSLog(@"404 - Envio.m - fetchAllMessagesFromTopic");
-//            }
-//        } else {
-//            // Log details of the failure
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//            [self  showAlertViewError:error];
-//            
-//        }
-//    }];
-//
-//    
-//}
-
-
 - (void) updatePatient:(NSString *)patientId withPatient:(Patient *)patient withCompletion:(void (^)(BOOL finished))completion{
     PFObject *point = [PFObject objectWithoutDataWithClassName:@"Patient" objectId:patientId];
     if (patient.patientNameString) [point setObject:patient.patientNameString forKey:@"name"];
@@ -1237,9 +1050,6 @@
         }
     }];
 }
-
-
-
 - (void) updateDoctor:(NSString *)objectIdFromDoctor withDoctor:(Doctor *)doctor withCompletion: (void (^)(BOOL finished))completion{
     PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query getObjectWithId:objectIdFromDoctor];
@@ -1275,17 +1085,15 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
+             
         }
     }];
 }
-
 - (void) updateFirstTime:(NSString *)doctorObjectId{
     PFObject *point = [PFObject objectWithoutDataWithClassName:@"Users" objectId:doctorObjectId];
     [point setObject:@NO forKey:@"isFirstTime"];
     [point save];
 }
-
 - (void) askedForRecoveringPassword:(NSString *)username withCompletion:(void (^)(Doctor* doctor)) completion{
     PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"username" equalTo:username.lowercaseString];
@@ -1306,7 +1114,6 @@
         }
     }];
 }
-
 - (void) askedForChangingPassword:(Doctor *)doctor :(NSString *)newPassword withCompletion:(void (^)(BOOL))completion{
 //    PFQuery *query = [PFUser query];
 //    [query whereKey:@"username" equalTo:username];
@@ -1364,8 +1171,6 @@
                                     }];
 
 }
-
-
 - (void) completePasswordChanging:(Doctor *)doctor :(NSString *)newPassword{
     PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"CRM" equalTo:doctor.doctorCRMString];
@@ -1378,10 +1183,11 @@
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-            [self  showAlertViewError:error];
+             
             
         }
     }];
 
 }
+
 @end

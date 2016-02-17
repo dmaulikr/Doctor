@@ -4,7 +4,6 @@
 
 @interface HomeViewController ()
 
-//Only fade purposes
 @property (weak, nonatomic) IBOutlet UILabel* separator1Label;
 @property (weak, nonatomic) IBOutlet UILabel* separator2Label;
 @property (weak, nonatomic) IBOutlet UILabel* separator3Label;

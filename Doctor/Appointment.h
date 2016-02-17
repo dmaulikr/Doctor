@@ -6,16 +6,13 @@
 
 @interface Appointment : NSObject
 
-@property (weak,nonatomic) Doctor* appointmentDoctor;
-@property (weak, nonatomic) Patient* appointmentPatient;
-//@property (weak, nonatomic) Diagnosis* appointmentDiagnosis;
-//@property (weak, nonatomic) Treatment* appointmentTreatment;
+@property (strong, nonatomic) Doctor* appointmentDoctor;
+@property (strong, nonatomic) Patient* appointmentPatient;
 @property (strong, nonatomic) NSMutableArray* appointmentExams;
-@property (weak,nonatomic) NSDate* appointmentCreatedAt;
+@property (strong, nonatomic) NSDate* appointmentCreatedAt;
 @property (strong, nonatomic) NSMutableArray* appointmentVersionHistory;
-@property (weak,nonatomic) NSString* appointmentObjectId;
-@property (weak,nonatomic) NSDate* appointmentUpdatedAt;
-
+@property (strong, nonatomic) NSString* appointmentObjectId;
+@property (strong, nonatomic) NSDate* appointmentUpdatedAt;
 @property (strong, nonatomic) NSString* appointmentProtocol;
 @property (strong, nonatomic) NSString* appointmentDate;
 @property (strong, nonatomic) NSString* appointmentDiagnosis;

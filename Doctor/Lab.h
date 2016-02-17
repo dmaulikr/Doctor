@@ -2,7 +2,7 @@
 
 @interface Lab : NSObject
 
-@property (nonatomic, strong) NSString* labSigla;
-@property (nonatomic, strong) NSString* labExtenso;
+@property (nonatomic, strong) NSString *labSigla;
+@property (nonatomic, strong) NSString *labExtenso;
 
 @end

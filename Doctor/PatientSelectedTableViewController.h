@@ -1,12 +1,12 @@
 #import <UIKit/UIKit.h>
 #import "Patient.h"
 
-
 @protocol PatientSelectedTableViewControllerDelegate <NSObject>
 
 - (void) askedForRefresh;
 
 @end
+
 @interface PatientSelectedTableViewController : UITableViewController
 
 @property (nonatomic, strong) Patient* patient;

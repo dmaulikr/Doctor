@@ -1,9 +1,6 @@
 #import "MenuTableViewController.h"
 #import <MFSideMenu/MFSideMenu.h>
-#import "MenuTableViewController.h"
 #import "Storyboards.h"
-#import "AppDelegate.h"
-#import "Parse.h"
 
 @implementation MenuTableViewController
 
