@@ -1,11 +1,3 @@
-//
-//  ForumTableViewController.m
-//  Doctor
-//
-//  Created by Bruno Muniz Azevedo Filho on 10/20/15.
-//  Copyright © 2015 Doctr. All rights reserved.
-//
-
 #import "ForumTableViewController.h"
 #import "MFSideMenu.h"
 #import "ForumTableViewCell.h"

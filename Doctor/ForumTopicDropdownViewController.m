@@ -1,11 +1,3 @@
-//
-//  ForumTopicDropdownViewController.m
-//  Doctor
-//
-//  Created by Bruno Muniz Azevedo Filho on 11/21/15.
-//  Copyright © 2015 Doctr. All rights reserved.
-//
-
 #import "ForumTopicDropdownViewController.h"
 #import "AppDelegate.h"
 

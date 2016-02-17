@@ -1,11 +1,9 @@
 #import "PatientsAddTableViewController.h"
 #import "Patient.h"
 #import "Envio.h"
-#import "UIImageResizing.h"
 #import <SSFlatDatePicker/SSFlatDatePicker.h>
-#import "HSDatePickerViewController.h"
 
-@interface PatientsAddTableViewController () <UITextViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, HSDatePickerViewControllerDelegate>{
+@interface PatientsAddTableViewController () <UITextViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate>{
     UIImagePickerController* imagePickerController;
     BOOL tookFromCamera;
 }
@@ -80,9 +78,6 @@
 }
 
 - (void)didClickedIntoBirthDateLabel{
-   // HSDatePickerViewController* hs = [HSDatePickerViewController new];
-   // hs.delegate = self;
-  //  [self presentViewController:hs animated:YES completion:nil];
     SSFlatDatePicker *datePicker = [[SSFlatDatePicker alloc] initWithFrame:CGRectMake(10, 10, 400, 120)];
     [self.view addSubview:datePicker];
 }
@@ -663,16 +658,6 @@
         return NO;
     }
     return aproval;
-}
-
-
-#pragma mark - HSDatePickerViewControllerDelegate
-- (void)hsDatePickerPickedDate:(NSDate *)date {
-    NSLog(@"Date picked %@", date);
-    NSDateFormatter *dateFormater = [NSDateFormatter new];
-    dateFormater.dateFormat = @"dd.MM.yyyy";
-//    self.dateLabel.text = [dateFormater stringFromDate:date];
-//    self.selectedDate = date;
 }
 
 @end

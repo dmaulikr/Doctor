@@ -1,11 +1,3 @@
-//
-//  ForumMessageSendTableViewCell.h
-//  Doctor
-//
-//  Created by Bruno Muniz Azevedo Filho on 11/6/15.
-//  Copyright © 2015 Doctr. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 @protocol ForumMessageSendTableViewCellDelegate <NSObject>
 

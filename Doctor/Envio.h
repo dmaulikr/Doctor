@@ -1,30 +1,14 @@
-//
-//  Envio.h
-//  Doctor
-//
-//  Created by Breno Ramos on 10/19/15.
-//  Copyright © 2015 Doctr. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 #import "Patient.h"
-#import "Register.h"
 #import "Appointment.h"
 #import "Treatment.h"
 #import "Diagnosis.h"
 #import "Doctor.h"
 #import "Exam.h"
-#import "CaseHistory.h"
 #import "Medication.h"
 #import "ForumTopic.h"
-#import "Message.h"
-#import "Log.h"
-//#import "LogActivity.h"
 #import "ForumHeader.h"
-//#import "LogActivity.h"
-
-
 
 @interface Envio : NSObject
 
@@ -35,7 +19,6 @@
 - (void) newDiagnosis: (Diagnosis*)diagnosis;
 - (void) newTreatment: (Treatment*)treatment;
 - (void) newExam: (Exam*)tipo withCompletion:(void (^)(BOOL *))completion;
-- (void) newCaseHistory: (CaseHistory*)caseHistory;
 - (void) newForumTopic:(ForumTopic *)forumTopic withCompletion:(void (^)(BOOL finished))completion;
 - (void) newMessage:(ForumTopicMessage *)message whenComplete:(void (^)(BOOL finished))completion;
 
@@ -75,7 +58,6 @@
 - (void) deleteTreatment: (Treatment*)treatment withCompletion: (void (^)(BOOL succeded))completion;
 - (void) deletePatient: (Patient*)patient fromDoctor: (Doctor*)doctor; //only drops the patient from the doctor's patientArray, not from our platform
 - (void) deleteDiagnosis: (Diagnosis*)diagnosis withCompletion: (void (^)(BOOL succeded))completion;
-- (void) deleteCaseHistory: (CaseHistory*)caseHistory withCompletion: (void (^)(BOOL succeded))completion;
 - (void) deleteExam: (Exam*)exam withCompletion: (void (^)(BOOL succeded))completion;
 - (void) deleteDoctor: (Doctor*)doctor withCompletion: (void (^)(BOOL succeded))completion;
 

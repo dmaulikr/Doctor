@@ -1,11 +1,3 @@
-//
-//  SettingsSpecialtiesTableViewCell.m
-//  Doctor
-//
-//  Created by Bruno Muniz Azevedo Filho on 11/23/15.
-//  Copyright © 2015 Doctr. All rights reserved.
-//
-
 #import "SettingsSpecialtiesTableViewCell.h"
 
 @implementation SettingsSpecialtiesTableViewCell

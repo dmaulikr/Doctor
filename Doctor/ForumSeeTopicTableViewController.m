@@ -1,11 +1,3 @@
-//
-//  ForumSeeTopicTableViewController.m
-//  Doctor
-//
-//  Created by Bruno Muniz Azevedo Filho on 10/20/15.
-//  Copyright © 2015 Doctr. All rights reserved.
-//
-
 #import "Storyboards.h"
 #import "ForumSeeTopicTableViewController.h"
 #import "ForumMessageTableViewCell.h"
