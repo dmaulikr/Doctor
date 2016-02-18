@@ -61,6 +61,7 @@
 		029863281BFDFAF40099C997 /* DeviceProperties.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029863261BFDFAF40099C997 /* DeviceProperties.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0298632A1BFDFAFB0099C997 /* RequestSigning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029863291BFDFAFB0099C997 /* RequestSigning.framework */; };
 		0298632B1BFDFAFB0099C997 /* RequestSigning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029863291BFDFAFB0099C997 /* RequestSigning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		029A7FD41C7678C100B04AC6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029A7FD31C7678C100B04AC6 /* MapKit.framework */; };
 		02A974FA1C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A974F91C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.m */; };
 		02C11D511BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C11D501BF95AAE00BBE0D0 /* TutorialFirstPageViewController.m */; };
 		02C11D5D1BF966E200BBE0D0 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C11D5C1BF966E200BBE0D0 /* TutorialViewController.m */; };
@@ -232,6 +233,7 @@
 		029863231BFDFAEE0099C997 /* VerifyIosSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = VerifyIosSdk.framework; path = "/Users/bmaf/Library/Developer/Xcode/DerivedData/Doctor-gthelsetkfmbitfergkudiknnsyv/Build/Products/Debug-iphoneos/VerifyIosSdk.framework"; sourceTree = "<absolute>"; };
 		029863261BFDFAF40099C997 /* DeviceProperties.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = DeviceProperties.framework; path = "/Users/bmaf/Library/Developer/Xcode/DerivedData/Doctor-gthelsetkfmbitfergkudiknnsyv/Build/Products/Debug-iphoneos/DeviceProperties.framework"; sourceTree = "<absolute>"; };
 		029863291BFDFAFB0099C997 /* RequestSigning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = RequestSigning.framework; path = "/Users/bmaf/Library/Developer/Xcode/DerivedData/Doctor-gthelsetkfmbitfergkudiknnsyv/Build/Products/Debug-iphoneos/RequestSigning.framework"; sourceTree = "<absolute>"; };
+		029A7FD31C7678C100B04AC6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		02A974F81C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamChooseSpecialtyTableViewController.h; sourceTree = "<group>"; };
 		02A974F91C0DEB0B003E3176 /* ExamChooseSpecialtyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamChooseSpecialtyTableViewController.m; sourceTree = "<group>"; };
 		02C11D4F1BF95AAE00BBE0D0 /* TutorialFirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialFirstPageViewController.h; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				029A7FD41C7678C100B04AC6 /* MapKit.framework in Frameworks */,
 				024999931C1CA628000E373D /* Social.framework in Frameworks */,
 				024999911C1CA621000E373D /* Accounts.framework in Frameworks */,
 				0249998F1C1CA618000E373D /* libsqlite3.tbd in Frameworks */,
@@ -971,6 +974,7 @@
 		C37E74F5BD3D707C399A0E57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				029A7FD31C7678C100B04AC6 /* MapKit.framework */,
 				024999921C1CA628000E373D /* Social.framework */,
 				024999901C1CA621000E373D /* Accounts.framework */,
 				0249998E1C1CA618000E373D /* libsqlite3.tbd */,

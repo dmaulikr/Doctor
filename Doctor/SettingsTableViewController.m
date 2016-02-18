@@ -4,6 +4,7 @@
 #import "SettingsHealthCareTableViewController.h"
 #import "SettingsSpecialtiesTableViewController.h"
 #import "SettingsChangePasswordTableViewController.h"
+#import "SettingsSAAPTableViewController.h"
 #import "Envio.h"
 #import "Storyboards.h"
 #import "SVProgressHUD.h"
@@ -15,7 +16,6 @@
 
 @property (nonatomic, strong) Doctor* doctor;
 @property (nonatomic, weak) IBOutlet UILabel* settingsNameLabel;
-@property (nonatomic, weak) IBOutlet UILabel* settingsCellphoneLabel;
 @property (nonatomic, weak) IBOutlet UILabel* settingsCRMLabel;
 @property (nonatomic, weak) IBOutlet UITextView* settingsEmailTextView;
 //@property (nonatomic, weak) IBOutlet UILabel* settingsEmailLabel;
@@ -51,14 +51,13 @@
     self.doctor = appDelegate.doctor;
     self.settingsAddressTextView.text = self.doctor.doctorAddressString;
     self.settingsContactTextView.text = self.doctor.doctorContactString;
-    self.settingsCRMLabel.text = self.doctor.doctorCRMString;
+    self.settingsCRMLabel.text = [NSString stringWithFormat:@"CRM: %@", self.doctor.doctorCRMString];
     self.settingsEmailTextView.text = self.doctor.doctorEmailString;
     self.settingsHealthCareLabel.text = @"Plano de saúde";
     self.settingsPasswordLabel.text = @"*********";
     self.settingsSpecialtiesLabel.text = @"Especialidades";
     self.settingsUserLabel.text = self.doctor.doctorUsernameString;
     self.settingsNameLabel.text = self.doctor.doctorNameString;
-    self.settingsCellphoneLabel.text = self.doctor.doctorContactString;
     if (self.doctor.doctorPhotoData){
         self.settingsCameraImageView.contentMode = UIViewContentModeScaleAspectFill;
         self.settingsCameraImageView.image = [UIImage imageWithData:self.doctor.doctorPhotoData];
@@ -67,13 +66,13 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 4:
+        case 3:
             [self performSegueWithIdentifier:@"settingsChangePasswordSegue" sender:self];
             break;
-        case 5:
+        case 4:
             [self performSegueWithIdentifier:@"settingsSpecialtiesSegue" sender:self];
             break;
-        case 6:
+        case 5:
             [self performSegueWithIdentifier:@"settingsHealthCareSegue" sender:self];
             break;
         default:
@@ -146,6 +145,11 @@
         SettingsHealthCareTableViewController* vc = segue.destinationViewController;
         AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
         [vc setHealthCareArray:appDelegate.doctor.doctorHealthCareArray];
+    }
+    else if ([segue.identifier isEqualToString:@"seeAsAPatientSegue"]){
+        SettingsSAAPTableViewController *vc = segue.destinationViewController;
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        [vc setDoctor:appDelegate.doctor];
     }
 }
 
