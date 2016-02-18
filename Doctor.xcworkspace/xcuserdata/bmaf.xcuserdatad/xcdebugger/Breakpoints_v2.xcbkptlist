@@ -900,22 +900,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Doctor/PatientsAddTableViewController.m"
-            timestampString = "477436595.492188"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "635"
-            endingLineNumber = "635"
-            landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Doctor/Envio.m"
             timestampString = "477440349.408288"
             startingColumnNumber = "9223372036854775807"
@@ -1073,11 +1057,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/PatientsAddTableViewController.m"
-            timestampString = "477436595.492188"
+            timestampString = "477519809.288958"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "664"
-            endingLineNumber = "664">
+            startingLineNumber = "223"
+            endingLineNumber = "223">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
