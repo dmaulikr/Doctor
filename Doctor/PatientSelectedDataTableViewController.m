@@ -42,8 +42,21 @@
     
     self.patientNameLabel.text = self.patient.patientNameString;
     self.patientCameSinceLabel.text = self.patient.patientCameSinceString;
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    
     //self.patientImageView.image = self.patient.patientImage;
-    self.birthDateTextView.text = self.patient.patientBirthDateString;
+    
+    NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
+                                       components:NSYearCalendarUnit
+                                       fromDate:self.patient.patientBirthDate
+                                       toDate:[NSDate date]
+                                       options:0];
+    
+    
+    self.birthDateTextView.text = [NSString stringWithFormat:@"%@ - (%li anos)", [dateFormatter stringFromDate:self.patient.patientBirthDate], ageComponents.year];
+
+    
     self.sexTextView.text = self.patient.patientGenderString;
     self.bloodTypeTextView.text = self.patient.patientBloodTypeString;
     self.clinicalConditionsTextView.text = self.patient.patientClinicalConditionsString;

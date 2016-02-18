@@ -48,7 +48,11 @@
         self.patientImageView.layer.masksToBounds = YES;
         self.patientImageView.image = [UIImage imageWithData:self.patient.patientPhotoData];
     }
-    self.birthDateTextView.text = self.patient.patientBirthDateString;
+    
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd/mm/yyyy"];
+    self.birthDateTextView.text = [formatter stringFromDate:self.patient.patientBirthDate];;
     self.sexTextView.text = self.patient.patientGenderString;
     self.bloodTypeTextView.text = self.patient.patientBloodTypeString;
     self.clinicalConditionsTextView.text = self.patient.patientClinicalConditionsString;
@@ -65,7 +69,7 @@
 - (IBAction)didTappedSaveButton:(id)sender{
     [self setupLoadingAnimation];
     Patient *patient = [[Patient alloc] init];
-    patient.patientBirthDateString = self.birthDateTextView.text;
+    //patient.patientBirthDate = self.birthDateTextView.text;
     patient.patientBloodTypeString = self.bloodTypeTextView.text;
     patient.patientGenderString = self.sexTextView.text;
     patient.patientClinicalConditionsString = self.clinicalConditionsTextView.text;

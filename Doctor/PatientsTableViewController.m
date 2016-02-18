@@ -51,7 +51,6 @@
     Patient* patient = [[Patient alloc] init];
     patient = tableViewDataArray[indexPath.row];
     cell.patientNameLabel.text = patient.patientNameString;
-    cell.patientAgeLabel.text = patient.patientAgeString;
     cell.patientGenderLabel.text = patient.patientGenderString;
     cell.patientInitialsLabel.text = [patient.patientNameString substringToIndex:1];
     if (patient.patientPhotoData) {
@@ -61,10 +60,20 @@
         cell.patientPhotoImageView.layer.masksToBounds = YES;
         cell.patientPhotoImageView.image = [UIImage imageWithData:patient.patientPhotoData];
     }
+    
     else{
         cell.patientPhotoImageView.hidden = YES;
     }
     //cell.patientCameSinceLabel.text = tableViewDataArray[];
+    
+    NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
+                                       components:NSYearCalendarUnit
+                                       fromDate:patient.patientBirthDate
+                                       toDate:[NSDate date]
+                                       options:0];
+    
+    cell.patientAgeLabel.text =[NSString stringWithFormat:@"%li", ageComponents.year];
+
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

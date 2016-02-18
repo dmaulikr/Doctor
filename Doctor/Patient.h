@@ -3,7 +3,7 @@
 @interface Patient : NSObject
 
 @property (strong, nonatomic) NSString *patientNameString;
-@property (strong, nonatomic) NSString *patientBirthDateString;
+@property (strong, nonatomic) NSDate *patientBirthDate;
 @property (strong, nonatomic) NSString *patientRGString;
 @property (strong, nonatomic) NSString *patientCPFString;
 @property (strong, nonatomic) NSString *patientAgeString;

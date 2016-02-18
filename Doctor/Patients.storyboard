@@ -3042,7 +3042,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Telefone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nYT-bI-AUv">
                                                     <rect key="frame" x="124" y="71" width="251" height="40"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="sQY-TJ-fAg" id="bd1-eS-Uvz"/>
                                                     </connections>
@@ -3080,6 +3080,9 @@
                                                     <rect key="frame" x="71" y="0.0" width="304" height="53.5"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="477515084.458395">
                                                         <!--2016-02-18 19:04:44 +0000-->
+                                                    </date>
+                                                    <date key="maximumDate" timeIntervalSinceReferenceDate="536410800">
+                                                        <!--2017-12-31 11:00:00 +0000-->
                                                     </date>
                                                     <locale key="locale" localeIdentifier="pt_BR"/>
                                                 </datePicker>
@@ -3136,40 +3139,36 @@
                                                     <color key="textColor" red="0.93507339015151514" green="0.93507339015151514" blue="0.93507339015151514" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tipo sanguíneo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fAm-F6-V5y">
-                                                    <rect key="frame" x="249" y="0.0" width="118" height="53.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sexo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbX-sw-6dJ">
+                                                    <rect key="frame" x="76" y="0.0" width="111" height="52.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="sQY-TJ-fAg" id="Eea-92-Eco"/>
-                                                    </connections>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Sexo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WvT-sy-8SZ">
-                                                    <rect key="frame" x="73" y="0.0" width="115" height="53.5"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo sanguíneo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCP-bp-cXR">
+                                                    <rect key="frame" x="250" y="0.0" width="120" height="53.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="sQY-TJ-fAg" id="d60-n8-9I1"/>
-                                                    </connections>
-                                                </textField>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wYm-jm-kKh" firstAttribute="leading" secondItem="fwc-bE-1ed" secondAttribute="trailing" constant="24" id="DSg-ul-LxZ"/>
                                                 <constraint firstItem="wYm-jm-kKh" firstAttribute="top" secondItem="svF-WQ-7JE" secondAttribute="topMargin" constant="6" id="Ge2-Ng-NlE"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="WvT-sy-8SZ" secondAttribute="bottom" constant="-8" id="IlA-08-UbO"/>
+                                                <constraint firstItem="ZCP-bp-cXR" firstAttribute="top" secondItem="svF-WQ-7JE" secondAttribute="topMargin" constant="-8" id="JCd-l4-p6Q"/>
                                                 <constraint firstItem="fwc-bE-1ed" firstAttribute="top" secondItem="svF-WQ-7JE" secondAttribute="top" id="N74-v9-Bm7"/>
-                                                <constraint firstItem="WvT-sy-8SZ" firstAttribute="leading" secondItem="W72-xt-hKj" secondAttribute="trailing" constant="23" id="OrO-Nl-7xn"/>
                                                 <constraint firstItem="fwc-bE-1ed" firstAttribute="centerX" secondItem="svF-WQ-7JE" secondAttribute="centerX" id="Q39-0T-9dw"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="wYm-jm-kKh" secondAttribute="bottom" constant="8.5" id="Ulw-L5-Fcj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qbX-sw-6dJ" secondAttribute="bottom" constant="-8" id="WG5-pe-jnr"/>
                                                 <constraint firstItem="W72-xt-hKj" firstAttribute="leading" secondItem="svF-WQ-7JE" secondAttribute="leadingMargin" constant="20" id="WPc-yh-Ob8"/>
-                                                <constraint firstItem="fAm-F6-V5y" firstAttribute="top" secondItem="svF-WQ-7JE" secondAttribute="topMargin" constant="-8" id="Y2m-Vq-4Uo"/>
-                                                <constraint firstItem="fAm-F6-V5y" firstAttribute="leading" secondItem="wYm-jm-kKh" secondAttribute="trailing" constant="20" id="Zvv-O5-goV"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="fAm-F6-V5y" secondAttribute="trailing" id="b0U-aN-js5"/>
-                                                <constraint firstItem="fwc-bE-1ed" firstAttribute="leading" secondItem="WvT-sy-8SZ" secondAttribute="trailing" constant="-1" id="cQU-9r-ikf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZCP-bp-cXR" secondAttribute="trailing" constant="-3" id="WRl-gE-igS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZCP-bp-cXR" secondAttribute="bottom" constant="-8" id="aGB-9D-Vmz"/>
+                                                <constraint firstItem="fwc-bE-1ed" firstAttribute="leading" secondItem="qbX-sw-6dJ" secondAttribute="trailing" id="apR-EZ-eCI"/>
+                                                <constraint firstItem="ZCP-bp-cXR" firstAttribute="leading" secondItem="wYm-jm-kKh" secondAttribute="trailing" constant="21" id="dOC-Nh-qEa"/>
                                                 <constraint firstItem="W72-xt-hKj" firstAttribute="top" secondItem="svF-WQ-7JE" secondAttribute="topMargin" constant="8" id="dzh-45-Zbi"/>
                                                 <constraint firstItem="fwc-bE-1ed" firstAttribute="centerY" secondItem="svF-WQ-7JE" secondAttribute="centerY" id="f7G-ew-lHU"/>
-                                                <constraint firstItem="WvT-sy-8SZ" firstAttribute="top" secondItem="svF-WQ-7JE" secondAttribute="topMargin" constant="-8" id="ijh-2o-En4"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="fAm-F6-V5y" secondAttribute="bottom" constant="-8" id="kkn-Ld-BL7"/>
+                                                <constraint firstItem="qbX-sw-6dJ" firstAttribute="top" secondItem="svF-WQ-7JE" secondAttribute="topMargin" constant="-8" id="jff-SG-mBH"/>
+                                                <constraint firstItem="qbX-sw-6dJ" firstAttribute="leading" secondItem="W72-xt-hKj" secondAttribute="trailing" constant="26" id="mfk-dU-K70"/>
                                                 <constraint firstItem="W72-xt-hKj" firstAttribute="centerY" secondItem="svF-WQ-7JE" secondAttribute="centerY" id="wT4-28-B9q"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -3190,7 +3189,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CPF" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="906-G5-96o">
                                                     <rect key="frame" x="76" y="0.0" width="299" height="53.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="sQY-TJ-fAg" id="960-xd-4QI"/>
                                                     </connections>
@@ -3378,7 +3377,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Peso (Kg)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9pD-sE-jZN">
                                                     <rect key="frame" x="71" y="0.0" width="66.5" height="53.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="sQY-TJ-fAg" id="Nky-tS-C38"/>
                                                     </connections>
@@ -3386,7 +3385,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Altura (m)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Apa-3S-rTN">
                                                     <rect key="frame" x="236" y="0.0" width="139" height="53.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="sQY-TJ-fAg" id="lcg-3y-ef0"/>
                                                     </connections>
@@ -3524,7 +3523,7 @@
                         <outlet property="patientBirthDatePicker" destination="ldh-oY-0f0" id="3nr-3p-i5I"/>
                         <outlet property="patientBirthdateImageView" destination="4DP-kd-ELI" id="NOS-bd-7lI"/>
                         <outlet property="patientBloodTypeImageView" destination="wYm-jm-kKh" id="GE0-2v-emT"/>
-                        <outlet property="patientBloodTypeTextField" destination="fAm-F6-V5y" id="OUW-6r-HVY"/>
+                        <outlet property="patientBloodTypeLabel" destination="ZCP-bp-cXR" id="XBC-x4-ezz"/>
                         <outlet property="patientCPFImageView" destination="8Wd-mL-KOw" id="TcY-UJ-1um"/>
                         <outlet property="patientCPFTextField" destination="906-G5-96o" id="wK9-dp-C05"/>
                         <outlet property="patientClinicalConditionsImageView" destination="HpL-y5-UtS" id="0Xz-VQ-ROl"/>
@@ -3539,7 +3538,7 @@
                         <outlet property="patientObservationsImageView" destination="e92-jK-xke" id="sn3-Ak-MFU"/>
                         <outlet property="patientObservationsTextField" destination="MLa-oo-L3A" id="zcY-50-CdJ"/>
                         <outlet property="patientSexImageView" destination="W72-xt-hKj" id="lTl-zz-qQf"/>
-                        <outlet property="patientSexTextField" destination="WvT-sy-8SZ" id="ljV-sP-84O"/>
+                        <outlet property="patientSexLabel" destination="qbX-sw-6dJ" id="hX5-tA-bcQ"/>
                         <outlet property="patientTelephoneTextField" destination="nYT-bI-AUv" id="y7F-22-ovK"/>
                         <outlet property="patientWeightImageView" destination="HCl-80-oPr" id="t6B-eN-rfD"/>
                         <outlet property="patientWeightTextField" destination="9pD-sE-jZN" id="jSa-Me-r1t"/>

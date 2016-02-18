@@ -10,8 +10,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *cameraImageView;
 @property (weak, nonatomic) IBOutlet UITextField *patientNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *patientTelephoneTextField;
-@property (weak, nonatomic) IBOutlet UITextField *patientSexTextField;
-@property (weak, nonatomic) IBOutlet UITextField *patientBloodTypeTextField;
+@property (weak, nonatomic) IBOutlet UILabel *patientSexLabel;
+@property (weak, nonatomic) IBOutlet UILabel *patientBloodTypeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *patientClinicalConditionsTextField;
 @property (weak, nonatomic) IBOutlet UITextField *patientMedicationsTextField;
 @property (weak, nonatomic) IBOutlet UITextField *patientAlergiesTextField;
@@ -58,10 +58,8 @@
 - (IBAction)didTappedForSaveNewPatient:(id)sender{
     Patient* patient = [[Patient alloc] init];
     if (![self.patientNameTextField.text isEqualToString:@"Nome"])  patient.patientNameString =  self.patientNameTextField.text;
-    if (![self.patientSexTextField.text isEqualToString:@"Sexo"]) patient.patientGenderString = self.patientSexTextField.text;
-   // patient.patientRGString = self.patientRGTextView.text;
-   if (![self.patientCPFTextField.text isEqualToString:@"CPF"])  patient.patientCPFString = self.patientCPFTextField.text;
-   // patient.patientAgeString = self.patientAgeTextView.text;
+    if (![self.patientSexLabel.text isEqualToString:@"Sexo"]) patient.patientGenderString = self.patientSexLabel.text;
+    if (![self.patientCPFTextField.text isEqualToString:@"CPF"])  patient.patientCPFString = self.patientCPFTextField.text;
     if (![self.cameraImageView.image isEqual:[UIImage imageNamed:@"icone-foto"]]) {
         UIImage* patientImage = self.cameraImageView.image;
         patient.patientPhotoData = UIImageJPEGRepresentation(patientImage, 0.8);
@@ -69,12 +67,13 @@
     if (![self.patientAdressTextField.text isEqualToString:@"Endereço"]) patient.patientAdressString = self.patientAdressTextField.text;
     if (![self.patientWeightTextField.text isEqualToString:@"Peso (kg)"]) patient.patientWeightString = self.patientWeightTextField.text;
     if (![self.patientHeightTextField.text isEqualToString:@"Altura (cm)"]) patient.patientHeightString = self.patientHeightTextField.text;
-    if (![self.patientBloodTypeTextField.text isEqualToString:@"Tipo sanguíneo"]) patient.patientBloodTypeString = self.patientBloodTypeTextField.text;
+    if (![self.patientBloodTypeLabel.text isEqualToString:@"Tipo sanguíneo"]) patient.patientBloodTypeString = self.patientBloodTypeLabel.text;
     if (![self.patientEmergencyContactTextField.text isEqualToString:@"Contato de emergência"]) patient.patientEmergencyContactString = self.patientEmergencyContactTextField.text;
     if (![self.patientMedicationsTextField.text isEqualToString:@"Medicamentos"]) patient.patientMedicationsString = self.patientMedicationsTextField.text;
     if (![self.patientObservationsTextField.text isEqualToString:@"Observações"]) patient.patientObservationsString = self.patientObservationsTextField.text;
     if (![self.patientAlergiesTextField.text isEqualToString:@"Alergias"]) patient.patientAlergiesString = self.patientAlergiesTextField.text;
     if (![self.patientClinicalConditionsTextField.text isEqualToString:@"Condições clínicas"]) patient.patientClinicalConditionsString = self.patientClinicalConditionsTextField.text;
+    if ([self.patientBirthDatePicker date]) patient.patientBirthDate = [self.patientBirthDatePicker date];
     
     Envio* envio = [[Envio alloc] init];
     [envio newPatient:patient];
@@ -108,11 +107,11 @@
     } else if(actionSheet.tag == 2) {
         switch (buttonIndex) {
             case 0:
-                self.patientSexTextField.text = @"Masculino";
+                self.patientSexLabel.text = @"Masculino";
                 self.patientSexImageView.image = [UIImage imageNamed:@"sexo-laranja"];
                 break;
             case 1:
-                self.patientSexTextField.text = @"Feminino";
+                self.patientSexLabel.text = @"Feminino";
                 self.patientSexImageView.image = [UIImage imageNamed:@"sexo-laranja"];
                 break;
             default:
@@ -121,35 +120,35 @@
     } else if(actionSheet.tag == 3){
         switch (buttonIndex) {
             case 0:
-                self.patientBloodTypeTextField.text = @"A+";
+                self.patientBloodTypeLabel.text = @"A+";
                 self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
                 break;
             case 1:
-                self.patientBloodTypeTextField.text = @"A-";
+                self.patientBloodTypeLabel.text = @"A-";
                 self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
                 break;
             case 2:
-                self.patientBloodTypeTextField.text = @"B+";
+                self.patientBloodTypeLabel.text = @"B+";
                 self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
                 break;
             case 3:
-                self.patientBloodTypeTextField.text = @"B-";
+                self.patientBloodTypeLabel.text = @"B-";
                 self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
                 break;
             case 4:
-                self.patientBloodTypeTextField.text = @"O+";
+                self.patientBloodTypeLabel.text = @"O+";
                 self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
                 break;
             case 5:
-                self.patientBloodTypeTextField.text = @"O-";
+                self.patientBloodTypeLabel.text = @"O-";
                 self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
                 break;
             case 6:
-                self.patientBloodTypeTextField.text = @"AB+";
+                self.patientBloodTypeLabel.text = @"AB+";
                 self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
                 break;
             case 7:
-                self.patientBloodTypeTextField.text = @"AB-";
+                self.patientBloodTypeLabel.text = @"AB-";
                 self.patientBloodTypeImageView.image = [UIImage imageNamed:@"tiposanguineo-laranja"];
                 break;
             default:
@@ -170,13 +169,13 @@
 
 #pragma mark - Private Methods
 - (void) setupGestureRecognizers{
-    UITapGestureRecognizer* tapBloodTypeTextView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedIntoBloodTypeLabel)];
-    [self.patientBloodTypeTextField setUserInteractionEnabled:YES];
-    [self.patientBloodTypeTextField addGestureRecognizer:tapBloodTypeTextView];
+    UITapGestureRecognizer* tapBloodTypeLabel = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedIntoBloodTypeLabel)];
+    [self.patientBloodTypeLabel setUserInteractionEnabled:YES];
+    [self.patientBloodTypeLabel addGestureRecognizer:tapBloodTypeLabel];
     
-    UITapGestureRecognizer* tapSexTextView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedIntoSexLabel)];
-    [self.patientSexTextField setUserInteractionEnabled:YES];
-    [self.patientSexTextField addGestureRecognizer:tapSexTextView];
+    UITapGestureRecognizer* tapSexLabel = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedIntoSexLabel)];
+    [self.patientSexLabel setUserInteractionEnabled:YES];
+    [self.patientSexLabel addGestureRecognizer:tapSexLabel];
     
     UITapGestureRecognizer* tapCamera = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTappedIntoCameraIcon)];
     [self.cameraImageView setUserInteractionEnabled:YES];
@@ -188,8 +187,8 @@
 }
 
 - (void) didTappedIntoBloodTypeLabel{
-    [self.patientBloodTypeTextField resignFirstResponder];
-    [self.patientBloodTypeTextField endEditing:YES];
+    [self.patientBloodTypeLabel resignFirstResponder];
+    [self.patientBloodTypeLabel endEditing:YES];
     
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"A+",@"A-",@"B+",@"B-",@"O+",@"O-",@"AB+",@"AB-", nil];
     actionSheet.tag = 3;
@@ -215,6 +214,7 @@
 }
 
 - (void) didTappedIntoBirthLabel{
+    [self.view endEditing:YES];
     self.patientBirthDateLabel.hidden = YES;
     self.patientBirthDatePicker.hidden = NO;
 }

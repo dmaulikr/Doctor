@@ -128,7 +128,7 @@
     newPatient[@"gender"] = patient.patientGenderString ? patient.patientGenderString : @"";
     newPatient[@"address"] = patient.patientAdressString ? patient.patientAdressString : @"";
     newPatient[@"alergies"] = patient.patientAlergiesString ? patient.patientAlergiesString : @"";
-    newPatient[@"birthdate"] = patient.patientBirthDateString ? patient.patientBirthDateString : @"";
+    newPatient[@"birthdate"] = patient.patientBirthDate ? patient.patientBirthDate : @"";
     newPatient[@"bloodtype"] = patient.patientBloodTypeString ? patient.patientBloodTypeString : @"";
     newPatient[@"clinicalConditions"] = patient.patientClinicalConditionsString ? patient.patientClinicalConditionsString : @"";
     newPatient[@"emergencyContact"] = patient.patientEmergencyContactString ? patient.patientEmergencyContactString : @"";
@@ -298,7 +298,7 @@
                 patient.patientObjectId = object.objectId;
                 patient.patientAdressString = [object objectForKey:@"address"];
                 patient.patientAlergiesString = [object objectForKey:@"alergies"];
-                patient.patientBirthDateString = [object objectForKey:@"birthdate"];
+                patient.patientBirthDate = [object objectForKey:@"birthdate"];
                 patient.patientBloodTypeString = [object objectForKey:@"bloodtype"];
                 patient.patientClinicalConditionsString = [object objectForKey:@"clinicalConditions"];
                 patient.patientEmergencyContactString = [object objectForKey:@"emergencyContact"];
@@ -339,7 +339,7 @@
                 patient.patientObjectId = object.objectId;
                 patient.patientAdressString = [object objectForKey:@"address"];
                 patient.patientAlergiesString = [object objectForKey:@"alergies"];
-                patient.patientBirthDateString = [object objectForKey:@"birthdate"];
+                patient.patientBirthDate = [object objectForKey:@"birthdate"];
                 patient.patientBloodTypeString = [object objectForKey:@"bloodtype"];
                 patient.patientClinicalConditionsString = [object objectForKey:@"clinicalConditions"];
                 patient.patientEmergencyContactString = [object objectForKey:@"emergencyContact"];
@@ -1026,7 +1026,7 @@
     PFObject *point = [PFObject objectWithoutDataWithClassName:@"Patient" objectId:patientId];
     if (patient.patientNameString) [point setObject:patient.patientNameString forKey:@"name"];
     if (patient.patientBloodTypeString) [point setObject:patient.patientBloodTypeString forKey:@"bloodtype"];
-    if (patient.patientBirthDateString) [point setObject:patient.patientBirthDateString forKey:@"birthdate"];
+    if (patient.patientBirthDate) [point setObject:patient.patientBirthDate forKey:@"birthdate"];
     if (patient.patientClinicalConditionsString) [point setObject:patient.patientClinicalConditionsString forKey:@"clinicalConditions"];
     if (patient.patientEmergencyContactString) [point setObject:patient.patientEmergencyContactString forKey:@"emergencyContact"];
     if (patient.patientHeightString) [point setObject:patient.patientHeightString forKey:@"height"];
