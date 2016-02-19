@@ -338,37 +338,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="brunomuniz - 01241898910" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMQ-MI-C48">
-                                            <rect key="frame" x="17" y="10" width="234" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="brunomuniz - 01241898910" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMQ-MI-C48">
+                                            <rect key="frame" x="23" y="5" width="228.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="07:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I2-GD-bkY">
-                                            <rect key="frame" x="286" y="12" width="79" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I2-GD-bkY">
+                                            <rect key="frame" x="300" y="6" width="66.5" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Paciente se sentindo mole, com dores no corpo e febre alta. Apesar da suspeita de dengue, há um agravante que deve ser le..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rDp-AV-6BS">
-                                            <rect key="frame" x="17" y="18.5" width="348" height="73.5"/>
+                                            <rect key="frame" x="17" y="18" width="350" height="73.5"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="rDp-AV-6BS" secondAttribute="bottom" id="FQp-4Q-d7A"/>
-                                        <constraint firstItem="8I2-GD-bkY" firstAttribute="leading" secondItem="hMQ-MI-C48" secondAttribute="trailing" constant="35" id="GKF-0i-8Os"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="8I2-GD-bkY" secondAttribute="bottom" constant="59" id="GP1-qB-lKB"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="8I2-GD-bkY" secondAttribute="trailing" constant="2" id="ONy-di-pK5"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="hMQ-MI-C48" secondAttribute="bottom" constant="61" id="SRG-aQ-7hs"/>
-                                        <constraint firstItem="rDp-AV-6BS" firstAttribute="leading" secondItem="hMQ-MI-C48" secondAttribute="leading" id="a1a-dp-sLA"/>
-                                        <constraint firstItem="hMQ-MI-C48" firstAttribute="top" secondItem="gx4-3f-EGv" secondAttribute="topMargin" constant="2" id="dY5-eR-KGm"/>
-                                        <constraint firstItem="rDp-AV-6BS" firstAttribute="trailing" secondItem="8I2-GD-bkY" secondAttribute="trailing" id="ee8-hk-i8N"/>
-                                        <constraint firstItem="8I2-GD-bkY" firstAttribute="leading" secondItem="hMQ-MI-C48" secondAttribute="trailing" constant="35" id="fgo-1c-P0q"/>
-                                        <constraint firstItem="hMQ-MI-C48" firstAttribute="leading" secondItem="gx4-3f-EGv" secondAttribute="leadingMargin" constant="9" id="q6z-ec-mvQ"/>
-                                        <constraint firstItem="8I2-GD-bkY" firstAttribute="top" secondItem="gx4-3f-EGv" secondAttribute="topMargin" constant="4" id="r8Y-26-rMW"/>
+                                        <constraint firstItem="8I2-GD-bkY" firstAttribute="centerY" secondItem="hMQ-MI-C48" secondAttribute="centerY" id="6DB-aI-aSD"/>
+                                        <constraint firstItem="hMQ-MI-C48" firstAttribute="top" secondItem="gx4-3f-EGv" secondAttribute="topMargin" constant="-3" id="6j6-f3-bb3"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="rDp-AV-6BS" secondAttribute="trailing" id="IhU-VQ-7pa"/>
+                                        <constraint firstItem="rDp-AV-6BS" firstAttribute="top" secondItem="hMQ-MI-C48" secondAttribute="bottom" constant="-7.5" id="LRz-y0-gAt"/>
+                                        <constraint firstItem="hMQ-MI-C48" firstAttribute="leading" secondItem="gx4-3f-EGv" secondAttribute="leadingMargin" constant="15" id="Vyz-yi-oaR"/>
+                                        <constraint firstItem="rDp-AV-6BS" firstAttribute="leading" secondItem="gx4-3f-EGv" secondAttribute="leadingMargin" constant="9" id="b15-sM-fPA"/>
+                                        <constraint firstItem="rDp-AV-6BS" firstAttribute="bottom" secondItem="gx4-3f-EGv" secondAttribute="bottomMargin" id="muA-tK-YuY"/>
+                                        <constraint firstItem="8I2-GD-bkY" firstAttribute="trailing" secondItem="gx4-3f-EGv" secondAttribute="trailingMargin" id="tZ6-WK-QS6"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

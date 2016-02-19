@@ -11,7 +11,6 @@
 
 @interface ForumSeeTopicTableViewController () <ForumTopicDropdownViewControllerDelegate, ForumMessageSendTableViewCellDelegate>{
     NSMutableArray* tableViewDataArray;
-    UIActivityIndicatorView* spinner;
     Envio* envio;
     BOOL isPresentingDropdown;
 
@@ -27,7 +26,7 @@
     [super viewDidLoad];
     envio = [[Envio alloc] init];
     tableViewDataArray = [[NSMutableArray alloc] init];
-    [self setupLoadingAnimation];
+    [SVProgressHUD show];
     [self setupDataSource];
     [self loadGestureRecognizers];
     self.tableView.tableFooterView = [UIView new];
@@ -108,15 +107,6 @@
     }
 }
 
-- (void) setupLoadingAnimation{
-//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-//    spinner.center = self.view.center;
-//    spinner.tag = 12;
-//    [self.view addSubview:spinner];
-//    [spinner startAnimating];
-       [SVProgressHUD show];
-}
-
 - (void) didTappedSendButtom:(NSString *)text{
     ForumTopicMessage* topicMessage = [[ForumTopicMessage alloc] init];
     topicMessage.messageForumContent = text;
@@ -126,8 +116,8 @@
     
     [envio newMessage:topicMessage whenComplete:^void(BOOL finished){
         if (finished) {
+            [SVProgressHUD show];
             [self setupDataSource];
-            [self setupLoadingAnimation];
         }
         else{
             [self.tableView reloadData];

@@ -34,6 +34,9 @@
 - (void) viewWillAppear:(BOOL)animated{
     [self setupDataSource];
 }
+- (void) viewWillDisappear:(BOOL)animated{
+    [SVProgressHUD dismiss];
+}
 
 #pragma mark - IBActions
 -(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{
