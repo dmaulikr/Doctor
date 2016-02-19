@@ -6,7 +6,6 @@
 
 @import VerifyIosSdk;
 @interface OutsideRecoverPasswordViewController () <UITextViewDelegate>{
-    UIActivityIndicatorView* spinner;
     Doctor* doctorBeingRecovered;
 }
 
@@ -29,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupLoadingAnimation];
+    [SVProgressHUD show];
     self.navigationController.navigationBarHidden = NO;
     self.confirmTokenButton.layer.cornerRadius = 3;
     [self textViewSetups];
@@ -38,6 +37,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = NO;
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:(5/255.0f) green:(65/255.0f) blue:(93/255.0f) alpha:1.0f]];
@@ -278,13 +278,6 @@
     }];
 }
 
-- (void) setupLoadingAnimation{
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.center = self.view.center;
-    spinner.tag = 12;
-    [self.view addSubview:spinner];
-}
-
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"tokenConfirmedSegue"]) {
         OutsideRecoverNewPasswordViewController* vc = segue.destinationViewController;
@@ -293,14 +286,12 @@
 }
 
 - (void) sendVerifyingMessage{
-    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:doctorBeingRecovered.doctorContactString verifyInProgressBlock:^{
+    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:doctorBeingRecovered.doctorContactString verifyInProgressBlock:^{} userVerifiedBlock:^{
+        [self userVerifySuccess];
     }
-                               userVerifiedBlock:^{
-                                   [self userVerifySuccess];
-                               }
-                                      errorBlock:^(VerifyError error) {
-                                          [self userVerifyFailed];
-                                      }];
+    errorBlock:^(VerifyError error) {
+//        [self userVerifyFailed];
+    }];
 }
 
 - (void) userVerifySuccess{

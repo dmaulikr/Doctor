@@ -214,11 +214,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/OutsideRecoverPasswordViewController.m"
-            timestampString = "477437330.82897"
+            timestampString = "477566062.939209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "-liberateAlphas"
             landmarkType = "5">
          </BreakpointContent>
@@ -514,54 +514,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Doctor/OutsideRecoverPasswordViewController.m"
-            timestampString = "477437330.82897"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
-            landmarkName = "-userVerifySuccess"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Doctor/OutsideRecoverPasswordViewController.m"
-            timestampString = "477437330.82897"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
-            landmarkName = "-userVerifySuccess"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Doctor/OutsideRecoverPasswordViewController.m"
-            timestampString = "477437330.82897"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
-            landmarkName = "-userVerifySuccess"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -614,11 +566,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doctor/OutsideRecoverPasswordViewController.m"
-            timestampString = "477437330.82897"
+            timestampString = "477566062.939209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "-confirmLoginButtonTapped:"
             landmarkType = "5">
          </BreakpointContent>
@@ -726,12 +678,12 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "477546172.273105"
+                  timestampString = "477566064.053138"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1086"
                   endingLineNumber = "1086"
-                  offsetFromSymbolStart = "1536">
+                  offsetFromSymbolStart = "1557">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -741,12 +693,12 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "477546172.273271"
+                  timestampString = "477566064.053472"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "20">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -756,12 +708,12 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "477546172.273404"
+                  timestampString = "477566064.05366"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "14">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -917,12 +869,12 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "477546172.275781"
+                  timestampString = "477566064.05989"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "221"
                   endingLineNumber = "221"
-                  offsetFromSymbolStart = "2380">
+                  offsetFromSymbolStart = "2464">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -932,7 +884,7 @@
                   moduleName = "Doctor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bmaf/Desktop/Bruno/Desenvolvimento/Doctor/Doctor/Doctor/Envio.m"
-                  timestampString = "477546172.275895"
+                  timestampString = "477566064.060052"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "221"
@@ -1142,6 +1094,34 @@
             endingLineNumber = "152"
             landmarkName = "-prepareForSegue:sender:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Doctor/ForumSeeTopicTableViewController.m"
+            timestampString = "477565755.247041"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Doctor/ForumSeeTopicTableViewController.m"
+            timestampString = "477565756.426962"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
