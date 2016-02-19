@@ -9,6 +9,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *settingsNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *settingsCRMLabel;
 @property (nonatomic, weak) IBOutlet UILabel *settingsContactLabel;
+@property (nonatomic, weak) IBOutlet UILabel *settingsAddressLabel;
 @property (nonatomic, weak) IBOutlet MKMapView *mapView;
 @property (nonatomic, weak) IBOutlet UIImageView *settingsSAAPCameraImageView;
 
@@ -43,6 +44,8 @@
         self.settingsSAAPCameraImageView.contentMode = UIViewContentModeScaleAspectFill;
         self.settingsSAAPCameraImageView.image = [UIImage imageWithData:self.doctor.doctorPhotoData];
     }
+    self.settingsAddressLabel.text = self.doctor.doctorAddressString;
+    
 }
 
 #pragma mark - MKMapViewDelegate

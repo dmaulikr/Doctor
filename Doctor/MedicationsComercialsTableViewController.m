@@ -6,7 +6,6 @@
 
 @interface MedicationsComercialsTableViewController () <UISearchBarDelegate> {
     NSMutableArray* tableViewDataArray;
-    UIActivityIndicatorView* spinner;
     NSString* wordToSearch;
     BOOL isSearching;
 }
@@ -25,8 +24,14 @@
     tableViewDataArray = [[NSMutableArray alloc] init];
     self.filteredMedicationsArray = [[NSMutableArray alloc] init];
     self.medicationsArray = [[NSMutableArray alloc] init];
-    [self setupLoadingAnimation];
+    [SVProgressHUD showWithStatus:@"Carregando 1000+ nomes comerciais"];
     [self setupDataSource];
+}
+
+
+- (void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
@@ -73,15 +78,6 @@
         MedicationSelectedViewController * medicationSelected = segue.destinationViewController;
         [medicationSelected setWordToSearchString:wordToSearch];
     }
-}
-
-- (void) setupLoadingAnimation{
-//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-//    spinner.center = self.view.center;
-//    spinner.tag = 12;
-//    [self.view addSubview:spinner];
-//    [spinner startAnimating];
-   [SVProgressHUD show];
 }
 
 #pragma mark - UISearchBarDelegate Methods

@@ -394,6 +394,7 @@
     NSMutableArray* medications = [[NSMutableArray alloc]init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Medication"];
+    query.limit = 1000;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
@@ -421,6 +422,7 @@
     NSMutableArray* medications = [[NSMutableArray alloc]init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"AllMeds"];
+    query.limit = 1000;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
@@ -446,6 +448,7 @@
     NSMutableArray* labsArray = [[NSMutableArray alloc]init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Labs"];
+    query.limit = 1000;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
@@ -471,6 +474,7 @@
     NSMutableArray* PAsArray = [[NSMutableArray alloc]init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"ActivePrinciples"];
+    query.limit = 1000;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {

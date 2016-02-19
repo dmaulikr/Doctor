@@ -10,8 +10,6 @@ pod 'MFSideMenu'
 pod 'SWTableViewCell', '~> 0.3.7'
 pod 'UIViewController+KBDropdownController'
 pod 'SVProgressHUD', :head
-pod 'SSFlatDatePicker'
-
 
 end
 

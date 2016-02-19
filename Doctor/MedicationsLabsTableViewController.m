@@ -6,10 +6,9 @@
 #import "SVProgressHUD.h"
 
 @interface MedicationsLabsTableViewController () <UISearchBarDelegate> {
-NSMutableArray* tableViewDataArray;
-UIActivityIndicatorView* spinner;
+    NSMutableArray* tableViewDataArray;
     NSString* wordToSearch;
-BOOL isSearching;
+    BOOL isSearching;
 }
 
 @property (strong, nonatomic) IBOutlet UISearchBar *medicationsSearchBar;
@@ -25,9 +24,14 @@ BOOL isSearching;
     tableViewDataArray = [[NSMutableArray alloc] init];
     self.filteredLabsArray = [[NSMutableArray alloc] init];
     self.labsArray = [[NSMutableArray alloc] init];
-    [self setupLoadingAnimation];
+    [SVProgressHUD showWithStatus:@"Carregando 180+ laboratórios farmacêuticos"];
     [self setupDataSource];
     self.tableView.tableFooterView = [UIView new];
+}
+
+- (void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
@@ -80,15 +84,6 @@ BOOL isSearching;
         [medicationSelected setWordToSearchString:wordToSearch];
     }
 
-}
-
-- (void) setupLoadingAnimation{
-//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-//    spinner.center = self.view.center;
-//    spinner.tag = 12;
-//    [self.view addSubview:spinner];
-//    [spinner startAnimating];
-       [SVProgressHUD show];
 }
 
 #pragma mark - UISearchBarDelegate Methods

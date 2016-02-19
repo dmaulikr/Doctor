@@ -24,11 +24,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SSFlatDatePicker.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,32 +42,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1F720D95ABBBAAE2C94F17ADEE4F15EF</key>
+		<key>2D6B63283840089E5F6FDC07C34FB3AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>209CB1CF507493691728ABD2DF1E1C17</key>
+		<key>3209C7FDD6F590379B0FCB61BC1DA4EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>57CCA71CA75FEB40745CD83C70D98092</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>97297A8CE14F01DF3E7F84DD492784F1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BDE82424877F927353A4D740C77CDE7A</key>
+		<key>CBE0A5481AB1D0E3D7730CB45BE1D163</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>CDE0B7668B6EC1B2BF166A65E070AF5E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E02B3448767D5A567B91F02C67DA89E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

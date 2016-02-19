@@ -6,7 +6,6 @@
 
 @interface MedicationsClassesTableViewController () <UISearchBarDelegate> {
     NSMutableArray* tableViewDataArray;
-    UIActivityIndicatorView* spinner;
     BOOL isSearching;
     NSString* toLook;
 }
@@ -24,10 +23,14 @@
     tableViewDataArray = [[NSMutableArray alloc] init];
     self.filteredMedicationsArray = [[NSMutableArray alloc] init];
     self.medicationsArray = [[NSMutableArray alloc] init];
-    [self setupLoadingAnimation];
+    [SVProgressHUD showWithStatus:@"Carregando 80+ classes de fármacos"];
     [self setupDataSource];
 }
 
+- (void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    [SVProgressHUD dismiss];
+}
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -41,23 +44,24 @@
     if (cell==nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MedicationsTableViewCellID];
     }
-    
     Medication* medication = [[Medication alloc] init];
     medication = tableViewDataArray[indexPath.row];
     cell.textLabel.text = medication.medicationCategoryString;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if ([medication isEqual:[tableViewDataArray lastObject]]) {
+//        [self didReachedLastRow];
+    }
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Medication* med = [[Medication alloc] init];
     med = tableViewDataArray[indexPath.row];
     toLook = med.medicationCategoryString;
     [self performSegueWithIdentifier:@"medChoosedSegueId" sender:self];
-    
 }
 
-#pragma mark - Setups
+#pragma mark - Private methods
 - (void)setupDataSource{
     Envio* newEnvio = [[Envio alloc]init];
     [newEnvio fetchAllMedications: ^void (NSMutableArray* medicationArray){
@@ -84,15 +88,6 @@
     }
 }
 
-- (void) setupLoadingAnimation{
-//    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-//    spinner.center = self.view.center;
-//    spinner.tag = 12;
-//    [self.view addSubview:spinner];
-//    [spinner startAnimating];
-       [SVProgressHUD show];
-}
-
 #pragma mark - UISearchBarDelegate Methods
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([searchText isEqualToString:@""]) {
@@ -115,11 +110,6 @@
     }
 }
 
-#pragma mark - UITouchDelegate Methods
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    UITouch* touch = [[event allTouches] anyObject];
-    if ([_medicationsSearchBar isFirstResponder] && [touch view] != _medicationsSearchBar) [_medicationsSearchBar resignFirstResponder];
-}
 @end
 
 
