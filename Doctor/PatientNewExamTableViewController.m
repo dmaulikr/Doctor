@@ -66,6 +66,10 @@
     [self setupLoadingAnimation];
     imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.delegate = self;
+    
+    self.firstExamCameraChangeImageView.hidden = YES;
+    self.secondExamCameraChangeImageView.hidden = YES;
+    self.thirdExamCameraChangeImageView.hidden = YES;
 }
 
 - (void) loadPatientHeaderData{
@@ -330,6 +334,7 @@
                     self.firstExamImageView.image = nil;
                     hasFirstExam = false;
                     self.firstExamEmptyCameraImageView.hidden = NO;
+                    self.firstExamCameraChangeImageView.hidden = YES;
                     [self.tableView reloadData];
                     break;
                 case 2:
@@ -372,6 +377,7 @@
                 case 1:
                     self.secondExamImageView.image = nil;
                     self.secondExamEmptyCameraImageView.hidden = NO;
+                    self.secondExamCameraChangeImageView.hidden = YES;
                     hasSecondExam = false;
                     [self.tableView reloadData];
                     break;
@@ -419,6 +425,7 @@
                     self.thirdExamImageView.image = nil;
                     hasThirdExam = false;
                     self.thirdExamEmptyCameraImageView.hidden = NO;
+                    self.thirdExamCameraChangeImageView.hidden = YES;
                     [self.tableView reloadData];
                     break;
                 case 2:
@@ -516,6 +523,7 @@
         [self.firstExamImageView setImage:image];
         hasFirstExam = true;
         self.firstExamEmptyCameraImageView.hidden = YES;
+        self.firstExamCameraChangeImageView.hidden = NO;
         [self.firstExamImageView setContentMode:UIViewContentModeScaleAspectFill];
     }
     if (requiringSecondExamImage) {
@@ -523,6 +531,7 @@
         [self.secondExamImageView setImage:image];
         hasSecondExam = true;
         self.secondExamEmptyCameraImageView.hidden = YES;
+        self.secondExamCameraChangeImageView.hidden = NO;
         [self.secondExamImageView setContentMode:UIViewContentModeScaleAspectFill];
     }
     if (requiringThirdExamImage) {
@@ -530,6 +539,7 @@
         [self.thirdExamImageView setImage:image];
         hasThirdExam = true;
         self.thirdExamEmptyCameraImageView.hidden = YES;
+        self.thirdExamCameraChangeImageView.hidden = NO;
         [self.thirdExamImageView setContentMode:UIViewContentModeScaleAspectFill];
     }
     [self dismissViewControllerAnimated:YES completion:nil];

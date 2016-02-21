@@ -61,6 +61,7 @@
         [self.firstExamImageView setContentMode:UIViewContentModeScaleAspectFill];
     } else {
         hasFirstExam = false;
+        self.firstExamCameraChangeImageView.hidden = YES;
     }
     
     if (self.exam.photoTwoData){
@@ -71,6 +72,7 @@
         [self.secondExamImageView setContentMode:UIViewContentModeScaleAspectFill];
     } else {
         hasSecondExam = false;
+        self.secondExamCameraChangeImageView.hidden = YES;
     }
     
     if (self.exam.photoThirdData){
@@ -81,6 +83,7 @@
         [self.thirdExamImageView setContentMode:UIViewContentModeScaleAspectFill];
     } else {
         hasThirdExam = false;
+        self.thirdExamCameraChangeImageView.hidden = YES;
     }
 }
 
@@ -166,12 +169,12 @@
 }
 
 - (void) didTappedFirstCameraChange{
-//    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", @"Salvar", nil];
-//    [action showInView:self.view];
+    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", @"Salvar", nil];
+    [action showInView:self.view];
 }
 - (void) didTappedFirstEmptyCamera{
-//    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", nil];
-//    [action showInView:self.view];
+    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", nil];
+    [action showInView:self.view];
 }
 - (void) didTappedFirstExam{
     if (hasFirstExam) {
@@ -181,12 +184,12 @@
     }
 }
 - (void) didTappedSecondCameraChange{
-//    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", @"Salvar", nil];
-//    [action showInView:self.view];
+    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", @"Salvar", nil];
+    [action showInView:self.view];
 }
 - (void) didTappedSecondEmptyCamera{
-//    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", nil];
-//    [action showInView:self.view];
+    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", nil];
+    [action showInView:self.view];
 }
 - (void) didTappedSecondExam{
     if (hasSecondExam) {
@@ -196,12 +199,12 @@
     }
 }
 - (void) didTappedThirdCameraChange{
-//    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", @"Salvar", nil];
-//    [action showInView:self.view];
+    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", @"Salvar", nil];
+    [action showInView:self.view];
 }
 - (void) didTappedThirdEmptyCamera{
-//    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", nil];
-//    [action showInView:self.view];
+    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Usar rolo da câmera", @"Tirar uma foto", nil];
+    [action showInView:self.view];
 }
 - (void) didTappedThirdExam{
     if (hasThirdExam) {
