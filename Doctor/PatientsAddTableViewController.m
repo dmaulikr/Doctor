@@ -57,22 +57,23 @@
 #pragma mark - IBAction
 - (IBAction)didTappedForSaveNewPatient:(id)sender{
     Patient* patient = [[Patient alloc] init];
-    if (![self.patientNameTextField.text isEqualToString:@"Nome"])  patient.patientNameString =  self.patientNameTextField.text;
-    if (![self.patientSexLabel.text isEqualToString:@"Sexo"]) patient.patientGenderString = self.patientSexLabel.text;
-    if (![self.patientCPFTextField.text isEqualToString:@"CPF"])  patient.patientCPFString = self.patientCPFTextField.text;
-    if (![self.cameraImageView.image isEqual:[UIImage imageNamed:@"icone-foto"]]) {
+    if (![self.patientNameTextField.text isEqualToString:@""])  patient.patientNameString =  self.patientNameTextField.text;
+    if (![self.patientSexLabel.text isEqualToString:@""]) patient.patientGenderString = self.patientSexLabel.text;
+    if (![self.patientCPFTextField.text isEqualToString:@""])  patient.patientCPFString = self.patientCPFTextField.text;
+    if (![self.cameraImageView.image isEqual:[UIImage imageNamed:@""]]) {
         UIImage* patientImage = self.cameraImageView.image;
         patient.patientPhotoData = UIImageJPEGRepresentation(patientImage, 0.8);
     }
-    if (![self.patientAdressTextField.text isEqualToString:@"Endereço"]) patient.patientAdressString = self.patientAdressTextField.text;
-    if (![self.patientWeightTextField.text isEqualToString:@"Peso (kg)"]) patient.patientWeightString = self.patientWeightTextField.text;
-    if (![self.patientHeightTextField.text isEqualToString:@"Altura (cm)"]) patient.patientHeightString = self.patientHeightTextField.text;
-    if (![self.patientBloodTypeLabel.text isEqualToString:@"Tipo sanguíneo"]) patient.patientBloodTypeString = self.patientBloodTypeLabel.text;
-    if (![self.patientEmergencyContactTextField.text isEqualToString:@"Contato de emergência"]) patient.patientEmergencyContactString = self.patientEmergencyContactTextField.text;
-    if (![self.patientMedicationsTextField.text isEqualToString:@"Medicamentos"]) patient.patientMedicationsString = self.patientMedicationsTextField.text;
-    if (![self.patientObservationsTextField.text isEqualToString:@"Observações"]) patient.patientObservationsString = self.patientObservationsTextField.text;
-    if (![self.patientAlergiesTextField.text isEqualToString:@"Alergias"]) patient.patientAlergiesString = self.patientAlergiesTextField.text;
-    if (![self.patientClinicalConditionsTextField.text isEqualToString:@"Condições clínicas"]) patient.patientClinicalConditionsString = self.patientClinicalConditionsTextField.text;
+    if (![self.patientTelephoneTextField.text isEqualToString:@""]) patient.patientTelephoneNumber = self.patientTelephoneTextField.text;
+    if (![self.patientAdressTextField.text isEqualToString:@""]) patient.patientAdressString = self.patientAdressTextField.text;
+    if (![self.patientWeightTextField.text isEqualToString:@""]) patient.patientWeightString = self.patientWeightTextField.text;
+    if (![self.patientHeightTextField.text isEqualToString:@""]) patient.patientHeightString = self.patientHeightTextField.text;
+    if (![self.patientBloodTypeLabel.text isEqualToString:@""]) patient.patientBloodTypeString = self.patientBloodTypeLabel.text;
+    if (![self.patientEmergencyContactTextField.text isEqualToString:@""]) patient.patientEmergencyContactString = self.patientEmergencyContactTextField.text;
+    if (![self.patientMedicationsTextField.text isEqualToString:@""]) patient.patientMedicationsString = self.patientMedicationsTextField.text;
+    if (![self.patientObservationsTextField.text isEqualToString:@""]) patient.patientObservationsString = self.patientObservationsTextField.text;
+    if (![self.patientAlergiesTextField.text isEqualToString:@""]) patient.patientAlergiesString = self.patientAlergiesTextField.text;
+    if (![self.patientClinicalConditionsTextField.text isEqualToString:@""]) patient.patientClinicalConditionsString = self.patientClinicalConditionsTextField.text;
     if ([self.patientBirthDatePicker date]) patient.patientBirthDate = [self.patientBirthDatePicker date];
     
     Envio* envio = [[Envio alloc] init];

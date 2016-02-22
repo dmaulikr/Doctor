@@ -7,14 +7,19 @@
 #import "PatientSelectedTableViewController.h"
 #import "AppDelegate.h"
 #import "SVProgressHUD.h"
+#import "CodeViewController.h"
 
-@interface PatientsTableViewController () <SWTableViewCellDelegate, UISearchBarDelegate, PatientSelectedTableViewControllerDelegate>{
+@import VerifyIosSdk;
+@interface PatientsTableViewController () <CodeViewControllerDelegate, UIAlertViewDelegate, SWTableViewCellDelegate, UISearchBarDelegate, PatientSelectedTableViewControllerDelegate>{
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
     BOOL isSearching;
     Patient* patientClicked;
+    UILabel *emptyLabel;
+    CodeViewController *codevc;
 }
 
+@property (nonatomic, strong) UIAlertView *alert;
 @property (strong, nonatomic) IBOutlet UISearchBar *patientSearchBar;
 @property (strong, nonatomic) NSMutableArray* patientsArray;
 @property (strong, nonatomic) NSMutableArray* filteredPatientsArray;
@@ -31,14 +36,19 @@
     self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:self.patientsArray.count];
     self.tableView.tableFooterView = [UIView new];
     isSearching = false;
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icone-adicionar"] style:UIBarButtonItemStylePlain target:self action:@selector(didTappedAddPatientBarButton)];
+    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"search"] style:UIBarButtonItemStylePlain target:self action:@selector(didTappedSearchBarButton)];
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:addButton, searchButton, nil]];
+    
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return tableViewDataArray.count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString* PatientsCellID = @"PatientsTableViewCellID";
     
     PatientsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PatientsCellID];
@@ -79,29 +89,29 @@
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 110;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     patientClicked = [[Patient alloc] init];
     patientClicked = tableViewDataArray[indexPath.row];
     [self performSegueWithIdentifier:@"clickedPatientSegueId" sender:self];
 }
 
 #pragma mark - SWTableViewCell Delegate
--(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     [cell hideUtilityButtonsAnimated:YES];
 }
 
--(NSArray *)rightButtons {
+- (NSArray *)rightButtons {
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:(128/255.0f) green:(128/255.0f) blue:(128/255.0f) alpha:1.0] icon:[UIImage imageNamed:@"icone-favoritarpaciente"]];
     return rightUtilityButtons;
 }
 
 #pragma mark - UISearchBarDelegate Methods
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([searchText isEqualToString:@""]) {
         tableViewDataArray = self.patientsArray;
         [self.tableView reloadData];
@@ -123,14 +133,14 @@
 }
 
 #pragma mark - Private Methods
--(void)askedForRefresh{
+- (void)askedForRefresh{
     [SVProgressHUD show];
     [self setupPatientsDataSource];
     self.filteredPatientsArray = [NSMutableArray arrayWithCapacity:self.patientsArray.count];
     isSearching = false;
 }
 
--(void)setupPatientsDataSource {
+- (void)setupPatientsDataSource {
     self.patientsArray = [[NSMutableArray alloc] init];
     tableViewDataArray = [[NSMutableArray alloc] init];
     Envio* newEnvio = [[Envio alloc]init];
@@ -144,31 +154,117 @@
             self.patientsArray = sortedArray;
             tableViewDataArray = self.patientsArray;
             [self.tableView reloadData];
+            if (emptyLabel) {
+                emptyLabel = nil;
+            }
             [SVProgressHUD dismiss];
         }else{
+            if (emptyLabel) {
+                emptyLabel = nil;
+            }
+            [SVProgressHUD dismiss];
             NSLog(@"Erro - setupPatientsDataSource block");
+        }
+        if (tableViewDataArray.count == 0) {
+            if (!emptyLabel) {
+                emptyLabel = [[UILabel alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2-200, [UIScreen mainScreen].bounds.size.height/2-25, 400, 50)];
+                emptyLabel.text = @"Você ainda não tem nenhum paciente.";
+                emptyLabel.numberOfLines = 0;
+                emptyLabel.backgroundColor = [UIColor clearColor];
+                emptyLabel.textColor = [UIColor blackColor];
+                emptyLabel.textAlignment = NSTextAlignmentCenter;
+                [self.view addSubview:emptyLabel];
+            }
         }
     }];
 }
 
-#pragma mark - IBActions
--(IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{
-    [self.view endEditing:YES];
-   	[self.menuContainerViewController toggleLeftSideMenuCompletion:^{}];
+- (void) didTappedSearchBarButton{
+    if (self.alert) {
+        [self.alert show];
+    } else{
+        self.alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Insira o CPF do paciente, e se ele estiver no nosso banco de dados será enviado um código de liberação para o mesmo." delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Requerer"];
+        self.alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        self.alert.delegate = self;
+        [[self.alert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
+        [self.alert show];
+    }
 }
 
--(IBAction)didTappedAddPatientBarButton:(id)sender{
-    [self.view endEditing:YES];
-    [self performSegueWithIdentifier:@"addSegueId" sender:self];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"clickedPatientSegueId"]) {
         PatientSelectedTableViewController* vc = [[PatientSelectedTableViewController alloc] init];
         vc = segue.destinationViewController;
         vc.delegate = self;
         [vc setPatient:patientClicked];
     }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [alertView resignFirstResponder];
+    if (buttonIndex == 1) {
+        [self askedForPatient:[alertView textFieldAtIndex:0].text];
+        [SVProgressHUD show];
+    }
+}
+
+- (void) askedForPatient:(NSString *)cpf{
+    if (cpf) {
+        PFQuery *query = [PFQuery queryWithClassName:@"Patient"];
+        [query whereKey:@"CPF" equalTo:cpf];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+            if (!error && objects.count == 1) {
+                for (PFObject* object in objects){
+                    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:object[@"telefone"] verifyInProgressBlock:^{
+                        [SVProgressHUD dismiss];
+                        codevc = [[UIStoryboard storyboardWithName:@"Patients" bundle:nil] instantiateViewControllerWithIdentifier:@"CodeViewController"];
+                        codevc.delegate = self;
+                        [self presentViewController:codevc animated:YES completion:nil];
+
+                        
+                        
+                    }
+                                               userVerifiedBlock:^{
+                                                   NSLog(@"confirmou");
+                                                   [SVProgressHUD dismiss];
+                                                   [codevc dismissViewControllerAnimated:YES completion:nil];
+                                               }
+                                                      errorBlock:^(VerifyError error) {
+                                                          NSLog(@"nao confirmou");
+                                                          [SVProgressHUD dismiss];
+                                                          //       [self userVerifyFailed];
+                                                      }];
+        
+                }
+            }
+            else{
+                [SVProgressHUD dismiss];
+                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Não encontramos ninguém com esse CPF no nosso banco de dados.\nCrie este paciente clicando no simbolo de '+ ' logo acima, leva só 1 minuto!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                
+            }
+        }];
+    }
+}
+
+#pragma mark - IBActions
+- (IBAction)didTappedMenuBarButton:(UIBarButtonItem *)sender{
+    [self.view endEditing:YES];
+   	[self.menuContainerViewController toggleLeftSideMenuCompletion:^{}];
+}
+
+- (void)didTappedAddPatientBarButton{
+    [self.view endEditing:YES];
+    [self performSegueWithIdentifier:@"addSegueId" sender:self];
+}
+
+#pragma mark - CodeViewController Delegate
+- (void) didTappedConfirmButton:(NSString *) code{
+    [VerifyClient checkPinCode:code];
+}
+
+- (void) didTappedQuitButton{
+    [codevc dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

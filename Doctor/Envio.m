@@ -28,6 +28,7 @@
                     doctor.doctorSpecialtiesArray = object[@"specialties"];
                     doctor.doctorHealthCareArray = object[@"healthCares"];
                     doctor.doctorContactString = object[@"Contact"];
+                    doctor.doctorPatientsArray = object[@"permitedPatients"];
                     PFFile* file = [object objectForKey:@"photo"];
                     if (file) doctor.doctorPhotoData = file.getData;
                     appDelegate.doctor = doctor;
@@ -136,6 +137,7 @@
     newPatient[@"height"] = patient.patientHeightString ? patient.patientHeightString : @"";
     newPatient[@"medications"] = patient.patientMedicationsString ? patient.patientMedicationsString : @"";
     newPatient[@"observations"] = patient.patientObservationsString ? patient.patientObservationsString : @"";
+    newPatient[@"telefone"] = patient.patientTelephoneNumber ? patient.patientTelephoneNumber : @"";
     
     if (patient.patientPhotoData) {
         PFFile* patientPhoto = [PFFile fileWithData:patient.patientPhotoData];
@@ -325,31 +327,32 @@
 }
 - (void)fetchAllPatients: (void (^)(NSMutableArray * patientArray))completion{
     NSMutableArray* patients = [[NSMutableArray alloc]init];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Patient"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            for (PFObject *object in objects) {
-                Patient* patient = [[Patient alloc]init];
-                patient.patientNameString = [object objectForKey:@"name"];
-                patient.patientCPFString = [object objectForKey:@"CPF"];
-                patient.patientAgeString = [object objectForKey:@"age"];
-                patient.patientRGString = [object objectForKey:@"RG"];
-                patient.patientGenderString = [object objectForKey:@"gender"];
-                patient.patientObjectId = object.objectId;
-                patient.patientAdressString = [object objectForKey:@"address"];
-                patient.patientAlergiesString = [object objectForKey:@"alergies"];
-                patient.patientBirthDate = [object objectForKey:@"birthdate"];
-                patient.patientBloodTypeString = [object objectForKey:@"bloodtype"];
-                patient.patientClinicalConditionsString = [object objectForKey:@"clinicalConditions"];
-                patient.patientEmergencyContactString = [object objectForKey:@"emergencyContact"];
-                patient.patientWeightString = [object objectForKey:@"weight"];
-                patient.patientHeightString = [object objectForKey:@"height"];
-                patient.patientMedicationsString = [object objectForKey:@"medications"];
-                patient.patientObservationsString = [object objectForKey:@"observations"];
-                patient.patientCreatedAtString = [object createdAt];
-                PFFile* file = [object objectForKey:@"photo"];
-                if (file) patient.patientPhotoData = file.getData;
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    PFQuery *patientsQuery = [PFQuery queryWithClassName:@"Patient"];
+    [patientsQuery whereKey:@"objectId" containedIn:appDelegate.doctor.doctorPatientsArray];
+    [patientsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    if (!error) {
+        for (PFObject* object in objects){
+            Patient* patient = [[Patient alloc]init];
+            patient.patientNameString = [object objectForKey:@"name"];
+            patient.patientCPFString = [object objectForKey:@"CPF"];
+            patient.patientAgeString = [object objectForKey:@"age"];
+            patient.patientRGString = [object objectForKey:@"RG"];
+            patient.patientGenderString = [object objectForKey:@"gender"];
+            patient.patientObjectId = object.objectId;
+            patient.patientAdressString = [object objectForKey:@"address"];
+            patient.patientAlergiesString = [object objectForKey:@"alergies"];
+            patient.patientBirthDate = [object objectForKey:@"birthdate"];
+            patient.patientBloodTypeString = [object objectForKey:@"bloodtype"];
+            patient.patientClinicalConditionsString = [object objectForKey:@"clinicalConditions"];
+            patient.patientEmergencyContactString = [object objectForKey:@"emergencyContact"];
+            patient.patientWeightString = [object objectForKey:@"weight"];
+            patient.patientHeightString = [object objectForKey:@"height"];
+            patient.patientMedicationsString = [object objectForKey:@"medications"];
+            patient.patientObservationsString = [object objectForKey:@"observations"];
+            patient.patientCreatedAtString = [object createdAt];
+            PFFile* file = [object objectForKey:@"photo"];
+            if (file) patient.patientPhotoData = file.getData;
                 [patients addObject:patient];
             }
             if (patients) {
@@ -360,10 +363,10 @@
             }
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-             
         }
     }];
 }
+
 - (void)fetchLastSeen:(Doctor *)doctor :(Patient *) patient :(void (^)(NSString * lastSeen))completion{
     PFQuery *query = [PFQuery queryWithClassName:@"Appointment"];
     [query whereKey:@"PatientEnvolved" equalTo:patient.patientCPFString];

@@ -22,5 +22,6 @@
 @property (strong, nonatomic) NSString *patientEmergencyContactString;
 @property (strong, nonatomic) NSDate *patientCreatedAtString;
 @property (strong, nonatomic) NSData *patientPhotoData;
+@property (strong, nonatomic) NSString *patientTelephoneNumber;
 
 @end

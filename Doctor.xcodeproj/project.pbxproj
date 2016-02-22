@@ -13,6 +13,7 @@
 		0215BFB51BF58368001FF080 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0215BFB41BF58368001FF080 /* HomeViewController.m */; };
 		021BAF4A1C09FE950031B914 /* PatientNewExamTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 021BAF491C09FE950031B914 /* PatientNewExamTableViewController.m */; };
 		021BAF4E1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 021BAF4D1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.m */; };
+		021E22F11C7BCC8C002BB713 /* CodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 021E22F01C7BCC8C002BB713 /* CodeViewController.m */; };
 		0226B1571BF2C92E00009147 /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0226B1561BF2C92E00009147 /* FeedTableViewCell.m */; };
 		022928DC1BCFC9CC00B7C1E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DB1BCFC9CC00B7C1E0 /* MainViewController.m */; };
 		022928E01BCFCA5500B7C1E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022928DF1BCFCA5500B7C1E0 /* MenuTableViewController.m */; };
@@ -157,6 +158,8 @@
 		021BAF491C09FE950031B914 /* PatientNewExamTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientNewExamTableViewController.m; sourceTree = "<group>"; };
 		021BAF4C1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamChooseInsuranceTableViewController.h; sourceTree = "<group>"; };
 		021BAF4D1C0A0BD70031B914 /* ExamChooseInsuranceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamChooseInsuranceTableViewController.m; sourceTree = "<group>"; };
+		021E22EF1C7BCC8C002BB713 /* CodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeViewController.h; sourceTree = "<group>"; };
+		021E22F01C7BCC8C002BB713 /* CodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeViewController.m; sourceTree = "<group>"; };
 		0226B1551BF2C92E00009147 /* FeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewCell.h; sourceTree = "<group>"; };
 		0226B1561BF2C92E00009147 /* FeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell.m; sourceTree = "<group>"; };
 		022928D91BCFC73200B7C1E0 /* Storyboards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storyboards.h; sourceTree = "<group>"; };
@@ -382,6 +385,15 @@
 			name = PatientSelectedNewExam;
 			sourceTree = "<group>";
 		};
+		021E22F21C7BCC8F002BB713 /* CodeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				021E22EF1C7BCC8C002BB713 /* CodeViewController.h */,
+				021E22F01C7BCC8C002BB713 /* CodeViewController.m */,
+			);
+			name = CodeViewController;
+			sourceTree = "<group>";
+		};
 		022928D51BCFC63000B7C1E0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +415,7 @@
 		022928D61BCFC64500B7C1E0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				021E22F21C7BCC8F002BB713 /* CodeViewController */,
 				02CD6C4C1BD2DD7400C38B6D /* MedicationsViewController */,
 				02CD6C4B1BD2DD6900C38B6D /* SettingsViewController */,
 				02921D7E1BD14E62001B6F5E /* OutsideViewController */,
@@ -1188,6 +1201,7 @@
 				02424B7E1BF9FC540001B77B /* SettingsSpecialtiesTableViewController.m in Sources */,
 				020AAE3B1BDFA6CD004766D5 /* ForumMessageTableViewCell.m in Sources */,
 				02CD6C4A1BD2DAAC00C38B6D /* Doctor.m in Sources */,
+				021E22F11C7BCC8C002BB713 /* CodeViewController.m in Sources */,
 				02EB33D21BF38E42006D6529 /* MedicationsComercialsTableViewController.m in Sources */,
 				02424B751BF9F5770001B77B /* SettingsSAAPTableViewController.m in Sources */,
 				027A8AAC1BF4EAA200967ADA /* OutsideRecoverNewPasswordViewController.m in Sources */,
