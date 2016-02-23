@@ -56,8 +56,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 - (void) tryToLogin{
     [self.view endEditing:YES];
     if (![self.loginTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""]) {
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
-        [SVProgressHUD setForegroundColor:[UIColor orangeColor]];
         [SVProgressHUD show];
         [self.loginButton setEnabled:NO];
         Envio* envio = [[Envio alloc]init];

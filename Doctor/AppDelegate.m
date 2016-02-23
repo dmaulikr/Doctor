@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "SVProgressHUD.h"
 
 @import VerifyIosSdk;
 @interface AppDelegate ()
@@ -29,6 +30,8 @@
     [application cancelAllLocalNotifications];
     [application setApplicationIconBadgeNumber:0];
     [application setIdleTimerDisabled:YES];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
+    [SVProgressHUD setForegroundColor:[UIColor orangeColor]];
 
     return YES;
 }

@@ -4,10 +4,12 @@
 #import "AppDelegate.h"
 #import "Storyboards.h"
 #import "MFSideMenu.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @import VerifyIosSdk;
 @interface OutsideSignInConfirmViewController () <UITextViewDelegate, UIAlertViewDelegate>{
     NSString* token;
+    int inteiro;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel* cellPhoneToSendConfirmationLabel;
@@ -36,7 +38,6 @@
 //    //SEM O NOVE NA FRENTE!
     NSString* phoneNumberToCheck = [[NSString alloc] initWithFormat:@"%@", self.doctorBeingCreated.doctorContactString];
     [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:phoneNumberToCheck verifyInProgressBlock:^{
-        // called when the verification process begins
     }
                                userVerifiedBlock:^{
                                    [self userVerifySuccess];
@@ -179,6 +180,7 @@
 }
 
 - (void) userVerifySuccess{
+    [SVProgressHUD show];
     Envio* envio = [[Envio alloc]init];
     [envio newDoctor:self.doctorBeingCreated withCompletion:^void (BOOL* finished){
         if (finished) {
@@ -190,7 +192,9 @@
                                                                           bundle:nil]
                                                                          instantiateViewControllerWithIdentifier:appDelegate.doctor.isFirstTime ? kFeedFTNavID: kFeedNavID];
                 
-                [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+                [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{
+                    [SVProgressHUD dismiss];
+                }];
             }];
         }
     }];
@@ -205,7 +209,6 @@
                           otherButtonTitles:nil, nil];
     [alert show];
 }
-
 
 @end
 

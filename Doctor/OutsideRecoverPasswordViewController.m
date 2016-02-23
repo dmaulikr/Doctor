@@ -235,7 +235,6 @@
 
 - (IBAction)confirmLoginButtonTapped:(id)sender{
     if (![[self.confirmLoginButton titleColorForState:UIControlStateNormal] isEqual:[UIColor grayColor]]) {
-      //  [spinner startAnimating];
           [SVProgressHUD show];
         [self checkLoginInsert];
     }

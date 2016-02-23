@@ -16,8 +16,6 @@
     Patient* patientClicked;
     UILabel *emptyLabel;
     NSString *patientToPermit;
-    UIAlertView *alert;
-    
 }
 
 @property (strong, nonatomic) IBOutlet UISearchBar *patientSearchBar;
@@ -180,16 +178,26 @@
 }
 
 - (void) didTappedSearchBarButton{
-    if (alert) {
-        [alert show];
-    } else{
-        alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Insira o CPF do paciente, e se ele estiver no nosso banco de dados será enviado um código de liberação para o mesmo." delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Requerer"];
-        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-        alert.delegate = self;
-        alert.tag = 1;
-        [[alert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
-        [alert show];
-    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Atenção" message:@"Insira o CPF do paciente, e se ele estiver no nosso banco de dados será enviado um código de liberação para o mesmo." preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* confirmButton = [UIAlertAction actionWithTitle:@"Confirmar" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+        [self askedForPatient:alert.textFields[0].text];
+        [SVProgressHUD show];
+                                    }];
+    
+    
+    UIAlertAction* cancelButton = [UIAlertAction actionWithTitle:@"Cancelar" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+                                        [alert dismissViewControllerAnimated:YES completion:nil];
+                                    }];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"CPF";
+        [textField setKeyboardType:UIKeyboardTypeNumberPad];
+    }];
+    
+    [alert addAction:confirmButton];
+    [alert addAction:cancelButton];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -205,8 +213,7 @@
     switch (alertView.tag) {
         case 1:
             if (buttonIndex == 1) {
-                [self askedForPatient:[alertView textFieldAtIndex:0].text];
-                [SVProgressHUD show];
+
             }
             break;
         case 2:
