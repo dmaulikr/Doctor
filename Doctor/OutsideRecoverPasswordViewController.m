@@ -290,7 +290,9 @@
         [self userVerifySuccess];
     }
     errorBlock:^(VerifyError error) {
-//        [self userVerifyFailed];
+        [VerifyClient cancelVerificationWithBlock:^(NSError *error){
+            [self userVerifyFailed];
+        }];
     }];
 }
 
