@@ -17,6 +17,7 @@
     Patient* patientClicked;
     UILabel *emptyLabel;
     CodeViewController *codevc;
+    NSString *patientToPermit;
 }
 
 @property (nonatomic, strong) UIAlertView *alert;
@@ -38,7 +39,7 @@
     isSearching = false;
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icone-adicionar"] style:UIBarButtonItemStylePlain target:self action:@selector(didTappedAddPatientBarButton)];
-    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"search"] style:UIBarButtonItemStylePlain target:self action:@selector(didTappedSearchBarButton)];
+    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"magnifier"] style:UIBarButtonItemStylePlain target:self action:@selector(didTappedSearchBarButton)];
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:addButton, searchButton, nil]];
     
 }
@@ -215,24 +216,21 @@
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
             if (!error && objects.count == 1) {
                 for (PFObject* object in objects){
+                    patientToPermit = object.objectId;
                     [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:object[@"telefone"] verifyInProgressBlock:^{
                         [SVProgressHUD dismiss];
                         codevc = [[UIStoryboard storyboardWithName:@"Patients" bundle:nil] instantiateViewControllerWithIdentifier:@"CodeViewController"];
                         codevc.delegate = self;
                         [self presentViewController:codevc animated:YES completion:nil];
-
-                        
-                        
                     }
                                                userVerifiedBlock:^{
-                                                   NSLog(@"confirmou");
                                                    [SVProgressHUD dismiss];
-                                                   [codevc dismissViewControllerAnimated:YES completion:nil];
+                                                   [self patientConfirmationWentFine];
                                                }
                                                       errorBlock:^(VerifyError error) {
-                                                          NSLog(@"nao confirmou");
                                                           [SVProgressHUD dismiss];
-                                                          //       [self userVerifyFailed];
+                                                          [codevc dismissViewControllerAnimated:YES completion:nil];
+                                                          [self patientConfirmationWentWrong];
                                                       }];
         
                 }
@@ -267,4 +265,31 @@
     [codevc dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void) patientConfirmationWentFine{
+    [SVProgressHUD show];
+    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [query whereKey:@"username" equalTo:appDelegate.doctor.doctorUsernameString];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        if (!error && objects.count == 1) {
+            PFObject* object = objects[0];
+            NSMutableArray *array = [[NSMutableArray alloc] init];
+            array = object[@"permitedPatients"];
+            if (![array containsObject:patientToPermit]) {
+                [array addObject:patientToPermit];
+                object[@"permitedPatients"] = array;
+                [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                    appDelegate.doctor.doctorPatientsArray = array;
+                    [self setupPatientsDataSource];
+                }];
+            }
+        }
+    }];
+}
+
+- (void) patientConfirmationWentWrong{
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"O código inserido não confere com o enviado, é necessário que o paciente o informe." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+
+}
 @end
