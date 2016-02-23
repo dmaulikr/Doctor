@@ -7,20 +7,19 @@
 #import "PatientSelectedTableViewController.h"
 #import "AppDelegate.h"
 #import "SVProgressHUD.h"
-#import "CodeViewController.h"
 
 @import VerifyIosSdk;
-@interface PatientsTableViewController () <CodeViewControllerDelegate, UIAlertViewDelegate, SWTableViewCellDelegate, UISearchBarDelegate, PatientSelectedTableViewControllerDelegate>{
+@interface PatientsTableViewController () <UIAlertViewDelegate, SWTableViewCellDelegate, UISearchBarDelegate, PatientSelectedTableViewControllerDelegate>{
     NSMutableArray* tableViewDataArray;
     UIActivityIndicatorView* spinner;
     BOOL isSearching;
     Patient* patientClicked;
     UILabel *emptyLabel;
-    CodeViewController *codevc;
     NSString *patientToPermit;
+    UIAlertView *alert;
+    
 }
 
-@property (nonatomic, strong) UIAlertView *alert;
 @property (strong, nonatomic) IBOutlet UISearchBar *patientSearchBar;
 @property (strong, nonatomic) NSMutableArray* patientsArray;
 @property (strong, nonatomic) NSMutableArray* filteredPatientsArray;
@@ -181,14 +180,15 @@
 }
 
 - (void) didTappedSearchBarButton{
-    if (self.alert) {
-        [self.alert show];
+    if (alert) {
+        [alert show];
     } else{
-        self.alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Insira o CPF do paciente, e se ele estiver no nosso banco de dados será enviado um código de liberação para o mesmo." delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Requerer"];
-        self.alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-        self.alert.delegate = self;
-        [[self.alert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
-        [self.alert show];
+        alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Insira o CPF do paciente, e se ele estiver no nosso banco de dados será enviado um código de liberação para o mesmo." delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Requerer"];
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        alert.delegate = self;
+        alert.tag = 1;
+        [[alert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
+        [alert show];
     }
 }
 
@@ -202,10 +202,21 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    [alertView resignFirstResponder];
-    if (buttonIndex == 1) {
-        [self askedForPatient:[alertView textFieldAtIndex:0].text];
-        [SVProgressHUD show];
+    switch (alertView.tag) {
+        case 1:
+            if (buttonIndex == 1) {
+                [self askedForPatient:[alertView textFieldAtIndex:0].text];
+                [SVProgressHUD show];
+            }
+            break;
+        case 2:
+            if (buttonIndex == 1) {
+                [VerifyClient checkPinCode:[alertView textFieldAtIndex:0].text];
+                [SVProgressHUD show];
+            }
+            break;
+        default:
+            break;
     }
 }
 
@@ -219,26 +230,29 @@
                     patientToPermit = object.objectId;
                     [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:object[@"telefone"] verifyInProgressBlock:^{
                         [SVProgressHUD dismiss];
-                        codevc = [[UIStoryboard storyboardWithName:@"Patients" bundle:nil] instantiateViewControllerWithIdentifier:@"CodeViewController"];
-                        codevc.delegate = self;
-                        [self presentViewController:codevc animated:YES completion:nil];
+                        UIAlertView* alertView2 = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Insira o código de 4 números fornecido para o seu paciente" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Confirmar", nil];
+                        alertView2.alertViewStyle = UIAlertViewStylePlainTextInput;
+                        alertView2.tag = 2;
+                        [[alertView2 textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
+                        alertView2.delegate = self;
+                        [alertView2 show];
+                        
                     }
                                                userVerifiedBlock:^{
-                                                   [SVProgressHUD dismiss];
                                                    [self patientConfirmationWentFine];
                                                }
                                                       errorBlock:^(VerifyError error) {
-                                                          [SVProgressHUD dismiss];
-                                                          [codevc dismissViewControllerAnimated:YES completion:nil];
-                                                          [self patientConfirmationWentWrong];
+                                                          [VerifyClient cancelVerificationWithBlock:^(NSError *error){
+                                                              [self patientConfirmationWentWrong];
+                                                          }];
                                                       }];
         
                 }
             }
             else{
                 [SVProgressHUD dismiss];
-                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Não encontramos ninguém com esse CPF no nosso banco de dados.\nCrie este paciente clicando no simbolo de '+ ' logo acima, leva só 1 minuto!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [alert show];
+                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Não encontramos ninguém com esse CPF no nosso banco de dados.\nCrie este paciente clicando no simbolo de '+ ' logo acima, leva só 1 minuto!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alertView show];
                 
             }
         }];
@@ -256,17 +270,7 @@
     [self performSegueWithIdentifier:@"addSegueId" sender:self];
 }
 
-#pragma mark - CodeViewController Delegate
-- (void) didTappedConfirmButton:(NSString *) code{
-    [VerifyClient checkPinCode:code];
-}
-
-- (void) didTappedQuitButton{
-    [codevc dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (void) patientConfirmationWentFine{
-    [SVProgressHUD show];
     PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [query whereKey:@"username" equalTo:appDelegate.doctor.doctorUsernameString];
@@ -288,8 +292,9 @@
 }
 
 - (void) patientConfirmationWentWrong{
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"O código inserido não confere com o enviado, é necessário que o paciente o informe." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
+    [SVProgressHUD dismiss];
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"O código inserido não confere com o enviado, é necessário que o paciente o informe." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alertView show];
 
 }
 @end
