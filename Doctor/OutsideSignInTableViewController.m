@@ -2,6 +2,7 @@
 #import "OutsideSignInConfirmViewController.h"
 #import "Doctor.h"
 #import "Envio.h"
+#import "SVProgressHUD.h"
 
 @import VerifyIosSdk;
 @interface OutsideSignInTableViewController () <UIAlertViewDelegate, UITextViewDelegate, UIActionSheetDelegate>
@@ -24,11 +25,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView* doctorEmailImageView;
 @property (weak, nonatomic) IBOutlet UIImageView* doctorAreaCodeImageView;
 
+
 @property (weak, nonatomic) IBOutlet UIImage* doctorPhotoImage;
 
 @end
 
-NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esses dados só serão usados para verificar sua veracidade.";
+NSString *const kTextToAlertViewAsBlankFields = @"Preencha todos os campos, esses dados só serão usados para verificar sua autenticidade.";
 
 NSString *const kTextToAlertViewAsWrongPassword = @"Talvez a senha digitada não tenha sido a mesma da confirmada... Tente novamente!";
 
@@ -51,8 +53,6 @@ NSString *const kTextToAlertViewAsWrongPassword = @"Talvez a senha digitada não
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.topItem.title = @"Registrar";
     self.navigationController.navigationBar.backItem.title = @"";
-    
-    
 }
 
 #pragma mark - IBActions
@@ -109,7 +109,23 @@ NSString *const kTextToAlertViewAsWrongPassword = @"Talvez a senha digitada não
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
-        [self performSegueWithIdentifier:@"clickedInNextSignInSegueId" sender:self];
+        [SVProgressHUD showWithStatus:@"Verificando disponibilidade do nome de usuário..."];
+        PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+        [query whereKey:@"username" equalTo:self.doctorUsernameTextView.text];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+            if (!error && objects.count == 0) {
+                [SVProgressHUD dismiss];
+                [self performSegueWithIdentifier:@"clickedInNextSignInSegueId" sender:self];
+            } else {
+                [SVProgressHUD dismiss];
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Ops..." message:@"Esse nome de usuário já está em uso, tente trocar por algo parecido..." preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* confirmButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+                }];
+                [alert addAction:confirmButton];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+        }];
     }
 }
 

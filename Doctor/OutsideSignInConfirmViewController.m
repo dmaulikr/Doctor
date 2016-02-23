@@ -9,7 +9,9 @@
 @import VerifyIosSdk;
 @interface OutsideSignInConfirmViewController () <UITextViewDelegate, UIAlertViewDelegate>{
     NSString* token;
-    int inteiro;
+    NSTimer *timer;
+    int currMinute;
+    int currSeconds;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel* cellPhoneToSendConfirmationLabel;
@@ -18,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UITextView* thirdTokenCharacterTextView;
 @property (weak, nonatomic) IBOutlet UITextView* fourthTokenCharacterTextView;
 @property (weak, nonatomic) IBOutlet UIButton* confirmButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
 
 @end
 
@@ -32,12 +36,21 @@
     self.cellPhoneToSendConfirmationLabel.text = cellPhoneSentWas;
     self.confirmButton.layer.cornerRadius = 3;
     self.navigationController.navigationBar.backItem.title = @"";
+    
+    [self.countdownLabel setText:@"3:00"];
+    currMinute=3;
+    currSeconds=00;
+}
+
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
 }
 
 - (void) sendVerifyingMessage{
 //    //SEM O NOVE NA FRENTE!
     NSString* phoneNumberToCheck = [[NSString alloc] initWithFormat:@"%@", self.doctorBeingCreated.doctorContactString];
     [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:phoneNumberToCheck verifyInProgressBlock:^{
+         [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startCountdown) userInfo:nil repeats:YES];
     }
                                userVerifiedBlock:^{
                                    [self userVerifySuccess];
@@ -208,6 +221,20 @@
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil, nil];
     [alert show];
+}
+
+- (void) startCountdown{
+    if((currMinute>0 || currSeconds>=0) && currMinute>=0){
+        if(currSeconds==0){
+            currMinute-=1;
+            currSeconds=59;
+        } else if(currSeconds>0){
+            currSeconds-=1;
+        } if(currMinute>-1)
+            [self.countdownLabel setText:[NSString stringWithFormat:@"%d%@%02d",currMinute,@":",currSeconds]];
+        } else{
+            [timer invalidate];
+        }
 }
 
 @end

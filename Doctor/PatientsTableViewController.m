@@ -237,7 +237,7 @@
                     patientToPermit = object.objectId;
                     [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:object[@"telefone"] verifyInProgressBlock:^{
                         [SVProgressHUD dismiss];
-                        UIAlertView* alertView2 = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Insira o código de 4 números fornecido para o seu paciente" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Confirmar", nil];
+                        UIAlertView* alertView2 = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Insira o código de 4 números que será fornecido para o seu paciente nos próximos 2 minutos" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Confirmar", nil];
                         alertView2.alertViewStyle = UIAlertViewStylePlainTextInput;
                         alertView2.tag = 2;
                         [[alertView2 textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];

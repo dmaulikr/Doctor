@@ -7,6 +7,9 @@
 @import VerifyIosSdk;
 @interface OutsideRecoverPasswordViewController () <UITextViewDelegate>{
     Doctor* doctorBeingRecovered;
+    NSTimer *timer;
+    int currMinute;
+    int currSeconds;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView* loginToRecoverTextView;
@@ -22,18 +25,23 @@
 @property (weak, nonatomic) IBOutlet UILabel* labelThirdToken;
 @property (weak, nonatomic) IBOutlet UILabel* labelFourthToken;
 
+@property (nonatomic, weak) IBOutlet UILabel *countdownLabel;
+
 @end
 
 @implementation OutsideRecoverPasswordViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [SVProgressHUD show];
     self.navigationController.navigationBarHidden = NO;
     self.confirmTokenButton.layer.cornerRadius = 3;
     [self textViewSetups];
     [self.confirmLoginButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self setupAlphas];
+    
+    [self.countdownLabel setText:@"3:00"];
+    currMinute=3;
+    currSeconds=00;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -235,7 +243,7 @@
 
 - (IBAction)confirmLoginButtonTapped:(id)sender{
     if (![[self.confirmLoginButton titleColorForState:UIControlStateNormal] isEqual:[UIColor grayColor]]) {
-          [SVProgressHUD show];
+          [SVProgressHUD showWithStatus:@"Aguarde, estamos procurando seu usuário..."];
         [self checkLoginInsert];
     }
 }
@@ -263,9 +271,9 @@
         if (doctor) {
             [UIView animateWithDuration:.5f animations:^{
                 [self liberateAlphas];
-                [self sendVerifyingMessage];
             } completion:^(BOOL finished) {
                 doctorBeingRecovered = doctor;
+                [self sendVerifyingMessage];
             }];
         }
         else{
@@ -285,7 +293,9 @@
 }
 
 - (void) sendVerifyingMessage{
-    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:doctorBeingRecovered.doctorContactString verifyInProgressBlock:^{} userVerifiedBlock:^{
+    [VerifyClient getVerifiedUserWithCountryCode:@"BR" phoneNumber:doctorBeingRecovered.doctorContactString verifyInProgressBlock:^{
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startCountdown) userInfo:nil repeats:YES];
+    } userVerifiedBlock:^{
         [self userVerifySuccess];
     }
     errorBlock:^(VerifyError error) {
@@ -308,6 +318,20 @@
 - (void) userVerifyFailed{
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"O código inserido está errado! Tem certeza de que o nome de usuário inserido está correto?" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
+}
+
+- (void) startCountdown{
+    if((currMinute>0 || currSeconds>=0) && currMinute>=0){
+        if(currSeconds==0){
+            currMinute-=1;
+            currSeconds=59;
+        } else if(currSeconds>0){
+            currSeconds-=1;
+        } if(currMinute>-1)
+            [self.countdownLabel setText:[NSString stringWithFormat:@"%d%@%02d",currMinute,@":",currSeconds]];
+    } else{
+        [timer invalidate];
+    }
 }
 
 @end
