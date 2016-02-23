@@ -93,6 +93,12 @@
             userAttributed[@"Address"] = doctor.doctorAddressString ? doctor.doctorAddressString : @"Endereço";
             userAttributed[@"isFirstTime"] = @YES;
             userAttributed[@"password"] = doctor.doctorPasswordString ? doctor.doctorPasswordString : @"";
+            NSMutableArray *array = [[NSMutableArray alloc] init];
+            userAttributed[@"permitedPatients"] = array;
+            userAttributed[@"sawForumTopics"] = array;
+            userAttributed[@"specialties"] = array;
+            userAttributed[@"healthCares"] = array;
+            userAttributed[@"favForumTopics"] = array;
             
           //  PFFile* patientPhoto = [PFFile fileWithData:patient.patientPhotoData];
           //  userAttributed[@"photo"] = patientPhoto;

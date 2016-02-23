@@ -1,5 +1,8 @@
 #import "SettingsHealthCareTableViewController.h"
 #import "SettingsHealthCareTableViewCell.h"
+#import "SVProgressHUD.h"
+#import "Parse.h"
+#import "AppDelegate.h"
 
 @interface SettingsHealthCareTableViewController (){
     NSMutableArray* healthCareArray;
@@ -82,6 +85,18 @@
 }
 
 -(IBAction)didTappedToSaveHealthCares:(id)sender{
+    PFQuery* query = [PFQuery queryWithClassName:@"Users"];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [query whereKey:@"username" equalTo:appDelegate.doctor.doctorUsernameString];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        if (!error) {
+            for (PFObject* object in objects) {
+                object[@"healthCares"] = self.healthCareArray;
+                [object saveInBackground];
+            }
+            appDelegate.doctor.doctorHealthCareArray = self.healthCareArray;
+        }
+    }];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -195,8 +195,8 @@
         [textField setKeyboardType:UIKeyboardTypeNumberPad];
     }];
     
-    [alert addAction:confirmButton];
     [alert addAction:cancelButton];
+    [alert addAction:confirmButton];
     [self presentViewController:alert animated:YES completion:nil];
 }
 
@@ -286,7 +286,7 @@
             PFObject* object = objects[0];
             NSMutableArray *array = [[NSMutableArray alloc] init];
             array = object[@"permitedPatients"];
-            if (![array containsObject:patientToPermit]) {
+            if (![array containsObject:patientToPermit] || !array) {
                 [array addObject:patientToPermit];
                 object[@"permitedPatients"] = array;
                 [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){

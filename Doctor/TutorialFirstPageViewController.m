@@ -3,6 +3,7 @@
 #import "TutorialViewController.h"
 #import "AppDelegate.h"
 #import "Envio.h"
+#import "SVProgressHUD.h"
 
 @interface TutorialFirstPageViewController ()
 
@@ -16,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden =  YES;
+    [SVProgressHUD dismiss];
     
     self.nonThanksLabel.backgroundColor = [UIColor clearColor];
     self.nonThanksLabel.layer.borderColor = [UIColor whiteColor].CGColor;

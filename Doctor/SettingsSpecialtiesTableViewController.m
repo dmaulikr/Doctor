@@ -1,5 +1,7 @@
 #import "SettingsSpecialtiesTableViewController.h"
 #import "SettingsSpecialtiesTableViewCell.h"
+#import "Parse.h"
+#import "AppDelegate.h"
 
 @interface SettingsSpecialtiesTableViewController (){
     NSMutableArray* specialtiesArray;
@@ -75,6 +77,18 @@
 }
 
 - (IBAction)didTappedForSaveSpecialties:(id)sender{
+    PFQuery* query = [PFQuery queryWithClassName:@"Users"];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [query whereKey:@"username" equalTo:appDelegate.doctor.doctorUsernameString];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        if (!error) {
+            for (PFObject* object in objects) {
+                object[@"specialties"] = self.specialtiesArray;
+                [object saveInBackground];
+            }
+            appDelegate.doctor.doctorSpecialtiesArray = self.specialtiesArray;
+        }
+    }];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
