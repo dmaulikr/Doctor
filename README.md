@@ -8,9 +8,9 @@ Doc.Tr is an innovative mobile app that allows physicians to keep track easily o
 
 ## API's
 
-MFSideMenu
-Parse Cloud
-Nexmo
+* MFSideMenu
+* Parse Cloud
+* Nexmo
 
 ## Contributors
 
